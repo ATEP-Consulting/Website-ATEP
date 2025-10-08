@@ -86,7 +86,16 @@ export const Home = () => {
 
       <Hero
         badge={t("hero.heroBadge")}
-        title={t("hero.heroTitle")}
+        title={
+          <>
+            {t("hero.heroTitle1")}
+            <span className="text-primary-600">
+              {t("hero.heroTitle2")}
+            </span>{" "}
+            {t("hero.heroTitle3")}{" "}
+            <span className="text-primary-600">{t("hero.heroTitle4")}</span>
+          </>
+        }
         subtitle={t("hero.heroSubtitle")}
         primaryButton={{
           text: t("hero.heroCta"),
@@ -111,7 +120,10 @@ export const Home = () => {
         <div className="section-container">
           <div className="text-center mb-16 flex flex-col items-center">
             <h2 className="heading-lg mb-4 slide-up">
-              {t("home.servicesTitle")}
+              {t("home.servicesTitle1")}{" "}
+              <span className="text-primary-600">
+                {t("home.servicesTitle2")}
+              </span>
             </h2>
             <p className="text-xl text-neutral-600 slide-up stagger-1 sm:w-2/3">
               {t("home.servicesSubtitle")}
@@ -134,7 +146,18 @@ export const Home = () => {
         <div className="section-container">
           <div className="text-center mb-16 flex flex-col items-center">
             <h2 className="heading-lg mb-4 slide-up">
-              {t("home.whyChooseTitle")}
+              {t("home.whyChooseTitle1")}{" "}
+              <span className="text-primary-600">
+                {t("home.whyChooseTitle2")}
+              </span>
+              {t("home.whyChooseTitle3")}{" "}
+              <span className="text-primary-600">
+                {t("home.whyChooseTitle4")}
+              </span>
+              {t("home.whyChooseTitle5")}{" "}
+              <span className="text-primary-600">
+                {t("home.whyChooseTitle6")}
+              </span>
             </h2>
             <p className="text-xl text-neutral-600 slide-up stagger-1 sm:w-2/3">
               {t("home.whyChooseSubtitle")}

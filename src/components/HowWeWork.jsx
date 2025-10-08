@@ -80,7 +80,8 @@ export const HowWeWork = () => {
       <div className="section-container">
         <div className="text-center mb-16 flex flex-col items-center">
           <h2 className="heading-lg mb-4 slide-up">
-            {t("home.howWeWorkTitle")}
+            {t("home.howWeWorkTitle1")}{" "}
+            <span className="text-red-700">{t("home.howWeWorkTitle2")}</span>
           </h2>
           <p className="text-xl text-neutral-600 slide-up stagger-1 sm:w-2/3">
             {t("home.howWeWorkSubtitle")}
