@@ -1,4 +1,4 @@
-import { Server, Globe, Zap } from 'lucide-react';
+import { Server, Globe, Zap, Cloud, BarChart3, Shield } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { SEO } from '../../components/SEO';
 import { ServiceCard } from '../../components/ServiceCard';
@@ -24,6 +24,24 @@ export const ServicesOverview = () => {
       title: t('services.automation.name'),
       description: t('services.automation.description'),
       link: '/services/automation',
+    },
+    {
+      icon: Cloud,
+      title: t('services.cloudSolutions.name'),
+      description: t('services.cloudSolutions.description'),
+      link: '/services/cloud-solutions',
+    },
+    {
+      icon: BarChart3,
+      title: t('services.dataAnalytics.name'),
+      description: t('services.dataAnalytics.description'),
+      link: '/services/data-analytics',
+    },
+    {
+      icon: Shield,
+      title: t('services.cybersecurity.name'),
+      description: t('services.cybersecurity.description'),
+      link: '/services/cybersecurity',
     },
   ];
 

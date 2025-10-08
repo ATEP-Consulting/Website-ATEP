@@ -7,6 +7,9 @@ import { ServicesOverview } from './pages/services/ServicesOverview';
 import { LegacyMigration } from './pages/services/LegacyMigration';
 import { WebDevelopment } from './pages/services/WebDevelopment';
 import { Automation } from './pages/services/Automation';
+import { CloudSolutions } from './pages/services/CloudSolutions';
+import { DataAnalytics } from './pages/services/DataAnalytics';
+import { Cybersecurity } from './pages/services/Cybersecurity';
 import { BlogList } from './pages/blog/BlogList';
 import { BlogPost } from './pages/blog/BlogPost';
 import { Contact } from './pages/Contact';
@@ -25,6 +28,9 @@ function App() {
             <Route path="services/legacy-migration" element={<LegacyMigration />} />
             <Route path="services/web-development" element={<WebDevelopment />} />
             <Route path="services/automation" element={<Automation />} />
+            <Route path="services/cloud-solutions" element={<CloudSolutions />} />
+            <Route path="services/data-analytics" element={<DataAnalytics />} />
+            <Route path="services/cybersecurity" element={<Cybersecurity />} />
             <Route path="blog" element={<BlogList />} />
             <Route path="blog/:slug" element={<BlogPost />} />
             <Route path="contact" element={<Contact />} />

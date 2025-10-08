@@ -3,8 +3,8 @@ import { ArrowRight } from 'lucide-react';
 
 export const ServiceCard = ({ icon: Icon, title, description, link }) => {
   return (
-    <div className="card group hover:scale-105">
-      <div className="w-16 h-16 bg-primary-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary-100 transition-colors duration-300">
+    <div className="card group">
+      <div className="w-16 h-16 bg-primary-50 rounded-xl flex items-center justify-center mb-6 transition-colors duration-300">
         <Icon className="w-8 h-8 text-primary-600" />
       </div>
       <h3 className="heading-sm mb-4">{title}</h3>
