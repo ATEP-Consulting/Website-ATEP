@@ -41,6 +41,20 @@ export const Header = () => {
     setServicesOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        window.innerWidth >= 1024 &&
+        !e.target.closest(".services-dropdown")
+      ) {
+        setServicesOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
+
   const navLinks = [
     { path: "/", label: t("nav.home") },
     { path: "/about-us", label: t("nav.about") },
@@ -119,12 +133,9 @@ export const Header = () => {
 
                 {/* 👇 Insertamos el dropdown justo después de Home */}
                 {link.path === "/" && (
-                  <div
-                    className="relative"
-                    onMouseEnter={() => setServicesOpen(true)}
-                    onMouseLeave={() => setServicesOpen(false)}
-                  >
+                  <div className="relative services-dropdown">
                     <button
+                      onClick={() => setServicesOpen((prev) => !prev)}
                       className={`font-medium transition-colors duration-200 flex items-center gap-1 ${
                         location.pathname.startsWith("/services")
                           ? "text-primary-600"
@@ -140,7 +151,7 @@ export const Header = () => {
                     </button>
 
                     {servicesOpen && (
-                      <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-neutral-100 py-4 animate-in fade-in slide-in-from-top-2 duration-200">
+                      <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-neutral-100 py-4 duration-200 z-50">
                         <div className="px-4 pb-3 border-b border-neutral-100">
                           <Link
                             to="/services"
