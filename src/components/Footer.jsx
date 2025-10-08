@@ -1,0 +1,123 @@
+import { Link } from 'react-router-dom';
+import { Mail, Phone, Linkedin, Twitter, Facebook } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+
+export const Footer = () => {
+  const { t } = useLanguage();
+
+  const quickLinks = [
+    { path: '/', label: t('nav.home') },
+    { path: '/about-us', label: t('nav.about') },
+    { path: '/services', label: t('nav.services') },
+    { path: '/blog', label: t('nav.blog') },
+    { path: '/contact', label: t('nav.contact') },
+  ];
+
+  const legalLinks = [
+    { path: '/privacy-policy', label: t('privacy.title') },
+    { path: '/cookies-policy', label: t('cookies.title') },
+  ];
+
+  const socialLinks = [
+    { icon: Linkedin, url: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: Twitter, url: 'https://twitter.com', label: 'Twitter' },
+    { icon: Facebook, url: 'https://facebook.com', label: 'Facebook' },
+  ];
+
+  return (
+    <footer className="bg-neutral-900 text-neutral-300">
+      <div className="section-container py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div>
+            <Link to="/" className="flex items-center mb-4">
+              <span className="text-2xl font-bold text-primary-400">ATEP</span>
+              <span className="text-2xl font-light text-white ml-1">Consulting</span>
+            </Link>
+            <p className="text-sm leading-relaxed mb-6">{t('footer.tagline')}</p>
+            <div className="flex gap-4">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.label}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors duration-200"
+                    aria-label={social.label}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-white font-semibold text-lg mb-4">{t('footer.quickLinks')}</h3>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.path}>
+                  <Link
+                    to={link.path}
+                    className="text-sm hover:text-primary-400 transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-white font-semibold text-lg mb-4">{t('contact.infoTitle')}</h3>
+            <ul className="space-y-3">
+              <li className="flex items-center gap-3 text-sm">
+                <Mail className="w-5 h-5 text-primary-400 flex-shrink-0" />
+                <a href="mailto:info@atepconsulting.com" className="hover:text-primary-400 transition-colors">
+                  info@atepconsulting.com
+                </a>
+              </li>
+              <li className="flex items-center gap-3 text-sm">
+                <Phone className="w-5 h-5 text-primary-400 flex-shrink-0" />
+                <a href="tel:+1234567890" className="hover:text-primary-400 transition-colors">
+                  +1 (234) 567-890
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-white font-semibold text-lg mb-4">{t('footer.newsletter')}</h3>
+            <p className="text-sm mb-4">{t('footer.newsletterText')}</p>
+            <form className="flex flex-col gap-2">
+              <input
+                type="email"
+                placeholder={t('footer.newsletterPlaceholder')}
+                className="px-4 py-2 bg-neutral-800 border border-neutral-700 rounded-lg text-sm focus:outline-none focus:border-primary-400 transition-colors"
+              />
+              <button type="submit" className="btn-primary text-sm">
+                {t('footer.newsletterButton')}
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div className="border-t border-neutral-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-sm">{t('footer.copyright')}</p>
+          <div className="flex gap-6">
+            {legalLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className="text-sm hover:text-primary-400 transition-colors duration-200"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};

@@ -1,0 +1,146 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "home": {
+    "heroTitle": "Boost Your Business with Digital Transformation",
+    "heroSubtitle": "We help companies modernize, automate, and grow efficiently.",
+    "heroCta": "Get Started",
+    "servicesTitle": "Our Services",
+    "whyChooseTitle": "Why Choose ATEP Consulting",
+    "whyChoose1Title": "Expert Team",
+    "whyChoose1Text": "Our experienced consultants bring deep industry knowledge and technical expertise to every project.",
+    "whyChoose2Title": "Proven Results",
+    "whyChoose2Text": "We deliver measurable outcomes that drive growth and improve operational efficiency.",
+    "whyChoose3Title": "Customer Focus",
+    "whyChoose3Text": "Your success is our priority. We build lasting partnerships through dedicated support.",
+    "ctaTitle": "Ready to Transform Your Business?",
+    "ctaSubtitle": "Let's discuss how we can help you achieve your goals.",
+    "ctaButton": "Get in Touch"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive solutions to drive your digital transformation",
+    "legacyMigration": {
+      "name": "Legacy System Migration",
+      "description": "Modernize your outdated systems with seamless migration to cutting-edge technologies.",
+      "whatWeDo": "What We Do",
+      "whatWeDoText": "We analyze your current infrastructure, develop a comprehensive migration strategy, and execute a smooth transition to modern platforms. Our approach minimizes downtime and ensures data integrity throughout the process.",
+      "benefits": "Benefits",
+      "benefit1": "Reduced operational costs",
+      "benefit2": "Improved system performance",
+      "benefit3": "Enhanced security and compliance",
+      "benefit4": "Better scalability and flexibility",
+      "whyChoose": "Why Choose Us",
+      "whyChooseText": "With years of experience in legacy system modernization, we understand the complexities and risks involved. Our proven methodologies ensure a successful migration with minimal business disruption."
+    },
+    "webDevelopment": {
+      "name": "Web Development",
+      "description": "Build powerful, scalable web applications tailored to your business needs.",
+      "whatWeDo": "What We Do",
+      "whatWeDoText": "From concept to deployment, we create custom web solutions using the latest technologies. Our full-stack development team delivers responsive, user-friendly applications that drive engagement and conversions.",
+      "benefits": "Benefits",
+      "benefit1": "Custom-built for your needs",
+      "benefit2": "Mobile-responsive design",
+      "benefit3": "SEO-optimized architecture",
+      "benefit4": "Ongoing maintenance and support",
+      "whyChoose": "Why Choose Us",
+      "whyChooseText": "We combine technical excellence with business acumen to create web solutions that not only look great but also deliver real business value."
+    },
+    "automation": {
+      "name": "Process Automation",
+      "description": "Streamline operations and boost productivity through intelligent automation solutions.",
+      "whatWeDo": "What We Do",
+      "whatWeDoText": "We identify opportunities for automation across your business processes, implement robotic process automation (RPA), and integrate AI-powered solutions to eliminate manual tasks and reduce errors.",
+      "benefits": "Benefits",
+      "benefit1": "Increased operational efficiency",
+      "benefit2": "Reduced human error",
+      "benefit3": "Cost savings on manual tasks",
+      "benefit4": "Better resource allocation",
+      "whyChoose": "Why Choose Us",
+      "whyChooseText": "Our automation experts have helped numerous businesses transform their operations. We focus on high-impact automation that delivers quick ROI."
+    },
+    "ctaTitle": "Ready to Get Started?",
+    "ctaButton": "Contact Us for Consultation"
+  },
+  "about": {
+    "title": "About ATEP Consulting",
+    "subtitle": "Empowering businesses through innovative technology solutions",
+    "missionTitle": "Our Mission",
+    "missionText": "We are committed to helping businesses navigate the complexities of digital transformation. Our mission is to deliver innovative, practical solutions that drive growth and create lasting value for our clients.",
+    "visionTitle": "Our Vision",
+    "visionText": "To be the trusted partner for businesses seeking to modernize their operations and embrace digital innovation. We envision a future where technology empowers every organization to reach its full potential.",
+    "teamTitle": "Meet the Team",
+    "gabriela": {
+      "name": "Gabriela Albertini",
+      "role": "CEO & Founder",
+      "bio": "With over 15 years of experience in technology consulting, Gabriela leads ATEP Consulting's strategic vision. Her expertise in digital transformation has helped numerous companies achieve operational excellence."
+    },
+    "pablo": {
+      "name": "Pablo Teijeiro",
+      "role": "Co-Founder & CTO",
+      "bio": "Pablo brings deep technical expertise and a passion for innovation. As CTO, he oversees all technology implementations and ensures our solutions leverage the latest industry best practices."
+    }
+  },
+  "blog": {
+    "title": "Insights & Updates",
+    "subtitle": "Stay informed with the latest trends and best practices in digital transformation",
+    "readMore": "Read More",
+    "relatedPosts": "Related Posts",
+    "categories": "Categories"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Let's discuss how we can help transform your business",
+    "formName": "Full Name",
+    "formEmail": "Email Address",
+    "formSubject": "Subject",
+    "formMessage": "Message",
+    "formButton": "Send Message",
+    "infoTitle": "Contact Information",
+    "email": "Email",
+    "phone": "Phone",
+    "followUs": "Follow Us"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last Updated",
+    "intro": "At ATEP Consulting, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.",
+    "collection": "Information Collection",
+    "collectionText": "We collect information that you provide directly to us, such as when you fill out a contact form, subscribe to our newsletter, or communicate with us. This may include your name, email address, phone number, and any other information you choose to provide.",
+    "usage": "How We Use Your Information",
+    "usageText": "We use the information we collect to respond to your inquiries, provide our services, send you marketing communications (with your consent), and improve our website and services.",
+    "protection": "Data Protection",
+    "protectionText": "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.",
+    "rights": "Your Rights",
+    "rightsText": "You have the right to access, correct, or delete your personal information. You may also object to or restrict certain processing of your data. To exercise these rights, please contact us using the information provided on our Contact page."
+  },
+  "cookies": {
+    "title": "Cookies Policy",
+    "lastUpdated": "Last Updated",
+    "intro": "This Cookies Policy explains how ATEP Consulting uses cookies and similar technologies on our website.",
+    "whatAre": "What Are Cookies",
+    "whatAreText": "Cookies are small text files that are placed on your device when you visit a website. They help websites remember your preferences and improve your browsing experience.",
+    "howWeUse": "How We Use Cookies",
+    "howWeUseText": "We use cookies to understand how you interact with our website, remember your preferences, and analyze site traffic. This helps us improve our website and provide you with a better experience.",
+    "types": "Types of Cookies We Use",
+    "essential": "Essential Cookies: Required for the website to function properly.",
+    "analytics": "Analytics Cookies: Help us understand how visitors use our website.",
+    "preference": "Preference Cookies: Remember your settings and preferences.",
+    "control": "Cookie Control",
+    "controlText": "You can control and manage cookies through your browser settings. Please note that disabling certain cookies may affect the functionality of our website."
+  },
+  "footer": {
+    "tagline": "Empowering businesses through innovative technology solutions",
+    "quickLinks": "Quick Links",
+    "newsletter": "Newsletter",
+    "newsletterText": "Subscribe to receive insights and updates",
+    "newsletterPlaceholder": "Your email address",
+    "newsletterButton": "Subscribe",
+    "copyright": "© 2025 ATEP Consulting. All rights reserved."
+  }
+}
