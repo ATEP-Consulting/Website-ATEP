@@ -19,6 +19,7 @@ export const ServicesCarousel = ({ services }) => {
   useEffect(() => {
     const handleResize = () => {
       setVisibleCount(getVisibleCount());
+      setCurrentIndex(0); // Resetear al cambiar tamaño
     };
 
     window.addEventListener("resize", handleResize);
@@ -62,9 +63,10 @@ export const ServicesCarousel = ({ services }) => {
     <div className="relative">
       <div className="overflow-hidden">
         <div
-          className="flex transition-transform duration-500 ease-out gap-8"
+          className="flex transition-transform duration-500 ease-out"
           style={{
-            transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
+            transform: `translateX(-${currentIndex * 100}%)`,
+            gap: visibleCount === 1 ? "0" : "2rem",
           }}
         >
           {services.map((service, index) => (
@@ -72,9 +74,18 @@ export const ServicesCarousel = ({ services }) => {
               key={`${service.link}-${index}`}
               className="flex-shrink-0"
               style={{
-                width: `calc(${100 / visibleCount}% - ${
-                  ((visibleCount - 1) * 32) / visibleCount
-                }px)`,
+                width:
+                  visibleCount === 1
+                    ? "100%"
+                    : `calc(${100 / visibleCount}% - ${
+                        ((visibleCount - 1) * 2) / visibleCount
+                      }rem)`,
+                marginRight:
+                  visibleCount === 1
+                    ? "0"
+                    : index < services.length - 1
+                    ? "2rem"
+                    : "0",
               }}
             >
               <ServiceCard {...service} />
