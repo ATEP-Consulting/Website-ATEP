@@ -56,24 +56,6 @@ export const Home = () => {
       description: t("services.cybersecurity.description"),
       link: "/services/cybersecurity",
     },
-    {
-      icon: Cloud,
-      title: t("services.cloudSolutions.name"),
-      description: t("services.cloudSolutions.description"),
-      link: "/services/cloud-solutions",
-    },
-    {
-      icon: BarChart3,
-      title: t("services.dataAnalytics.name"),
-      description: t("services.dataAnalytics.description"),
-      link: "/services/data-analytics",
-    },
-    {
-      icon: Shield,
-      title: t("services.cybersecurity.name"),
-      description: t("services.cybersecurity.description"),
-      link: "/services/cybersecurity",
-    },
   ];
 
   const whyChoose = [
@@ -122,8 +104,6 @@ export const Home = () => {
           { number: "50+", label: t("hero.heroStat4") },
         ]}
       />
-
-      <HowWeWork />
 
       <HowWeWork />
 

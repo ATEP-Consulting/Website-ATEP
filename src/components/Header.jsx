@@ -3,6 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { Cloud, Globe, Server, Zap, BarChart3, Shield } from "lucide-react";
+import logo from "../assets/new-logo-atep.svg";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

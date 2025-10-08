@@ -69,7 +69,7 @@ export const ServicesCarousel = ({ services }) => {
         >
           {services.map((service, index) => (
             <div
-              key={service.link}
+              key={`${service.link}-${index}`}
               className="flex-shrink-0"
               style={{
                 width: `calc(${100 / visibleCount}% - ${
