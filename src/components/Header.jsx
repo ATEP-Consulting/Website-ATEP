@@ -44,8 +44,8 @@ export const Header = () => {
   const navLinks = [
     { path: "/", label: t("nav.home") },
     { path: "/about-us", label: t("nav.about") },
-    { path: "/blog", label: t("nav.blog") },
     { path: "/contact", label: t("nav.contact") },
+    { path: "/blog", label: t("nav.blog") },
   ];
 
   const serviceLinks = [
@@ -105,72 +105,75 @@ export const Header = () => {
 
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`font-medium transition-colors duration-200 ${
-                  location.pathname === link.path
-                    ? "text-primary-600"
-                    : "text-neutral-700 hover:text-primary-600"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-
-            <div
-              className="relative"
-              onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => setServicesOpen(false)}
-            >
-              <button
-                className={`font-medium transition-colors duration-200 flex items-center gap-1 ${
-                  location.pathname.startsWith("/services")
-                    ? "text-primary-600"
-                    : "text-neutral-700 hover:text-primary-600"
-                }`}
-              >
-                {t("nav.services")}
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
-                    servicesOpen ? "rotate-180" : ""
+              <div key={link.path} className="flex items-center gap-8">
+                <Link
+                  to={link.path}
+                  className={`font-medium transition-colors duration-200 ${
+                    location.pathname === link.path
+                      ? "text-primary-600"
+                      : "text-neutral-700 hover:text-primary-600"
                   }`}
-                />
-              </button>
+                >
+                  {link.label}
+                </Link>
 
-              {servicesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-neutral-100 py-4 animate-in fade-in slide-in-from-top-2 duration-200">
-                  <div className="px-4 pb-3 border-b border-neutral-100">
-                    <Link
-                      to="/services"
-                      className="text-sm font-semibold text-primary-600 hover:text-primary-700"
+                {/* 👇 Insertamos el dropdown justo después de Home */}
+                {link.path === "/" && (
+                  <div
+                    className="relative"
+                    onMouseEnter={() => setServicesOpen(true)}
+                    onMouseLeave={() => setServicesOpen(false)}
+                  >
+                    <button
+                      className={`font-medium transition-colors duration-200 flex items-center gap-1 ${
+                        location.pathname.startsWith("/services")
+                          ? "text-primary-600"
+                          : "text-neutral-700 hover:text-primary-600"
+                      }`}
                     >
-                      {t("services.viewAll")} →
-                    </Link>
-                  </div>
-                  <div className="py-2">
-                    {serviceLinks.map((service) => {
-                      const Icon = service.icon;
-                      return (
-                        <Link
-                          key={service.path}
-                          to={service.path}
-                          className="flex items-center gap-3 px-4 py-3 hover:bg-primary-50 transition-colors duration-200 group"
-                        >
-                          <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center group-hover:bg-primary-100 transition-colors">
-                            <Icon className="w-5 h-5 text-primary-600" />
-                          </div>
-                          <span className="text-sm font-medium text-neutral-700 group-hover:text-primary-600">
-                            {service.label}
-                          </span>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-            </div>
+                      {t("nav.services")}
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform duration-200 ${
+                          servicesOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
 
+                    {servicesOpen && (
+                      <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-neutral-100 py-4 animate-in fade-in slide-in-from-top-2 duration-200">
+                        <div className="px-4 pb-3 border-b border-neutral-100">
+                          <Link
+                            to="/services"
+                            className="text-sm font-semibold text-primary-600 hover:text-primary-700"
+                          >
+                            {t("services.viewAll")} →
+                          </Link>
+                        </div>
+                        <div className="py-2">
+                          {serviceLinks.map((service) => {
+                            const Icon = service.icon;
+                            return (
+                              <Link
+                                key={service.path}
+                                to={service.path}
+                                className="flex items-center gap-3 px-4 py-3 hover:bg-primary-50 transition-colors duration-200 group"
+                              >
+                                <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center group-hover:bg-primary-100 transition-colors">
+                                  <Icon className="w-5 h-5 text-primary-600" />
+                                </div>
+                                <span className="text-sm font-medium text-neutral-700 group-hover:text-primary-600">
+                                  {service.label}
+                                </span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
             <LanguageSwitcher />
           </div>
 

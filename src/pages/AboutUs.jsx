@@ -1,41 +1,43 @@
-import { Target, Eye, Linkedin } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
-import { SEO } from '../components/SEO';
+import { Target, Eye, Linkedin } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
+import { SEO } from "../components/SEO";
 
 export const AboutUs = () => {
   const { t } = useLanguage();
 
   const team = [
     {
-      name: t('about.gabriela.name'),
-      role: t('about.gabriela.role'),
-      bio: t('about.gabriela.bio'),
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&q=80',
-      linkedin: 'https://linkedin.com',
+      name: t("about.gabriela.name"),
+      role: t("about.gabriela.role"),
+      bio: t("about.gabriela.bio"),
+      image:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&q=80",
+      linkedin: "https://linkedin.com",
     },
     {
-      name: t('about.pablo.name'),
-      role: t('about.pablo.role'),
-      bio: t('about.pablo.bio'),
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&q=80',
-      linkedin: 'https://linkedin.com',
+      name: t("about.pablo.name"),
+      role: t("about.pablo.role"),
+      bio: t("about.pablo.bio"),
+      image:
+        "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&q=80",
+      linkedin: "https://linkedin.com",
     },
   ];
 
   return (
     <>
       <SEO
-        title={t('about.title')}
-        description={t('about.subtitle')}
+        title={t("about.title")}
+        description={t("about.subtitle")}
         keywords="about us, team, consulting experts, digital transformation specialists"
       />
 
       <section className="section-padding bg-gradient-to-br from-primary-50 to-white">
         <div className="section-container">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="heading-xl mb-6 fade-in">{t('about.title')}</h1>
+            <h1 className="heading-xl mb-6 fade-in">{t("about.title")}</h1>
             <p className="text-xl text-neutral-600 fade-in stagger-1">
-              {t('about.subtitle')}
+              {t("about.subtitle")}
             </p>
           </div>
         </div>
@@ -49,9 +51,11 @@ export const AboutUs = () => {
                 <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center">
                   <Target className="w-8 h-8 text-primary-600" />
                 </div>
-                <h2 className="heading-md">{t('about.missionTitle')}</h2>
+                <h2 className="heading-md">{t("about.missionTitle")}</h2>
               </div>
-              <p className="text-body leading-relaxed">{t('about.missionText')}</p>
+              <p className="text-body leading-relaxed">
+                {t("about.missionText")}
+              </p>
             </div>
 
             <div className="slide-up stagger-1">
@@ -81,9 +85,11 @@ export const AboutUs = () => {
                 <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center">
                   <Eye className="w-8 h-8 text-primary-600" />
                 </div>
-                <h2 className="heading-md">{t('about.visionTitle')}</h2>
+                <h2 className="heading-md">{t("about.visionTitle")}</h2>
               </div>
-              <p className="text-body leading-relaxed">{t('about.visionText')}</p>
+              <p className="text-body leading-relaxed">
+                {t("about.visionText")}
+              </p>
             </div>
           </div>
         </div>
@@ -92,29 +98,45 @@ export const AboutUs = () => {
       <section className="section-padding bg-white">
         <div className="section-container">
           <div className="text-center mb-16">
-            <h2 className="heading-lg mb-4 slide-up">{t('about.teamTitle')}</h2>
+            <h2 className="heading-lg mb-4 slide-up">{t("about.teamTitle")}</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {team.map((member, index) => (
-              <div key={member.name} className={`card text-center slide-up stagger-${index + 1}`}>
+              <div
+                key={member.name}
+                className={`card group overflow-hidden rounded-2xl hover:shadow-xl bg-white transition-all duration-500 hover:-translate-y-1 slide-up stagger-${
+                  index + 1
+                }`}
+              >
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-40 h-40 rounded-full object-cover mx-auto mb-6 shadow-lg"
+                  className="w-full h-80 object-cover object-top grayscale transition-all duration-700 ease-out group-hover:grayscale-0 group-hover:scale-105"
                 />
-                <h3 className="heading-sm mb-2">{member.name}</h3>
-                <p className="text-primary-600 font-semibold mb-4">{member.role}</p>
-                <p className="text-body mb-6">{member.bio}</p>
-                <a
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-12 h-12 bg-primary-100 rounded-full hover:bg-primary-600 hover:text-white transition-colors duration-200"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-6 h-6" />
-                </a>
+
+                <div className="p-6 text-center">
+                  <h3 className="text-xl font-semibold text-neutral-900 mb-1">
+                    {member.name}
+                  </h3>
+                  <p className="text-primary-600 font-medium mb-4">
+                    {member.role}
+                  </p>
+                  <p className="text-neutral-600 leading-relaxed mb-6">
+                    {member.bio}
+                  </p>
+
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-600 hover:bg-primary-600 hover:text-white transition-colors duration-300"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin className="w-6 h-6" />
+                  </a>
+                </div>
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full transition-all duration-300 group-hover:w-20"></div>
               </div>
             ))}
           </div>
