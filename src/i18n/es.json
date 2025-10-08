@@ -35,6 +35,7 @@
   "services": {
     "title": "Nuestros Servicios",
     "subtitle": "Soluciones integrales para impulsar tu transformación digital",
+    "viewAll": "Ver Todos los Servicios",
     "legacyMigration": {
       "name": "Migración de Sistemas Legados",
       "description": "Moderniza tus sistemas obsoletos con una migración fluida a tecnologías de vanguardia.",
@@ -73,6 +74,45 @@
       "benefit4": "Mejor asignación de recursos",
       "whyChoose": "Por Qué Elegirnos",
       "whyChooseText": "Nuestros expertos en automatización han ayudado a numerosas empresas a transformar sus operaciones. Nos enfocamos en automatización de alto impacto que entrega un rápido retorno de inversión."
+    },
+    "cloudSolutions": {
+      "name": "Soluciones en la Nube",
+      "description": "Migra a la nube y aprovecha la infraestructura escalable para el crecimiento de tu negocio.",
+      "whatWeDo": "Qué Hacemos",
+      "whatWeDoText": "Ayudamos a las empresas a hacer la transición a plataformas en la nube como AWS, Azure y Google Cloud. Nuestros expertos diseñan, implementan y gestionan infraestructura en la nube que escala con tus necesidades.",
+      "benefits": "Beneficios",
+      "benefit1": "Infraestructura escalable",
+      "benefit2": "Reducción de costos de TI",
+      "benefit3": "Recuperación ante desastres mejorada",
+      "benefit4": "Accesibilidad global",
+      "whyChoose": "Por Qué Elegirnos",
+      "whyChooseText": "Nuestros arquitectos de nube han migrado exitosamente cientos de aplicaciones a la nube, garantizando transiciones fluidas y rendimiento óptimo."
+    },
+    "dataAnalytics": {
+      "name": "Análisis de Datos e BI",
+      "description": "Transforma tus datos en información procesable con análisis avanzado e inteligencia de negocios.",
+      "whatWeDo": "Qué Hacemos",
+      "whatWeDoText": "Implementamos soluciones integrales de análisis de datos, desde almacenamiento de datos hasta paneles de visualización. Nuestro equipo te ayuda a tomar decisiones basadas en datos que impulsan el crecimiento empresarial.",
+      "benefits": "Beneficios",
+      "benefit1": "Toma de decisiones basada en datos",
+      "benefit2": "Información en tiempo real",
+      "benefit3": "Análisis predictivo",
+      "benefit4": "Reportes personalizados",
+      "whyChoose": "Por Qué Elegirnos",
+      "whyChooseText": "Transformamos datos sin procesar en activos estratégicos, ayudando a las empresas a descubrir oportunidades y optimizar operaciones mediante análisis inteligente."
+    },
+    "cybersecurity": {
+      "name": "Consultoría en Ciberseguridad",
+      "description": "Protege tu negocio con evaluaciones de seguridad integrales y servicios de implementación.",
+      "whatWeDo": "Qué Hacemos",
+      "whatWeDoText": "Realizamos auditorías de seguridad, implementamos marcos de seguridad y proporcionamos monitoreo continuo para proteger tus activos digitales de amenazas cibernéticas.",
+      "benefits": "Beneficios",
+      "benefit1": "Postura de seguridad mejorada",
+      "benefit2": "Cumplimiento normativo",
+      "benefit3": "Mitigación de riesgos",
+      "benefit4": "Monitoreo 24/7",
+      "whyChoose": "Por Qué Elegirnos",
+      "whyChooseText": "Nuestros expertos en seguridad se mantienen adelante de las amenazas emergentes e implementan las mejores prácticas de la industria para mantener tu negocio protegido."
     },
     "ctaTitle": "¿Listo para Comenzar?",
     "ctaButton": "Contáctanos para una Consulta"

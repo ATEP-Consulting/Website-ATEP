@@ -35,6 +35,7 @@
   "services": {
     "title": "Our Services",
     "subtitle": "Comprehensive solutions to drive your digital transformation",
+    "viewAll": "View All Services",
     "legacyMigration": {
       "name": "Legacy System Migration",
       "description": "Modernize your outdated systems with seamless migration to cutting-edge technologies.",
@@ -73,6 +74,45 @@
       "benefit4": "Better resource allocation",
       "whyChoose": "Why Choose Us",
       "whyChooseText": "Our automation experts have helped numerous businesses transform their operations. We focus on high-impact automation that delivers quick ROI."
+    },
+    "cloudSolutions": {
+      "name": "Cloud Solutions",
+      "description": "Migrate to the cloud and leverage scalable infrastructure for your business growth.",
+      "whatWeDo": "What We Do",
+      "whatWeDoText": "We help businesses transition to cloud platforms like AWS, Azure, and Google Cloud. Our experts design, implement, and manage cloud infrastructure that scales with your needs.",
+      "benefits": "Benefits",
+      "benefit1": "Scalable infrastructure",
+      "benefit2": "Reduced IT overhead",
+      "benefit3": "Enhanced disaster recovery",
+      "benefit4": "Global accessibility",
+      "whyChoose": "Why Choose Us",
+      "whyChooseText": "Our cloud architects have successfully migrated hundreds of applications to the cloud, ensuring seamless transitions and optimal performance."
+    },
+    "dataAnalytics": {
+      "name": "Data Analytics & BI",
+      "description": "Transform your data into actionable insights with advanced analytics and business intelligence.",
+      "whatWeDo": "What We Do",
+      "whatWeDoText": "We implement comprehensive data analytics solutions, from data warehousing to visualization dashboards. Our team helps you make data-driven decisions that drive business growth.",
+      "benefits": "Benefits",
+      "benefit1": "Data-driven decision making",
+      "benefit2": "Real-time insights",
+      "benefit3": "Predictive analytics",
+      "benefit4": "Custom reporting",
+      "whyChoose": "Why Choose Us",
+      "whyChooseText": "We transform raw data into strategic assets, helping businesses uncover opportunities and optimize operations through intelligent analytics."
+    },
+    "cybersecurity": {
+      "name": "Cybersecurity Consulting",
+      "description": "Protect your business with comprehensive security assessments and implementation services.",
+      "whatWeDo": "What We Do",
+      "whatWeDoText": "We conduct security audits, implement security frameworks, and provide ongoing monitoring to protect your digital assets from cyber threats.",
+      "benefits": "Benefits",
+      "benefit1": "Enhanced security posture",
+      "benefit2": "Compliance adherence",
+      "benefit3": "Risk mitigation",
+      "benefit4": "24/7 monitoring",
+      "whyChoose": "Why Choose Us",
+      "whyChooseText": "Our security experts stay ahead of emerging threats and implement industry best practices to keep your business protected."
     },
     "ctaTitle": "Ready to Get Started?",
     "ctaButton": "Contact Us for Consultation"

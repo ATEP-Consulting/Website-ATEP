@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { Server, Globe, Zap, Award, Users, TrendingUp } from 'lucide-react';
+import { Server, Globe, Zap, Cloud, BarChart3, Shield, Award, Users, TrendingUp } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { SEO } from '../components/SEO';
-import { ServiceCard } from '../components/ServiceCard';
+import { ServicesCarousel } from '../components/ServicesCarousel';
 import { HowWeWork } from '../components/HowWeWork';
 
 export const Home = () => {
@@ -26,6 +26,24 @@ export const Home = () => {
       title: t('services.automation.name'),
       description: t('services.automation.description'),
       link: '/services/automation',
+    },
+    {
+      icon: Cloud,
+      title: t('services.cloudSolutions.name'),
+      description: t('services.cloudSolutions.description'),
+      link: '/services/cloud-solutions',
+    },
+    {
+      icon: BarChart3,
+      title: t('services.dataAnalytics.name'),
+      description: t('services.dataAnalytics.description'),
+      link: '/services/data-analytics',
+    },
+    {
+      icon: Shield,
+      title: t('services.cybersecurity.name'),
+      description: t('services.cybersecurity.description'),
+      link: '/services/cybersecurity',
     },
   ];
 
@@ -81,12 +99,14 @@ export const Home = () => {
             <h2 className="heading-lg mb-4 slide-up">{t('home.servicesTitle')}</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div key={service.link} className={`slide-up stagger-${index + 1}`}>
-                <ServiceCard {...service} />
-              </div>
-            ))}
+          <div className="slide-up stagger-1">
+            <ServicesCarousel services={services} />
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/services" className="btn-outline">
+              {t('services.viewAll')}
+            </Link>
           </div>
         </div>
       </section>
