@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { ServiceCard } from './ServiceCard';
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ServiceCard } from "./ServiceCard";
 
 export const ServicesCarousel = ({ services }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const getVisibleCount = () => {
-    if (typeof window === 'undefined') return 3;
+    if (typeof window === "undefined") return 3;
     if (window.innerWidth >= 1024) return 3;
     if (window.innerWidth >= 768) return 2;
     return 1;
@@ -21,8 +21,8 @@ export const ServicesCarousel = ({ services }) => {
       setVisibleCount(getVisibleCount());
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
@@ -40,7 +40,9 @@ export const ServicesCarousel = ({ services }) => {
 
   const goToPrevious = () => {
     setIsAutoPlaying(false);
-    setCurrentIndex((prev) => (prev === 0 ? services.length - visibleCount : prev - 1));
+    setCurrentIndex((prev) =>
+      prev === 0 ? services.length - visibleCount : prev - 1
+    );
   };
 
   const goToNext = () => {
@@ -69,7 +71,11 @@ export const ServicesCarousel = ({ services }) => {
             <div
               key={service.link}
               className="flex-shrink-0"
-              style={{ width: `calc(${100 / visibleCount}% - ${(visibleCount - 1) * 32 / visibleCount}px)` }}
+              style={{
+                width: `calc(${100 / visibleCount}% - ${
+                  ((visibleCount - 1) * 32) / visibleCount
+                }px)`,
+              }}
             >
               <ServiceCard {...service} />
             </div>
@@ -78,16 +84,20 @@ export const ServicesCarousel = ({ services }) => {
       </div>
 
       <div className="flex justify-center gap-2 mt-8">
-        {Array.from({ length: services.length - visibleCount + 1 }).map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              currentIndex === index ? 'bg-primary-600 w-8' : 'bg-neutral-300 w-2'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
+        {Array.from({ length: services.length - visibleCount + 1 }).map(
+          (_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                currentIndex === index
+                  ? "bg-primary-600 w-8"
+                  : "bg-neutral-300 w-2"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          )
+        )}
       </div>
     </div>
   );

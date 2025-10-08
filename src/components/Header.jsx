@@ -1,19 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import {
-  Menu,
-  X,
-  ChevronDown,
-  Server,
-  Globe,
-  Zap,
-  Cloud,
-  BarChart3,
-  Shield,
-} from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import logo from "../assets/new-logo-atep.svg";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,6 +33,7 @@ export const Header = () => {
   const navLinks = [
     { path: "/", label: t("nav.home") },
     { path: "/about-us", label: t("nav.about") },
+    { path: "/services", label: t("nav.services") },
     { path: "/blog", label: t("nav.blog") },
     { path: "/contact", label: t("nav.contact") },
   ];
@@ -117,60 +107,6 @@ export const Header = () => {
                 {link.label}
               </Link>
             ))}
-
-            <div
-              className="relative"
-              onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => setServicesOpen(false)}
-            >
-              <button
-                className={`font-medium transition-colors duration-200 flex items-center gap-1 ${
-                  location.pathname.startsWith("/services")
-                    ? "text-primary-600"
-                    : "text-neutral-700 hover:text-primary-600"
-                }`}
-              >
-                {t("nav.services")}
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
-                    servicesOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-
-              {servicesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-neutral-100 py-4 animate-in fade-in slide-in-from-top-2 duration-200">
-                  <div className="px-4 pb-3 border-b border-neutral-100">
-                    <Link
-                      to="/services"
-                      className="text-sm font-semibold text-primary-600 hover:text-primary-700"
-                    >
-                      {t("services.viewAll")} →
-                    </Link>
-                  </div>
-                  <div className="py-2">
-                    {serviceLinks.map((service) => {
-                      const Icon = service.icon;
-                      return (
-                        <Link
-                          key={service.path}
-                          to={service.path}
-                          className="flex items-center gap-3 px-4 py-3 hover:bg-primary-50 transition-colors duration-200 group"
-                        >
-                          <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center group-hover:bg-primary-100 transition-colors">
-                            <Icon className="w-5 h-5 text-primary-600" />
-                          </div>
-                          <span className="text-sm font-medium text-neutral-700 group-hover:text-primary-600">
-                            {service.label}
-                          </span>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-            </div>
-
             <LanguageSwitcher />
           </div>
 
@@ -199,49 +135,6 @@ export const Header = () => {
                   {link.label}
                 </Link>
               ))}
-
-              <div>
-                <button
-                  onClick={() => setServicesOpen(!servicesOpen)}
-                  className={`font-medium py-2 transition-colors duration-200 flex items-center gap-1 ${
-                    location.pathname.startsWith("/services")
-                      ? "text-primary-600"
-                      : "text-neutral-700 hover:text-primary-600"
-                  }`}
-                >
-                  {t("nav.services")}
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform duration-200 ${
-                      servicesOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-
-                {servicesOpen && (
-                  <div className="pl-4 mt-2 space-y-2">
-                    <Link
-                      to="/services"
-                      className="block py-2 text-sm font-semibold text-primary-600"
-                    >
-                      {t("services.viewAll")} →
-                    </Link>
-                    {serviceLinks.map((service) => {
-                      const Icon = service.icon;
-                      return (
-                        <Link
-                          key={service.path}
-                          to={service.path}
-                          className="flex items-center gap-2 py-2 text-sm text-neutral-700 hover:text-primary-600"
-                        >
-                          <Icon className="w-4 h-4" />
-                          {service.label}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-
               <div className="pt-2 border-t border-neutral-200">
                 <LanguageSwitcher />
               </div>
