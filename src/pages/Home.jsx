@@ -3,6 +3,7 @@ import { Server, Globe, Zap, Award, Users, TrendingUp } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { SEO } from '../components/SEO';
 import { ServiceCard } from '../components/ServiceCard';
+import { HowWeWork } from '../components/HowWeWork';
 
 export const Home = () => {
   const { t } = useLanguage();
@@ -71,6 +72,8 @@ export const Home = () => {
           </div>
         </div>
       </section>
+
+      <HowWeWork />
 
       <section className="section-padding bg-white">
         <div className="section-container">
