@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
 import { ServiceCard } from "./ServiceCard";
 
 export const ServicesCarousel = ({ services }) => {
@@ -19,7 +17,7 @@ export const ServicesCarousel = ({ services }) => {
   useEffect(() => {
     const handleResize = () => {
       setVisibleCount(getVisibleCount());
-      setCurrentIndex(0); // Resetear al cambiar tamaño
+      setCurrentIndex(0);
     };
 
     window.addEventListener("resize", handleResize);
@@ -39,21 +37,6 @@ export const ServicesCarousel = ({ services }) => {
     return () => clearInterval(interval);
   }, [isAutoPlaying, services.length, visibleCount]);
 
-  const goToPrevious = () => {
-    setIsAutoPlaying(false);
-    setCurrentIndex((prev) =>
-      prev === 0 ? services.length - visibleCount : prev - 1
-    );
-  };
-
-  const goToNext = () => {
-    setIsAutoPlaying(false);
-    setCurrentIndex((prev) => {
-      const maxIndex = services.length - visibleCount;
-      return prev >= maxIndex ? 0 : prev + 1;
-    });
-  };
-
   const goToSlide = (index) => {
     setIsAutoPlaying(false);
     setCurrentIndex(index);
@@ -63,31 +46,19 @@ export const ServicesCarousel = ({ services }) => {
     <div className="relative">
       <div className="overflow-hidden">
         <div
-          className="flex transition-transform duration-500 ease-out"
+          className="grid transition-all duration-500 ease-out"
           style={{
-            transform: `translateX(-${currentIndex * 100}%)`,
+            gridTemplateColumns: `repeat(${services.length}, ${
+              100 / visibleCount
+            }%)`,
             gap: visibleCount === 1 ? "0" : "2rem",
+            transform: `translateX(calc(-${
+              currentIndex * (100 / visibleCount)
+            }% - ${currentIndex * 2}rem))`,
           }}
         >
           {services.map((service, index) => (
-            <div
-              key={`${service.link}-${index}`}
-              className="flex-shrink-0"
-              style={{
-                width:
-                  visibleCount === 1
-                    ? "100%"
-                    : `calc(${100 / visibleCount}% - ${
-                        ((visibleCount - 1) * 2) / visibleCount
-                      }rem)`,
-                marginRight:
-                  visibleCount === 1
-                    ? "0"
-                    : index < services.length - 1
-                    ? "2rem"
-                    : "0",
-              }}
-            >
+            <div key={`${service.link}-${index}`}>
               <ServiceCard {...service} />
             </div>
           ))}
