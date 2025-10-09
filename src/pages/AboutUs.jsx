@@ -217,7 +217,7 @@ export const AboutUs = () => {
       </section>
 
       {/* Team Section - Improved Cards */}
-      <section className="section-padding bg-gradient-to-br from-primary-50 to-white">
+      <section className="section-padding bg-gradient-to-br bg-neutral-50">
         <div className="section-container">
           <div className="text-center mb-16">
             <h2 className="heading-lg mb-4 slide-up">
