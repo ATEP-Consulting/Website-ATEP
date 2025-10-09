@@ -161,38 +161,43 @@ export const AboutUs = () => {
             </p>
           </div>
 
-          <div className="flex flex-col gap-8">
+          <div className="relative">
             {values.map((value, index) => {
               const Icon = value.icon;
+
               return (
                 <div
                   key={index}
-                  className={`group rounded-2xl bg-white border border-neutral-100 overflow-hidden slide-up stagger-${
-                    index + 1
-                  }`}
+                  className="sticky mb-8 lg:mb-12"
+                  style={{
+                    top: `${120 + index * 20}px`,
+                    zIndex: index + 1,
+                  }}
                 >
-                  <div className="grid md:grid-cols-2 gap-0 items-center">
-                    {/* Contenido de texto */}
-                    <div className="p-8 lg:p-12">
-                      <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-50 rounded-2xl flex items-center justify-center mb-6 transform transition-transform duration-300 group-hover:scale-110">
-                        <Icon className="w-8 h-8 text-primary-600" />
+                  <div className="group rounded-lg bg-white border border-neutral-100 overflow-hidden">
+                    <div className="grid md:grid-cols-2 gap-0 items-center">
+                      {/* Contenido de texto - SIEMPRE A LA IZQUIERDA */}
+                      <div className="p-8 lg:p-12">
+                        <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-50 rounded-2xl flex items-center justify-center mb-6 transform transition-transform duration-300 group-hover:scale-110">
+                          <Icon className="w-8 h-8 text-primary-600" />
+                        </div>
+                        <h3 className="text-2xl lg:text-3xl font-bold text-neutral-900 mb-4">
+                          {value.title}
+                        </h3>
+                        <p className="text-lg text-neutral-600 leading-relaxed">
+                          {value.description}
+                        </p>
                       </div>
-                      <h3 className="text-2xl lg:text-3xl font-bold text-neutral-900 mb-4">
-                        {value.title}
-                      </h3>
-                      <p className="text-lg text-neutral-600 leading-relaxed">
-                        {value.description}
-                      </p>
-                    </div>
 
-                    {/* Imagen */}
-                    <div className="relative h-64 md:h-full min-h-[320px] overflow-hidden">
-                      <img
-                        src={value.image}
-                        alt={value.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"></div>
+                      {/* Imagen - SIEMPRE A LA DERECHA */}
+                      <div className="relative h-64 md:h-full min-h-[320px] overflow-hidden">
+                        <img
+                          src={value.image}
+                          alt={value.title}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
