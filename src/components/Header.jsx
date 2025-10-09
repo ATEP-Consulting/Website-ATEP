@@ -122,10 +122,10 @@ export const Header = () => {
               <div key={link.path} className="flex items-center gap-8">
                 <Link
                   to={link.path}
-                  className={`font-medium transition-colors duration-200 ${
+                  className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                     location.pathname === link.path
-                      ? "text-primary-600"
-                      : "text-neutral-700 hover:text-primary-600"
+                      ? "bg-primary-100 text-primary-700"
+                      : "text-neutral-700 hover:bg-primary-100 hover:text-primary-700"
                   }`}
                 >
                   {link.label}
@@ -136,15 +136,15 @@ export const Header = () => {
                   <div className="relative services-dropdown">
                     <button
                       onClick={() => setServicesOpen((prev) => !prev)}
-                      className={`font-medium transition-colors duration-200 flex items-center gap-1 ${
+                      className={`font-medium transition-all duration-300 flex items-center gap-1 px-4 py-2 rounded-lg ${
                         location.pathname.startsWith("/services")
-                          ? "text-primary-600"
-                          : "text-neutral-700 hover:text-primary-600"
+                          ? "text-primary-700 bg-primary-100"
+                          : "text-neutral-700 hover:text-primary-800 hover:bg-primary-100"
                       }`}
                     >
                       {t("nav.services")}
                       <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-200 ${
+                        className={`w-4 h-4 transition-transform duration-300 ${
                           servicesOpen ? "rotate-180" : ""
                         }`}
                       />
@@ -155,9 +155,10 @@ export const Header = () => {
                         <div className="px-4 pb-3 border-b border-neutral-100">
                           <Link
                             to="/services"
-                            className="text-sm font-semibold text-primary-600 hover:text-primary-700"
+                            className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold text-primary-600 hover:text-primary-800 hover:bg-primary-100 transition-all duration-300"
                           >
-                            {t("services.viewAll")} →
+                            {t("services.viewAll")}
+                            <span>→</span>
                           </Link>
                         </div>
                         <div className="py-2">
@@ -167,12 +168,12 @@ export const Header = () => {
                               <Link
                                 key={service.path}
                                 to={service.path}
-                                className="flex items-center gap-3 px-4 py-3 hover:bg-primary-50 transition-colors duration-200 group"
+                                className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-50 hover:text-primary-800 transition-all duration-300 group"
                               >
-                                <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center group-hover:bg-primary-100 transition-colors">
+                                <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center group-hover:bg-primary-100 transition-all duration-300">
                                   <Icon className="w-5 h-5 text-primary-600" />
                                 </div>
-                                <span className="text-sm font-medium text-neutral-700 group-hover:text-primary-600">
+                                <span className="text-sm font-medium text-neutral-700 group-hover:text-primary-800">
                                   {service.label}
                                 </span>
                               </Link>
