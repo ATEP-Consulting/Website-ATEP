@@ -34,7 +34,7 @@ const Hero = ({
         }}
       ></div>
       {/* Contenido principal - Hero */}
-      <div className="flex items-center section-container relative z-10 pt-12 md:pt-32 pb-8 md:pb-12">
+      <div className="flex items-center section-container relative z-10 pt-12 md:pt-52 pb-8 md:pb-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
           {/* Contenido izquierdo */}
           <div className="space-y-8">
