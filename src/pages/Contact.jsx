@@ -94,11 +94,11 @@ export const Contact = () => {
               return (
                 <div
                   key={method.title}
-                  className={`group text-center p-8 rounded-2xl bg-gradient-to-br from-neutral-50 to-white border-2 border-neutral-100 transition-all duration-300 hover:border-primary-300 hover:shadow-lg slide-up stagger-${
+                  className={`group text-center p-8 rounded-2xl bg-gradient-to-br from-neutral-50 to-white border-2 border-neutral-100 transition-all duration-300 hover:border-primary-500 hover:shadow-lg slide-up stagger-${
                     index + 1
                   }`}
                 >
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-50 rounded-2xl flex items-center justify-center mx-auto mb-4 transform transition-transform duration-300 group-hover:scale-110">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-50 rounded-2xl flex items-center justify-center mx-auto mb-4 transform transition-transform duration-500 group-hover:scale-110">
                     <Icon className="w-8 h-8 text-primary-600" />
                   </div>
 
