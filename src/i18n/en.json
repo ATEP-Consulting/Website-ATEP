@@ -185,11 +185,22 @@
     }
   },
   "blog": {
-    "title": "Insights & Updates",
-    "subtitle": "Stay informed with the latest trends and best practices in digital transformation",
+    "title": "Digital Sector Trends",
+    "subtitle": "Insights, tips, and the latest trends in digital transformation and consulting",
+    "badge": "Insights & Articles",
+    "featured": "Featured Article",
+    "latest": "Latest Articles",
     "readMore": "Read More",
-    "relatedPosts": "Related Posts",
-    "categories": "Categories"
+    "ctaTitle": "Want to stay updated?",
+    "ctaSubtitle": "Subscribe to our newsletter and never miss an article",
+    "emailPlaceholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "searchPlaceholder": "Search articles...",
+    "allCategories": "All",
+    "articleFound": "article found",
+    "articlesFound": "articles found",
+    "noResults": "No articles found. Try adjusting your filters.",
+    "relatedPosts": "Related Articles"
   },
   "contact": {
     "badge": "Get in Touch",

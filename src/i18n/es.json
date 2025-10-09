@@ -185,11 +185,22 @@
     }
   },
   "blog": {
-    "title": "Perspectivas y Actualizaciones",
-    "subtitle": "Mantente informado con las últimas tendencias y mejores prácticas en transformación digital",
+    "title": "Tendencias del Sector Digital",
+    "subtitle": "Perspectivas, consejos y las últimas tendencias en transformación digital y consultoría",
+    "badge": "Perspectivas y Artículos",
+    "featured": "Artículo Destacado",
+    "latest": "Últimos Artículos",
     "readMore": "Leer Más",
-    "relatedPosts": "Publicaciones Relacionadas",
-    "categories": "Categorías"
+    "ctaTitle": "¿Quieres estar al día?",
+    "ctaSubtitle": "Suscríbete a nuestro boletín y no te pierdas ningún artículo",
+    "emailPlaceholder": "Introduce tu email",
+    "subscribe": "Suscribirse",
+    "searchPlaceholder": "Buscar artículos...",
+    "allCategories": "Todos",
+    "articleFound": "artículo encontrado",
+    "articlesFound": "artículos encontrados",
+    "noResults": "No se encontraron artículos. Intenta ajustar los filtros.",
+    "relatedPosts": "Artículos Relacionados"
   },
   "contact": {
     "badge": "Contáctanos",
