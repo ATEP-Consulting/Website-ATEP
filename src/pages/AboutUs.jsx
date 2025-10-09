@@ -20,22 +20,30 @@ export const AboutUs = () => {
       title: t("about.value1Title") || "Excellence",
       description:
         t("about.value1Text") || "We strive for excellence in everything we do",
+      image:
+        "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=80",
     },
     {
       icon: Users,
       title: t("about.value2Title") || "Collaboration",
       description:
         t("about.value2Text") || "We believe in the power of teamwork",
+      image:
+        "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=80",
     },
     {
       icon: Lightbulb,
       title: t("about.value3Title") || "Innovation",
       description: t("about.value3Text") || "We embrace creative solutions",
+      image:
+        "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=80",
     },
     {
       icon: Heart,
       title: t("about.value4Title") || "Passion",
       description: t("about.value4Text") || "We love what we do",
+      image:
+        "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=80",
     },
   ];
 
@@ -153,25 +161,40 @@ export const AboutUs = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="flex flex-col gap-8">
             {values.map((value, index) => {
               const Icon = value.icon;
               return (
                 <div
                   key={index}
-                  className={`group text-center p-8 rounded-2xl bg-gradient-to-br from-neutral-50 to-white border border-neutral-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 slide-up stagger-${
+                  className={`group rounded-2xl bg-white border border-neutral-100 overflow-hidden slide-up stagger-${
                     index + 1
                   }`}
                 >
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-50 rounded-2xl flex items-center justify-center mx-auto mb-6 transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                    <Icon className="w-8 h-8 text-primary-600" />
+                  <div className="grid md:grid-cols-2 gap-0 items-center">
+                    {/* Contenido de texto */}
+                    <div className="p-8 lg:p-12">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-50 rounded-2xl flex items-center justify-center mb-6 transform transition-transform duration-300 group-hover:scale-110">
+                        <Icon className="w-8 h-8 text-primary-600" />
+                      </div>
+                      <h3 className="text-2xl lg:text-3xl font-bold text-neutral-900 mb-4">
+                        {value.title}
+                      </h3>
+                      <p className="text-lg text-neutral-600 leading-relaxed">
+                        {value.description}
+                      </p>
+                    </div>
+
+                    {/* Imagen */}
+                    <div className="relative h-64 md:h-full min-h-[320px] overflow-hidden">
+                      <img
+                        src={value.image}
+                        alt={value.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"></div>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-neutral-900 mb-3">
-                    {value.title}
-                  </h3>
-                  <p className="text-neutral-600 leading-relaxed">
-                    {value.description}
-                  </p>
                 </div>
               );
             })}
