@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Cloud, CheckCircle } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
+import ImageHero from "../../components/ImageHero";
 
 export const CloudSolutions = () => {
   const { t } = useLanguage();
@@ -19,6 +20,13 @@ export const CloudSolutions = () => {
         title={t("services.cloudSolutions.name")}
         description={t("services.cloudSolutions.description")}
         keywords="cloud solutions, AWS, Azure, Google Cloud, cloud migration"
+      />
+
+      <ImageHero
+        icon={Cloud}
+        title={t("services.cloudSolutions.name")}
+        description={t("services.cloudSolutions.description")}
+        backgroundImage="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&h=1080&fit=crop&q=80"
       />
 
       <section className="section-padding bg-gradient-to-br from-primary-50 to-white">

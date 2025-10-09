@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+
 import { Server, CheckCircle } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
+import ImageHero from "../../components/ImageHero";
 
 export const LegacyMigration = () => {
   const { t } = useLanguage();
@@ -21,23 +23,12 @@ export const LegacyMigration = () => {
         keywords="legacy migration, system modernization, digital transformation"
       />
 
-      <section className="section-padding bg-gradient-to-br from-primary-50 to-white">
-        <div className="section-container">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-4 mb-6 fade-in">
-              <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center">
-                <Server className="w-8 h-8 text-primary-600" />
-              </div>
-              <h1 className="heading-xl">
-                {t("services.legacyMigration.name")}
-              </h1>
-            </div>
-            <p className="text-xl text-neutral-600 fade-in stagger-1">
-              {t("services.legacyMigration.description")}
-            </p>
-          </div>
-        </div>
-      </section>
+      <ImageHero
+        icon={Server}
+        title={t("services.legacyMigration.name")}
+        description={t("services.legacyMigration.description")}
+        backgroundImage="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&h=1080&fit=crop&q=80"
+      />
 
       <section className="section-padding bg-white">
         <div className="section-container">

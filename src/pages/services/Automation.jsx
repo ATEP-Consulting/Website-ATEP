@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Zap, CheckCircle } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
+import ImageHero from "../../components/ImageHero";
 
 export const Automation = () => {
   const { t } = useLanguage();
@@ -19,6 +20,13 @@ export const Automation = () => {
         title={t("services.automation.name")}
         description={t("services.automation.description")}
         keywords="automation, RPA, process automation, AI automation, efficiency"
+      />
+
+      <ImageHero
+        icon={Zap}
+        title={t("services.automation.name")}
+        description={t("services.automation.description")}
+        backgroundImage="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&h=1080&fit=crop&q=80"
       />
 
       <section className="section-padding bg-gradient-to-br from-primary-50 to-white">

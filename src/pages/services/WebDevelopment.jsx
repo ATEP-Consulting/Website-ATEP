@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Globe, CheckCircle } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
+import ImageHero from "../../components/ImageHero";
 
 export const WebDevelopment = () => {
   const { t } = useLanguage();
@@ -19,6 +20,13 @@ export const WebDevelopment = () => {
         title={t("services.webDevelopment.name")}
         description={t("services.webDevelopment.description")}
         keywords="web development, web applications, responsive design, full-stack development"
+      />
+
+      <ImageHero
+        icon={Globe}
+        title={t("services.webDevelopment.name")}
+        description={t("services.webDevelopment.description")}
+        backgroundImage="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&h=1080&fit=crop&q=80"
       />
 
       <section className="section-padding bg-gradient-to-br from-primary-50 to-white">

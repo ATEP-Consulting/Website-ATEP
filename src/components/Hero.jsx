@@ -15,7 +15,7 @@ const Hero = ({
   stats = [],
 }) => {
   return (
-    <section className="relative  flex items-center overflow-hidden bg-gradient-to-br from-neutral-50 via-white to-primary-50">
+    <section className="relative min-h-[calc(100vh-64px)] md:min-h-[calc(100vh-80px)] flex items-center overflow-hidden bg-gradient-to-br from-neutral-50 via-white to-primary-50 py-16 md:py-24 lg:py-32">
       {/* Elementos decorativos de fondo - AHORA SÍ ANIMADOS */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
@@ -53,7 +53,7 @@ const Hero = ({
         }}
       ></div>
 
-      <div className="section-container relative z-10 py-20">
+      <div className="section-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Contenido izquierdo */}
           <div className="space-y-8">

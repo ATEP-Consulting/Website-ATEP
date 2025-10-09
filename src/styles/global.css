@@ -76,6 +76,17 @@
   }
 }
 
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+}
+
 @keyframes blob {
   0%,
   100% {
@@ -132,4 +143,8 @@
 
 .animation-delay-4000 {
   animation-delay: 4s;
+}
+
+.animate-scroll {
+  animation: scroll 1.5s ease-in-out infinite;
 }
