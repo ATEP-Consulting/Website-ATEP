@@ -1,124 +1,223 @@
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
-import { SEO } from '../components/SEO';
-import { ContactForm } from '../components/ContactForm';
+import {
+  Mail,
+  Phone,
+  Globe,
+  Clock,
+  Send,
+  Linkedin,
+  Instagram,
+  Twitter,
+  Facebook,
+} from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
+import { SEO } from "../components/SEO";
+import { ContactForm } from "../components/ContactForm";
 
 export const Contact = () => {
   const { t } = useLanguage();
 
-  const contactInfo = [
+  const contactMethods = [
     {
       icon: Mail,
-      label: t('contact.email'),
-      value: 'info@atepconsulting.com',
-      link: 'mailto:info@atepconsulting.com',
+      title: t("contact.emailTitle") || "Email Us",
+      value: "info@atepconsulting.com",
+      link: "mailto:info@atepconsulting.com",
+      description: t("contact.emailDesc") || "We reply within 24 hours",
     },
     {
       icon: Phone,
-      label: t('contact.phone'),
-      value: '+1 (234) 567-890',
-      link: 'tel:+1234567890',
+      title: t("contact.phoneTitle") || "Call Us",
+      value: "+1 (234) 567-890",
+      link: "tel:+1234567890",
+      description: t("contact.phoneDesc") || "Available 24/7 for you",
     },
     {
-      icon: MapPin,
-      label: 'Location',
-      value: 'San Francisco, CA',
+      icon: Globe,
+      title: t("contact.remoteTitle") || "Remote Services",
+      value: t("contact.remoteValue") || "Worldwide",
       link: null,
+      description: t("contact.remoteDesc") || "We work with clients globally",
     },
   ];
 
   const socialLinks = [
-    { icon: Linkedin, url: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Twitter, url: 'https://twitter.com', label: 'Twitter' },
-    { icon: Facebook, url: 'https://facebook.com', label: 'Facebook' },
+    {
+      icon: Linkedin,
+      url: "https://linkedin.com/company/atepconsulting",
+      label: "LinkedIn",
+      color: "hover:bg-[#0A66C2]",
+    },
+    {
+      icon: Instagram,
+      url: "https://instagram.com/atepconsulting",
+      label: "Instagram",
+      color:
+        "hover:bg-gradient-to-br hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#515BD4]",
+    },
   ];
 
   return (
     <>
       <SEO
-        title={t('contact.title')}
-        description={t('contact.subtitle')}
+        title={t("contact.title")}
+        description={t("contact.subtitle")}
         keywords="contact, get in touch, consulting inquiry"
       />
 
-      <section className="section-padding bg-gradient-to-br from-primary-50 to-white">
+      {/* Hero Section - Limpio y directo */}
+      <section className="section-padding bg-gradient-to-br from-primary-50 via-white to-neutral-50">
         <div className="section-container">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="heading-xl mb-6 fade-in">{t('contact.title')}</h1>
-            <p className="text-xl text-neutral-600 fade-in stagger-1">
-              {t('contact.subtitle')}
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-100/50 backdrop-blur-sm rounded-full border border-primary-200/50 mb-6 fade-in">
+              <Send className="w-4 h-4 text-primary-600" />
+              <span className="text-sm font-medium text-primary-700">
+                {t("contact.badge") || "Get in Touch"}
+              </span>
+            </div>
+
+            <h1 className="text-4xl lg:text-5xl font-bold text-neutral-900 mb-6 fade-in stagger-1">
+              {t("contact.title")}
+            </h1>
+            <p className="text-xl text-neutral-600 leading-relaxed fade-in stagger-2">
+              {t("contact.subtitle")}
             </p>
           </div>
         </div>
       </section>
 
+      {/* Contact Methods - Cards destacadas */}
       <section className="section-padding bg-white">
         <div className="section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="slide-up">
-              <h2 className="heading-md mb-8">{t('contact.infoTitle')}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
+            {contactMethods.map((method, index) => {
+              const Icon = method.icon;
+              return (
+                <div
+                  key={method.title}
+                  className={`group text-center p-8 rounded-2xl bg-gradient-to-br from-neutral-50 to-white border-2 border-neutral-100 transition-all duration-300 hover:border-primary-300 hover:shadow-lg slide-up stagger-${
+                    index + 1
+                  }`}
+                >
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-50 rounded-2xl flex items-center justify-center mx-auto mb-4 transform transition-transform duration-300 group-hover:scale-110">
+                    <Icon className="w-8 h-8 text-primary-600" />
+                  </div>
 
-              <div className="space-y-6 mb-8">
-                {contactInfo.map((info) => {
-                  const Icon = info.icon;
-                  return (
-                    <div key={info.label} className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-6 h-6 text-primary-600" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-neutral-900 mb-1">{info.label}</p>
-                        {info.link ? (
-                          <a
-                            href={info.link}
-                            className="text-neutral-600 hover:text-primary-600 transition-colors"
-                          >
-                            {info.value}
-                          </a>
-                        ) : (
-                          <p className="text-neutral-600">{info.value}</p>
-                        )}
-                      </div>
+                  <h3 className="text-lg font-bold text-neutral-900 mb-2">
+                    {method.title}
+                  </h3>
+
+                  <p className="text-sm text-neutral-500 mb-3">
+                    {method.description}
+                  </p>
+
+                  {method.link ? (
+                    <a
+                      href={method.link}
+                      className="inline-block text-primary-600 font-semibold hover:text-primary-700 transition-colors"
+                    >
+                      {method.value}
+                    </a>
+                  ) : (
+                    <p className="text-neutral-700 font-semibold">
+                      {method.value}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Form y sidebar */}
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+              {/* Formulario - Ocupa más espacio (3 columnas) */}
+              <div className="lg:col-span-3 slide-up">
+                <div className="bg-white rounded-2xl border-2 border-neutral-100 p-8 lg:p-10">
+                  <div className="mb-8">
+                    <h2 className="text-2xl lg:text-3xl font-bold text-neutral-900 mb-3">
+                      {t("contact.formTitle") || "Send us a message"}
+                    </h2>
+                    <p className="text-neutral-600">
+                      {t("contact.formSubtitle") ||
+                        "Fill out the form below and we'll get back to you within 24 hours"}
+                    </p>
+                  </div>
+                  <ContactForm />
+                </div>
+              </div>
+
+              {/* Info adicional - Sidebar (2 columnas) */}
+              <div className="lg:col-span-2 space-y-6 slide-up stagger-1">
+                {/* Disponibilidad 24/7 */}
+                <div className="bg-gradient-to-br from-primary-50 to-white rounded-2xl border-2 border-primary-100 p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center">
+                      <Clock className="w-6 h-6 text-primary-600" />
                     </div>
-                  );
-                })}
-              </div>
-
-              <div>
-                <h3 className="font-semibold text-neutral-900 mb-4">{t('contact.followUs')}</h3>
-                <div className="flex gap-4">
-                  {socialLinks.map((social) => {
-                    const Icon = social.icon;
-                    return (
-                      <a
-                        key={social.label}
-                        href={social.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center hover:bg-primary-600 hover:text-white transition-colors duration-200"
-                        aria-label={social.label}
-                      >
-                        <Icon className="w-6 h-6" />
-                      </a>
-                    );
-                  })}
+                    <h3 className="text-lg font-bold text-neutral-900">
+                      {t("contact.availabilityTitle") || "24/7 Availability"}
+                    </h3>
+                  </div>
+                  <p className="text-neutral-700 text-sm leading-relaxed mb-4">
+                    {t("contact.availabilityText") ||
+                      "We're available around the clock to assist you. Reach out anytime, and we'll respond as quickly as possible."}
+                  </p>
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="font-semibold text-green-700">
+                      {t("contact.onlineNow") || "Online Now"}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              <div className="mt-8">
-                <div className="w-full h-64 bg-neutral-200 rounded-xl overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&h=400&fit=crop&q=80"
-                    alt="Office Location"
-                    className="w-full h-full object-cover"
-                  />
+                {/* Redes Sociales */}
+                <div className="bg-gradient-to-br from-neutral-50 to-white rounded-2xl border-2 border-neutral-100 p-6">
+                  <h3 className="text-lg font-bold text-neutral-900 mb-4">
+                    {t("contact.followTitle") || "Follow Us"}
+                  </h3>
+                  <p className="text-neutral-600 text-sm mb-6">
+                    {t("contact.followText") ||
+                      "Stay updated with our latest news and insights"}
+                  </p>
+                  <div className="grid grid-cols-2 gap-3">
+                    {socialLinks.map((social) => {
+                      const Icon = social.icon;
+                      return (
+                        <a
+                          key={social.label}
+                          href={social.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`flex items-center gap-3 p-4 bg-white rounded-xl border-2 border-neutral-100 transition-all duration-300 hover:border-transparent hover:text-white ${social.color} group`}
+                          aria-label={social.label}
+                        >
+                          <Icon className="w-5 h-5" />
+                          <span className="text-sm font-semibold">
+                            {social.label}
+                          </span>
+                        </a>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            <div className="slide-up stagger-1">
-              <div className="card">
-                <ContactForm />
+                {/* CTA de urgencia */}
+                <div className="bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-2xl p-6 text-white">
+                  <h3 className="text-lg font-bold mb-2">
+                    {t("contact.urgentTitle") || "Need immediate help?"}
+                  </h3>
+                  <p className="text-neutral-300 text-sm mb-4">
+                    {t("contact.urgentText") ||
+                      "Call us directly for instant support"}
+                  </p>
+                  <a
+                    href="tel:+1234567890"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-white text-neutral-900 font-semibold rounded-lg hover:bg-neutral-100 transition-colors w-full justify-center"
+                  >
+                    <Phone className="w-5 h-5" />
+                    +1 (234) 567-890
+                  </a>
+                </div>
               </div>
             </div>
           </div>
