@@ -252,7 +252,7 @@
     "gdprText1": "I have read and accept the",
     "gdprText2": " and the processing of my personal data",
     "privacyPolicy": "Privacy Policy",
-    "gdprNote": "Your data will be processed according to our privacy policy...",
+    "gdprNote": "Your data will be processed according to our privacy policy",
     "successMessage": "Message sent successfully!",
     "errorMessage": "Error sending. Please try again.",
     "sending": "Sending...",
