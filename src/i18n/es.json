@@ -255,6 +255,7 @@
     "gdprNote": "Tus datos serán tratados conforme a nuestra política de privacidad",
     "successMessage": "¡Mensaje enviado con éxito!",
     "errorMessage": "Error al enviar. Inténtalo de nuevo.",
+    "tooManyAttempts": "Demasiados intentos. Espera un momento.",
     "sending": "Enviando...",
     "loading": "Cargando..."
   },

@@ -46,11 +46,7 @@ export const ContactForm = () => {
     e.preventDefault();
 
     if (submitAttempts >= 3) {
-      showSnackbar(
-        t("contact.tooManyAttempts") ||
-          "Demasiados intentos. Espera un momento.",
-        "error"
-      );
+      showSnackbar(t("contact.tooManyAttempts"), "error");
       return;
     }
 
@@ -107,11 +103,7 @@ export const ContactForm = () => {
 
       setSubmitStatus("success");
 
-      showSnackbar(
-        t("contact.successMessage") ||
-          "¡Mensaje enviado! Revisa tu email para la confirmación.",
-        "success"
-      );
+      showSnackbar(t("contact.successMessage"), "success");
 
       setFormData({
         name: "",
@@ -125,11 +117,7 @@ export const ContactForm = () => {
       setSubmitAttempts(0); // Resetear intentos después del éxito
     } catch (error) {
       console.error("EmailJS error:", error);
-      showSnackbar(
-        t("contact.errorMessage") ||
-          "Error al enviar el mensaje. Inténtalo de nuevo.",
-        "error"
-      );
+      showSnackbar(t("contact.errorMessage"), "error");
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -249,18 +237,15 @@ export const ContactForm = () => {
               to="/privacy-policy"
               className="text-primary-600 hover:text-primary-700 underline font-medium"
             >
-              {t("contact.privacyPolicy") || "Política de Privacidad"}
+              {t("contact.privacyPolicy")}
             </Link>{" "}
-            {t("contact.gdprText2") ||
-              "y el tratamiento de mis datos personales"}
-            *
+            {t("contact.gdprText2")}*
           </label>
         </div>
 
         {/* Nota legal pequeña */}
         <p className="text-xs text-neutral-500 leading-relaxed">
-          {t("contact.gdprNote") ||
-            "Tus datos serán tratados conforme a nuestra política de privacidad. Puedes ejercer tus derechos de acceso, rectificación y supresión contactándonos."}
+          {t("contact.gdprNote")}
         </p>
 
         <button
