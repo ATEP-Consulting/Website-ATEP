@@ -269,7 +269,8 @@
     "protection": "Protección de Datos",
     "protectionText": "Implementamos medidas técnicas y organizativas apropiadas para proteger tu información personal contra el acceso no autorizado, alteración, divulgación o destrucción.",
     "rights": "Tus Derechos",
-    "rightsText": "Tienes derecho a acceder, corregir o eliminar tu información personal. También puedes oponerte o restringir cierto procesamiento de tus datos. Para ejercer estos derechos, contáctanos utilizando la información proporcionada en nuestra página de Contacto."
+    "rightsText": "Tienes derecho a acceder, corregir o eliminar tu información personal. También puedes oponerte o restringir cierto procesamiento de tus datos. Para ejercer estos derechos, contáctanos utilizando la información proporcionada en nuestra página de Contacto.",
+    "questions": "Para preguntas sobre esta Política de Privacidad, por favor contáctenos en"
   },
   "cookies": {
     "title": "Política de Cookies",
@@ -284,7 +285,8 @@
     "analytics": "Cookies Analíticas: Nos ayudan a entender cómo los visitantes usan nuestro sitio web.",
     "preference": "Cookies de Preferencia: Recuerdan tus configuraciones y preferencias.",
     "control": "Control de Cookies",
-    "controlText": "Puedes controlar y gestionar las cookies a través de la configuración de tu navegador. Ten en cuenta que deshabilitar ciertas cookies puede afectar la funcionalidad de nuestro sitio web."
+    "controlText": "Puedes controlar y gestionar las cookies a través de la configuración de tu navegador. Ten en cuenta que deshabilitar ciertas cookies puede afectar la funcionalidad de nuestro sitio web.",
+    "questions": "Para preguntas sobre esta Política de Cookies, por favor contáctenos en"
   },
   "404": {
     "title": "404 - Página No Encontrada",

@@ -269,7 +269,8 @@
     "protection": "Data Protection",
     "protectionText": "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.",
     "rights": "Your Rights",
-    "rightsText": "You have the right to access, correct, or delete your personal information. You may also object to or restrict certain processing of your data. To exercise these rights, please contact us using the information provided on our Contact page."
+    "rightsText": "You have the right to access, correct, or delete your personal information. You may also object to or restrict certain processing of your data. To exercise these rights, please contact us using the information provided on our Contact page.",
+    "questions": "For questions about this Privacy Policy, please contact us at"
   },
   "cookies": {
     "title": "Cookies Policy",
@@ -284,7 +285,8 @@
     "analytics": "Analytics Cookies: Help us understand how visitors use our website.",
     "preference": "Preference Cookies: Remember your settings and preferences.",
     "control": "Cookie Control",
-    "controlText": "You can control and manage cookies through your browser settings. Please note that disabling certain cookies may affect the functionality of our website."
+    "controlText": "You can control and manage cookies through your browser settings. Please note that disabling certain cookies may affect the functionality of our website.",
+    "questions": "For questions about this Cookies Policy, please contact us at"
   },
   "404": {
     "title": "404 - Page Not Found",
