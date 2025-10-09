@@ -152,7 +152,7 @@ export const Home = () => {
             <ServicesCarousel services={services} />
           </div>
 
-          <div className="text-center mt-14">
+          <div className="text-center mt-20">
             <Link to="/services" className="btn-outline">
               {t("services.viewAll")}
             </Link>
