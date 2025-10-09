@@ -142,7 +142,11 @@ export const HowWeWork = () => {
                         </span>
                       </div>
                       <h3 className="heading-md mb-4">{step.title}</h3>
-                      <p className="text-body leading-relaxed max-w-md lg:ml-auto">
+                      <p
+                        className={`text-body leading-relaxed max-w-md ${
+                          isEven ? "lg:ml-auto" : "lg:mr-auto"
+                        }`}
+                      >
                         {step.description}
                       </p>
                     </div>
