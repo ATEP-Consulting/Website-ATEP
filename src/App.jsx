@@ -18,6 +18,7 @@ import { CookiesPolicy } from "./pages/CookiesPolicy";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { NotFound } from "./pages/NotFound";
 import { SnackbarProvider } from "./context/SnackBarContext";
+import { WhatsAppButton } from "./components/WhatsAppButton";
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
+        <WhatsAppButton />
       </SnackbarProvider>
     </LanguageProvider>
   );

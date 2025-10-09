@@ -310,5 +310,9 @@
     "newsletterPlaceholder": "Your email address",
     "newsletterButton": "Subscribe",
     "copyright": "© 2025 ATEP Consulting. All rights reserved."
+  },
+  "whatsapp": {
+    "defaultMessage": "Hello, I would like to get more information about your services.",
+    "tooltip": "Need help?"
   }
 }
