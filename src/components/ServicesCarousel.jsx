@@ -44,7 +44,7 @@ export const ServicesCarousel = ({ services }) => {
 
   return (
     <div className="relative">
-      <div className="overflow-hidden">
+      <div className="overflow-visible">
         <div
           className="grid transition-all duration-500 ease-out"
           style={{
@@ -59,13 +59,13 @@ export const ServicesCarousel = ({ services }) => {
         >
           {services.map((service, index) => (
             <div key={`${service.link}-${index}`}>
-              <ServiceCard {...service} />
+              <ServiceCard {...service} index={index} />
             </div>
           ))}
         </div>
       </div>
 
-      <div className="flex justify-center gap-2 mt-8">
+      <div className="flex justify-center gap-2 mt-12">
         {Array.from({ length: services.length - visibleCount + 1 }).map(
           (_, index) => (
             <button
