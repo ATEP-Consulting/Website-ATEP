@@ -3,6 +3,7 @@ import { Send } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { Link } from "react-router-dom";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import emailjs from "emailjs-com";
 
 export const ContactForm = () => {
   const { t } = useLanguage();
@@ -22,7 +23,7 @@ export const ContactForm = () => {
     formData.message.trim() &&
     formData.gdprConsent;
 
-  const { executeRecaptcha } = useGoogleReCaptcha();
+  // const { executeRecaptcha } = useGoogleReCaptcha();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [canSubmit, setCanSubmit] = useState(false);
@@ -41,32 +42,60 @@ export const ContactForm = () => {
     e.preventDefault();
 
     if (submitAttempts >= 3) {
-      alert("Demasiados intentos. Espera un momento.");
       return;
     }
 
     setSubmitAttempts((prev) => prev + 1);
 
     if (formData.honeypot !== "") {
-      console.log("Bot detected!");
       return;
     }
 
     if (!formData.gdprConsent) {
-      alert(
-        t("contact.gdprRequired") || "Debes aceptar la política de privacidad"
-      );
       return;
     }
 
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    console.log("Form submitted:", formData);
-    alert("Message sent successfully!");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    try {
+      // Ejecutar reCAPTCHA v3 si está activo
+      // let token = null;
+      // if (executeRecaptcha) {
+      //   token = await executeRecaptcha("contact_form");
+      // }
 
-    setIsSubmitting(false);
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        // "g-recaptcha-response": token, // opcional
+      };
+
+      const result = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      setSubmitStatus("success");
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+        gdprConsent: false,
+        honeypot: "",
+      });
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Habilitar el botón después de 3 segundos
