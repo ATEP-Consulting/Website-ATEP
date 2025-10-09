@@ -95,7 +95,7 @@ const Hero = ({
             <div className="absolute -inset-4 bg-gradient-to-br from-primary-200 to-primary-300 rounded-3xl blur-2xl opacity-30 animate-pulse"></div>
 
             {/* Imagen principal */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-lg overflow-hidden shadow-2xl">
               <img
                 src={image}
                 alt={title}
