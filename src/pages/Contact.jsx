@@ -6,8 +6,6 @@ import {
   Send,
   Linkedin,
   Instagram,
-  Twitter,
-  Facebook,
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { SEO } from "../components/SEO";

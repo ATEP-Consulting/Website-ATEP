@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, Linkedin, Twitter, Facebook } from "lucide-react";
+import { Mail, Phone, Linkedin, Instagram } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import CTA from "./CTA";
 import logo from "../assets/logos/new-logo-atep.svg";
@@ -22,8 +22,7 @@ export const Footer = () => {
 
   const socialLinks = [
     { icon: Linkedin, url: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Twitter, url: "https://twitter.com", label: "Twitter" },
-    { icon: Facebook, url: "https://facebook.com", label: "Facebook" },
+    { icon: Instagram, url: "https://facebook.com", label: "Instagram" },
   ];
 
   return (
