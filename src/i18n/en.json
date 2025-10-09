@@ -262,32 +262,169 @@
   "privacy": {
     "title": "Privacy Policy",
     "lastUpdated": "Last Updated",
-    "intro": "At ATEP Consulting, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.",
-    "collection": "Information Collection",
-    "collectionText": "We collect information that you provide directly to us, such as when you fill out a contact form, subscribe to our newsletter, or communicate with us. This may include your name, email address, phone number, and any other information you choose to provide.",
-    "usage": "How We Use Your Information",
-    "usageText": "We use the information we collect to respond to your inquiries, provide our services, send you marketing communications (with your consent), and improve our website and services.",
-    "protection": "Data Protection",
-    "protectionText": "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.",
+    "lastUpdatedDate": "October 9, 2025",
+    "intro": "At ATEP Consulting, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.",
+
+    "responsible": "Data Controller",
+    "responsibleText": "The data controller responsible for your personal information is:",
+    "companyName": "Company: ATEP Consulting",
+    "companyAddress": "Address: Street NUMBER 611 (MONTECAÑADA), 3",
+    "companyEmail": "Email: info@atepconsulting.com",
+    "companyPhone": "Phone: +43 647 748 705",
+
+    "collection": "Information We Collect",
+    "collectionText": "We collect the following types of personal information:",
+    "collectionItem1": "Identification data: name, surname, email address, phone number",
+    "collectionItem2": "Navigation data: IP address, browser type, pages visited, access time",
+    "collectionItem3": "Professional data: company, position, sector of activity",
+    "collectionItem4": "Any other information you voluntarily provide through our contact forms",
+
+    "purpose": "Purpose of Data Processing",
+    "purposeText": "We use your personal information for the following purposes:",
+    "purposeItem1": "Respond to your inquiries and provide requested information",
+    "purposeItem2": "Manage and provide our consulting services",
+    "purposeItem3": "Send commercial communications about our services (with your prior consent)",
+    "purposeItem4": "Improve our website and user experience",
+
+    "legalBasis": "Legal Basis",
+    "legalBasisText": "The legal basis for processing your data is your explicit consent when filling out our contact forms, as well as the execution of a contractual relationship for the provision of our services.",
+
+    "retention": "Data Retention",
+    "retentionText": "We will retain your personal data for as long as necessary to fulfill the purposes described in this policy, unless a longer retention period is required or permitted by law. Contact data will be retained for up to 2 years from the last interaction, unless you request their deletion.",
+
+    "recipients": "Data Recipients",
+    "recipientsText": "Your data may be shared with the following recipients:",
+    "recipientsItem1": "Email service providers (e.g., EmailJS) for sending communications",
+    "recipientsItem2": "Hosting and cloud services providers for data storage",
+    "recipientsItem3": "Legal, tax, and professional advisors when necessary",
+
     "rights": "Your Rights",
-    "rightsText": "You have the right to access, correct, or delete your personal information. You may also object to or restrict certain processing of your data. To exercise these rights, please contact us using the information provided on our Contact page.",
-    "questions": "For questions about this Privacy Policy, please contact us at"
+    "rightsText": "Under the General Data Protection Regulation (GDPR), you have the following rights:",
+    "rightsItem1": "Right of access: to know what data we have about you",
+    "rightsItem2": "Right to rectification: to correct inaccurate data",
+    "rightsItem3": "Right to erasure: to request deletion of your data",
+    "rightsItem4": "Right to restriction: to limit the processing of your data",
+    "rightsItem5": "Right to data portability: to receive your data in a structured format",
+    "rightsItem6": "Right to object: to oppose certain processing of your data",
+    "rightsItem7": "Right to lodge a complaint with the Spanish Data Protection Agency (AEPD)",
+    "rightsExercise": "To exercise these rights, please contact us at info@atepconsulting.com, including proof of your identity.",
+
+    "protection": "Security Measures",
+    "protectionText": "We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. This includes encryption, secure servers, and regular security audits.",
+
+    "cookies": "Cookies Policy",
+    "cookiesText": "Our website uses cookies to improve user experience. For more information about the cookies we use and how to manage them, please visit our Cookies Policy.",
+
+    "thirdParty": "Third-Party Links",
+    "thirdPartyText": "Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites. We recommend reviewing their privacy policies before providing any personal information.",
+
+    "modifications": "Policy Modifications",
+    "modificationsText": "We reserve the right to modify this Privacy Policy at any time. Any changes will be posted on this page with an updated 'Last Updated' date. We recommend reviewing this policy periodically.",
+
+    "contact": "Contact",
+    "contactText": "For questions about this Privacy Policy or to exercise your rights, please contact us at"
   },
   "cookies": {
     "title": "Cookies Policy",
     "lastUpdated": "Last Updated",
-    "intro": "This Cookies Policy explains how ATEP Consulting uses cookies and similar technologies on our website.",
-    "whatAre": "What Are Cookies",
-    "whatAreText": "Cookies are small text files that are placed on your device when you visit a website. They help websites remember your preferences and improve your browsing experience.",
+    "lastUpdatedDate": "October 9, 2025",
+    "intro": "This Cookies Policy explains how ATEP Consulting uses cookies and similar technologies on our website to enhance your experience and provide our services.",
+
+    "whatAre": "What Are Cookies?",
+    "whatAreText": "Cookies are small text files that are stored on your device (computer, tablet, or mobile) when you visit a website. They allow the website to remember your actions and preferences over a period of time, so you don't have to reconfigure them every time you visit the site or browse from one page to another.",
+
     "howWeUse": "How We Use Cookies",
-    "howWeUseText": "We use cookies to understand how you interact with our website, remember your preferences, and analyze site traffic. This helps us improve our website and provide you with a better experience.",
+    "howWeUseText": "We use cookies to understand how you interact with our website, remember your preferences, analyze traffic, and improve our services. This allows us to provide you with a personalized and efficient experience on our website.",
+
     "types": "Types of Cookies We Use",
-    "essential": "Essential Cookies: Required for the website to function properly.",
-    "analytics": "Analytics Cookies: Help us understand how visitors use our website.",
-    "preference": "Preference Cookies: Remember your settings and preferences.",
-    "control": "Cookie Control",
-    "controlText": "You can control and manage cookies through your browser settings. Please note that disabling certain cookies may affect the functionality of our website.",
-    "questions": "For questions about this Cookies Policy, please contact us at"
+    "examplesLabel": "Examples",
+    "durationLabel": "Duration",
+
+    "essentialTitle": "1. Essential Cookies (Technical)",
+    "essentialDesc": "These are essential for the website to function properly. Without these cookies, certain services cannot be provided.",
+    "essentialExamples": "Session cookies, security cookies, language cookies",
+    "essentialDuration": "Session or up to 1 year",
+
+    "analyticsTitle": "2. Analytics Cookies",
+    "analyticsDesc": "These allow us to analyze how users use the website and monitor site performance. All information is anonymous.",
+    "analyticsExamples": "Google Analytics, visit statistics, most visited pages",
+    "analyticsDuration": "Up to 2 years",
+
+    "preferenceTitle": "3. Preference Cookies",
+    "preferenceDesc": "These allow the website to remember information that changes how the site behaves or looks, such as your preferred language.",
+    "preferenceExamples": "Language preferences, display settings",
+    "preferenceDuration": "Up to 1 year",
+
+    "thirdParty": "Third-Party Cookies",
+    "thirdPartyText": "In addition to our own cookies, we may use third-party cookies for various purposes:",
+    "thirdPartyItem1": "Google Analytics: To analyze website usage and improve our services",
+    "thirdPartyItem2": "EmailJS: To manage contact form submissions",
+
+    "control": "Cookie Control and Management",
+    "controlText": "You can control and/or delete cookies as you wish. You can delete all cookies that are already on your device and you can set most browsers to prevent them from being installed. However, if you do this, you may have to manually adjust some preferences each time you visit the site and some services and features may not work properly.",
+    "browserSettings": "Browser settings:",
+    "chromeInstructions": "Settings > Privacy and security > Cookies and other site data",
+    "firefoxInstructions": "Options > Privacy & Security > Cookies and Site Data",
+    "safariInstructions": "Preferences > Privacy > Manage Website Data",
+    "edgeInstructions": "Settings > Cookies and site permissions > Manage and delete cookies",
+
+    "acceptance": "Cookie Acceptance",
+    "acceptanceText": "By continuing to browse our website without changing your browser's cookie settings, you accept the use of cookies as described in this policy. You can withdraw your consent at any time by changing your browser settings.",
+
+    "updates": "Updates to This Policy",
+    "updatesText": "We may update this Cookies Policy periodically to reflect changes in the cookies we use or for other operational, legal, or regulatory reasons. Please review this page regularly to stay informed about our use of cookies.",
+
+    "contact": "Contact",
+    "contactText": "If you have questions about our Cookies Policy, please contact us at"
+  },
+  "legal": {
+    "title": "Legal Notice",
+    "lastUpdated": "Last Updated",
+    "lastUpdatedDate": "October 9, 2025",
+    "intro": "In compliance with Law 34/2002, of July 11, on Information Society Services and Electronic Commerce (LSSI-CE), ATEP Consulting informs website users about the following legal aspects.",
+
+    "identification": "Identification Data",
+    "identificationText": "The identification data of the website owner are:",
+    "companyNameLabel": "Company Name",
+    "cifLabel": "Tax ID",
+    "addressLabel": "Address",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+
+    "purpose": "Website Purpose",
+    "purposeText": "This website aims to provide information about the consulting services offered by ATEP Consulting, as well as facilitate contact between the company and its potential clients. Access to and use of the website grants user status and implies full acceptance of all conditions included in this Legal Notice.",
+
+    "accessConditions": "Access and Use Conditions",
+    "accessConditionsText": "Access to and use of this website implies acceptance of the following conditions:",
+    "accessItem1": "The user agrees to make proper use of the website and its contents, in accordance with current legislation and this Legal Notice.",
+    "accessItem2": "The user agrees not to use the website for unlawful purposes or purposes harmful to ATEP Consulting or third parties.",
+    "accessItem3": "Any use of the website that may cause damage, disable, overload, or deteriorate it or prevent its normal use is prohibited.",
+    "accessItem4": "The user may not introduce programs, viruses, macros, applets, ActiveX controls, or any other logical device that may cause alterations to the website.",
+
+    "intellectualProperty": "Intellectual and Industrial Property",
+    "intellectualPropertyText": "All website content, including, without limitation, texts, photographs, graphics, images, icons, technology, software, links, and other audiovisual or sound content, as well as its graphic design and source codes, are the intellectual property of ATEP Consulting or third parties, without any exploitation rights recognized by current intellectual property regulations being transferred to the user. Reproduction, distribution, public communication, transformation, or any other form of exploitation of the content without prior written authorization from ATEP Consulting is prohibited.",
+
+    "liability": "Limitation of Liability",
+    "liabilityText": "ATEP Consulting is not responsible for:",
+    "liabilityItem1": "The quality of service, access speed, correct operation, availability, or continuity of the website.",
+    "liabilityItem2": "Errors or inaccuracies that may be found in the website content.",
+    "liabilityItem3": "Damages that may arise from unlawful or improper use of the website by users.",
+
+    "externalLinks": "Links to Third-Party Websites",
+    "externalLinksText": "The website may contain links to third-party websites. ATEP Consulting assumes no responsibility for the content, accuracy, or operation of such websites. Access to and use of them will be at the user's sole responsibility.",
+
+    "dataProtection": "Personal Data Protection",
+    "dataProtectionText": "ATEP Consulting is committed to protecting user privacy. For more information on how we process your personal data, please see our",
+    "privacyPolicyLink": "Privacy Policy",
+
+    "applicableLegislation": "Applicable Legislation and Jurisdiction",
+    "applicableLegislationText": "These conditions are governed by Spanish law. For the resolution of any conflict that may arise on the occasion of visiting the website or using the services that may be offered on it, ATEP Consulting and the user agree to submit to the Courts and Tribunals of the user's domicile. In the event that the user is domiciled outside Spain, ATEP Consulting and the user submit, with express waiver of any other jurisdiction, to the courts and tribunals of the city where ATEP Consulting has its registered office.",
+
+    "modifications": "Modifications",
+    "modificationsText": "ATEP Consulting reserves the right to make modifications it deems appropriate to its website without prior notice, being able to change, delete, or add both the contents and services provided through it as well as the way in which they appear presented or located.",
+
+    "contact": "Contact",
+    "contactText": "For any questions related to this Legal Notice, please contact us at"
   },
   "404": {
     "title": "404 - Page Not Found",

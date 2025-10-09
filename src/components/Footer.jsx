@@ -18,6 +18,7 @@ export const Footer = () => {
   const legalLinks = [
     { path: "/privacy-policy", label: t("privacy.title") },
     { path: "/cookies-policy", label: t("cookies.title") },
+    { path: "/legal-notice", label: t("legal.title") },
   ];
 
   const socialLinks = [

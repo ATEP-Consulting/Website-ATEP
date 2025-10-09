@@ -19,6 +19,7 @@ import { ScrollToTop } from "./components/ScrollToTop";
 import { NotFound } from "./pages/NotFound";
 import { SnackbarProvider } from "./context/SnackBarContext";
 import { WhatsAppButton } from "./components/WhatsAppButton";
+import { LegalNotice } from "./pages/LegalNotice";
 
 function App() {
   return (
@@ -57,6 +58,7 @@ function App() {
               <Route path="contact" element={<Contact />} />
               <Route path="privacy-policy" element={<PrivacyPolicy />} />
               <Route path="cookies-policy" element={<CookiesPolicy />} />
+              <Route path="legal-notice" element={<LegalNotice />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
