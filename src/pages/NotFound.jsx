@@ -92,10 +92,10 @@ export const NotFound = () => {
             </div>
 
             {/* Botón principal */}
-            <div className="mb-16 fade-in stagger-2">
+            <div className="mb-16 fade-in stagger-2 flex justify-center items-center">
               <Link
                 to="/"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="btn-primary flex gap-2 items-center justify-center"
               >
                 <ArrowLeft className="w-5 h-5" />
                 {t("404.backHome") || "Back to Home"}
@@ -115,7 +115,7 @@ export const NotFound = () => {
                     <Link
                       key={link.path}
                       to={link.path}
-                      className="group p-6 bg-white rounded-xl border-2 border-neutral-100 transition-all duration-300 hover:border-primary-300 hover:shadow-lg hover:-translate-y-1"
+                      className="group p-6 bg-white rounded-xl border-2 border-neutral-100 transition-all duration-300"
                     >
                       <div className="w-12 h-12 bg-gradient-to-br from-primary-100 to-primary-50 rounded-xl flex items-center justify-center mx-auto mb-4 transform transition-transform duration-300 group-hover:scale-110">
                         <Icon className="w-6 h-6 text-primary-600" />

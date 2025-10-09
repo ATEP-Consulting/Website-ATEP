@@ -94,7 +94,7 @@ export const Contact = () => {
               return (
                 <div
                   key={method.title}
-                  className={`group text-center p-8 rounded-2xl bg-gradient-to-br from-neutral-50 to-white border-2 border-neutral-100 transition-all duration-300 hover:border-primary-500 hover:shadow-lg slide-up stagger-${
+                  className={`group text-center p-8 rounded-2xl bg-gradient-to-br from-neutral-50 to-white border-2 border-neutral-100 transition-all duration-300 slide-up stagger-${
                     index + 1
                   }`}
                 >
@@ -122,6 +122,7 @@ export const Contact = () => {
                       {method.value}
                     </p>
                   )}
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full transition-all duration-300 group-hover:w-20"></div>
                 </div>
               );
             })}
