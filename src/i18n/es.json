@@ -256,6 +256,20 @@
     "control": "Control de Cookies",
     "controlText": "Puedes controlar y gestionar las cookies a través de la configuración de tu navegador. Ten en cuenta que deshabilitar ciertas cookies puede afectar la funcionalidad de nuestro sitio web."
   },
+  "404": {
+    "title": "404 - Página No Encontrada",
+    "subtitle": "La página que buscas no existe",
+    "heading": "Página No Encontrada",
+    "message": "¡Ups! La página que buscas no existe. Puede que haya sido movida o eliminada.",
+    "backHome": "Volver al Inicio",
+    "quickLinks": "Enlaces Rápidos",
+    "homeLink": "Inicio",
+    "homeDesc": "Volver a la página principal",
+    "servicesLink": "Servicios",
+    "servicesDesc": "Explora nuestros servicios",
+    "blogLink": "Blog",
+    "blogDesc": "Lee nuestros artículos"
+  },
   "footer": {
     "tagline": "Empoderando empresas a través de soluciones tecnológicas innovadoras",
     "quickLinks": "Enlaces Rápidos",

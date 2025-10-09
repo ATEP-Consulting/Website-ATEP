@@ -16,6 +16,7 @@ import { Contact } from "./pages/Contact";
 import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { CookiesPolicy } from "./pages/CookiesPolicy";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { NotFound } from "./pages/NotFound";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
             <Route path="contact" element={<Contact />} />
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
             <Route path="cookies-policy" element={<CookiesPolicy />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>

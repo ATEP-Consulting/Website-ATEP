@@ -256,6 +256,20 @@
     "control": "Cookie Control",
     "controlText": "You can control and manage cookies through your browser settings. Please note that disabling certain cookies may affect the functionality of our website."
   },
+  "404": {
+    "title": "404 - Page Not Found",
+    "subtitle": "The page you're looking for doesn't exist",
+    "heading": "Page Not Found",
+    "message": "Oops! The page you're looking for doesn't exist. It might have been moved or deleted.",
+    "backHome": "Back to Home",
+    "quickLinks": "Quick Links",
+    "homeLink": "Home",
+    "homeDesc": "Back to homepage",
+    "servicesLink": "Services",
+    "servicesDesc": "Explore our services",
+    "blogLink": "Blog",
+    "blogDesc": "Read our articles"
+  },
   "footer": {
     "tagline": "Empowering businesses through innovative technology solutions",
     "quickLinks": "Quick Links",
