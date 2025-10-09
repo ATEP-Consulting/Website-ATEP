@@ -79,7 +79,7 @@ export const ServicesCarousel = ({ services }) => {
         </div>
       </div>
 
-      <div className="flex justify-center gap-2 mt-8 absolute -bottom-4 left-1/2 transform -translate-x-1/2">
+      <div className="flex justify-center gap-2 mt-8 absolute -bottom-8 left-1/2 transform -translate-x-1/2">
         {Array.from({ length: services.length - visibleCount + 1 }).map(
           (_, index) => (
             <button
