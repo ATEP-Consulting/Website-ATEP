@@ -25,8 +25,8 @@ export const Contact = () => {
     {
       icon: Phone,
       title: t("contact.phoneTitle") || "Call Us",
-      value: "+1 (234) 567-890",
-      link: "tel:+1234567890",
+      value: "+34 647 748 705",
+      link: "tel:+34647748705",
       description: t("contact.phoneDesc") || "Available 24/7 for you",
     },
     {
@@ -214,7 +214,7 @@ export const Contact = () => {
                     className="inline-flex items-center gap-2 px-6 py-3 bg-white text-neutral-900 font-semibold rounded-lg hover:bg-neutral-100 transition-colors w-full justify-center"
                   >
                     <Phone className="w-5 h-5" />
-                    +1 (234) 567-890
+                    +34 647 748 705
                   </a>
                 </div>
               </div>
