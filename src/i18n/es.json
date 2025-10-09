@@ -247,7 +247,16 @@
     "followTitle": "Síguenos",
     "followText": "Mantente al día con nuestras últimas novedades",
     "urgentTitle": "¿Necesitas ayuda inmediata?",
-    "urgentText": "Llámanos directamente para soporte instantáneo"
+    "urgentText": "Llámanos directamente para soporte instantáneo",
+    "gdprRequired": "Debes aceptar la política de privacidad",
+    "gdprText1": "He leído y acepto la",
+    "gdprText2": " y el tratamiento de mis datos personales",
+    "privacyPolicy": "Política de Privacidad",
+    "gdprNote": "Tus datos serán tratados conforme a nuestra política de privacidad...",
+    "successMessage": "¡Mensaje enviado con éxito!",
+    "errorMessage": "Error al enviar. Inténtalo de nuevo.",
+    "sending": "Enviando...",
+    "loading": "Cargando..."
   },
   "privacy": {
     "title": "Política de Privacidad",
