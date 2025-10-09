@@ -22,20 +22,20 @@
   },
   "stats": {
     "stat1": {
-      "number": "15+",
+      "number": "2+",
       "label": "Años de experiencia"
     },
     "stat2": {
-      "number": "500+",
+      "number": "5+",
       "label": "Proyectos completados"
     },
     "stat3": {
-      "number": "50+",
-      "label": "Miembros del equipo"
+      "number": "5+",
+      "label": "Clientes satisfechos"
     },
     "stat4": {
-      "number": "98%",
-      "label": "Satisfacción del cliente"
+      "number": "100%",
+      "label": "Soluciones personalizadas"
     }
   },
   "logo": {

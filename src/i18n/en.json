@@ -22,20 +22,20 @@
   },
   "stats": {
     "stat1": {
-      "number": "15+",
-      "label": "Years Experience"
+      "number": "2+",
+      "label": "Years of experience"
     },
     "stat2": {
-      "number": "500+",
-      "label": "Projects Completed"
+      "number": "5+",
+      "label": "Projects completed"
     },
     "stat3": {
-      "number": "50+",
-      "label": "Team Members"
+      "number": "5+",
+      "label": "Satisfied Clients"
     },
     "stat4": {
-      "number": "98%",
-      "label": "Client Satisfaction"
+      "number": "100%",
+      "label": "Customized solutions"
     }
   },
   "logo": {
