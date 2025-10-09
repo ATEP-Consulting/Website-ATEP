@@ -2,10 +2,10 @@ import {
   Target,
   Eye,
   Linkedin,
-  Award,
+  Handshake,
   Users,
-  Lightbulb,
-  Heart,
+  Star,
+  ShieldPlus,
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { SEO } from "../components/SEO";
@@ -16,32 +16,38 @@ export const AboutUs = () => {
 
   const values = [
     {
-      icon: Award,
-      title: t("about.value1Title") || "Excellence",
-      description:
-        t("about.value1Text") || "We strive for excellence in everything we do",
-      image:
-        "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=80",
-    },
-    {
       icon: Users,
-      title: t("about.value2Title") || "Collaboration",
+      title: t("about.value1Title") || "Assistance",
       description:
-        t("about.value2Text") || "We believe in the power of teamwork",
+        t("about.value1Text") ||
+        "We are always by your side. We provide proactive and continuous support, guaranteeing a smooth implementation and the efficient achievement of your goals",
       image:
         "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=80",
     },
     {
-      icon: Lightbulb,
-      title: t("about.value3Title") || "Innovation",
-      description: t("about.value3Text") || "We embrace creative solutions",
+      icon: Handshake,
+      title: t("about.value2Title") || "Trust",
+      description:
+        t("about.value2Text") ||
+        "We build every relationship on trust. We maintain open communication and clear processes to ensure an honest and complete vision at every phase",
       image:
         "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=80",
     },
     {
-      icon: Heart,
-      title: t("about.value4Title") || "Passion",
-      description: t("about.value4Text") || "We love what we do",
+      icon: Star,
+      title: t("about.value3Title") || "Excellence",
+      description:
+        t("about.value3Text") ||
+        "We exceed the standard in every solution. Our commitment to quality and expert knowledge drives us to deliver results that surpass expectations",
+      image:
+        "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      icon: ShieldPlus,
+      title: t("about.value4Title") || "Professionalism",
+      description:
+        t("about.value4Text") ||
+        "We act with the highest rigor and ethics. We adhere to the industry's highest standards, ensuring seriousness, responsibility, and respectful treatment",
       image:
         "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=80",
     },
@@ -154,7 +160,10 @@ export const AboutUs = () => {
         <div className="section-container">
           <div className="text-center mb-16">
             <h2 className="heading-lg mb-4 slide-up">
-              {t("about.valuesTitle") || "Our Values"}
+              {t("about.valuesTitle1")}
+              <span className="text-primary-600">
+                {t("about.valuesTitle2")}
+              </span>
             </h2>
             <p className="text-xl text-neutral-600 slide-up stagger-1">
               {t("about.valuesSubtitle") || "The principles that guide us"}
@@ -211,7 +220,10 @@ export const AboutUs = () => {
       <section className="section-padding bg-gradient-to-br from-primary-50 to-white">
         <div className="section-container">
           <div className="text-center mb-16">
-            <h2 className="heading-lg mb-4 slide-up">{t("about.teamTitle")}</h2>
+            <h2 className="heading-lg mb-4 slide-up">
+              {t("about.teamTitle1")}
+              <span className="text-primary-600">{t("about.teamTitle2")}</span>
+            </h2>
             <p className="text-xl text-neutral-600 slide-up stagger-1">
               {t("about.teamSubtitle") || "Meet the people behind our success"}
             </p>
