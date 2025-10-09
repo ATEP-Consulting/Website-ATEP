@@ -42,30 +42,44 @@ export const ServicesCarousel = ({ services }) => {
     setCurrentIndex(index);
   };
 
+  // Anchos fijos según el número de cards visibles
+  const cardWidth = visibleCount === 1 ? 320 : visibleCount === 2 ? 384 : 360; // px
+  const gap = visibleCount === 1 ? 0 : 32; // 2rem = 32px
+
   return (
-    <div className="relative">
-      <div className="overflow-hidden">
+    <div className="relative w-full flex justify-center">
+      <div
+        className="overflow-hidden"
+        style={{
+          width:
+            visibleCount === 1
+              ? `${cardWidth}px`
+              : `${cardWidth * visibleCount + gap * (visibleCount - 1)}px`,
+          maxWidth: "100%",
+        }}
+      >
         <div
-          className="grid transition-all duration-500 ease-out"
+          className="flex transition-transform duration-500 ease-out"
           style={{
-            gridTemplateColumns: `repeat(${services.length}, ${
-              100 / visibleCount
-            }%)`,
-            gap: visibleCount === 1 ? "0" : "2rem",
-            transform: `translateX(calc(-${
-              currentIndex * (100 / visibleCount)
-            }% - ${currentIndex * 2}rem))`,
+            gap: `${gap}px`,
+            transform: `translateX(-${currentIndex * (cardWidth + gap)}px)`,
           }}
         >
           {services.map((service, index) => (
-            <div key={`${service.link}-${index}`}>
+            <div
+              key={`${service.link}-${index}`}
+              className="flex-shrink-0"
+              style={{
+                width: `${cardWidth}px`,
+              }}
+            >
               <ServiceCard {...service} />
             </div>
           ))}
         </div>
       </div>
 
-      <div className="flex justify-center gap-2 mt-8">
+      <div className="flex justify-center gap-2 mt-8 absolute -bottom-4 left-1/2 transform -translate-x-1/2">
         {Array.from({ length: services.length - visibleCount + 1 }).map(
           (_, index) => (
             <button

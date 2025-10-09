@@ -122,12 +122,6 @@ export const Home = () => {
           to: "/services",
         }}
         image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=1000&fit=crop&q=80"
-        stats={[
-          { number: "500+", label: t("hero.heroStat1") },
-          { number: "98%", label: t("hero.heroStat2") },
-          { number: "15+", label: t("hero.heroStat3") },
-          { number: "50+", label: t("hero.heroStat4") },
-        ]}
       />
 
       <ClientLogos
@@ -154,7 +148,7 @@ export const Home = () => {
             </p>
           </div>
 
-          <div className="slide-up stagger-1">
+          <div className="slide-up stagger-1 -mx-4 sm:-mx-6 lg:-mx-8">
             <ServicesCarousel services={services} />
           </div>
 
