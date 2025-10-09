@@ -101,7 +101,7 @@ export const Footer = () => {
 
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">
-              {t("contact.infoTitle")}
+              {t("contact.badge")}
             </h3>
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-sm">
