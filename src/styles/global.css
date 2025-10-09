@@ -135,6 +135,10 @@
   animation: blob 7s infinite;
 }
 
+.animate-ping {
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
 /* Delays para stagger */
 .stagger-1 {
   animation-delay: 0.1s;
