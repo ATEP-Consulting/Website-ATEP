@@ -128,19 +128,17 @@ export const Footer = () => {
 
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">
-              {t("footer.newsletter")}
+              {t("footer.readyToStart")}
             </h3>
-            <p className="text-sm mb-4">{t("footer.newsletterText")}</p>
-            <form className="flex flex-col gap-2">
-              <input
-                type="email"
-                placeholder={t("footer.newsletterPlaceholder")}
-                className="px-4 py-2 bg-neutral-800 border border-neutral-700 rounded-lg text-sm focus:outline-none focus:border-primary-500 transition-colors"
-              />
-              <button type="submit" className="btn-primary text-sm">
-                {t("footer.newsletterButton")}
-              </button>
-            </form>
+            <p className="text-sm mb-4 text-neutral-300">
+              {t("footer.readyToStartText")}
+            </p>
+            <Link
+              to="/contact"
+              className="btn-primary text-sm inline-block text-center"
+            >
+              {t("footer.contactButton")}
+            </Link>
           </div>
         </div>
 

@@ -447,7 +447,10 @@
     "newsletterText": "Subscribe to receive insights and updates",
     "newsletterPlaceholder": "Your email address",
     "newsletterButton": "Subscribe",
-    "copyright": "© 2025 ATEP Consulting. All rights reserved."
+    "copyright": "© 2025 ATEP Consulting. All rights reserved.",
+    "readyToStart": "Ready to Get Started?",
+    "readyToStartText": "Let's talk about how we can help you achieve your business goals.",
+    "contactButton": "Request Consultation"
   },
   "whatsapp": {
     "defaultMessage": "Hello, I would like to get more information about your services.",
