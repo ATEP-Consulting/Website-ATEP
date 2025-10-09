@@ -25,42 +25,36 @@ export const Home = () => {
       title: t("services.legacyMigration.name"),
       description: t("services.legacyMigration.description"),
       link: "/services/legacy-migration",
-      image: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
     {
       icon: Globe,
       title: t("services.webDevelopment.name"),
       description: t("services.webDevelopment.description"),
       link: "/services/web-development",
-      image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
     {
       icon: Zap,
       title: t("services.automation.name"),
       description: t("services.automation.description"),
       link: "/services/automation",
-      image: "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
     {
       icon: Cloud,
       title: t("services.cloudSolutions.name"),
       description: t("services.cloudSolutions.description"),
       link: "/services/cloud-solutions",
-      image: "https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
     {
       icon: BarChart3,
       title: t("services.dataAnalytics.name"),
       description: t("services.dataAnalytics.description"),
       link: "/services/data-analytics",
-      image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
     {
       icon: Shield,
       title: t("services.cybersecurity.name"),
       description: t("services.cybersecurity.description"),
       link: "/services/cybersecurity",
-      image: "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
   ];
 
