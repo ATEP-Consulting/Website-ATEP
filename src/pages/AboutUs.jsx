@@ -10,6 +10,8 @@ import {
 import { useLanguage } from "../context/LanguageContext";
 import { SEO } from "../components/SEO";
 import ImageHero from "../components/ImageHero";
+import { Stats } from "../components/Stats";
+import { getHeroStats } from "../config/heroStats";
 
 export const AboutUs = () => {
   const { t } = useLanguage();
@@ -96,25 +98,7 @@ export const AboutUs = () => {
       />
 
       {/* Stats Section */}
-      <section className="section-padding bg-white">
-        <div className="section-container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className={`text-center slide-up stagger-${index + 1}`}
-              >
-                <div className="text-4xl lg:text-5xl font-bold text-primary-600 mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-sm lg:text-base text-neutral-600 font-medium">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Stats stats={getHeroStats(t)} />
 
       {/* Our Story - Alternating Layout */}
       <section className="section-padding bg-gradient-to-br from-neutral-50 to-white">
@@ -217,7 +201,7 @@ export const AboutUs = () => {
       </section>
 
       {/* Team Section - Improved Cards */}
-      <section className="section-padding bg-gradient-to-br bg-neutral-50">
+      <section className="section-padding bg-gradient-to-br bg-neutral-50 ">
         <div className="section-container">
           <div className="text-center mb-16">
             <h2 className="heading-lg mb-4 slide-up">

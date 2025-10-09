@@ -1,6 +1,9 @@
 // src/components/Hero.jsx
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
+import { Stats } from "./Stats";
+import { getHeroStats } from "../config/heroStats";
+import { useLanguage } from "../context/LanguageContext";
 
 /**
  * Componente Hero principal con contador animado
@@ -12,8 +15,8 @@ const Hero = ({
   primaryButton,
   secondaryButton,
   image,
-  stats = [],
 }) => {
+  const { t } = useLanguage();
   return (
     <section className="relative min-h-[calc(100vh-64px)] md:min-h-[calc(100vh-80px)] flex flex-col overflow-hidden bg-white">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -109,18 +112,7 @@ const Hero = ({
         </div>
       </div>
       {/* Stats en grande abajo */}
-      {stats.length > 0 && (
-        <div className="section-container relative z-10 py-16 md:pb-20">
-          <div className="max-w-6xl mx-auto">
-            {/* Grid de stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-              {stats.map((stat, index) => (
-                <StatCounter key={index} stat={stat} delay={index * 100} />
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
+      <Stats stats={getHeroStats(t)} />
       {/* Scroll indicator - oculto en móvil con más espacio arriba */}
       <div className="hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <svg
@@ -138,77 +130,6 @@ const Hero = ({
         </svg>
       </div>
     </section>
-  );
-};
-
-// Componente contador animado - MEJORADO Y MÁS GRANDE
-const StatCounter = ({ stat, delay }) => {
-  const [count, setCount] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!isVisible) return;
-
-    const numberMatch = stat.number.match(/\d+/);
-    if (!numberMatch) return;
-
-    const target = parseInt(numberMatch[0]);
-    const duration = 2000;
-    const steps = 60;
-    const increment = target / steps;
-    let current = 0;
-
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, duration / steps);
-
-    return () => clearInterval(timer);
-  }, [isVisible, stat.number, delay]);
-
-  const getSuffix = () => {
-    if (stat.number.includes("+")) return "+";
-    if (stat.number.includes("%")) return "%";
-    return "";
-  };
-
-  return (
-    <div ref={ref} className="text-center fade-in stagger-4">
-      <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary-600 tabular-nums mb-3">
-        {count}
-        {getSuffix()}
-      </div>
-      <div className="text-base md:text-lg text-neutral-600 font-medium">
-        {stat.label}
-      </div>
-    </div>
   );
 };
 

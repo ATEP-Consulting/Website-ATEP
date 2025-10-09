@@ -89,7 +89,7 @@ export const HowWeWork = () => {
         </div>
 
         <div className="relative">
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-primary-200 transform -translate-x-1/2" />
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-primary-500 transform -translate-x-1/2" />
 
           <div className="space-y-32">
             {steps.map((step, index) => {

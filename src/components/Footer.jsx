@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, Linkedin, Twitter, Facebook } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import CTA from "./CTA";
-import logo from "../assets/new-logo-atep.svg";
+import logo from "../assets/logos/new-logo-atep.svg";
 
 export const Footer = () => {
   const { t } = useLanguage();

@@ -20,6 +20,27 @@
     "heroStat3": "Years Experience",
     "heroStat4": "Team Members"
   },
+  "stats": {
+    "stat1": {
+      "number": "15+",
+      "label": "Years Experience"
+    },
+    "stat2": {
+      "number": "500+",
+      "label": "Projects Completed"
+    },
+    "stat3": {
+      "number": "50+",
+      "label": "Team Members"
+    },
+    "stat4": {
+      "number": "98%",
+      "label": "Client Satisfaction"
+    }
+  },
+  "logo": {
+    "title": "Trusted by leading companies"
+  },
   "home": {
     "heroTitle": "Boost Your Business with Digital Transformation",
     "heroSubtitle": "We help companies modernize, automate, and grow efficiently.",

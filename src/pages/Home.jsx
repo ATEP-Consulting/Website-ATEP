@@ -15,6 +15,10 @@ import { SEO } from "../components/SEO";
 import { ServicesCarousel } from "../components/ServicesCarousel";
 import { HowWeWork } from "../components/HowWeWork";
 import Hero from "../components/Hero";
+import { ClientLogos } from "../components/ClientLogos";
+import StyleLogo from "../assets/logos/style-logo.svg";
+import HamptonLogo from "../assets/logos/hampton-logo.svg";
+import VertiluxLogo from "../assets/logos/vertilux-logo.svg";
 
 export const Home = () => {
   const { t } = useLanguage();
@@ -111,6 +115,14 @@ export const Home = () => {
           { number: "98%", label: t("hero.heroStat2") },
           { number: "15+", label: t("hero.heroStat3") },
           { number: "50+", label: t("hero.heroStat4") },
+        ]}
+      />
+
+      <ClientLogos
+        logos={[
+          { src: StyleLogo, alt: "Client 1" },
+          { src: HamptonLogo, alt: "Client 2" },
+          { src: VertiluxLogo, alt: "Client 3" },
         ]}
       />
 

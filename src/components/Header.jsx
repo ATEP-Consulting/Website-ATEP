@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import logo from "../assets/new-logo-atep.svg";
+import logo from "../assets/logos/new-logo-atep.svg";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

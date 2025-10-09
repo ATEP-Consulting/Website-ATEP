@@ -20,6 +20,27 @@
     "heroStat3": "Años de Experiencia",
     "heroStat4": "Miembros del Equipo"
   },
+  "stats": {
+    "stat1": {
+      "number": "15+",
+      "label": "Años de experiencia"
+    },
+    "stat2": {
+      "number": "500+",
+      "label": "Proyectos completados"
+    },
+    "stat3": {
+      "number": "50+",
+      "label": "Miembros del equipo"
+    },
+    "stat4": {
+      "number": "98%",
+      "label": "Satisfacción del cliente"
+    }
+  },
+  "logo": {
+    "title": "La confianza de marcas referentes"
+  },
   "home": {
     "heroTitle": "Impulsa Tu Negocio con Transformación Digital",
     "heroSubtitle": "Ayudamos a las empresas a modernizarse, automatizarse y crecer eficientemente.",
