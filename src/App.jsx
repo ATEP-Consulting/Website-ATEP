@@ -17,41 +17,50 @@ import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { CookiesPolicy } from "./pages/CookiesPolicy";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { NotFound } from "./pages/NotFound";
+import { SnackbarProvider } from "./context/SnackBarContext";
 
 function App() {
   return (
     <LanguageProvider>
-      <BrowserRouter>
-        <ScrollToTop /> {/* 👈 aquí, antes de las rutas */}
-        <Routes>
-          <Route path="/" element={<MainLayout />}>
-            <Route index element={<Home />} />
-            <Route path="company" element={<AboutUs />} />
-            <Route path="services" element={<ServicesOverview />} />
-            <Route
-              path="services/legacy-migration"
-              element={<LegacyMigration />}
-            />
-            <Route
-              path="services/web-development"
-              element={<WebDevelopment />}
-            />
-            <Route path="services/automation" element={<Automation />} />
-            <Route
-              path="services/cloud-solutions"
-              element={<CloudSolutions />}
-            />
-            <Route path="services/data-analytics" element={<DataAnalytics />} />
-            <Route path="services/cybersecurity" element={<Cybersecurity />} />
-            <Route path="blog" element={<BlogList />} />
-            <Route path="blog/:slug" element={<BlogPost />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="cookies-policy" element={<CookiesPolicy />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <SnackbarProvider>
+        <BrowserRouter>
+          <ScrollToTop /> {/* 👈 aquí, antes de las rutas */}
+          <Routes>
+            <Route path="/" element={<MainLayout />}>
+              <Route index element={<Home />} />
+              <Route path="company" element={<AboutUs />} />
+              <Route path="services" element={<ServicesOverview />} />
+              <Route
+                path="services/legacy-migration"
+                element={<LegacyMigration />}
+              />
+              <Route
+                path="services/web-development"
+                element={<WebDevelopment />}
+              />
+              <Route path="services/automation" element={<Automation />} />
+              <Route
+                path="services/cloud-solutions"
+                element={<CloudSolutions />}
+              />
+              <Route
+                path="services/data-analytics"
+                element={<DataAnalytics />}
+              />
+              <Route
+                path="services/cybersecurity"
+                element={<Cybersecurity />}
+              />
+              <Route path="blog" element={<BlogList />} />
+              <Route path="blog/:slug" element={<BlogPost />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="cookies-policy" element={<CookiesPolicy />} />
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </SnackbarProvider>
     </LanguageProvider>
   );
 }
