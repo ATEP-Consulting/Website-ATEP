@@ -15,35 +15,16 @@ const Hero = ({
   stats = [],
 }) => {
   return (
-    <section className="relative min-h-[calc(100vh-64px)] md:min-h-[calc(100vh-80px)] flex flex-col overflow-hidden bg-gradient-to-br from-neutral-50 via-white to-primary-50">
-      {/* Elementos decorativos de fondo - AHORA SÍ ANIMADOS */}
+    <section className="relative min-h-[calc(100vh-64px)] md:min-h-[calc(100vh-80px)] flex flex-col overflow-hidden bg-white">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
+          className="absolute w-[600px] h-[600px] bg-primary-100 rounded-full filter blur-3xl opacity-20"
           style={{
-            top: "5rem",
-            right: "5rem",
-            animation: "blob 7s infinite",
+            top: "-10rem",
+            right: "-10rem",
           }}
         ></div>
-        <div
-          className="absolute w-96 h-96 bg-primary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
-          style={{
-            top: "10rem",
-            left: "5rem",
-            animation: "blob 7s infinite 2s",
-          }}
-        ></div>
-        <div
-          className="absolute w-96 h-96 bg-primary-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
-          style={{
-            bottom: "-2rem",
-            left: "50%",
-            animation: "blob 7s infinite 4s",
-          }}
-        ></div>
-      </div>
-
+      </div>{" "}
       {/* Grid pattern sutil */}
       <div
         className="absolute inset-0 opacity-5 pointer-events-none"
@@ -52,7 +33,6 @@ const Hero = ({
           backgroundSize: "50px 50px",
         }}
       ></div>
-
       {/* Contenido principal - Hero */}
       <div className="flex items-center section-container relative z-10 pt-12 md:pt-32 pb-8 md:pb-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
@@ -125,14 +105,9 @@ const Hero = ({
               {/* Overlay sutil */}
               <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/10 to-transparent"></div>
             </div>
-
-            {/* Elementos decorativos flotantes */}
-            <div className="absolute -top-6 -right-6 w-20 h-20 bg-primary-500 rounded-2xl opacity-20 rotate-12"></div>
-            <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-primary-400 rounded-full opacity-20"></div>
           </div>
         </div>
       </div>
-
       {/* Stats en grande abajo */}
       {stats.length > 0 && (
         <div className="section-container relative z-10 py-16 md:pb-20">
@@ -146,7 +121,6 @@ const Hero = ({
           </div>
         </div>
       )}
-
       {/* Scroll indicator - oculto en móvil con más espacio arriba */}
       <div className="hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <svg
