@@ -167,7 +167,7 @@ export const AboutUs = () => {
                     zIndex: index + 1,
                   }}
                 >
-                  <div className="group rounded-lg bg-white border border-neutral-100 overflow-hidden">
+                  <div className="group rounded-lg bg-gradient-to-br from-primary-50 via-white to-neutral-50 border border-neutral-100 overflow-hidden">
                     <div className="grid md:grid-cols-2 gap-0 items-center">
                       {/* Contenido de texto - SIEMPRE A LA IZQUIERDA */}
                       <div className="p-8 lg:p-12">

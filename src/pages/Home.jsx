@@ -241,7 +241,7 @@ export const Home = () => {
             })}
           </div>
           <div className="text-center mt-12">
-            <Link to="/about-us" className="btn-outline">
+            <Link to="/company" className="btn-outline">
               {t("about.viewAll")}
             </Link>
           </div>

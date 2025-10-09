@@ -9,7 +9,7 @@ export const Footer = () => {
 
   const quickLinks = [
     { path: "/", label: t("nav.home") },
-    { path: "/about-us", label: t("nav.about") },
+    { path: "/company", label: t("nav.about") },
     { path: "/services", label: t("nav.services") },
     { path: "/blog", label: t("nav.blog") },
     { path: "/contact", label: t("nav.contact") },
