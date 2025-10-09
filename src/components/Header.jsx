@@ -57,7 +57,7 @@ export const Header = () => {
 
   const navLinks = [
     { path: "/", label: t("nav.home") },
-    { path: "/about-us", label: t("nav.about") },
+    { path: "/company", label: t("nav.about") },
     { path: "/contact", label: t("nav.contact") },
     { path: "/blog", label: t("nav.blog") },
   ];

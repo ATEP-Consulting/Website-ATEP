@@ -26,7 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
-            <Route path="about-us" element={<AboutUs />} />
+            <Route path="company" element={<AboutUs />} />
             <Route path="services" element={<ServicesOverview />} />
             <Route
               path="services/legacy-migration"
