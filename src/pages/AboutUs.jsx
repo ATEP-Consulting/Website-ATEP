@@ -1,9 +1,43 @@
-import { Target, Eye, Linkedin } from "lucide-react";
+import {
+  Target,
+  Eye,
+  Linkedin,
+  Award,
+  Users,
+  Lightbulb,
+  Heart,
+} from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { SEO } from "../components/SEO";
+import ImageHero from "../components/ImageHero";
 
 export const AboutUs = () => {
   const { t } = useLanguage();
+
+  const values = [
+    {
+      icon: Award,
+      title: t("about.value1Title") || "Excellence",
+      description:
+        t("about.value1Text") || "We strive for excellence in everything we do",
+    },
+    {
+      icon: Users,
+      title: t("about.value2Title") || "Collaboration",
+      description:
+        t("about.value2Text") || "We believe in the power of teamwork",
+    },
+    {
+      icon: Lightbulb,
+      title: t("about.value3Title") || "Innovation",
+      description: t("about.value3Text") || "We embrace creative solutions",
+    },
+    {
+      icon: Heart,
+      title: t("about.value4Title") || "Passion",
+      description: t("about.value4Text") || "We love what we do",
+    },
+  ];
 
   const team = [
     {
@@ -24,6 +58,13 @@ export const AboutUs = () => {
     },
   ];
 
+  const stats = [
+    { number: "15+", label: t("about.stat1") || "Years Experience" },
+    { number: "500+", label: t("about.stat2") || "Projects Completed" },
+    { number: "50+", label: t("about.stat3") || "Team Members" },
+    { number: "98%", label: t("about.stat4") || "Client Satisfaction" },
+  ];
+
   return (
     <>
       <SEO
@@ -32,18 +73,37 @@ export const AboutUs = () => {
         keywords="about us, team, consulting experts, digital transformation specialists"
       />
 
-      <section className="section-padding bg-gradient-to-br from-primary-50 to-white">
+      {/* Hero con imagen de fondo */}
+      <ImageHero
+        icon={Users}
+        title={t("about.title")}
+        description={t("about.subtitle")}
+        backgroundImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop&q=80"
+      />
+
+      {/* Stats Section */}
+      <section className="section-padding bg-white">
         <div className="section-container">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="heading-xl mb-6 fade-in">{t("about.title")}</h1>
-            <p className="text-xl text-neutral-600 fade-in stagger-1">
-              {t("about.subtitle")}
-            </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+            {stats.map((stat, index) => (
+              <div
+                key={index}
+                className={`text-center slide-up stagger-${index + 1}`}
+              >
+                <div className="text-4xl lg:text-5xl font-bold text-primary-600 mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-sm lg:text-base text-neutral-600 font-medium">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="section-padding bg-white">
+      {/* Our Story - Alternating Layout */}
+      <section className="section-padding bg-gradient-to-br from-neutral-50 to-white">
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="slide-up">
@@ -53,35 +113,12 @@ export const AboutUs = () => {
                 </div>
                 <h2 className="heading-md">{t("about.missionTitle")}</h2>
               </div>
-              <p className="text-body leading-relaxed">
+              <p className="text-body leading-relaxed mb-6">
                 {t("about.missionText")}
               </p>
-            </div>
 
-            <div className="slide-up stagger-1">
-              <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=80"
-                alt="Mission"
-                className="rounded-xl shadow-2xl"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding bg-neutral-50">
-        <div className="section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1 slide-up">
-              <img
-                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop&q=80"
-                alt="Vision"
-                className="rounded-xl shadow-2xl"
-              />
-            </div>
-
-            <div className="order-1 lg:order-2 slide-up stagger-1">
-              <div className="flex items-center gap-4 mb-6">
+              {/* Vision inline */}
+              <div className="flex items-center gap-4 mb-4 mt-8">
                 <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center">
                   <Eye className="w-8 h-8 text-primary-600" />
                 </div>
@@ -91,21 +128,72 @@ export const AboutUs = () => {
                 {t("about.visionText")}
               </p>
             </div>
+
+            <div className="relative slide-up stagger-1">
+              <div className="absolute -inset-4 bg-gradient-to-br from-primary-200 to-primary-300 rounded-3xl blur-2xl opacity-30"></div>
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=80"
+                alt="Our Story"
+                className="relative rounded-2xl shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Our Values - Grid 2x2 */}
       <section className="section-padding bg-white">
         <div className="section-container">
           <div className="text-center mb-16">
+            <h2 className="heading-lg mb-4 slide-up">
+              {t("about.valuesTitle") || "Our Values"}
+            </h2>
+            <p className="text-xl text-neutral-600 slide-up stagger-1">
+              {t("about.valuesSubtitle") || "The principles that guide us"}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value, index) => {
+              const Icon = value.icon;
+              return (
+                <div
+                  key={index}
+                  className={`group text-center p-8 rounded-2xl bg-gradient-to-br from-neutral-50 to-white border border-neutral-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 slide-up stagger-${
+                    index + 1
+                  }`}
+                >
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-50 rounded-2xl flex items-center justify-center mx-auto mb-6 transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                    <Icon className="w-8 h-8 text-primary-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-neutral-900 mb-3">
+                    {value.title}
+                  </h3>
+                  <p className="text-neutral-600 leading-relaxed">
+                    {value.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section - Improved Cards */}
+      <section className="section-padding bg-gradient-to-br from-primary-50 to-white">
+        <div className="section-container">
+          <div className="text-center mb-16">
             <h2 className="heading-lg mb-4 slide-up">{t("about.teamTitle")}</h2>
+            <p className="text-xl text-neutral-600 slide-up stagger-1">
+              {t("about.teamSubtitle") || "Meet the people behind our success"}
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {team.map((member, index) => (
               <div
                 key={member.name}
-                className={`card group overflow-hidden rounded-2xl hover:shadow-xl bg-white transition-all duration-500 hover:-translate-y-1 slide-up stagger-${
+                className={`group relative bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 slide-up stagger-${
                   index + 1
                 }`}
               >
