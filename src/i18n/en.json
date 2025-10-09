@@ -89,7 +89,7 @@
     "viewAll": "View All Services",
     "legacyMigration": {
       "name": "Legacy System Migration",
-      "description": "Modernize your outdated systems with seamless migration to cutting-edge technologies.",
+      "description": "Seamlessly Migrate to Powerful, Modern Systems",
       "whatWeDo": "What We Do",
       "whatWeDoText": "We analyze your current infrastructure, develop a comprehensive migration strategy, and execute a smooth transition to modern platforms. Our approach minimizes downtime and ensures data integrity throughout the process.",
       "benefits": "Benefits",
@@ -102,7 +102,7 @@
     },
     "webDevelopment": {
       "name": "Web Development",
-      "description": "Build powerful, scalable web applications tailored to your business needs.",
+      "description": "Build powerful, scalable web applications tailored to your business needs",
       "whatWeDo": "What We Do",
       "whatWeDoText": "From concept to deployment, we create custom web solutions using the latest technologies. Our full-stack development team delivers responsive, user-friendly applications that drive engagement and conversions.",
       "benefits": "Benefits",
@@ -115,7 +115,7 @@
     },
     "automation": {
       "name": "Process Automation",
-      "description": "Streamline operations and boost productivity through intelligent automation solutions.",
+      "description": "Streamline operations and boost productivity through intelligent automation solutions",
       "whatWeDo": "What We Do",
       "whatWeDoText": "We identify opportunities for automation across your business processes, implement robotic process automation (RPA), and integrate AI-powered solutions to eliminate manual tasks and reduce errors.",
       "benefits": "Benefits",
@@ -128,7 +128,7 @@
     },
     "cloudSolutions": {
       "name": "Cloud Solutions",
-      "description": "Migrate to the cloud and leverage scalable infrastructure for your business growth.",
+      "description": "Migrate to the cloud and leverage scalable infrastructure for your business growth",
       "whatWeDo": "What We Do",
       "whatWeDoText": "We help businesses transition to cloud platforms like AWS, Azure, and Google Cloud. Our experts design, implement, and manage cloud infrastructure that scales with your needs.",
       "benefits": "Benefits",
@@ -141,7 +141,7 @@
     },
     "dataAnalytics": {
       "name": "Data Analytics & BI",
-      "description": "Transform your data into actionable insights with advanced analytics and business intelligence.",
+      "description": "Transform Data into Actionable Insights using Advanced Analytics",
       "whatWeDo": "What We Do",
       "whatWeDoText": "We implement comprehensive data analytics solutions, from data warehousing to visualization dashboards. Our team helps you make data-driven decisions that drive business growth.",
       "benefits": "Benefits",
@@ -154,7 +154,7 @@
     },
     "cybersecurity": {
       "name": "Cybersecurity Consulting",
-      "description": "Protect your business with comprehensive security assessments and implementation services.",
+      "description": "Comprehensive Security: Assessment and Implementation",
       "whatWeDo": "What We Do",
       "whatWeDoText": "We conduct security audits, implement security frameworks, and provide ongoing monitoring to protect your digital assets from cyber threats.",
       "benefits": "Benefits",
