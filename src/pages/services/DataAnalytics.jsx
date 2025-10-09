@@ -1,23 +1,23 @@
-import { Link } from 'react-router-dom';
-import { BarChart3, CheckCircle } from 'lucide-react';
-import { useLanguage } from '../../context/LanguageContext';
-import { SEO } from '../../components/SEO';
+import { Link } from "react-router-dom";
+import { BarChart3, CheckCircle } from "lucide-react";
+import { useLanguage } from "../../context/LanguageContext";
+import { SEO } from "../../components/SEO";
 
 export const DataAnalytics = () => {
   const { t } = useLanguage();
 
   const benefits = [
-    t('services.dataAnalytics.benefit1'),
-    t('services.dataAnalytics.benefit2'),
-    t('services.dataAnalytics.benefit3'),
-    t('services.dataAnalytics.benefit4'),
+    t("services.dataAnalytics.benefit1"),
+    t("services.dataAnalytics.benefit2"),
+    t("services.dataAnalytics.benefit3"),
+    t("services.dataAnalytics.benefit4"),
   ];
 
   return (
     <>
       <SEO
-        title={t('services.dataAnalytics.name')}
-        description={t('services.dataAnalytics.description')}
+        title={t("services.dataAnalytics.name")}
+        description={t("services.dataAnalytics.description")}
         keywords="data analytics, business intelligence, BI, data visualization, predictive analytics"
       />
 
@@ -28,10 +28,10 @@ export const DataAnalytics = () => {
               <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center">
                 <BarChart3 className="w-8 h-8 text-primary-600" />
               </div>
-              <h1 className="heading-xl">{t('services.dataAnalytics.name')}</h1>
+              <h1 className="heading-xl">{t("services.dataAnalytics.name")}</h1>
             </div>
             <p className="text-xl text-neutral-600 fade-in stagger-1">
-              {t('services.dataAnalytics.description')}
+              {t("services.dataAnalytics.description")}
             </p>
           </div>
         </div>
@@ -41,9 +41,11 @@ export const DataAnalytics = () => {
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="slide-up">
-              <h2 className="heading-md mb-6">{t('services.dataAnalytics.whatWeDo')}</h2>
+              <h2 className="heading-md mb-6">
+                {t("services.dataAnalytics.whatWeDo")}
+              </h2>
               <p className="text-body leading-relaxed">
-                {t('services.dataAnalytics.whatWeDoText')}
+                {t("services.dataAnalytics.whatWeDoText")}
               </p>
             </div>
 
@@ -62,14 +64,16 @@ export const DataAnalytics = () => {
         <div className="section-container">
           <div className="max-w-4xl mx-auto">
             <h2 className="heading-md mb-8 text-center slide-up">
-              {t('services.dataAnalytics.benefits')}
+              {t("services.dataAnalytics.benefits")}
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {benefits.map((benefit, index) => (
                 <div
                   key={benefit}
-                  className={`flex items-start gap-4 slide-up stagger-${index + 1}`}
+                  className={`flex items-start gap-4 slide-up stagger-${
+                    index + 1
+                  }`}
                 >
                   <CheckCircle className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" />
                   <p className="text-body">{benefit}</p>
@@ -92,24 +96,13 @@ export const DataAnalytics = () => {
             </div>
 
             <div className="order-1 lg:order-2 slide-up stagger-1">
-              <h2 className="heading-md mb-6">{t('services.dataAnalytics.whyChoose')}</h2>
+              <h2 className="heading-md mb-6">
+                {t("services.dataAnalytics.whyChoose")}
+              </h2>
               <p className="text-body leading-relaxed">
-                {t('services.dataAnalytics.whyChooseText')}
+                {t("services.dataAnalytics.whyChooseText")}
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding bg-primary-600 text-white">
-        <div className="section-container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-8 slide-up">
-              {t('services.ctaTitle')}
-            </h2>
-            <Link to="/contact" className="btn-secondary slide-up stagger-1">
-              {t('services.ctaButton')}
-            </Link>
           </div>
         </div>
       </section>
