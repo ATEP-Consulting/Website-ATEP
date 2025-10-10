@@ -1,31 +1,31 @@
 import { Link } from "react-router-dom";
-import { BarChart3, CheckCircle } from "lucide-react";
+import { Globe, CheckCircle } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
 import ImageHero from "../../components/ImageHero";
 
-export const DataAnalytics = () => {
+export const FullStackDevelopment = () => {
   const { t } = useLanguage();
 
   const benefits = [
-    t("services.dataAnalytics.benefit1"),
-    t("services.dataAnalytics.benefit2"),
-    t("services.dataAnalytics.benefit3"),
-    t("services.dataAnalytics.benefit4"),
+    t("services.fullStackDevelopment.benefit1"),
+    t("services.fullStackDevelopment.benefit2"),
+    t("services.fullStackDevelopment.benefit3"),
+    t("services.fullStackDevelopment.benefit4"),
   ];
 
   return (
     <>
       <SEO
-        title={t("services.dataAnalytics.name")}
-        description={t("services.dataAnalytics.description")}
-        keywords="data analytics, business intelligence, BI, data visualization, predictive analytics"
+        title={t("services.fullStackDevelopment.name")}
+        description={t("services.fullStackDevelopment.description")}
+        keywords="web development, web applications, responsive design, full-stack development"
       />
 
       <ImageHero
-        icon={BarChart3}
-        title={t("services.dataAnalytics.name")}
-        description={t("services.dataAnalytics.description")}
+        icon={Globe}
+        title={t("services.fullStackDevelopment.name")}
+        description={t("services.fullStackDevelopment.description")}
         backgroundImage="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&h=1080&fit=crop&q=80"
       />
 
@@ -34,17 +34,17 @@ export const DataAnalytics = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="slide-up">
               <h2 className="heading-md mb-6">
-                {t("services.dataAnalytics.whatWeDo")}
+                {t("services.fullStackDevelopment.whatWeDo")}
               </h2>
               <p className="text-body leading-relaxed">
-                {t("services.dataAnalytics.whatWeDoText")}
+                {t("services.fullStackDevelopment.whatWeDoText")}
               </p>
             </div>
 
             <div className="slide-up stagger-1">
               <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=80"
-                alt="Data Analytics"
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop&q=80"
+                alt="Web Development"
                 className="rounded-xl shadow-2xl"
               />
             </div>
@@ -56,7 +56,7 @@ export const DataAnalytics = () => {
         <div className="section-container">
           <div className="max-w-4xl mx-auto">
             <h2 className="heading-md mb-8 text-center slide-up">
-              {t("services.dataAnalytics.benefits")}
+              {t("services.fullStackDevelopment.benefits")}
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -89,10 +89,10 @@ export const DataAnalytics = () => {
 
             <div className="order-1 lg:order-2 slide-up stagger-1">
               <h2 className="heading-md mb-6">
-                {t("services.dataAnalytics.whyChoose")}
+                {t("services.fullStackDevelopment.whyChoose")}
               </h2>
               <p className="text-body leading-relaxed">
-                {t("services.dataAnalytics.whyChooseText")}
+                {t("services.fullStackDevelopment.whyChooseText")}
               </p>
             </div>
           </div>

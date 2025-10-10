@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ServiceCard } from "./ServiceCard";
+import { getServicesData } from "../data/servicesData";
 
 export const ServicesCarousel = ({ services }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

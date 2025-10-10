@@ -85,88 +85,81 @@
   },
   "services": {
     "title": "Our Services",
-    "subtitle": "Comprehensive solutions to drive your digital transformation",
+    "subtitle": "Flexible technology solutions that drive your business forward",
     "viewAll": "View All Services",
+
+    "professionalWebsites": {
+      "name": "Professional Websites",
+      "description": "Fast, optimized websites designed to convert visitors into customers",
+      "whatWeDo": "What We Do",
+      "whatWeDoText": "We develop 100% custom corporate websites, no templates. Clean code, optimized architecture, and exceptional performance from day one. Each website is designed to highlight your brand and convert visitors into customers.",
+      "benefits": "Benefits",
+      "benefit1": "Ultra-fast loading (Google PageSpeed 90+)",
+      "benefit2": "SEO optimized from the start",
+      "benefit3": "Responsive design on all devices",
+      "benefit4": "Hosting, maintenance, and support included",
+      "whyChoose": "Why Choose Us",
+      "whyChooseText": "Our websites aren't modified templates. They're unique projects hand-developed with the latest technologies. The result: websites that load in under 2 seconds and generate trust from the first click."
+    },
+
+    "fullStackDevelopment": {
+      "name": "Web Application Development",
+      "description": "Complete custom platforms and applications, from concept to production",
+      "whatWeDo": "What We Do",
+      "whatWeDoText": "We develop complete web applications (frontend + backend) from scratch. From internal platforms to public SaaS. Scalable architecture, maintainable code, and cutting-edge technology (React, TypeScript, Node.js).",
+      "benefits": "Benefits",
+      "benefit1": "100% customized solution to your needs",
+      "benefit2": "Scalable and maintainable architecture",
+      "benefit3": "Modern and proven technology stack",
+      "benefit4": "Complete ownership of source code",
+      "whyChoose": "Why Choose Us",
+      "whyChooseText": "We are senior developers with experience in complex projects. No intermediaries: you talk directly with who codes. Fast deliveries, transparent communication, and professional-quality code."
+    },
+
+    "onDemandTeam": {
+      "name": "On-Demand Tech Team",
+      "description": "Development reinforcement when your team needs it, available in 48h",
+      "whatWeDo": "What We Do",
+      "whatWeDoText": "We put senior developers at your team's disposal for urgent deliveries, workload peaks, or projects with tight deadlines. We integrate into your workflow immediately, no learning curve. Flexible billing, no long contracts.",
+      "benefits": "Benefits",
+      "benefit1": "Available in 48h, no lengthy processes",
+      "benefit2": "Specialized senior developers",
+      "benefit3": "Immediate integration into your team",
+      "benefit4": "Billing per project or per day",
+      "whyChoose": "Why Choose Us",
+      "whyChooseText": "We understand the rush and pressure of deliveries. We've saved multiple projects by jumping in during the final weeks. Real technical expertise, fast integration, and commitment to your deadlines."
+    },
+
     "legacyMigration": {
-      "name": "Legacy System Migration",
-      "description": "Seamlessly Migrate to Powerful, Modern Systems",
+      "name": "Migration & Modernization",
+      "description": "Transform your legacy software into modern applications without disrupting operations",
       "whatWeDo": "What We Do",
-      "whatWeDoText": "We analyze your current infrastructure, develop a comprehensive migration strategy, and execute a smooth transition to modern platforms. Our approach minimizes downtime and ensures data integrity throughout the process.",
+      "whatWeDoText": "We migrate outdated systems to current technologies. From old CLI applications to unmaintainable monoliths. Detailed analysis, phased migration strategy, and execution with minimal impact on your daily operations.",
       "benefits": "Benefits",
-      "benefit1": "Reduced operational costs",
-      "benefit2": "Improved system performance",
-      "benefit3": "Enhanced security and compliance",
-      "benefit4": "Better scalability and flexibility",
+      "benefit1": "Drastic reduction in maintenance costs",
+      "benefit2": "Increased system speed and performance",
+      "benefit3": "Maintainable and documented code",
+      "benefit4": "Migration without disrupting your business",
       "whyChoose": "Why Choose Us",
-      "whyChooseText": "With years of experience in legacy system modernization, we understand the complexities and risks involved. Our proven methodologies ensure a successful migration with minimal business disruption."
+      "whyChooseText": "We have real experience in complex migrations (CLI → Web, Legacy → TypeScript/Node.js). We understand the risks and know how to minimize them. Your current case is our success story."
     },
-    "webDevelopment": {
-      "name": "Web Development",
-      "description": "Build powerful, scalable web applications tailored to your business needs",
-      "whatWeDo": "What We Do",
-      "whatWeDoText": "From concept to deployment, we create custom web solutions using the latest technologies. Our full-stack development team delivers responsive, user-friendly applications that drive engagement and conversions.",
-      "benefits": "Benefits",
-      "benefit1": "Custom-built for your needs",
-      "benefit2": "Mobile-responsive design",
-      "benefit3": "SEO-optimized architecture",
-      "benefit4": "Ongoing maintenance and support",
-      "whyChoose": "Why Choose Us",
-      "whyChooseText": "We combine technical excellence with business acumen to create web solutions that not only look great but also deliver real business value."
-    },
+
     "automation": {
       "name": "Process Automation",
-      "description": "Streamline operations and boost productivity through intelligent automation solutions",
+      "description": "Save time and reduce errors by automating repetitive tasks in your company",
       "whatWeDo": "What We Do",
-      "whatWeDoText": "We identify opportunities for automation across your business processes, implement robotic process automation (RPA), and integrate AI-powered solutions to eliminate manual tasks and reduce errors.",
+      "whatWeDoText": "We identify manual processes that consume your team's time and automate them. From tool integrations to complex workflows. Custom scripts, intelligent bots, and RPA adapted to your business.",
       "benefits": "Benefits",
-      "benefit1": "Increased operational efficiency",
-      "benefit2": "Reduced human error",
-      "benefit3": "Cost savings on manual tasks",
-      "benefit4": "Better resource allocation",
+      "benefit1": "Demonstrable ROI in less than 6 months",
+      "benefit2": "Reduction of human errors",
+      "benefit3": "Free up time for value-added tasks",
+      "benefit4": "Integration with your current tools",
       "whyChoose": "Why Choose Us",
-      "whyChooseText": "Our automation experts have helped numerous businesses transform their operations. We focus on high-impact automation that delivers quick ROI."
+      "whyChooseText": "We don't sell generic automation. We analyze your real operation and design specific solutions that generate immediate savings. Practical use cases, not theory."
     },
-    "cloudSolutions": {
-      "name": "Cloud Solutions",
-      "description": "Migrate to the cloud and leverage scalable infrastructure for your business growth",
-      "whatWeDo": "What We Do",
-      "whatWeDoText": "We help businesses transition to cloud platforms like AWS, Azure, and Google Cloud. Our experts design, implement, and manage cloud infrastructure that scales with your needs.",
-      "benefits": "Benefits",
-      "benefit1": "Scalable infrastructure",
-      "benefit2": "Reduced IT overhead",
-      "benefit3": "Enhanced disaster recovery",
-      "benefit4": "Global accessibility",
-      "whyChoose": "Why Choose Us",
-      "whyChooseText": "Our cloud architects have successfully migrated hundreds of applications to the cloud, ensuring seamless transitions and optimal performance."
-    },
-    "dataAnalytics": {
-      "name": "Data Analytics & BI",
-      "description": "Transform Data into Actionable Insights using Advanced Analytics",
-      "whatWeDo": "What We Do",
-      "whatWeDoText": "We implement comprehensive data analytics solutions, from data warehousing to visualization dashboards. Our team helps you make data-driven decisions that drive business growth.",
-      "benefits": "Benefits",
-      "benefit1": "Data-driven decision making",
-      "benefit2": "Real-time insights",
-      "benefit3": "Predictive analytics",
-      "benefit4": "Custom reporting",
-      "whyChoose": "Why Choose Us",
-      "whyChooseText": "We transform raw data into strategic assets, helping businesses uncover opportunities and optimize operations through intelligent analytics."
-    },
-    "cybersecurity": {
-      "name": "Cybersecurity Consulting",
-      "description": "Comprehensive Security: Assessment and Implementation",
-      "whatWeDo": "What We Do",
-      "whatWeDoText": "We conduct security audits, implement security frameworks, and provide ongoing monitoring to protect your digital assets from cyber threats.",
-      "benefits": "Benefits",
-      "benefit1": "Enhanced security posture",
-      "benefit2": "Compliance adherence",
-      "benefit3": "Risk mitigation",
-      "benefit4": "24/7 monitoring",
-      "whyChoose": "Why Choose Us",
-      "whyChooseText": "Our security experts stay ahead of emerging threats and implement industry best practices to keep your business protected."
-    },
-    "ctaTitle": "Ready to Get Started?",
-    "ctaButton": "Contact Us for Consultation"
+
+    "ctaTitle": "Ready to Boost Your Project?",
+    "ctaButton": "Let's Talk About Your Case"
   },
   "about": {
     "title": "About ATEP Consulting",

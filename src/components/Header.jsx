@@ -14,6 +14,7 @@ import {
 import { useLanguage } from "../context/LanguageContext";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import logo from "../assets/logos/new-logo-atep.svg";
+import { getServicesData } from "../data/servicesData";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +23,7 @@ export const Header = () => {
   const [visible, setVisible] = useState(true);
   const [servicesOpen, setServicesOpen] = useState(false);
   const { t } = useLanguage();
+  const services = getServicesData(t);
   const location = useLocation();
 
   useEffect(() => {
@@ -62,38 +64,11 @@ export const Header = () => {
     { path: "/blog", label: t("nav.blog") },
   ];
 
-  const serviceLinks = [
-    {
-      path: "/services/legacy-migration",
-      label: t("services.legacyMigration.name"),
-      icon: Server,
-    },
-    {
-      path: "/services/web-development",
-      label: t("services.webDevelopment.name"),
-      icon: Globe,
-    },
-    {
-      path: "/services/automation",
-      label: t("services.automation.name"),
-      icon: Zap,
-    },
-    {
-      path: "/services/cloud-solutions",
-      label: t("services.cloudSolutions.name"),
-      icon: Cloud,
-    },
-    {
-      path: "/services/data-analytics",
-      label: t("services.dataAnalytics.name"),
-      icon: BarChart3,
-    },
-    {
-      path: "/services/cybersecurity",
-      label: t("services.cybersecurity.name"),
-      icon: Shield,
-    },
-  ];
+  const serviceLinks = services.map((service) => ({
+    path: service.path,
+    label: service.name,
+    icon: service.icon,
+  }));
 
   return (
     <header
