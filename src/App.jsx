@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { LanguageProvider } from "./context/LanguageContext";
 import { useLanguage } from "./context/LanguageContext";
 import { MainLayout } from "./layouts/MainLayout";
@@ -49,6 +50,12 @@ function AppRoutes() {
 }
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.pageview(location.pathname + location.search);
+  }, [location]);
+
   return (
     <LanguageProvider>
       <SnackbarProvider>
