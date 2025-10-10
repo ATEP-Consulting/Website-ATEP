@@ -1,8 +1,16 @@
-import { Link } from 'react-router-dom';
-import { Calendar, User, ArrowRight } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
+import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
+import { Calendar, User, ArrowRight } from "lucide-react";
 
-export const BlogCard = ({ slug, title, excerpt, image, author, date, category }) => {
+export const BlogCard = ({
+  slug,
+  title,
+  excerpt,
+  image,
+  author,
+  date,
+  category,
+}) => {
   const { t } = useLanguage();
 
   return (
@@ -38,7 +46,7 @@ export const BlogCard = ({ slug, title, excerpt, image, author, date, category }
         to={`/blog/${slug}`}
         className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:gap-3 transition-all duration-200"
       >
-        {t('blog.readMore')}
+        {t("blog.readMore")}
         <ArrowRight className="w-5 h-5" />
       </Link>
     </article>
