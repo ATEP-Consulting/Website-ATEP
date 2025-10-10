@@ -1,15 +1,31 @@
 <!DOCTYPE html>
-
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
 
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GDE5LM5ND1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-GDE5LM5ND1");
+    </script>
+
+    <!-- Favicon -->
     <link
       rel="icon"
       type="image/svg+xml"
       href="/src/assets/logos/new-logo-atep.svg"
     />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
+    <!-- Primary Meta Tags -->
     <title>ATEP Consulting | Consultoría IT y Desarrollo de Software</title>
     <meta
       name="title"
@@ -27,17 +43,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#be123c" />
 
+    <!-- Canonical URL -->
     <link rel="canonical" href="https://atepconsulting.com/" />
 
-    <meta property="og:url" content="https://atepconsulting.com/" />
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://atepconsulting.com/" />
+    <meta property="og:site_name" content="ATEP Consulting" />
     <meta
       property="og:title"
       content="ATEP Consulting | Consultoría IT y Desarrollo de Software"
     />
     <meta
       property="og:description"
-      content="Desarrollo web profesional, aplicaciones a medida y migración de sistemas legacy. Equipo técnico on-demand disponible en 48h. Valencia, España."
+      content="Desarrollo web profesional, aplicaciones a medida y migración de sistemas legacy. Equipo técnico on-demand disponible en 48h."
     />
     <meta
       property="og:image"
@@ -45,6 +64,25 @@
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://atepconsulting.com/" />
+    <meta
+      name="twitter:title"
+      content="ATEP Consulting | Consultoría IT y Desarrollo de Software"
+    />
+    <meta
+      name="twitter:description"
+      content="Desarrollo web profesional, aplicaciones a medida y migración de sistemas legacy. Equipo técnico on-demand disponible en 48h."
+    />
+    <meta
+      name="twitter:image"
+      content="https://atepconsulting.com/twitter-image.png"
+    />
+
+    <!-- Structured Data / Schema.org -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -54,7 +92,6 @@
         "url": "https://atepconsulting.com",
         "logo": "https://atepconsulting.com/logo-atep.png",
         "image": "https://atepconsulting.com/og-image.png",
-        "telephone": "+34-647-748-705",
         "email": "info@atepconsulting.com",
         "address": {
           "@type": "PostalAddress",
@@ -62,30 +99,23 @@
           "addressRegion": "Valencia",
           "addressCountry": "ES"
         },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "39.5",
-          "longitude": "-0.4"
-        },
         "areaServed": {
           "@type": "Country",
           "name": "España"
         },
-        "priceRange": "€€",
         "serviceType": [
           "Desarrollo Web",
           "Desarrollo de Aplicaciones",
           "Migración de Sistemas Legacy",
           "Automatización de Procesos",
           "Staff Augmentation"
-        ],
-        "sameAs": ["https://www.linkedin.com/company/atepconsulting"]
+        ]
       }
     </script>
 
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://api.emailjs.com" />
   </head>
   <body>
