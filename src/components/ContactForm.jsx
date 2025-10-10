@@ -229,10 +229,10 @@ export const ContactForm = () => {
             onChange={handleChange}
             required
             disabled={isSubmitting}
-            className="mt-1 w-4 h-4 text-primary-600 border-neutral-300 rounded focus:ring-2 focus:ring-primary-500"
+            className="mt-1 w-4 h-4 text-primary-600 border-neutral-300 rounded focus:ring-2"
           />
           <label htmlFor="gdprConsent" className="text-sm text-neutral-600">
-            {t("contact.gdprText1") || "He leído y acepto la"}{" "}
+            {t("contact.gdprText1")}{" "}
             <Link
               to="/privacy-policy"
               className="text-primary-600 hover:text-primary-700 underline font-medium"
@@ -260,6 +260,27 @@ export const ContactForm = () => {
             ? t("contact.loading") || "Cargando..."
             : t("contact.formButton")}
         </button>
+        {/* Aviso de reCAPTCHA - Requerido por Google */}
+        <p className="text-xs text-neutral-500 text-center -mt-2">
+          {t("contact.recaptchaNotice")}{" "}
+          <a
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-primary-600 transition-colors"
+          >
+            {t("contact.recaptchaPrivacy")}
+          </a>
+          {" · "}
+          <a
+            href="https://policies.google.com/terms"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-primary-600 transition-colors"
+          >
+            {t("contact.recaptchaTerms")}
+          </a>
+        </p>
       </form>
 
       {/* Snackbar */}

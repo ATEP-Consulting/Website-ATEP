@@ -741,7 +741,10 @@
     "errorMessage": "Error al enviar. Inténtalo de nuevo.",
     "tooManyAttempts": "Demasiados intentos. Espera un momento.",
     "sending": "Enviando...",
-    "loading": "Cargando..."
+    "loading": "Cargando...",
+    "recaptchaNotice": "Protegido por reCAPTCHA de Google.",
+    "recaptchaPrivacy": "Privacidad",
+    "recaptchaTerms": "Términos"
   },
   "privacy": {
     "title": "Política de Privacidad",

@@ -736,7 +736,10 @@
     "errorMessage": "Error sending. Please try again.",
     "tooManyAttempts": "Too many attempts. Please wait a few moments.",
     "sending": "Sending...",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "recaptchaNotice": "Protected by Google reCAPTCHA.",
+    "recaptchaPrivacy": "Privacy",
+    "recaptchaTerms": "Terms"
   },
   "privacy": {
     "title": "Privacy Policy",

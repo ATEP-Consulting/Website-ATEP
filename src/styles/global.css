@@ -167,3 +167,7 @@
 .animate-scroll {
   animation: scroll 1.5s ease-in-out infinite;
 }
+
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
