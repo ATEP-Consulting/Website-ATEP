@@ -17,7 +17,7 @@ export const ClientLogos = ({ logos }) => {
               key={index}
               src={logo.src}
               alt={logo.alt}
-              className="h-12 w-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 slide-up stagger-1"
+              className="h-12 w-auto grayscale slide-up stagger-1"
             />
           ))}
         </div>
