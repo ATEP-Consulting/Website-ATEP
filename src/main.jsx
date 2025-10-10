@@ -5,7 +5,7 @@ import App from "./App.jsx";
 import "./styles/global.css";
 import ReactGA from "react-gtag";
 
-ReactGA.initialize("G-XXXXXXX");
+ReactGA.initialize("G-GDE5LM5ND1");
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 createRoot(document.getElementById("root")).render(
