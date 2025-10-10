@@ -87,77 +87,567 @@
     "title": "Our Services",
     "subtitle": "Flexible technology solutions that drive your business forward",
     "viewAll": "View All Services",
+    "readMore": "Read More",
 
     "professionalWebsites": {
       "name": "Professional Websites",
-      "description": "Fast, optimized websites designed to convert visitors into customers",
+      "description": "Fast, optimized websites designed to convert visitors into customers.",
+      "keywords": "web development, professional websites, SEO, responsive design, business websites",
       "whatWeDo": "What We Do",
-      "whatWeDoText": "We develop 100% custom corporate websites, no templates. Clean code, optimized architecture, and exceptional performance from day one. Each website is designed to highlight your brand and convert visitors into customers.",
-      "benefits": "Benefits",
-      "benefit1": "Ultra-fast loading (Google PageSpeed 90+)",
-      "benefit2": "SEO optimized from the start",
-      "benefit3": "Responsive design on all devices",
-      "benefit4": "Hosting, maintenance, and support included",
+      "whatWeDoText": "We develop 100% custom corporate websites — no templates, no limits. Clean code, optimized architecture, and exceptional performance from day one. Every website is designed to elevate your brand and drive conversions.",
+
+      "stats": [
+        { "number": "1.2s", "label": "Load Time" },
+        { "number": "90+", "label": "PageSpeed Score" },
+        { "number": "100%", "label": "Custom Code" },
+        { "number": "24/7", "label": "Support" }
+      ],
+
+      "benefits": "Benefits That Make a Difference",
+      "benefitsSubtitle": "Your website isn’t just a digital card — it’s your best salesperson, working 24/7.",
+      "benefitsList": [
+        {
+          "title": "Extreme Speed",
+          "description": "Ultra-fast loading (Google PageSpeed 90+) that reduces bounce rates and boosts conversions. Every millisecond counts."
+        },
+        {
+          "title": "Built-in SEO",
+          "description": "SEO optimization from the code itself — not as an add-on. Your website is ready to rank from day one."
+        },
+        {
+          "title": "Fully Responsive Design",
+          "description": "Perfect on mobile, tablet, and desktop. Your site adapts seamlessly to every device for the best experience."
+        },
+        {
+          "title": "Continuous Support",
+          "description": "Hosting, maintenance, and updates included. We handle everything so you can focus on your business."
+        }
+      ],
+
+      "featuresTitle": "Cutting-Edge Technology",
+      "featuresSubtitle": "We use the most modern and proven tech stack on the market",
+      "features": [
+        {
+          "title": "Clean & Maintainable Code",
+          "description": "React, TypeScript, and modern architecture. Your site will grow with you without technical issues."
+        },
+        {
+          "title": "Guaranteed Security",
+          "description": "HTTPS, attack protection, automatic backups — your website and data are always safe."
+        },
+        {
+          "title": "Integrated Analytics",
+          "description": "Measure performance from day one. Know exactly what’s working and what to improve."
+        }
+      ],
+
+      "processTitle": "Our Work Process",
+      "processSubtitle": "From concept to production in record time",
+      "processSteps": [
+        {
+          "number": "01",
+          "title": "Discovery",
+          "description": "We analyze your business, goals, and target audience to define the project scope and required features."
+        },
+        {
+          "number": "02",
+          "title": "Design & UX",
+          "description": "We create custom wireframes and designs focused on user experience and conversion."
+        },
+        {
+          "number": "03",
+          "title": "Development",
+          "description": "We build with clean code, perform continuous testing, and deliver iteratively for your feedback."
+        },
+        {
+          "number": "04",
+          "title": "Launch",
+          "description": "Optimized deployment, SEO setup, analytics, and training so you can manage your website easily."
+        }
+      ],
+
       "whyChoose": "Why Choose Us",
-      "whyChooseText": "Our websites aren't modified templates. They're unique projects hand-developed with the latest technologies. The result: websites that load in under 2 seconds and generate trust from the first click."
+      "whyChooseText": "Our websites aren’t modified WordPress or Wix templates. They’re hand-crafted projects built with the latest technologies. The result: sites that load in under 2 seconds, rank on Google from day one, and convey professional trust from the first click. No technical limitations, no bloat, no plugin dependencies. Your site, your code, your ownership.",
+      "guarantees": [
+        { "text": "No Templates" },
+        { "text": "Custom Code" },
+        { "text": "Fast Delivery" }
+      ],
+
+      "ctaText": "Let’s talk about your project. You’ll get a personalized proposal within 48 hours."
     },
 
     "fullStackDevelopment": {
       "name": "Web Application Development",
       "description": "Complete custom platforms and applications, from concept to production",
+      "keywords": "full stack development, web applications, SaaS development, React, TypeScript, Node.js, custom software",
+
       "whatWeDo": "What We Do",
-      "whatWeDoText": "We develop complete web applications (frontend + backend) from scratch. From internal platforms to public SaaS. Scalable architecture, maintainable code, and cutting-edge technology (React, TypeScript, Node.js).",
-      "benefits": "Benefits",
-      "benefit1": "100% customized solution to your needs",
-      "benefit2": "Scalable and maintainable architecture",
-      "benefit3": "Modern and proven technology stack",
-      "benefit4": "Complete ownership of source code",
-      "whyChoose": "Why Choose Us",
-      "whyChooseText": "We are senior developers with experience in complex projects. No intermediaries: you talk directly with who codes. Fast deliveries, transparent communication, and professional-quality code."
+      "whatWeDoText": "We develop complete web applications (frontend + backend) from scratch. From internal management platforms to scalable public SaaS. We don't use templates or generic solutions: each project is unique, designed specifically to solve your business problems. Scalable architecture, maintainable code, and cutting-edge technology (React, TypeScript, Node.js).",
+
+      "stats": [
+        {
+          "number": "Full Stack",
+          "label": "Complete Frontend + Backend"
+        },
+        {
+          "number": "100%",
+          "label": "Custom code"
+        },
+        {
+          "number": "Scalable",
+          "label": "Ready to grow"
+        },
+        {
+          "number": "Your code",
+          "label": "Full ownership"
+        }
+      ],
+
+      "projectTypesTitle": "Types of Projects We Develop",
+      "projectTypesSubtitle": "Real experience in complex applications",
+
+      "projectTypes": [
+        {
+          "icon": "🎯",
+          "title": "Internal Management Platforms",
+          "description": "Custom CRMs, tailored ERPs, control dashboards, inventory systems. Everything you need to manage your operation."
+        },
+        {
+          "icon": "💼",
+          "title": "SaaS & Digital Products",
+          "description": "Multi-tenant applications, subscription systems, payment platforms, third-party APIs. Your product ready to sell."
+        },
+        {
+          "icon": "🔗",
+          "title": "Complex Integrations",
+          "description": "Connect multiple systems (ERPs, CRMs, external APIs). Data synchronization, webhooks, microservices architectures."
+        },
+        {
+          "icon": "📊",
+          "title": "Analytics Applications",
+          "description": "Interactive dashboards, data visualization, automated reports, custom business intelligence."
+        }
+      ],
+
+      "benefits": "Advantages of Our Development",
+      "benefitsSubtitle": "We don't sell code, we sell solutions that work",
+
+      "benefitsList": [
+        {
+          "title": "100% Custom Solution",
+          "description": "Every line of code written for your specific case. No template limitations, no features you don't need. Your application, exactly as you need it."
+        },
+        {
+          "title": "Scalable & Maintainable Architecture",
+          "description": "Designed to grow with you. Clean, documented code with automated tests. When you need to add features, it will be easy and fast."
+        },
+        {
+          "title": "Modern Technology Stack",
+          "description": "React, TypeScript, Node.js, PostgreSQL/MongoDB. Proven technologies with active community and available developers in the market."
+        },
+        {
+          "title": "Complete Code Ownership",
+          "description": "All source code is yours. No dependency on us. You can modify it, extend it, or hire another team in the future without problems."
+        }
+      ],
+
+      "featuresTitle": "Technology Stack We Use",
+      "featuresSubtitle": "Modern, proven technologies with a future",
+
+      "features": [
+        {
+          "title": "Modern Frontend",
+          "description": "React, TypeScript, Tailwind CSS. Fast, responsive, and intuitive interfaces that your users will love."
+        },
+        {
+          "title": "Robust Backend",
+          "description": "Node.js, Express, RESTful APIs. Scalable architecture ready to handle load and grow without limits."
+        },
+        {
+          "title": "Efficient Database",
+          "description": "PostgreSQL or MongoDB depending on your case. Optimized design, automatic backups, efficient queries."
+        }
+      ],
+
+      "processTitle": "How We Develop Your Application",
+      "processSubtitle": "Transparent process with partial deliveries and constant feedback",
+
+      "processSteps": [
+        {
+          "number": "01",
+          "title": "Discovery & Design",
+          "description": "We understand your business, users, and goals. Wireframes, user flows, and architecture design."
+        },
+        {
+          "number": "02",
+          "title": "Functional MVP",
+          "description": "We develop initial version with core functionalities. You test it, give feedback, we iterate."
+        },
+        {
+          "number": "03",
+          "title": "Full Development",
+          "description": "We add all planned functionalities. Continuous testing, weekly deliveries."
+        },
+        {
+          "number": "04",
+          "title": "Deploy & Training",
+          "description": "We deploy to production, configure analytics, train your team, and deliver documentation."
+        }
+      ],
+
+      "whyChoose": "Why We're Your Best Option",
+      "whyChooseText": "We are senior developers with real experience in complex projects. We're not an agency that outsources: you talk directly with who programs your application. Transparent communication, fast deliveries, and professional-quality code you can maintain without us. We've developed from CRMs for sales teams to SaaS platforms with thousands of users. We know the challenges, common mistakes, and how to avoid them.",
+
+      "guarantees": [
+        {
+          "text": "Weekly Deliveries"
+        },
+        {
+          "text": "Documented Code"
+        },
+        {
+          "text": "Testing Included"
+        }
+      ],
+
+      "ctaText": "Have a web application idea? Tell us about your project and we'll give you a detailed plan with timeline and budget in less than 48 hours."
     },
 
     "onDemandTeam": {
       "name": "On-Demand Tech Team",
-      "description": "Development reinforcement when your team needs it, available in 48h",
-      "whatWeDo": "What We Do",
-      "whatWeDoText": "We put senior developers at your team's disposal for urgent deliveries, workload peaks, or projects with tight deadlines. We integrate into your workflow immediately, no learning curve. Flexible billing, no long contracts.",
-      "benefits": "Benefits",
-      "benefit1": "Available in 48h, no lengthy processes",
-      "benefit2": "Specialized senior developers",
-      "benefit3": "Immediate integration into your team",
-      "benefit4": "Billing per project or per day",
-      "whyChoose": "Why Choose Us",
-      "whyChooseText": "We understand the rush and pressure of deliveries. We've saved multiple projects by jumping in during the final weeks. Real technical expertise, fast integration, and commitment to your deadlines."
-    },
+      "description": "Development reinforcement when your team needs it, available within 48 hours.",
+      "keywords": "on-demand developers, tech team, software outsourcing, temporary developers, IT support, remote development",
 
+      "whatWeDo": "What We Do",
+      "whatWeDoText": "We provide senior developers to strengthen your team for urgent deliveries, high workloads, or tight deadlines. We integrate into your workflow immediately, with no learning curve. Flexible billing, no long-term contracts.",
+
+      "stats": [
+        { "number": "48h", "label": "Response Time" },
+        { "number": "5+ yrs", "label": "Experience Level" },
+        { "number": "0", "label": "Notice Days" },
+        { "number": "100%", "label": "Commitment" }
+      ],
+
+      "urgencyTitle": "Urgent Delivery? We Can Start NOW",
+      "urgencyText": "If your project has a critical deadline and needs immediate technical reinforcement, we can start tomorrow. No bureaucracy, no long processes.",
+      "urgencyButton": "Contact Now",
+
+      "useCasesTitle": "When Do You Need Our Team?",
+      "useCasesSubtitle": "Real situations where we’ve made the difference",
+      "useCases": [
+        {
+          "title": "Critical Deadline Delivery",
+          "description": "You promised delivery next week and your team can’t make it. We step in, prioritize, and deliver on time."
+        },
+        {
+          "title": "Unexpected Workload Peak",
+          "description": "New project approved, multiple clients at once, your team is overloaded. We join temporarily until the load stabilizes."
+        },
+        {
+          "title": "Specific Expertise Required",
+          "description": "You need a TypeScript, React, or Node.js specialist for a specific module. We build, test, and document it."
+        },
+        {
+          "title": "Vacation Coverage",
+          "description": "Your key developer goes on vacation mid-project. We cover the position seamlessly."
+        }
+      ],
+
+      "benefits": "Benefits of Working With Us",
+      "benefitsSubtitle": "We’re not a generic outsourcing hub — we’re real developers",
+      "benefitsList": [
+        {
+          "title": "Available in 48 Hours",
+          "description": "No lengthy recruitment processes. Call today, start in two days. We’re fully set up and ready to work."
+        },
+        {
+          "title": "Senior Specialized Developers",
+          "description": "No juniors learning on your budget. Only developers with 5+ years of real experience in your tech stack."
+        },
+        {
+          "title": "Immediate Integration",
+          "description": "We work with Git, Jira, Slack, Teams — whatever you use. We adapt to your flow, not the other way around."
+        },
+        {
+          "title": "Flexible Billing",
+          "description": "Per day, project, or sprint. Whatever works best for you. No long-term commitments or hidden clauses."
+        }
+      ],
+
+      "featuresTitle": "Technologies We Work With",
+      "featuresSubtitle": "Modern, proven stack used in real projects",
+      "features": [
+        {
+          "title": "Frontend",
+          "description": "React, Next.js, Angular, TypeScript"
+        },
+        {
+          "title": "Backend",
+          "description": "Node.js, NestJS, .NET, Java Spring"
+        },
+        { "title": "Cloud", "description": "Azure, AWS, Vercel, Docker" }
+      ],
+
+      "processTitle": "How We Work Together",
+      "processSubtitle": "A simple, frictionless process",
+      "processSteps": [
+        {
+          "number": "01",
+          "title": "30-Min Call",
+          "description": "Tell us your situation: what you need, for when, and your tech stack. We assess if and how we can help."
+        },
+        {
+          "number": "02",
+          "title": "Proposal in 24h",
+          "description": "We send a proposal including: developer profile, availability, daily/project rate, and start date."
+        },
+        {
+          "number": "03",
+          "title": "Immediate Start",
+          "description": "Access granted, onboarding in hours, first commit within 48h. Daily updates on progress."
+        }
+      ],
+
+      "whyChoose": "Why Choose Us",
+      "whyChooseText": "We understand the pressure of deadlines. We’ve rescued multiple projects in their final weeks when everything seemed lost. We’re not an offshore team you’ll only meet on Zoom — we’re local developers in your timezone, same language, same culture. Real technical expertise, proven speed, and absolute commitment to your deadlines.",
+
+      "guarantees": [
+        { "text": "No Surprises" },
+        { "text": "Direct Communication" },
+        { "text": "Guaranteed Delivery" }
+      ],
+
+      "ctaText": "Does your team need reinforcement now? Let’s talk today — we can start tomorrow."
+    },
     "legacyMigration": {
-      "name": "Migration & Modernization",
-      "description": "Transform your legacy software into modern applications without disrupting operations",
-      "whatWeDo": "What We Do",
-      "whatWeDoText": "We migrate outdated systems to current technologies. From old CLI applications to unmaintainable monoliths. Detailed analysis, phased migration strategy, and execution with minimal impact on your daily operations.",
-      "benefits": "Benefits",
-      "benefit1": "Drastic reduction in maintenance costs",
-      "benefit2": "Increased system speed and performance",
-      "benefit3": "Maintainable and documented code",
-      "benefit4": "Migration without disrupting your business",
-      "whyChoose": "Why Choose Us",
-      "whyChooseText": "We have real experience in complex migrations (CLI → Web, Legacy → TypeScript/Node.js). We understand the risks and know how to minimize them. Your current case is our success story."
-    },
+      "name": "Legacy Migration & Modernization",
+      "description": "Transform your legacy software into modern applications without disrupting operations.",
+      "keywords": "legacy migration, software modernization, refactoring, digital transformation, system upgrade, old software replacement",
 
+      "whatWeDo": "What We Do",
+      "whatWeDoText": "We migrate outdated systems to modern technologies — from old CLI apps to unmaintainable monoliths. We conduct a detailed analysis, design a phased migration strategy, and execute with minimal impact on your daily operations.",
+
+      "stats": [
+        { "number": "90%", "label": "Fewer issues after migration" },
+        { "number": "3x", "label": "Performance improvement" },
+        { "number": "0h", "label": "Planned downtime" },
+        { "number": "10+", "label": "Years of migration experience" }
+      ],
+
+      "useCasesTitle": "Common Migration Scenarios",
+      "useCasesSubtitle": "Real examples where we’ve transformed legacy systems",
+      "useCases": [
+        {
+          "title": "Monolith to Modular Architecture",
+          "description": "We transformed a legacy PHP monolith into scalable, maintainable Node.js microservices."
+        },
+        {
+          "title": "CLI to Web Migration",
+          "description": "We turned command-line internal tools into modern, secure web platforms."
+        },
+        {
+          "title": "Legacy Database Upgrade",
+          "description": "Migrated data from SQL Server 2008 and Oracle to PostgreSQL with zero downtime."
+        },
+        {
+          "title": "Progressive Modernization",
+          "description": "We evolve critical modules step-by-step, keeping your business running at all times."
+        }
+      ],
+
+      "benefits": "Benefits",
+      "benefitsSubtitle": "Modernize your infrastructure without disrupting your business",
+      "benefitsList": [
+        {
+          "title": "Reduced Costs",
+          "description": "Lower maintenance, fewer incidents, and less dependency on outdated tech."
+        },
+        {
+          "title": "Superior Performance",
+          "description": "New systems are faster, safer, and scalable from day one."
+        },
+        {
+          "title": "Maintainable, Documented Code",
+          "description": "We implement modern standards and clear documentation for future growth."
+        },
+        {
+          "title": "Zero Downtime Migration",
+          "description": "We migrate in phases, ensuring business continuity throughout the process."
+        }
+      ],
+
+      "featuresTitle": "Technologies We Use",
+      "featuresSubtitle": "We upgrade your stack using modern, proven tools",
+      "features": [
+        {
+          "title": "Modern Frontend",
+          "description": "React, Next.js, TypeScript"
+        },
+        {
+          "title": "Updated Backend",
+          "description": "Node.js, NestJS, .NET Core, Java Spring Boot"
+        },
+        {
+          "title": "Databases",
+          "description": "PostgreSQL, MongoDB, SQL Server, MySQL"
+        },
+        {
+          "title": "Infrastructure",
+          "description": "Docker, Azure, AWS, CI/CD Pipelines"
+        }
+      ],
+
+      "processTitle": "How We Work",
+      "processSubtitle": "A structured process designed to minimize risk and maximize success",
+      "processSteps": [
+        {
+          "number": "01",
+          "title": "System Audit",
+          "description": "We analyze your current environment, dependencies, and technical challenges."
+        },
+        {
+          "number": "02",
+          "title": "Migration Strategy",
+          "description": "We design a phased plan that prioritizes stability and compatibility."
+        },
+        {
+          "number": "03",
+          "title": "Migration & Validation",
+          "description": "We execute, test, and validate every step to ensure smooth transition."
+        },
+        {
+          "number": "04",
+          "title": "Optimization & Support",
+          "description": "We fine-tune performance and provide post-deployment support to guarantee success."
+        }
+      ],
+
+      "whyChoose": "Why Choose Us",
+      "whyChooseText": "We have real experience in complex migrations — from CLI to Web, from old .NET to Node.js, from legacy databases to cloud environments. We understand the risks and know how to mitigate them. Your current challenge can become our next success story.",
+
+      "guarantees": [
+        { "text": "Zero Downtime" },
+        { "text": "Documented Code" },
+        { "text": "Guaranteed Delivery" }
+      ],
+
+      "ctaText": "Is your legacy system holding you back? Let’s design your modernization plan today."
+    },
     "automation": {
       "name": "Process Automation",
-      "description": "Save time and reduce errors by automating repetitive tasks in your company",
-      "whatWeDo": "What We Do",
-      "whatWeDoText": "We identify manual processes that consume your team's time and automate them. From tool integrations to complex workflows. Custom scripts, intelligent bots, and RPA adapted to your business.",
-      "benefits": "Benefits",
-      "benefit1": "Demonstrable ROI in less than 6 months",
-      "benefit2": "Reduction of human errors",
-      "benefit3": "Free up time for value-added tasks",
-      "benefit4": "Integration with your current tools",
-      "whyChoose": "Why Choose Us",
-      "whyChooseText": "We don't sell generic automation. We analyze your real operation and design specific solutions that generate immediate savings. Practical use cases, not theory."
-    },
+      "description": "Save time and reduce errors by automating repetitive business tasks.",
+      "keywords": "automation, RPA, process robots, efficiency, error reduction, integrations, bots, scripts, productivity",
 
+      "whatWeDo": "What We Do",
+      "whatWeDoText": "We identify manual, time-consuming processes in your organization and automate them — from tool integrations to complex workflows. We build custom scripts, intelligent bots, and RPA solutions tailored to your business needs.",
+
+      "stats": [
+        { "number": "6m", "label": "Average ROI in under 6 months" },
+        { "number": "70%", "label": "Reduction in repetitive tasks" },
+        { "number": "95%", "label": "Fewer human errors" },
+        { "number": "24/7", "label": "Continuous automated operation" }
+      ],
+
+      "useCasesTitle": "Common Use Cases",
+      "useCasesSubtitle": "Real examples of applied automation",
+      "useCases": [
+        {
+          "title": "Automated Reporting",
+          "description": "Automatically generate and send daily or weekly reports with up-to-date data from multiple sources."
+        },
+        {
+          "title": "Order & Invoice Management",
+          "description": "Bots that process orders, validate invoices, and update ERP or CRM systems in real time."
+        },
+        {
+          "title": "Tool Integration",
+          "description": "We connect platforms like Slack, Google Workspace, SAP, or Notion through automated workflows."
+        },
+        {
+          "title": "Backoffice RPA",
+          "description": "We automate repetitive tasks like data entry, validation, or information transfers."
+        }
+      ],
+
+      "benefits": "Benefits",
+      "benefitsSubtitle": "Boost productivity by eliminating unnecessary manual work",
+      "benefitsList": [
+        {
+          "title": "ROI in Less Than 6 Months",
+          "description": "Save time and resources — the investment pays off quickly."
+        },
+        {
+          "title": "Error Reduction",
+          "description": "Automated processes minimize human mistakes and increase accuracy."
+        },
+        {
+          "title": "Higher Productivity",
+          "description": "Your team can focus on strategic tasks while bots handle repetitive work."
+        },
+        {
+          "title": "Seamless Integration",
+          "description": "We design automation that fits perfectly with your existing tools."
+        }
+      ],
+
+      "featuresTitle": "Technologies We Use",
+      "featuresSubtitle": "Smart automation with best-in-class tools",
+      "features": [
+        {
+          "title": "RPA Tools",
+          "description": "UiPath, Power Automate, Automation Anywhere"
+        },
+        {
+          "title": "Integrations",
+          "description": "Zapier, n8n, Make (Integromat)"
+        },
+        {
+          "title": "Scripting & Bots",
+          "description": "Node.js, Python, Puppeteer, Selenium"
+        },
+        {
+          "title": "Cloud Workflows",
+          "description": "AWS Lambda, Google Cloud Functions, Azure Logic Apps"
+        }
+      ],
+
+      "processTitle": "How We Work",
+      "processSubtitle": "From process detection to tangible results",
+      "processSteps": [
+        {
+          "number": "01",
+          "title": "Process Analysis",
+          "description": "We identify manual tasks, timings, and automation opportunities."
+        },
+        {
+          "number": "02",
+          "title": "Solution Design",
+          "description": "We define flows, tools, and optimal integration points."
+        },
+        {
+          "number": "03",
+          "title": "Development & Implementation",
+          "description": "We build, test, and integrate the automation into your environment."
+        },
+        {
+          "number": "04",
+          "title": "Monitoring & Scaling",
+          "description": "We monitor performance and scale automation progressively."
+        }
+      ],
+
+      "whyChoose": "Why Choose Us",
+      "whyChooseText": "We don’t sell generic automation. We analyze your real operations and build specific solutions that generate immediate savings. We focus on measurable outcomes — fewer errors, higher efficiency, and fast ROI.",
+
+      "guarantees": [
+        { "text": "Measurable ROI" },
+        { "text": "Seamless Integration" },
+        { "text": "Guaranteed Implementation" }
+      ],
+
+      "ctaText": "Is your team wasting time on repetitive tasks? Automate them and boost productivity today."
+    },
     "ctaTitle": "Ready to Boost Your Project?",
     "ctaButton": "Let's Talk About Your Case"
   },

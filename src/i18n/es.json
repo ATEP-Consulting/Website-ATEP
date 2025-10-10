@@ -87,77 +87,572 @@
     "title": "Nuestros Servicios",
     "subtitle": "Soluciones tecnológicas flexibles que impulsan tu negocio",
     "viewAll": "Ver Todos los Servicios",
+    "readMore": "Ver más",
 
     "professionalWebsites": {
       "name": "Páginas Web Profesionales",
-      "description": "Sitios web rápidos, optimizados y diseñados para convertir visitantes en clientes",
-      "whatWeDo": "Qué Hacemos",
+      "description": "Sitios web rápidos, optimizados y diseñados para convertir visitantes en clientes.",
+      "keywords": "páginas web, desarrollo web, diseño web, SEO, optimización, web profesional",
+      "whatWeDo": "Lo Que Hacemos",
       "whatWeDoText": "Desarrollamos sitios web corporativos 100% personalizados, sin plantillas. Código limpio, arquitectura optimizada y rendimiento excepcional desde el primer día. Cada web está diseñada para destacar tu marca y convertir visitantes en clientes.",
-      "benefits": "Beneficios",
-      "benefit1": "Carga ultra-rápida (Google PageSpeed 90+)",
-      "benefit2": "SEO optimizado desde el inicio",
-      "benefit3": "Diseño responsivo en todos los dispositivos",
-      "benefit4": "Hosting, mantenimiento y soporte incluido",
-      "whyChoose": "Por Qué Elegirnos",
-      "whyChooseText": "Nuestras webs no son plantillas modificadas. Son proyectos únicos desarrollados a mano con las últimas tecnologías. El resultado: sitios web que cargan en menos de 2 segundos y generan confianza desde el primer clic."
+
+      "stats": [
+        { "number": "1.2s", "label": "Tiempo de carga" },
+        { "number": "90+", "label": "PageSpeed Score" },
+        { "number": "100%", "label": "Código a medida" },
+        { "number": "24/7", "label": "Soporte" }
+      ],
+
+      "benefits": "Beneficios Que Marcan la Diferencia",
+      "benefitsSubtitle": "Tu web no es solo una tarjeta de presentación, es tu mejor vendedor trabajando 24/7",
+      "benefitsList": [
+        {
+          "title": "Velocidad Extrema",
+          "description": "Carga ultra-rápida (Google PageSpeed 90+) que reduce el rebote y mejora conversiones. Cada milisegundo cuenta para mantener la atención de tus visitantes."
+        },
+        {
+          "title": "SEO Incorporado",
+          "description": "Optimización SEO desde el código. No como añadido, sino como parte fundamental de la arquitectura. Tu web lista para posicionar desde el día uno."
+        },
+        {
+          "title": "Diseño Responsivo Total",
+          "description": "Perfecto en móvil, tablet y desktop. Tu web se adapta automáticamente a cualquier dispositivo, garantizando la mejor experiencia siempre."
+        },
+        {
+          "title": "Soporte Continuo",
+          "description": "Hosting, mantenimiento y actualizaciones incluidas. Nos ocupamos de todo para que tú te enfoques en tu negocio."
+        }
+      ],
+
+      "featuresTitle": "Tecnología de Vanguardia",
+      "featuresSubtitle": "Utilizamos el stack tecnológico más moderno y probado del mercado",
+      "features": [
+        {
+          "title": "Código Limpio y Mantenible",
+          "description": "React, TypeScript y arquitectura moderna. Tu web escalará contigo sin problemas técnicos futuros."
+        },
+        {
+          "title": "Seguridad Garantizada",
+          "description": "HTTPS, protección contra ataques, backups automáticos. Tu web y tus datos siempre protegidos."
+        },
+        {
+          "title": "Analytics Integrado",
+          "description": "Mide resultados desde el primer día. Sabrás exactamente qué funciona y qué mejorar."
+        }
+      ],
+
+      "processTitle": "Nuestro Proceso de Trabajo",
+      "processSubtitle": "De la idea a la web en producción en tiempo récord",
+      "processSteps": [
+        {
+          "number": "01",
+          "title": "Descubrimiento",
+          "description": "Entendemos tu negocio, objetivos y audiencia. Definimos alcance y funcionalidades necesarias."
+        },
+        {
+          "number": "02",
+          "title": "Diseño y UX",
+          "description": "Creamos wireframes y diseño personalizado enfocado en conversión y experiencia de usuario."
+        },
+        {
+          "number": "03",
+          "title": "Desarrollo",
+          "description": "Programación con código limpio, testing continuo y entregas parciales para tu feedback."
+        },
+        {
+          "number": "04",
+          "title": "Lanzamiento",
+          "description": "Deploy optimizado, configuración SEO, analytics y formación para gestionar tu web."
+        }
+      ],
+
+      "whyChoose": "Por Qué Somos Diferentes",
+      "whyChooseText": "Nuestras webs no son plantillas modificadas de WordPress o Wix. Son proyectos únicos desarrollados a mano con las últimas tecnologías. El resultado: sitios web que cargan en menos de 2 segundos, posicionan en Google desde el inicio y generan confianza profesional desde el primer clic. Sin limitaciones técnicas, sin código basura, sin dependencia de plugins. Tu web, tu código, tu propiedad.",
+      "guarantees": [
+        { "text": "Sin Plantillas" },
+        { "text": "Código Propio" },
+        { "text": "Entrega Rápida" }
+      ],
+
+      "ctaText": "Hablemos de tu proyecto. Te daremos una propuesta personalizada en menos de 48 horas."
     },
 
     "fullStackDevelopment": {
       "name": "Desarrollo de Aplicaciones Web",
       "description": "Plataformas y aplicaciones completas a tu medida, del concepto a producción",
-      "whatWeDo": "Qué Hacemos",
-      "whatWeDoText": "Desarrollamos aplicaciones web completas (frontend + backend) desde cero. Desde plataformas internas hasta SaaS públicos. Arquitectura escalable, código mantenible y tecnología de última generación (React, TypeScript, Node.js).",
-      "benefits": "Beneficios",
-      "benefit1": "Solución 100% personalizada a tus necesidades",
-      "benefit2": "Arquitectura escalable y mantenible",
-      "benefit3": "Stack tecnológico moderno y probado",
-      "benefit4": "Propiedad completa del código fuente",
-      "whyChoose": "Por Qué Elegirnos",
-      "whyChooseText": "Somos desarrolladores senior con experiencia en proyectos complejos. Sin intermediarios: hablas directamente con quien programa. Entregas rápidas, comunicación transparente y código de calidad profesional."
+      "keywords": "full stack development, web applications, SaaS development, React, TypeScript, Node.js, custom software",
+
+      "whatWeDo": "Lo Que Hacemos",
+      "whatWeDoText": "Desarrollamos aplicaciones web completas (frontend + backend) desde cero. Desde plataformas internas de gestión hasta SaaS públicos escalables. No usamos plantillas ni soluciones genéricas: cada proyecto es único, diseñado específicamente para resolver tus problemas de negocio. Arquitectura escalable, código mantenible y tecnología de última generación (React, TypeScript, Node.js).",
+
+      "stats": [
+        {
+          "number": "Full Stack",
+          "label": "Frontend + Backend completo"
+        },
+        {
+          "number": "100%",
+          "label": "Código personalizado"
+        },
+        {
+          "number": "Escalable",
+          "label": "Preparado para crecer"
+        },
+        {
+          "number": "Tu código",
+          "label": "Propiedad total"
+        }
+      ],
+
+      "projectTypesTitle": "Tipos de Proyectos Que Desarrollamos",
+      "projectTypesSubtitle": "Experiencia real en aplicaciones complejas",
+
+      "projectTypes": [
+        {
+          "icon": "🎯",
+          "title": "Plataformas de Gestión Internas",
+          "description": "CRMs personalizados, ERPs a medida, dashboards de control, sistemas de inventario. Todo lo que necesites para gestionar tu operación."
+        },
+        {
+          "icon": "💼",
+          "title": "SaaS y Productos Digitales",
+          "description": "Aplicaciones multi-tenant, sistemas de suscripción, plataformas de pago, APIs para terceros. Tu producto listo para vender."
+        },
+        {
+          "icon": "🔗",
+          "title": "Integraciones Complejas",
+          "description": "Conecta múltiples sistemas (ERPs, CRMs, APIs externas). Sincronización de datos, webhooks, arquitecturas de microservicios."
+        },
+        {
+          "icon": "📊",
+          "title": "Aplicaciones de Análisis",
+          "description": "Dashboards interactivos, visualización de datos, reportes automatizados, business intelligence personalizado."
+        }
+      ],
+
+      "benefits": "Ventajas de Nuestro Desarrollo",
+      "benefitsSubtitle": "No vendemos código, vendemos soluciones que funcionan",
+
+      "benefitsList": [
+        {
+          "title": "Solución 100% Personalizada",
+          "description": "Cada línea de código escrita para tu caso específico. Sin limitaciones de plantillas, sin funcionalidades que no necesitas. Tu aplicación, exactamente como la necesitas."
+        },
+        {
+          "title": "Arquitectura Escalable y Mantenible",
+          "description": "Diseñada para crecer contigo. Código limpio, documentado, con tests automatizados. Cuando necesites añadir funcionalidades, será fácil y rápido."
+        },
+        {
+          "title": "Stack Tecnológico Moderno",
+          "description": "React, TypeScript, Node.js, PostgreSQL/MongoDB. Tecnologías probadas, con comunidad activa y desarrolladores disponibles en el mercado."
+        },
+        {
+          "title": "Propiedad Completa del Código",
+          "description": "Todo el código fuente es tuyo. Sin dependencias de nosotros. Puedes modificarlo, extenderlo o contratar a otro equipo en el futuro sin problemas."
+        }
+      ],
+
+      "featuresTitle": "Stack Tecnológico Que Usamos",
+      "featuresSubtitle": "Tecnologías modernas, probadas y con futuro",
+
+      "features": [
+        {
+          "title": "Frontend Moderno",
+          "description": "React, TypeScript, Tailwind CSS. Interfaces rápidas, responsivas e intuitivas que tus usuarios adorarán."
+        },
+        {
+          "title": "Backend Robusto",
+          "description": "Node.js, Express, APIs RESTful. Arquitectura escalable preparada para manejar carga y crecer sin límites."
+        },
+        {
+          "title": "Base de Datos Eficiente",
+          "description": "PostgreSQL o MongoDB según tu caso. Diseño optimizado, backups automáticos, queries eficientes."
+        }
+      ],
+
+      "processTitle": "Cómo Desarrollamos Tu Aplicación",
+      "processSubtitle": "Proceso transparente, con entregas parciales y feedback constante",
+
+      "processSteps": [
+        {
+          "number": "01",
+          "title": "Discovery & Diseño",
+          "description": "Entendemos tu negocio, usuarios y objetivos. Wireframes, flujos de usuario y diseño de arquitectura."
+        },
+        {
+          "number": "02",
+          "title": "MVP Funcional",
+          "description": "Desarrollamos versión inicial con funcionalidades core. Lo pruebas, das feedback, iteramos."
+        },
+        {
+          "number": "03",
+          "title": "Desarrollo Completo",
+          "description": "Añadimos todas las funcionalidades planificadas. Testing continuo, entregas semanales."
+        },
+        {
+          "number": "04",
+          "title": "Deploy & Formación",
+          "description": "Desplegamos en producción, configuramos analytics, formamos a tu equipo y entregamos documentación."
+        }
+      ],
+
+      "whyChoose": "Por Qué Somos Tu Mejor Opción",
+      "whyChooseText": "Somos desarrolladores senior con experiencia real en proyectos complejos. No somos una agencia que subcontrata: tú hablas directamente con quien programa tu aplicación. Comunicación transparente, entregas rápidas y código de calidad profesional que podrás mantener sin nosotros. Hemos desarrollado desde CRMs para equipos de ventas hasta plataformas SaaS con miles de usuarios. Conocemos los desafíos, los errores comunes y cómo evitarlos.",
+
+      "guarantees": [
+        {
+          "text": "Entregas Semanales"
+        },
+        {
+          "text": "Código Documentado"
+        },
+        {
+          "text": "Testing Incluido"
+        }
+      ],
+
+      "ctaText": "¿Tienes una idea de aplicación web? Cuéntanos tu proyecto y te daremos un plan detallado con cronograma y presupuesto en menos de 48 horas."
     },
 
     "onDemandTeam": {
       "name": "Equipo Técnico On-Demand",
-      "description": "Refuerzo de desarrollo cuando tu equipo lo necesita, disponible en 48h",
-      "whatWeDo": "Qué Hacemos",
+      "description": "Refuerzo de desarrollo cuando tu equipo lo necesita, disponible en 48h.",
+      "keywords": "equipo on demand, desarrolladores externos, refuerzo técnico, outsourcing, soporte desarrollo, equipo remoto",
+
+      "whatWeDo": "Lo Que Hacemos",
       "whatWeDoText": "Ponemos desarrolladores senior a disposición de tu equipo para entregas urgentes, picos de trabajo o proyectos con plazos ajustados. Nos integramos en tu flujo de trabajo inmediatamente, sin curva de aprendizaje. Facturación flexible, sin contratos largos.",
-      "benefits": "Beneficios",
-      "benefit1": "Disponibilidad en 48h, sin procesos largos",
-      "benefit2": "Desarrolladores senior especializados",
-      "benefit3": "Integración inmediata en tu equipo",
-      "benefit4": "Facturación por proyecto o por día",
-      "whyChoose": "Por Qué Elegirnos",
-      "whyChooseText": "Entendemos las prisas y la presión de las entregas. Hemos salvado múltiples proyectos entrando en las últimas semanas. Expertise técnico real, velocidad de integración y compromiso con tus deadlines."
+
+      "stats": [
+        { "number": "48h", "label": "Tiempo de respuesta" },
+        { "number": "+5 años", "label": "Nivel de experiencia" },
+        { "number": "0", "label": "Días de preaviso" },
+        { "number": "100%", "label": "Compromiso" }
+      ],
+
+      "urgencyTitle": "¿Entrega urgente? Te ayudamos YA",
+      "urgencyText": "Si tu proyecto tiene una fecha límite comprometida y necesitas refuerzo técnico inmediato, podemos empezar mañana mismo. Sin burocracia, sin procesos largos.",
+      "urgencyButton": "Contactar ahora",
+
+      "useCasesTitle": "¿Cuándo Necesitas Nuestro Equipo?",
+      "useCasesSubtitle": "Situaciones reales donde hemos marcado la diferencia",
+      "useCases": [
+        {
+          "title": "Entrega Urgente Comprometida",
+          "description": "Cliente prometido para la semana que viene y tu equipo no llega. Entramos, evaluamos, priorizamos y entregamos a tiempo."
+        },
+        {
+          "title": "Pico de Trabajo Inesperado",
+          "description": "Proyecto nuevo aprobado, varios clientes a la vez. Tu equipo está saturado. Nos sumamos temporalmente hasta normalizar la carga."
+        },
+        {
+          "title": "Expertise Específico Necesario",
+          "description": "Necesitas un especialista en TypeScript, React o Node.js para un módulo concreto. Entramos, desarrollamos y documentamos."
+        },
+        {
+          "title": "Cobertura de Vacaciones",
+          "description": "Tu desarrollador clave se va de vacaciones en pleno proyecto. Cubrimos el puesto sin que se note la diferencia."
+        }
+      ],
+
+      "benefits": "Ventajas de Trabajar Con Nosotros",
+      "benefitsSubtitle": "No somos un centro de outsourcing genérico, somos desarrolladores reales",
+      "benefitsList": [
+        {
+          "title": "Disponibles en 48 Horas",
+          "description": "Sin procesos largos de selección. Llamas hoy, empezamos pasado mañana. Ya tenemos todo listo: equipos, accesos y metodología."
+        },
+        {
+          "title": "Desarrolladores Senior Especializados",
+          "description": "No enviamos juniors a aprender con tu presupuesto. Son perfiles con +5 años de experiencia en el stack que necesitas."
+        },
+        {
+          "title": "Integración Inmediata",
+          "description": "Trabajamos con Git, Jira, Slack, Teams, lo que uses. Nos adaptamos a tu flujo, no al revés. Cero fricción desde el día uno."
+        },
+        {
+          "title": "Facturación Flexible",
+          "description": "Por día, por proyecto o por sprint. Lo que mejor te funcione. Sin contratos interminables ni compromisos forzados."
+        }
+      ],
+
+      "featuresTitle": "Tecnologías con las que Trabajamos",
+      "featuresSubtitle": "Stack moderno y probado en proyectos reales",
+      "features": [
+        {
+          "title": "Frontend",
+          "description": "React, Next.js, Angular, TypeScript"
+        },
+        {
+          "title": "Backend",
+          "description": "Node.js, NestJS, .NET, Java Spring"
+        },
+        { "title": "Cloud", "description": "Azure, AWS, Vercel, Docker" }
+      ],
+
+      "processTitle": "Cómo Trabajamos Juntos",
+      "processSubtitle": "Proceso simple, sin complicaciones",
+      "processSteps": [
+        {
+          "number": "01",
+          "title": "Llamada de 30 Minutos",
+          "description": "Nos cuentas tu situación: qué necesitas, para cuándo y con qué stack. Evaluamos si podemos ayudarte."
+        },
+        {
+          "number": "02",
+          "title": "Propuesta en 24h",
+          "description": "Te enviamos propuesta con: perfil del desarrollador, disponibilidad, precio por día/proyecto y fechas de inicio."
+        },
+        {
+          "number": "03",
+          "title": "Empezamos Inmediatamente",
+          "description": "Accesos configurados, onboarding express, primer commit en menos de 48h. Comunicación diaria sobre progreso."
+        }
+      ],
+
+      "whyChoose": "Por Qué Somos Tu Mejor Opción",
+      "whyChooseText": "Entendemos las prisas y la presión de las entregas. Hemos salvado múltiples proyectos entrando en las últimas semanas cuando todo parecía perdido. No somos un equipo offshore que conocerás por Zoom: somos desarrolladores locales, misma zona horaria, mismo idioma y misma cultura de trabajo. Expertise técnico real, velocidad de integración probada y compromiso absoluto con tus deadlines.",
+
+      "guarantees": [
+        { "text": "Sin Sorpresas" },
+        { "text": "Comunicación Directa" },
+        { "text": "Entrega Garantizada" }
+      ],
+
+      "ctaText": "¿Tu equipo necesita refuerzo ahora? Hablemos hoy y empezamos mañana."
     },
 
     "legacyMigration": {
       "name": "Migración y Modernización",
-      "description": "Transforma tu software legacy en aplicaciones modernas sin interrumpir tu operación",
+      "description": "Transforma tu software legacy en aplicaciones modernas sin interrumpir tu operación.",
+      "keywords": "migración legacy, modernización software, actualización tecnológica, refactorización, transformación digital, sistemas antiguos",
+
       "whatWeDo": "Qué Hacemos",
-      "whatWeDoText": "Migramos sistemas obsoletos a tecnologías actuales. Desde aplicaciones CLI antiguas hasta monolitos imposibles de mantener. Análisis detallado, estrategia de migración por fases y ejecución con mínimo impacto en tu operación diaria.",
+      "whatWeDoText": "Migramos sistemas obsoletos a tecnologías actuales. Desde aplicaciones CLI antiguas hasta monolitos imposibles de mantener. Realizamos un análisis detallado, diseñamos una estrategia de migración por fases y ejecutamos con mínimo impacto en tu operación diaria.",
+
+      "stats": [
+        { "number": "90%", "label": "Reducción de incidencias post-migración" },
+        { "number": "3x", "label": "Rendimiento medio mejorado" },
+        { "number": "0h", "label": "Tiempo de inactividad planificado" },
+        { "number": "+10", "label": "Años de experiencia en migraciones" }
+      ],
+
+      "useCasesTitle": "Casos Comunes de Migración",
+      "useCasesSubtitle": "Ejemplos reales donde hemos transformado sistemas legacy",
+      "useCases": [
+        {
+          "title": "Monolito a Arquitectura Modular",
+          "description": "Transformamos un monolito PHP heredado en microservicios Node.js escalables y fáciles de mantener."
+        },
+        {
+          "title": "Migración de CLI a Aplicación Web",
+          "description": "Llevamos herramientas internas en línea de comandos a plataformas web con interfaz moderna y segura."
+        },
+        {
+          "title": "Actualización de Base de Datos Legacy",
+          "description": "Migramos datos de SQL Server 2008 y Oracle a PostgreSQL sin pérdida ni interrupción."
+        },
+        {
+          "title": "Modernización Progresiva",
+          "description": "Evolucionamos módulos críticos paso a paso, sin frenar la operación del negocio."
+        }
+      ],
+
       "benefits": "Beneficios",
-      "benefit1": "Reducción drástica de costos de mantenimiento",
-      "benefit2": "Mayor velocidad y rendimiento del sistema",
-      "benefit3": "Código mantenible y documentado",
-      "benefit4": "Migración sin interrumpir tu negocio",
+      "benefitsSubtitle": "Moderniza tu infraestructura sin poner en riesgo tu operativa",
+      "benefitsList": [
+        {
+          "title": "Reducción de Costes",
+          "description": "Menos incidencias, menos mantenimiento y menor dependencia de tecnologías obsoletas."
+        },
+        {
+          "title": "Rendimiento Superior",
+          "description": "Los nuevos sistemas son más rápidos, seguros y escalables desde el primer día."
+        },
+        {
+          "title": "Código Mantenible y Documentado",
+          "description": "Implementamos estándares modernos y documentación clara para facilitar futuras mejoras."
+        },
+        {
+          "title": "Migración sin Interrupciones",
+          "description": "Migramos por fases, asegurando continuidad del negocio en todo momento."
+        }
+      ],
+
+      "featuresTitle": "Tecnologías que Usamos",
+      "featuresSubtitle": "Actualizamos tu stack a tecnologías modernas y sostenibles",
+      "features": [
+        {
+          "title": "Frontend Moderno",
+          "description": "React, Next.js, TypeScript"
+        },
+        {
+          "title": "Backend Actualizado",
+          "description": "Node.js, NestJS, .NET Core, Java Spring Boot"
+        },
+        {
+          "title": "Bases de Datos",
+          "description": "PostgreSQL, MongoDB, SQL Server, MySQL"
+        },
+        {
+          "title": "Infraestructura",
+          "description": "Docker, Azure, AWS, CI/CD Pipelines"
+        }
+      ],
+
+      "processTitle": "Cómo Trabajamos",
+      "processSubtitle": "Un proceso estructurado para minimizar riesgos y maximizar resultados",
+      "processSteps": [
+        {
+          "number": "01",
+          "title": "Auditoría del Sistema",
+          "description": "Analizamos tu entorno actual, dependencias, tecnologías y puntos críticos."
+        },
+        {
+          "number": "02",
+          "title": "Estrategia de Migración",
+          "description": "Diseñamos un plan por fases que prioriza la estabilidad y la compatibilidad."
+        },
+        {
+          "number": "03",
+          "title": "Migración y Validación",
+          "description": "Ejecutamos la migración, realizamos pruebas funcionales y garantizamos continuidad total."
+        },
+        {
+          "number": "04",
+          "title": "Optimización y Soporte",
+          "description": "Ajustamos el rendimiento y acompañamos post-implementación para asegurar el éxito."
+        }
+      ],
+
       "whyChoose": "Por Qué Elegirnos",
-      "whyChooseText": "Tenemos experiencia real en migraciones complejas (CLI → Web, Legacy → TypeScript/Node.js). Comprendemos los riesgos y sabemos cómo minimizarlos. Tu caso actual es nuestro caso de éxito."
+      "whyChooseText": "Tenemos experiencia real en migraciones complejas: de CLI a web, de .NET antiguo a Node.js, o de bases de datos legacy a entornos cloud. Entendemos los riesgos y los gestionamos para garantizar continuidad, seguridad y resultados tangibles. Tu caso actual será nuestro próximo caso de éxito.",
+
+      "guarantees": [
+        { "text": "Sin Interrupciones" },
+        { "text": "Código Documentado" },
+        { "text": "Entrega Garantizada" }
+      ],
+
+      "ctaText": "¿Tu sistema legacy se está convirtiendo en un problema? Hablemos y diseñemos tu plan de modernización."
     },
 
     "automation": {
       "name": "Automatización de Procesos",
-      "description": "Ahorra tiempo y reduce errores automatizando tareas repetitivas en tu empresa",
-      "whatWeDo": "Qué Hacemos",
-      "whatWeDoText": "Identificamos procesos manuales que consumen tiempo de tu equipo y los automatizamos. Desde integraciones entre herramientas hasta workflows complejos. Scripts personalizados, bots inteligentes y RPA adaptado a tu negocio.",
-      "benefits": "Beneficios",
-      "benefit1": "ROI demostrable en menos de 6 meses",
-      "benefit2": "Reducción de errores humanos",
-      "benefit3": "Liberación de tiempo para tareas de valor",
-      "benefit4": "Integración con tus herramientas actuales",
-      "whyChoose": "Por Qué Elegirnos",
-      "whyChooseText": "No vendemos automatización genérica. Analizamos tu operación real y diseñamos soluciones específicas que generan ahorro inmediato. Casos de uso prácticos, no teoría."
-    },
+      "description": "Ahorra tiempo y reduce errores automatizando tareas repetitivas en tu empresa.",
+      "keywords": "automatización, RPA, robots de procesos, eficiencia, reducción de errores, integraciones, bots, scripts, productividad",
 
+      "whatWeDo": "Qué Hacemos",
+      "whatWeDoText": "Identificamos procesos manuales que consumen tiempo de tu equipo y los automatizamos. Desde integraciones entre herramientas hasta workflows complejos. Creamos scripts personalizados, bots inteligentes y soluciones RPA adaptadas a tu negocio.",
+
+      "stats": [
+        { "number": "6m", "label": "ROI promedio logrado en menos de 6 meses" },
+        { "number": "70%", "label": "Reducción media de tareas repetitivas" },
+        { "number": "95%", "label": "Menos errores humanos" },
+        {
+          "number": "24/7",
+          "label": "Operaciones automatizadas sin interrupciones"
+        }
+      ],
+
+      "useCasesTitle": "Casos de Uso Comunes",
+      "useCasesSubtitle": "Ejemplos reales de automatización aplicada a empresas",
+      "useCases": [
+        {
+          "title": "Automatización de Reporting",
+          "description": "Generamos y enviamos informes automáticos diarios o semanales con datos actualizados desde distintas fuentes."
+        },
+        {
+          "title": "Gestión de Pedidos y Facturación",
+          "description": "Bots que procesan pedidos, validan facturas y actualizan sistemas ERP o CRM en tiempo real."
+        },
+        {
+          "title": "Integración de Herramientas",
+          "description": "Sincronizamos plataformas como Slack, Google Workspace, SAP o Notion mediante flujos automáticos."
+        },
+        {
+          "title": "RPA en Backoffice",
+          "description": "Automatizamos tareas repetitivas como registro de datos, validaciones o transferencias de información."
+        }
+      ],
+
+      "benefits": "Beneficios",
+      "benefitsSubtitle": "Optimiza tu productividad eliminando el trabajo manual innecesario",
+      "benefitsList": [
+        {
+          "title": "ROI en Menos de 6 Meses",
+          "description": "El ahorro de tiempo y recursos hace que la inversión se recupere rápidamente."
+        },
+        {
+          "title": "Reducción de Errores",
+          "description": "Los procesos automatizados minimizan los fallos humanos y mejoran la precisión."
+        },
+        {
+          "title": "Mayor Productividad",
+          "description": "Tu equipo se enfoca en tareas estratégicas mientras los bots se encargan del trabajo repetitivo."
+        },
+        {
+          "title": "Integración Total",
+          "description": "Diseñamos automatizaciones que se integran con tus herramientas actuales sin fricción."
+        }
+      ],
+
+      "featuresTitle": "Tecnologías que Usamos",
+      "featuresSubtitle": "Automatización inteligente con las mejores herramientas del mercado",
+      "features": [
+        {
+          "title": "RPA Tools",
+          "description": "UiPath, Power Automate, Automation Anywhere"
+        },
+        {
+          "title": "Integraciones",
+          "description": "Zapier, n8n, Make (Integromat)"
+        },
+        {
+          "title": "Scripting y Bots",
+          "description": "Node.js, Python, Puppeteer, Selenium"
+        },
+        {
+          "title": "Workflows Cloud",
+          "description": "AWS Lambda, Google Cloud Functions, Azure Logic Apps"
+        }
+      ],
+
+      "processTitle": "Cómo Trabajamos",
+      "processSubtitle": "De la detección de procesos al ahorro tangible",
+      "processSteps": [
+        {
+          "number": "01",
+          "title": "Análisis del Proceso",
+          "description": "Detectamos tareas manuales, tiempos y oportunidades de automatización."
+        },
+        {
+          "number": "02",
+          "title": "Diseño de la Solución",
+          "description": "Definimos flujos, herramientas y puntos de integración óptimos."
+        },
+        {
+          "number": "03",
+          "title": "Desarrollo e Implementación",
+          "description": "Creamos, probamos e integramos la automatización en tu entorno."
+        },
+        {
+          "number": "04",
+          "title": "Monitoreo y Escalado",
+          "description": "Supervisamos el rendimiento y ampliamos la automatización progresivamente."
+        }
+      ],
+
+      "whyChoose": "Por Qué Elegirnos",
+      "whyChooseText": "No vendemos automatización genérica. Analizamos tu operación real y diseñamos soluciones específicas que generan ahorro inmediato. Nos centramos en resultados medibles: menos errores, más eficiencia y retorno rápido de inversión.",
+
+      "guarantees": [
+        { "text": "ROI Medible" },
+        { "text": "Integración sin Fricción" },
+        { "text": "Implementación Garantizada" }
+      ],
+
+      "ctaText": "¿Tu equipo pierde tiempo en tareas repetitivas? Automatízalas y gana productividad desde hoy."
+    },
     "ctaTitle": "¿Listo para Impulsar tu Proyecto?",
     "ctaButton": "Hablemos de tu Caso"
   },

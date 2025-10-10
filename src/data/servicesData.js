@@ -12,19 +12,10 @@ export const getServicesData = (t) => [
     icon: Globe,
     name: t("services.professionalWebsites.name"),
     description: t("services.professionalWebsites.description"),
-    path: "/services/professional-websites", // ← path en lugar de link
-    component: ProfessionalWebsites, // ← componente
+    path: "/services/professional-websites",
+    component: ProfessionalWebsites,
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&q=80",
-    whatWeDo: t("services.professionalWebsites.whatWeDo"),
-    whatWeDoText: t("services.professionalWebsites.whatWeDoText"),
-    benefits: t("services.professionalWebsites.benefits"),
-    benefit1: t("services.professionalWebsites.benefit1"),
-    benefit2: t("services.professionalWebsites.benefit2"),
-    benefit3: t("services.professionalWebsites.benefit3"),
-    benefit4: t("services.professionalWebsites.benefit4"),
-    whyChoose: t("services.professionalWebsites.whyChoose"),
-    whyChooseText: t("services.professionalWebsites.whyChooseText"),
   },
   {
     id: "full-stack-development",
@@ -54,15 +45,6 @@ export const getServicesData = (t) => [
     component: OnDemandTeam,
     image:
       "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop&q=80",
-    whatWeDo: t("services.onDemandTeam.whatWeDo"),
-    whatWeDoText: t("services.onDemandTeam.whatWeDoText"),
-    benefits: t("services.onDemandTeam.benefits"),
-    benefit1: t("services.onDemandTeam.benefit1"),
-    benefit2: t("services.onDemandTeam.benefit2"),
-    benefit3: t("services.onDemandTeam.benefit3"),
-    benefit4: t("services.onDemandTeam.benefit4"),
-    whyChoose: t("services.onDemandTeam.whyChoose"),
-    whyChooseText: t("services.onDemandTeam.whyChooseText"),
   },
   {
     id: "legacy-migration",

@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 export const ServiceCard = ({ icon: Icon, name, description, path, image }) => {
+  const { t } = useLanguage();
   return (
     <div className="group relative bg-white rounded-lg overflow-hidden border border-neutral-200 h-full flex flex-col">
       <div className="relative h-64 flex-shrink-0">
@@ -26,7 +28,7 @@ export const ServiceCard = ({ icon: Icon, name, description, path, image }) => {
           to={path}
           className="inline-flex items-center gap-2 text-primary-600 font-semibold transition-colors duration-300 group-hover:text-primary-700"
         >
-          <span>Read More</span>
+          <span>{t("services.readMore")}</span>
           <ArrowRight className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
       </div>
