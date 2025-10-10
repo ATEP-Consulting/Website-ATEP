@@ -65,13 +65,10 @@ export const ServiceDetailTemplate = ({ serviceKey, heroIcon, heroImage }) => {
 
             {/* Stats - Minimalista */}
             {service.stats.length > 0 && (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 slide-up stagger-1">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 slide-up stagger-1">
                 {service.stats.map((stat, index) => (
-                  <div
-                    key={index}
-                    className="text-center p-6 border border-neutral-200 rounded-lg hover:border-primary-300 transition-all duration-300 group"
-                  >
-                    <div className="text-3xl font-bold text-primary-600 mb-2 group-hover:scale-110 transition-transform duration-300">
+                  <div key={index} className="text-center p-6">
+                    <div className="text-3xl font-bold text-primary-600 mb-2">
                       {stat.number}
                     </div>
                     <div className="text-sm text-neutral-600">{stat.label}</div>
@@ -85,14 +82,17 @@ export const ServiceDetailTemplate = ({ serviceKey, heroIcon, heroImage }) => {
 
       {/* Project Types */}
       {service.projectTypes && service.projectTypes.length > 0 && (
-        <section className="section-padding bg-neutral-50">
-          <div className="section-container">
+        <section className="section-padding bg-neutral-50 relative overflow-hidden">
+          {/* Decoración sutil de fondo */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-transparent pointer-events-none" />
+
+          <div className="section-container relative z-10">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12 slide-up">
-                <h2 className="heading-lg mb-4">
+                <h2 className="heading-lg mb-4 text-neutral-900">
                   {t(`services.${serviceKey}.projectTypesTitle`)}
                 </h2>
-                <p className="text-body text-neutral-600">
+                <p className="text-body text-neutral-600 max-w-3xl mx-auto">
                   {t(`services.${serviceKey}.projectTypesSubtitle`)}
                 </p>
               </div>
@@ -101,18 +101,23 @@ export const ServiceDetailTemplate = ({ serviceKey, heroIcon, heroImage }) => {
                 {service.projectTypes.map((project, index) => (
                   <div
                     key={index}
-                    className="group bg-white p-8 rounded-xl border border-neutral-200 hover:border-primary-200 transition-all duration-300 slide-up"
+                    className="group bg-white p-8 rounded-xl border border-neutral-200 hover:border-primary-600 shadow-sm hover:shadow-md transition-all duration-300 slide-up flex items-start gap-4"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                      {project.icon}
+                    {/* Punto decorativo animado */}
+                    <div className="relative flex-shrink-0 mt-1">
+                      <span className="block w-3 h-3 rounded-full bg-primary-600 shadow-[0_0_10px_3px_rgba(190,18,60,0.4)] animate-pulse" />
                     </div>
-                    <h3 className="text-xl font-semibold text-neutral-900 mb-3">
-                      {project.title}
-                    </h3>
-                    <p className="text-neutral-600 leading-relaxed">
-                      {project.description}
-                    </p>
+
+                    {/* Contenido */}
+                    <div>
+                      <h3 className="text-lg font-semibold text-neutral-900 mb-2 group-hover:text-primary-700 transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-neutral-600 leading-relaxed text-sm">
+                        {project.description}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -123,7 +128,7 @@ export const ServiceDetailTemplate = ({ serviceKey, heroIcon, heroImage }) => {
 
       {/* Use Cases */}
       {service.useCases.length > 0 && (
-        <section className="section-padding bg-white">
+        <section className="section-padding bg-neutral-50">
           <div className="section-container">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12 slide-up">
@@ -139,7 +144,7 @@ export const ServiceDetailTemplate = ({ serviceKey, heroIcon, heroImage }) => {
                 {service.useCases.map((useCase, index) => (
                   <div
                     key={index}
-                    className="group bg-neutral-50 p-8 rounded-xl border border-neutral-200 hover:border-primary-200 transition-all duration-300 slide-up"
+                    className="group bg-neutral-50 p-8 rounded-xl border border-neutral-200 hover:border-primary-600 transition-all duration-300 slide-up"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -177,7 +182,7 @@ export const ServiceDetailTemplate = ({ serviceKey, heroIcon, heroImage }) => {
                 {service.benefitsList.map((benefit, index) => (
                   <div
                     key={index}
-                    className="group flex items-start gap-4 p-6 bg-white rounded-xl border border-neutral-200 hover:border-primary-200 transition-all duration-300 slide-up"
+                    className="group flex items-start gap-4 p-6 bg-white rounded-xl border border-neutral-200 hover:border-primary-600 transition-all duration-300 slide-up"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="flex-shrink-0 w-6 h-6 mt-1">
@@ -217,7 +222,7 @@ export const ServiceDetailTemplate = ({ serviceKey, heroIcon, heroImage }) => {
                 {service.features.map((feature, index) => (
                   <div
                     key={index}
-                    className="group text-center p-8 bg-neutral-50 rounded-xl border border-neutral-200 hover:border-primary-200 transition-all duration-300 slide-up"
+                    className="group text-center p-8 bg-neutral-50 rounded-xl border border-neutral-200 hover:border-primary-600 transition-all duration-300 slide-up"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="inline-flex w-14 h-14 bg-primary-100 rounded-full items-center justify-center mb-6 group-hover:bg-primary-600 transition-colors duration-300">
@@ -255,7 +260,7 @@ export const ServiceDetailTemplate = ({ serviceKey, heroIcon, heroImage }) => {
                 {service.processSteps.map((step, index) => (
                   <div
                     key={index}
-                    className="group flex items-start gap-6 p-8 bg-white rounded-xl border border-neutral-200 hover:border-primary-200 transition-all duration-300 slide-up"
+                    className="group flex items-start gap-6 p-8 bg-white rounded-xl border border-neutral-200 hover:border-primary-600 transition-all duration-300 slide-up"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="flex-shrink-0">
