@@ -209,22 +209,18 @@
 
       "projectTypes": [
         {
-          "icon": "🎯",
           "title": "Plataformas de Gestión Internas",
           "description": "CRMs personalizados, ERPs a medida, dashboards de control, sistemas de inventario. Todo lo que necesites para gestionar tu operación."
         },
         {
-          "icon": "💼",
           "title": "SaaS y Productos Digitales",
           "description": "Aplicaciones multi-tenant, sistemas de suscripción, plataformas de pago, APIs para terceros. Tu producto listo para vender."
         },
         {
-          "icon": "🔗",
           "title": "Integraciones Complejas",
           "description": "Conecta múltiples sistemas (ERPs, CRMs, APIs externas). Sincronización de datos, webhooks, arquitecturas de microservicios."
         },
         {
-          "icon": "📊",
           "title": "Aplicaciones de Análisis",
           "description": "Dashboards interactivos, visualización de datos, reportes automatizados, business intelligence personalizado."
         }
