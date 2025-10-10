@@ -26,7 +26,7 @@ export const ContactForm = () => {
     formData.message.trim() &&
     formData.gdprConsent;
 
-  // const { executeRecaptcha } = useGoogleReCaptcha();
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [canSubmit, setCanSubmit] = useState(false);
@@ -66,10 +66,10 @@ export const ContactForm = () => {
 
     try {
       // Ejecutar reCAPTCHA v3 si está activo
-      // let token = null;
-      // if (executeRecaptcha) {
-      //   token = await executeRecaptcha("contact_form");
-      // }
+      let token = null;
+      if (executeRecaptcha) {
+        token = await executeRecaptcha("contact_form");
+      }
 
       // 1️⃣ ENVIAR EMAIL AL ADMINISTRADOR (tú)
       const adminTemplateParams = {
@@ -77,7 +77,7 @@ export const ContactForm = () => {
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message,
-        // "g-recaptcha-response": token, // opcional
+        "g-recaptcha-response": token, // opcional
       };
 
       await emailjs.send(

@@ -16,6 +16,7 @@ import { NotFound } from "./pages/NotFound";
 import { SnackbarProvider } from "./context/SnackBarContext";
 import { WhatsAppButton } from "./components/WhatsAppButton";
 import { getServicesData } from "./data/servicesData";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 function AppRoutes() {
   const { t } = useLanguage();
@@ -50,15 +51,20 @@ function AppRoutes() {
 
 function App() {
   return (
-    <LanguageProvider>
-      <SnackbarProvider>
-        <BrowserRouter>
-          <ScrollToTop />
-          <AppRoutes />
-        </BrowserRouter>
-        <WhatsAppButton />
-      </SnackbarProvider>
-    </LanguageProvider>
+    <GoogleReCaptchaProvider
+      reCaptchaKey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+      language="es"
+    >
+      <LanguageProvider>
+        <SnackbarProvider>
+          <BrowserRouter>
+            <ScrollToTop />
+            <AppRoutes />
+          </BrowserRouter>
+          <WhatsAppButton />
+        </SnackbarProvider>
+      </LanguageProvider>
+    </GoogleReCaptchaProvider>
   );
 }
 
