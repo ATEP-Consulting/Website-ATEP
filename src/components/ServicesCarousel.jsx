@@ -43,7 +43,7 @@ export const ServicesCarousel = ({ services }) => {
   };
 
   // Anchos fijos según el número de cards visibles
-  const cardWidth = visibleCount === 1 ? 320 : visibleCount === 2 ? 384 : 360; // px
+  const cardWidth = visibleCount === 1 ? 398 : visibleCount === 2 ? 384 : 360; // px
   const gap = visibleCount === 1 ? 0 : 32; // 2rem = 32px
 
   return (
