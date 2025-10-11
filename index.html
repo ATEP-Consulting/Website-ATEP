@@ -18,13 +18,31 @@
     </script>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/public/og-image.png" />
+    <link rel="icon" type="image/png" href="/og-image.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <!-- Primary Meta Tags -->
     <title>ATEP Consulting | Consultoría IT y Desarrollo de Software</title>
+    <meta
+      name="title"
+      content="ATEP Consulting | Consultoría IT y Desarrollo de Software"
+    />
+    <meta
+      name="description"
+      content="Desarrollo web profesional, aplicaciones a medida y migración de sistemas legacy. Equipo técnico on-demand disponible en 48h. Valencia, España."
+    />
+    <meta
+      name="keywords"
+      content="consultoría IT, desarrollo web, React, TypeScript, Node.js, migración legacy, automatización, staff augmentation, Valencia"
+    />
+    <meta name="author" content="ATEP Consulting" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#be123c" />
 
-    <!-- Open Graph / WhatsApp Preview -->
+    <!-- Canonical -->
+    <link rel="canonical" href="https://atepconsulting.com/" />
+
+    <!-- Open Graph / WhatsApp / LinkedIn -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://atepconsulting.com/" />
     <meta
@@ -43,26 +61,22 @@
     <meta property="og:site_name" content="ATEP Consulting" />
     <meta property="og:locale" content="es_ES" />
 
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
     <meta
-      name="title"
+      name="twitter:title"
       content="ATEP Consulting | Consultoría IT y Desarrollo de Software"
     />
     <meta
-      name="description"
+      name="twitter:description"
       content="Desarrollo web profesional, aplicaciones a medida y migración de sistemas legacy. Equipo técnico on-demand disponible en 48h. Valencia, España."
     />
     <meta
-      name="keywords"
-      content="consultoría IT, desarrollo web, React, TypeScript, Node.js, migración legacy, automatización, staff augmentation, Valencia"
+      name="twitter:image"
+      content="https://atepconsulting.com/og-image.png"
     />
-    <meta name="author" content="ATEP Consulting" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#be123c" />
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://atepconsulting.com/" />
-
-    <!-- ✅ Schema.org estático por defecto -->
+    <!-- Schema.org -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -95,20 +109,14 @@
           "availableLanguage": ["Spanish", "English"]
         },
         "founder": [
-          {
-            "@type": "Person",
-            "name": "Gabriela Albertini"
-          },
-          {
-            "@type": "Person",
-            "name": "Pablo Teijeiro"
-          }
+          { "@type": "Person", "name": "Gabriela Albertini" },
+          { "@type": "Person", "name": "Pablo Teijeiro" }
         ],
         "sameAs": ["https://www.linkedin.com/company/atepconsulting"]
       }
     </script>
 
-    <!-- Preconnect -->
+    <!-- Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://api.emailjs.com" />
@@ -119,6 +127,7 @@
       }
     </style>
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
