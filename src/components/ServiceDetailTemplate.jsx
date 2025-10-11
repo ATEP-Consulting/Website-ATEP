@@ -1,8 +1,5 @@
-// src/components/ServiceDetailTemplate.jsx
-import { Link } from "react-router-dom";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-import { SEO } from "./SEO";
 import ImageHero from "./ImageHero";
 
 export const ServiceDetailTemplate = ({ serviceKey, heroIcon, heroImage }) => {
@@ -39,12 +36,6 @@ export const ServiceDetailTemplate = ({ serviceKey, heroIcon, heroImage }) => {
 
   return (
     <>
-      <SEO
-        title={service.name}
-        description={service.description}
-        keywords={t(`services.${serviceKey}.keywords`)}
-      />
-
       <ImageHero
         icon={heroIcon}
         title={service.name}
