@@ -83,6 +83,14 @@ export const SEO = ({
     // ✅ Schema específico según tipo de página
     let schema = {};
 
+    console.log("🔍 SEO Debug:", {
+      schemaType,
+      schemaTypeFromProps: schemaType, // Ver qué llega
+      defaultUsed: schemaType === "Organization",
+      title,
+      currentUrl,
+    });
+
     switch (schemaType) {
       case "Organization":
         // Para Home, About, Contact

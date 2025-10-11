@@ -1,10 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./context/LanguageContext";
-import { useLanguage } from "./context/LanguageContext";
 import { MainLayout } from "./layouts/MainLayout";
 import { Home } from "./pages/Home";
 import { AboutUs } from "./pages/AboutUs";
 import { ServicesOverview } from "./pages/services/ServicesOverview";
+import { ProfessionalWebsites } from "./pages/services/ProfessionalWebsites";
+import { FullStackDevelopment } from "./pages/services/FullStackDevelopment";
+import { OnDemandTeam } from "./pages/services/OnDemandTeam";
+import { LegacyMigration } from "./pages/services/LegacyMigration";
+import { Automation } from "./pages/services/Automation";
 import { BlogList } from "./pages/blog/BlogList";
 import { BlogPost } from "./pages/blog/BlogPost";
 import { Contact } from "./pages/Contact";
@@ -15,13 +19,9 @@ import { ScrollToTop } from "./components/ScrollToTop";
 import { NotFound } from "./pages/NotFound";
 import { SnackbarProvider } from "./context/SnackBarContext";
 import { WhatsAppButton } from "./components/WhatsAppButton";
-import { getServicesData } from "./data/servicesData";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 function AppRoutes() {
-  const { t } = useLanguage();
-  const services = getServicesData(t);
-
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
@@ -29,13 +29,20 @@ function AppRoutes() {
         <Route path="company" element={<AboutUs />} />
         <Route path="services" element={<ServicesOverview />} />
 
-        {services.map((service) => (
-          <Route
-            key={service.id}
-            path={service.path}
-            element={<service.component />}
-          />
-        ))}
+        <Route
+          path="/services/professional-websites"
+          element={<ProfessionalWebsites />}
+        />
+        <Route
+          path="/services/full-stack-development"
+          element={<FullStackDevelopment />}
+        />
+        <Route path="/services/on-demand-team" element={<OnDemandTeam />} />
+        <Route
+          path="/services/legacy-migration"
+          element={<LegacyMigration />}
+        />
+        <Route path="/services/automation" element={<Automation />} />
 
         <Route path="blog" element={<BlogList />} />
         <Route path="blog/:slug" element={<BlogPost />} />
