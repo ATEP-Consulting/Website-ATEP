@@ -21,14 +21,14 @@ export const BlogPost = () => {
   return (
     <>
       <SEO
-        title={post.title}
-        description={post.excerpt}
+        title={post.title[language]}
+        description={post.excerpt[language]}
         keywords={post.keywords}
         image={post.image}
         schemaType="BlogPosting"
         schemaData={{
           "@type": "BlogPosting",
-          headline: post.title,
+          headline: post.title[language],
           datePublished: post.publishedDate,
           dateModified: post.modifiedDate,
           author: {
