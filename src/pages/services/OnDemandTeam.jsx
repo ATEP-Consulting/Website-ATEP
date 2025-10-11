@@ -11,13 +11,7 @@ export const OnDemandTeam = () => {
         keywords="staff augmentation, equipos on-demand, desarrolladores externos, contratación flexible, outsourcing IT, equipos técnicos, Valencia"
         schemaType="Service"
         schemaData={{
-          "@type": "Service",
           serviceType: "Staff Augmentation",
-          provider: {
-            "@type": "Organization",
-            name: "ATEP Consulting",
-            url: "https://atepconsulting.com",
-          },
         }}
       />
       <ServiceDetailTemplate

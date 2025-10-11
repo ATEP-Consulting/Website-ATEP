@@ -11,12 +11,11 @@ export const FullStackDevelopment = () => {
         keywords="desarrollo full-stack, aplicaciones web, React, Node.js, desarrollo backend, desarrollo frontend, API REST, bases de datos, Valencia"
         schemaType="Service"
         schemaData={{
-          "@type": "Service",
           serviceType: "Desarrollo Full-Stack",
-          provider: {
-            "@type": "Organization",
-            name: "ATEP Consulting",
-            url: "https://atepconsulting.com",
+          offers: {
+            "@type": "Offer",
+            availability: "https://schema.org/InStock",
+            priceCurrency: "EUR",
           },
         }}
       />

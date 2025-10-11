@@ -11,13 +11,7 @@ export const LegacyMigration = () => {
         keywords="migración legacy, modernización sistemas, COBOL, mainframes, migración datos, refactoring, actualización software, Valencia"
         schemaType="Service"
         schemaData={{
-          "@type": "Service",
           serviceType: "Migración de Sistemas Legacy",
-          provider: {
-            "@type": "Organization",
-            name: "ATEP Consulting",
-            url: "https://atepconsulting.com",
-          },
         }}
       />
       <ServiceDetailTemplate

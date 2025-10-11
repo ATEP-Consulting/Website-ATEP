@@ -7,17 +7,11 @@ export const Automation = () => {
     <>
       <SEO
         title="Automatización de Procesos Empresariales"
-        description="Automatizamos procesos repetitivos con IA, integramos sistemas y optimizamos workflows. RPA, APIs, integraciones personalizadas. Ahorra tiempo y reduce errores humanos."
-        keywords="automatización procesos, inteligencia artificial, RPA, integraciones API, workflow automation, optimización procesos, eficiencia empresarial, Valencia"
+        description="Automatizamos procesos repetitivos, integramos sistemas y optimizamos workflows. RPA, APIs, integraciones personalizadas. Ahorra tiempo y reduce errores humanos."
+        keywords="automatización procesos, RPA, integraciones API, workflow automation, optimización procesos, eficiencia empresarial, Valencia"
         schemaType="Service"
         schemaData={{
-          "@type": "Service",
           serviceType: "Automatización de Procesos",
-          provider: {
-            "@type": "Organization",
-            name: "ATEP Consulting",
-            url: "https://atepconsulting.com",
-          },
         }}
       />
       <ServiceDetailTemplate

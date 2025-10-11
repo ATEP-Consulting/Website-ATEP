@@ -18,13 +18,7 @@ export const ServicesOverview = () => {
         keywords="servicios IT, desarrollo web, aplicaciones personalizadas, migración legacy, automatización, staff augmentation, Valencia"
         schemaType="Service"
         schemaData={{
-          "@type": "Service",
           serviceType: "Consultoría IT y Desarrollo de Software",
-          provider: {
-            "@type": "Organization",
-            name: "ATEP Consulting",
-            url: "https://atepconsulting.com",
-          },
           hasOfferCatalog: {
             "@type": "OfferCatalog",
             name: "Servicios de Tecnología",

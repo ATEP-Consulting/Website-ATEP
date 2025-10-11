@@ -7,17 +7,11 @@ export const ProfessionalWebsites = () => {
     <>
       <SEO
         title="Desarrollo Web Profesional"
-        description="Creamos sitios web modernos, rápidos y optimizados para SEO. Diseño responsive, tecnologías modernas (React, TypeScript) y enfoque en conversión. Disponibles en 48h."
+        description="Creamos páginas webs modernas, rápidos y optimizados para SEO. Diseño responsive, tecnologías modernas (React, TypeScript) y enfoque en conversión. Disponibles en 48h."
         keywords="desarrollo web, páginas web profesionales, diseño web responsive, React, TypeScript, sitios web modernos, desarrollo frontend, Valencia"
         schemaType="Service"
         schemaData={{
-          "@type": "Service",
           serviceType: "Desarrollo Web Profesional",
-          provider: {
-            "@type": "Organization",
-            name: "ATEP Consulting",
-            url: "https://atepconsulting.com",
-          },
           audience: {
             "@type": "Audience",
             audienceType: "Empresas y emprendedores",

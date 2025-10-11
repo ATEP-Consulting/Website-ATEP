@@ -132,15 +132,16 @@ export const SEO = ({
         break;
 
       case "Service":
-        // Para páginas de servicios individuales
         schema = {
           ...baseSchema,
           "@type": "Service",
+          name: title || "Servicio de ATEP Consulting",
           serviceType: title || schemaData.serviceType || "Consultoría IT",
           provider: {
             "@type": "Organization",
             name: "ATEP Consulting",
             url: baseUrl,
+            logo: `${baseUrl}/logo-atep.png`,
           },
           areaServed: {
             "@type": "Country",
@@ -148,6 +149,7 @@ export const SEO = ({
           },
           description: description,
           url: currentUrl,
+          image: image,
           ...schemaData,
         };
         break;

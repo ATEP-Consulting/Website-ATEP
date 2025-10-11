@@ -51,7 +51,6 @@ export const Home = () => {
         keywords="consultoría IT, desarrollo software, transformación digital, desarrollo web, migración legacy, automatización, Valencia, España"
         schemaType="Organization"
         schemaData={{
-          "@type": "Organization",
           serviceType: [
             "Desarrollo Web Profesional",
             "Desarrollo Full-Stack",
