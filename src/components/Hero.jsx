@@ -1,135 +1,184 @@
-// src/components/Hero.jsx
 import { Link } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Pause,
+  Play,
+  ArrowRight,
+} from "lucide-react";
 import { Stats } from "./Stats";
 import { getHeroStats } from "../config/heroStats";
 import { useLanguage } from "../context/LanguageContext";
+import { getServicesData } from "../data/servicesData";
 
-/**
- * Componente Hero principal con contador animado
- */
-const Hero = ({
-  badge,
-  title,
-  subtitle,
-  primaryButton,
-  secondaryButton,
-  image,
-}) => {
+const Hero = () => {
   const { t } = useLanguage();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const slides = getServicesData(t);
+
+  // Auto-play carousel
+  useEffect(() => {
+    if (!isPlaying) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isPlaying, slides.length]);
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const currentSlideData = slides[currentSlide];
+
   return (
-    <section className="relative min-h-[calc(100vh-64px)] md:min-h-[calc(100vh-80px)] flex flex-col overflow-hidden bg-white">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <>
+      <section className="relative min-h-[600px] md:min-h-[700px] flex flex-col overflow-hidden bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900">
+        {/* Background Image con overlay oscuro */}
+        <div className="absolute inset-0">
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentSlide ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <img
+                src={slide.image}
+                alt={slide.name}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/95 via-neutral-900/75 to-neutral-900/40"></div>
+            </div>
+          ))}
+        </div>
+
+        {/* Grid pattern sutil */}
         <div
-          className="absolute w-[600px] h-[600px] bg-primary-100 rounded-full filter blur-3xl opacity-20"
+          className="absolute inset-0 opacity-5 pointer-events-none z-10"
           style={{
-            top: "-10rem",
-            right: "-10rem",
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundSize: "50px 50px",
           }}
         ></div>
-      </div>{" "}
-      {/* Grid pattern sutil */}
-      <div
-        className="absolute inset-0 opacity-5 pointer-events-none"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)`,
-          backgroundSize: "50px 50px",
-        }}
-      ></div>
-      {/* Contenido principal - Hero */}
-      <div className="flex items-center section-container relative z-10 pt-12 md:pt-52 pb-8 md:pb-12">
-        <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
-          {/* Contenido izquierdo */}
-          <div className="space-y-8">
-            {/* Badge superior */}
-            {badge && (
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-100/50 backdrop-blur-sm rounded-full border border-primary-200/50 fade-in">
-                <span className="w-2 h-2 bg-primary-600 rounded-full animate-pulse"></span>
-                <span className="text-sm font-medium text-primary-700">
-                  {badge}
-                </span>
-              </div>
-            )}
 
-            {/* Título */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-neutral-900 leading-tight fade-in stagger-1">
-              {title}
+        {/* Contenido principal */}
+        <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto px-6 py-20 md:py-32">
+          <div className="max-w-3xl space-y-8">
+            {/* Badge superior con animación */}
+            <div
+              key={`title-${currentSlide}`}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary-600/20 backdrop-blur-sm rounded-full border border-primary-500/30 animate-fade-in"
+            >
+              <span className="w-2 h-2 bg-primary-500 rounded-full animate-pulse"></span>
+              <span className="text-sm font-medium text-primary-200">
+                {currentSlideData.name}
+              </span>
+            </div>
+
+            {/* Título con animación */}
+            <h1
+              key={`name-${currentSlide}`}
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight animate-fade-in-up"
+            >
+              {currentSlideData.name}
             </h1>
 
             {/* Subtítulo */}
-            <p className="text-xl lg:text-2xl text-neutral-600 leading-relaxed fade-in stagger-2">
-              {subtitle}
+            <p
+              key={`description-${currentSlide}`}
+              className="text-lg md:text-xl text-neutral-300 leading-relaxed max-w-2xl animate-fade-in-up"
+              style={{ animationDelay: "0.1s" }}
+            >
+              {currentSlideData.description}
             </p>
 
-            {/* Botones */}
-            <div className="flex flex-col sm:flex-row gap-4 fade-in stagger-3">
-              {primaryButton && (
-                <Link to={primaryButton.to} className="btn-primary">
-                  <span className="relative z-10 flex items-center justify-center gap-2">
-                    {primaryButton.text}
-                    <svg
-                      className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </svg>
-                  </span>
-                </Link>
-              )}
-
-              {secondaryButton && (
-                <Link to={secondaryButton.to} className="btn-outline">
-                  {secondaryButton.text}
-                </Link>
-              )}
-            </div>
-          </div>
-
-          {/* Imagen derecha */}
-          <div className="relative fade-in stagger-2">
-            {/* Decoración detrás de la imagen */}
-            <div className="absolute -inset-4 bg-gradient-to-br from-primary-200 to-primary-300 rounded-3xl blur-2xl opacity-30 animate-pulse"></div>
-
-            {/* Imagen principal */}
-            <div className="relative rounded-lg overflow-hidden shadow-2xl">
-              <img
-                src={image}
-                alt={title}
-                className="w-full h-full object-cover"
-              />
-
-              {/* Overlay sutil */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/10 to-transparent"></div>
+            <div className="flex gap-4 sm:flex-row animate-fade-in-up">
+              <Link className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-600 text-neutral-50 font-semibold rounded-lg hover:bg-primary-700 transition-all duration-300 group shadow-xl hover:shadow-2xl">
+                {t("CTA.primaryButton")}
+                <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link className="px-8 py-4 text-white font-semibold rounded-lg border-2 border-white/30 hover:bg-white/10 hover:border-white transition-all duration-300">
+                {t("CTA.secondaryButton")}
+              </Link>
             </div>
           </div>
         </div>
-      </div>
-      {/* Stats en grande abajo */}
+
+        {/* Controles del carousel */}
+        <div className="absolute bottom-8 left-0 right-0 z-20">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={prevSlide}
+                  className="w-11 h-11 flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full transition-all duration-300"
+                  aria-label="Slide anterior"
+                >
+                  <ChevronLeft className="w-5 h-5 text-white" />
+                </button>
+
+                <button
+                  onClick={nextSlide}
+                  className="w-11 h-11 flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full transition-all duration-300"
+                  aria-label="Siguiente slide"
+                >
+                  <ChevronRight className="w-5 h-5 text-white" />
+                </button>
+              </div>
+
+              <div className="flex items-center gap-2">
+                {slides.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className="group relative"
+                    aria-label={`Ir al slide ${index + 1}`}
+                  >
+                    <div
+                      className={`h-1 rounded-full transition-all duration-300 ${
+                        index === currentSlide
+                          ? "w-14 bg-white"
+                          : "w-9 bg-white/40 hover:bg-white/60"
+                      }`}
+                    />
+                  </button>
+                ))}
+              </div>
+
+              <button
+                onClick={() => setIsPlaying(!isPlaying)}
+                className="w-11 h-11 flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full transition-all duration-300"
+                aria-label={
+                  isPlaying ? "Pausar carousel" : "Reproducir carousel"
+                }
+              >
+                {isPlaying ? (
+                  <Pause className="w-5 h-5 text-white fill-white" />
+                ) : (
+                  <Play className="w-5 h-5 text-white fill-white ml-0.5" />
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats debajo del Hero */}
       <Stats stats={getHeroStats(t)} />
-      {/* Scroll indicator - oculto en móvil con más espacio arriba */}
-      <div className="hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <svg
-          className="w-6 h-6 text-neutral-400"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
-      </div>
-    </section>
+    </>
   );
 };
 
