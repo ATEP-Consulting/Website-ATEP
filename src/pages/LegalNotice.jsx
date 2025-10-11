@@ -9,9 +9,10 @@ export const LegalNotice = () => {
   return (
     <>
       <SEO
-        title={t("legal.title")}
-        description={t("legal.intro")}
-        keywords="legal notice, terms of use, aviso legal, términos legales"
+        title="Aviso Legal"
+        description="Aviso legal de ATEP Consulting. Información corporativa, condiciones de uso del sitio web y datos de contacto."
+        keywords="aviso legal, información legal, condiciones uso"
+        schemaType="WebPage"
       />
 
       <section className="section-padding bg-gradient-to-br from-primary-50 to-white">

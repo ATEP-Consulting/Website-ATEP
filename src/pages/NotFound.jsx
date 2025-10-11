@@ -30,10 +30,10 @@ export const NotFound = () => {
   return (
     <>
       <SEO
-        title={t("404.title") || "404 - Page Not Found"}
-        description={
-          t("404.subtitle") || "The page you're looking for doesn't exist"
-        }
+        title="Página No Encontrada - Error 404"
+        description="La página que buscas no existe o ha sido movida. Vuelve a la página principal de ATEP Consulting."
+        keywords="error 404, página no encontrada"
+        schemaType="WebPage"
       />
 
       <section className="relative min-h-[calc(100vh-80px)] flex items-center overflow-hidden bg-gradient-to-br from-primary-50 via-white to-neutral-50">

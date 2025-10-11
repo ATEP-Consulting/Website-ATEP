@@ -46,9 +46,20 @@ export const Home = () => {
   return (
     <>
       <SEO
-        title={t("nav.home")}
-        description={t("home.heroSubtitle")}
-        keywords="digital transformation, consulting, web development, automation, legacy migration"
+        title="Consultoría IT y Desarrollo de Software"
+        description="Transformamos tu negocio con desarrollo web profesional, aplicaciones a medida, migración de sistemas legacy y automatización de procesos. Equipo técnico disponible en 48h. Valencia, España."
+        keywords="consultoría IT, desarrollo software, transformación digital, desarrollo web, migración legacy, automatización, Valencia, España"
+        schemaType="Organization"
+        schemaData={{
+          "@type": "Organization",
+          serviceType: [
+            "Desarrollo Web Profesional",
+            "Desarrollo Full-Stack",
+            "Equipos On-Demand",
+            "Migración de Sistemas Legacy",
+            "Automatización de Procesos",
+          ],
+        }}
       />
 
       <Hero

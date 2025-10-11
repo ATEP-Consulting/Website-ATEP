@@ -37,9 +37,10 @@ export const BlogList = () => {
   return (
     <>
       <SEO
-        title={t("blog.title")}
-        description={t("blog.subtitle")}
-        keywords="blog, insights, digital transformation, consulting tips"
+        title="Blog - Artículos sobre Desarrollo y Tecnología"
+        description="Artículos, guías y casos de éxito sobre desarrollo web, migración de sistemas, automatización y tecnologías modernas. Consejos prácticos para empresas."
+        keywords="blog desarrollo web, artículos tecnología, guías programación, casos de éxito IT, tutoriales desarrollo"
+        schemaType="WebPage"
       />
 
       {/* Hero limpio - estilo Contact */}

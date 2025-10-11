@@ -84,9 +84,10 @@ export const AboutUs = () => {
   return (
     <>
       <SEO
-        title={t("about.title")}
-        description={t("about.subtitle")}
-        keywords="about us, team, consulting experts, digital transformation specialists"
+        title="Sobre Nosotros - Equipo de Expertos IT"
+        description="Equipo técnico senior especializado en React, TypeScript, Node.js y tecnologías cloud. Más de 10 años de experiencia en desarrollo de software y consultoría IT. Valencia, España."
+        keywords="equipo IT, consultores tecnológicos, desarrolladores React, expertos TypeScript, equipo senior, Valencia"
+        schemaType="WebPage"
       />
 
       {/* Hero con imagen de fondo */}

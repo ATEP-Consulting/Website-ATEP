@@ -8,9 +8,10 @@ export const PrivacyPolicy = () => {
   return (
     <>
       <SEO
-        title={t("privacy.title")}
-        description={t("privacy.intro")}
-        keywords="privacy policy, data protection, GDPR, política de privacidad"
+        title="Política de Privacidad"
+        description="Política de privacidad y protección de datos de ATEP Consulting. Información sobre cómo tratamos tus datos personales según RGPD."
+        keywords="política privacidad, protección datos, RGPD, LOPD"
+        schemaType="WebPage"
       />
 
       <section className="section-padding bg-gradient-to-br from-primary-50 to-white">

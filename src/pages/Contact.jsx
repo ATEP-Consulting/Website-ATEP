@@ -57,9 +57,20 @@ export const Contact = () => {
   return (
     <>
       <SEO
-        title={t("contact.title")}
-        description={t("contact.subtitle")}
-        keywords="contact, get in touch, consulting inquiry"
+        title="Contacto - Hablemos de tu Proyecto"
+        description="Contáctanos para transformar tu negocio con tecnología. Respondemos en menos de 24 horas. Disponibles por email, teléfono o formulario web. Valencia, España."
+        keywords="contacto, presupuesto desarrollo web, consultoría IT Valencia, contratar desarrolladores, solicitar información"
+        schemaType="Organization"
+        schemaData={{
+          "@type": "Organization",
+          contactPoint: {
+            "@type": "ContactPoint",
+            email: "info@atepconsulting.com",
+            contactType: "Customer Service",
+            areaServed: "ES",
+            availableLanguage: ["Spanish", "English"],
+          },
+        }}
       />
 
       {/* Hero Section - Limpio y directo */}

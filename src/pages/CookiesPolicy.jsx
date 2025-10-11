@@ -29,9 +29,10 @@ export const CookiesPolicy = () => {
   return (
     <>
       <SEO
-        title={t("cookies.title")}
-        description={t("cookies.intro")}
-        keywords="cookies policy, cookie consent, tracking, política de cookies"
+        title="Política de Cookies"
+        description="Información sobre el uso de cookies en atepconsulting.com. Tipos de cookies, finalidad y cómo gestionarlas."
+        keywords="política cookies, uso cookies, gestión cookies"
+        schemaType="WebPage"
       />
 
       <section className="section-padding bg-gradient-to-br from-primary-50 to-white">

@@ -1,10 +1,10 @@
-import { useParams, Navigate } from 'react-router-dom';
-import { Calendar, User, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { useLanguage } from '../../context/LanguageContext';
-import { SEO } from '../../components/SEO';
-import { BlogCard } from '../../components/BlogCard';
-import { blogPosts } from '../../utils/blogData';
+import { useParams, Navigate } from "react-router-dom";
+import { Calendar, User, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useLanguage } from "../../context/LanguageContext";
+import { SEO } from "../../components/SEO";
+import { BlogCard } from "../../components/BlogCard";
+import { blogPosts } from "../../utils/blogData";
 
 export const BlogPost = () => {
   const { slug } = useParams();
@@ -16,17 +16,34 @@ export const BlogPost = () => {
     return <Navigate to="/blog" replace />;
   }
 
-  const relatedPosts = blogPosts
-    .filter((p) => p.slug !== slug)
-    .slice(0, 2);
+  const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 2);
 
   return (
     <>
       <SEO
-        title={post.title[language]}
-        description={post.excerpt[language]}
+        title={post.title}
+        description={post.excerpt}
+        keywords={post.keywords}
         image={post.image}
-        type="article"
+        schemaType="BlogPosting"
+        schemaData={{
+          "@type": "BlogPosting",
+          headline: post.title,
+          datePublished: post.publishedDate,
+          dateModified: post.modifiedDate,
+          author: {
+            "@type": "Person",
+            name: post.author,
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "ATEP Consulting",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://atepconsulting.com/logo-atep.png",
+            },
+          },
+        }}
       />
 
       <article>
@@ -71,30 +88,42 @@ export const BlogPost = () => {
           <div className="section-container">
             <div className="max-w-4xl mx-auto">
               <div className="prose prose-lg max-w-none">
-                {post.content[language].split('\n\n').map((paragraph, index) => {
-                  if (paragraph.startsWith('## ')) {
+                {post.content[language]
+                  .split("\n\n")
+                  .map((paragraph, index) => {
+                    if (paragraph.startsWith("## ")) {
+                      return (
+                        <h2 key={index} className="heading-md mt-12 mb-6">
+                          {paragraph.replace("## ", "")}
+                        </h2>
+                      );
+                    }
+                    if (
+                      paragraph.startsWith("1. ") ||
+                      paragraph.match(/^\d+\. /)
+                    ) {
+                      const items = paragraph.split("\n");
+                      return (
+                        <ol
+                          key={index}
+                          className="list-decimal list-inside space-y-2 text-body mb-6"
+                        >
+                          {items.map((item, i) => (
+                            <li key={i}>
+                              {item
+                                .replace(/^\d+\.\s\*\*/, "")
+                                .replace(/\*\*:/, ":")}
+                            </li>
+                          ))}
+                        </ol>
+                      );
+                    }
                     return (
-                      <h2 key={index} className="heading-md mt-12 mb-6">
-                        {paragraph.replace('## ', '')}
-                      </h2>
+                      <p key={index} className="text-body mb-6 leading-relaxed">
+                        {paragraph}
+                      </p>
                     );
-                  }
-                  if (paragraph.startsWith('1. ') || paragraph.match(/^\d+\. /)) {
-                    const items = paragraph.split('\n');
-                    return (
-                      <ol key={index} className="list-decimal list-inside space-y-2 text-body mb-6">
-                        {items.map((item, i) => (
-                          <li key={i}>{item.replace(/^\d+\.\s\*\*/, '').replace(/\*\*:/, ':')}</li>
-                        ))}
-                      </ol>
-                    );
-                  }
-                  return (
-                    <p key={index} className="text-body mb-6 leading-relaxed">
-                      {paragraph}
-                    </p>
-                  );
-                })}
+                  })}
               </div>
             </div>
           </div>
@@ -103,7 +132,9 @@ export const BlogPost = () => {
         {relatedPosts.length > 0 && (
           <section className="section-padding bg-neutral-50">
             <div className="section-container">
-              <h2 className="heading-md mb-8 text-center">{t('blog.relatedPosts')}</h2>
+              <h2 className="heading-md mb-8 text-center">
+                {t("blog.relatedPosts")}
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 {relatedPosts.map((relatedPost) => (
                   <BlogCard

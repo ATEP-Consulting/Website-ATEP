@@ -13,9 +13,60 @@ export const ServicesOverview = () => {
   return (
     <>
       <SEO
-        title={t("services.title")}
-        description={t("services.subtitle")}
-        keywords="web development, full stack, staff augmentation, legacy migration, automation, consulting"
+        title="Nuestros Servicios - Soluciones IT Completas"
+        description="Ofrecemos desarrollo web profesional, aplicaciones full-stack, equipos on-demand, migración de sistemas legacy y automatización de procesos. Soluciones tecnológicas a medida para tu empresa."
+        keywords="servicios IT, desarrollo web, aplicaciones personalizadas, migración legacy, automatización, staff augmentation, Valencia"
+        schemaType="Service"
+        schemaData={{
+          "@type": "Service",
+          serviceType: "Consultoría IT y Desarrollo de Software",
+          provider: {
+            "@type": "Organization",
+            name: "ATEP Consulting",
+            url: "https://atepconsulting.com",
+          },
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Servicios de Tecnología",
+            itemListElement: [
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Desarrollo Web Profesional",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Desarrollo Full-Stack",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Equipos On-Demand",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Migración de Sistemas Legacy",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Automatización de Procesos",
+                },
+              },
+            ],
+          },
+        }}
       />
 
       <ImageHero
