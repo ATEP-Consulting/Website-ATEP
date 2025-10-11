@@ -118,10 +118,10 @@ const Hero = () => {
         </div>
 
         {/* Controles del carousel */}
-        <div className="absolute bottom-8 left-0 right-0 z-20 hidden md:block">
+        <div className="absolute bottom-8 left-0 right-0 z-20">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center sm:justify-between">
+              <div className="hidden sm:flex items-center gap-3">
                 <button
                   onClick={prevSlide}
                   className="w-11 h-11 flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full transition-all duration-300"
@@ -159,7 +159,7 @@ const Hero = () => {
 
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
-                className="w-11 h-11 flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full transition-all duration-300"
+                className="w-11 h-11 hidden sm:flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full transition-all duration-300"
                 aria-label={
                   isPlaying ? "Pausar carousel" : "Reproducir carousel"
                 }
