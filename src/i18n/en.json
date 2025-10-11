@@ -92,6 +92,7 @@
     "professionalWebsites": {
       "name": "Professional Websites",
       "description": "Fast, optimized websites designed to convert visitors into customers.",
+      "badge": "Ultra-fast loading",
       "keywords": "web development, professional websites, SEO, responsive design, business websites",
       "whatWeDo": "What We Do",
       "whatWeDoText": "We develop 100% custom corporate websites — no templates, no limits. Clean code, optimized architecture, and exceptional performance from day one. Every website is designed to elevate your brand and drive conversions.",
@@ -180,6 +181,7 @@
     "fullStackDevelopment": {
       "name": "Web Application Development",
       "description": "Complete custom platforms and applications, from concept to production",
+      "badge": "100% Custom Solution",
       "keywords": "full stack development, web applications, SaaS development, React, TypeScript, Node.js, custom software",
 
       "whatWeDo": "What We Do",
@@ -313,6 +315,7 @@
     "onDemandTeam": {
       "name": "On-Demand Tech Team",
       "description": "Development reinforcement when your team needs it, available within 48 hours.",
+      "badge": "Available in 48 Hours",
       "keywords": "on-demand developers, tech team, software outsourcing, temporary developers, IT support, remote development",
 
       "whatWeDo": "What We Do",
@@ -419,6 +422,7 @@
     "legacyMigration": {
       "name": "Legacy Migration & Modernization",
       "description": "Transform your legacy software into modern applications without disrupting operations.",
+      "badge": "Maintainable, Documented Code",
       "keywords": "legacy migration, software modernization, refactoring, digital transformation, system upgrade, old software replacement",
 
       "whatWeDo": "What We Do",
@@ -533,6 +537,7 @@
     "automation": {
       "name": "Process Automation",
       "description": "Save time and reduce errors by automating repetitive business tasks.",
+      "badge": "Higher Productivity",
       "keywords": "automation, RPA, process robots, efficiency, error reduction, integrations, bots, scripts, productivity",
 
       "whatWeDo": "What We Do",

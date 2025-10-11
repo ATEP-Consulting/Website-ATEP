@@ -84,7 +84,7 @@ const Hero = () => {
             >
               <span className="w-2 h-2 bg-primary-500 rounded-full animate-pulse"></span>
               <span className="text-sm font-medium text-primary-200">
-                {currentSlideData.name}
+                {currentSlideData.badge}
               </span>
             </div>
 
@@ -105,12 +105,18 @@ const Hero = () => {
               {currentSlideData.description}
             </p>
 
-            <div className="flex gap-4 sm:flex-row animate-fade-in-up">
-              <Link className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-600 text-neutral-50 font-semibold rounded-lg hover:bg-primary-700 transition-all duration-300 group shadow-xl hover:shadow-2xl">
+            <div className="flex flex-col gap-4 sm:flex-row animate-fade-in-up">
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-600 text-neutral-50 font-semibold rounded-lg hover:bg-primary-700 transition-all duration-300 group shadow-xl hover:shadow-2xl"
+              >
                 {t("CTA.primaryButton")}
                 <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link className="px-8 py-4 text-white font-semibold rounded-lg border-2 border-white/30 hover:bg-white/10 hover:border-white transition-all duration-300">
+              <Link
+                to="/services"
+                className="px-8 py-4 text-center text-white font-semibold rounded-lg border-2 border-white/30 hover:bg-white/10 hover:border-white transition-all duration-300"
+              >
                 {t("CTA.secondaryButton")}
               </Link>
             </div>
@@ -118,7 +124,7 @@ const Hero = () => {
         </div>
 
         {/* Controles del carousel */}
-        <div className="absolute bottom-8 left-0 right-0 z-20">
+        <div className="absolute bottom-8 left-0 right-0 z-20 hidden md:block">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -150,7 +156,7 @@ const Hero = () => {
                     <div
                       className={`h-1 rounded-full transition-all duration-300 ${
                         index === currentSlide
-                          ? "w-14 bg-white"
+                          ? "w-14 bg-primary-500"
                           : "w-9 bg-white/40 hover:bg-white/60"
                       }`}
                     />

@@ -92,6 +92,7 @@
     "professionalWebsites": {
       "name": "Páginas Web Profesionales",
       "description": "Sitios web rápidos, optimizados y diseñados para convertir visitantes en clientes.",
+      "badge": "Carga ultra-rápida",
       "keywords": "páginas web, desarrollo web, diseño web, SEO, optimización, web profesional",
       "whatWeDo": "Lo Que Hacemos",
       "whatWeDoText": "Desarrollamos sitios web corporativos 100% personalizados, sin plantillas. Código limpio, arquitectura optimizada y rendimiento excepcional desde el primer día. Cada web está diseñada para destacar tu marca y convertir visitantes en clientes.",
@@ -180,6 +181,7 @@
     "fullStackDevelopment": {
       "name": "Desarrollo de Aplicaciones Web",
       "description": "Plataformas y aplicaciones completas a tu medida, del concepto a producción",
+      "badge": "Solución 100% Personalizada",
       "keywords": "full stack development, web applications, SaaS development, React, TypeScript, Node.js, custom software",
 
       "whatWeDo": "Lo Que Hacemos",
@@ -313,6 +315,7 @@
     "onDemandTeam": {
       "name": "Equipo Técnico On-Demand",
       "description": "Refuerzo de desarrollo cuando tu equipo lo necesita, disponible en 48h.",
+      "badge": "Disponibles en 48 Horas",
       "keywords": "equipo on demand, desarrolladores externos, refuerzo técnico, outsourcing, soporte desarrollo, equipo remoto",
 
       "whatWeDo": "Lo Que Hacemos",
@@ -420,6 +423,7 @@
     "legacyMigration": {
       "name": "Migración y Modernización",
       "description": "Transforma tu software legacy en aplicaciones modernas sin interrumpir tu operación.",
+      "badge": "Código Mantenible y Documentado",
       "keywords": "migración legacy, modernización software, actualización tecnológica, refactorización, transformación digital, sistemas antiguos",
 
       "whatWeDo": "Qué Hacemos",
@@ -535,6 +539,7 @@
     "automation": {
       "name": "Automatización de Procesos",
       "description": "Ahorra tiempo y reduce errores automatizando tareas repetitivas en tu empresa.",
+      "badge": "Mayor Productividad",
       "keywords": "automatización, RPA, robots de procesos, eficiencia, reducción de errores, integraciones, bots, scripts, productividad",
 
       "whatWeDo": "Qué Hacemos",
