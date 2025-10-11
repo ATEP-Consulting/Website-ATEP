@@ -6,8 +6,8 @@ export const SEO = ({
   keywords,
   image = "https://atepconsulting.com/og-image.png",
   type = "website",
-  schemaType = "Organization", // ✅ Parámetro para tipo de Schema
-  schemaData = {}, // ✅ Datos adicionales específicos de cada página
+  schemaType = "Organization",
+  schemaData = {},
 }) => {
   const seoLanguage = "es_ES";
   const baseUrl = "https://atepconsulting.com";
@@ -18,6 +18,8 @@ export const SEO = ({
     : "ATEP Consulting | Consultoría IT y Desarrollo de Software";
 
   useEffect(() => {
+    console.log("🔍 SEO ejecutándose con schemaType:", schemaType);
+
     document.title = fullTitle;
 
     const metaTags = [
@@ -64,36 +66,25 @@ export const SEO = ({
     }
     canonical.setAttribute("href", currentUrl);
 
-    // ✅ Schema.org DINÁMICO según tipo de página
-    let structuredData = document.querySelector(
-      'script[type="application/ld+json"]#seo-schema'
-    );
-    if (!structuredData) {
-      structuredData = document.createElement("script");
-      structuredData.setAttribute("type", "application/ld+json");
-      structuredData.setAttribute("id", "seo-schema");
-      document.head.appendChild(structuredData);
+    let existingScript = document.querySelector("script#seo-schema");
+    if (existingScript) {
+      existingScript.remove();
     }
+
+    const structuredData = document.createElement("script");
+    structuredData.setAttribute("type", "application/ld+json");
+    structuredData.setAttribute("id", "seo-schema");
+    document.head.appendChild(structuredData);
 
     // Schema base común
     const baseSchema = {
       "@context": "https://schema.org",
     };
 
-    // ✅ Schema específico según tipo de página
     let schema = {};
-
-    console.log("🔍 SEO Debug:", {
-      schemaType,
-      schemaTypeFromProps: schemaType, // Ver qué llega
-      defaultUsed: schemaType === "Organization",
-      title,
-      currentUrl,
-    });
 
     switch (schemaType) {
       case "Organization":
-        // Para Home, About, Contact
         schema = {
           ...baseSchema,
           "@type": "Organization",
@@ -135,7 +126,7 @@ export const SEO = ({
             },
           ],
           sameAs: ["https://www.linkedin.com/company/atepconsulting"],
-          ...schemaData, // ✅ Datos adicionales específicos
+          ...schemaData,
         };
         break;
 
@@ -163,7 +154,6 @@ export const SEO = ({
         break;
 
       case "WebPage":
-        // Para páginas genéricas (About, Legal, etc.)
         schema = {
           ...baseSchema,
           "@type": "WebPage",
@@ -181,7 +171,6 @@ export const SEO = ({
         break;
 
       case "BlogPosting":
-        // Para artículos de blog
         schema = {
           ...baseSchema,
           "@type": "BlogPosting",
@@ -208,7 +197,6 @@ export const SEO = ({
         break;
 
       default:
-        // Por defecto: Organization
         schema = {
           ...baseSchema,
           "@type": "Organization",
@@ -227,6 +215,9 @@ export const SEO = ({
     }
 
     structuredData.textContent = JSON.stringify(schema);
+
+    console.log("✅ Schema generado:", schema);
+    console.log("✅ Script insertado en el DOM");
   }, [
     fullTitle,
     description,
@@ -237,7 +228,7 @@ export const SEO = ({
     baseUrl,
     seoLanguage,
     schemaType,
-    schemaData,
+    JSON.stringify(schemaData),
   ]);
 
   return null;
