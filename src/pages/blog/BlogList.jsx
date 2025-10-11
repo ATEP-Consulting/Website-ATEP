@@ -51,27 +51,6 @@ export const BlogList = () => {
         backgroundImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop&q=80"
       />
 
-      {/* Hero limpio - estilo Contact */}
-      <section className="section-padding bg-gradient-to-br from-primary-50 via-white to-neutral-50">
-        <div className="section-container">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-100/50 backdrop-blur-sm rounded-full border border-primary-200/50 mb-6 fade-in">
-              <BookOpen className="w-4 h-4 text-primary-600" />
-              <span className="text-sm font-medium text-primary-700">
-                {t("blog.badge") || "Insights & Articles"}
-              </span>
-            </div>
-
-            <h1 className="text-4xl lg:text-5xl font-bold text-neutral-900 mb-6 fade-in stagger-1">
-              {t("blog.title")}
-            </h1>
-            <p className="text-xl text-neutral-600 leading-relaxed fade-in stagger-2">
-              {t("blog.subtitle")}
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Filtros */}
       <section className="section-padding bg-white">
         <div className="section-container">

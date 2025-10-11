@@ -47,38 +47,51 @@ export const BlogPost = () => {
       />
 
       <article>
-        <div className="relative h-[60vh] bg-neutral-900">
-          <img
-            src={post.image}
-            alt={post.title[language]}
-            className="w-full h-full object-cover opacity-60"
-          />
-          <div className="absolute inset-0 flex items-center">
-            <div className="section-container w-full">
-              <div className="max-w-4xl mx-auto text-white">
-                <Link
-                  to="/blog"
-                  className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors fade-in"
-                >
-                  <ArrowLeft className="w-5 h-5" />
-                  Back to Blog
-                </Link>
-                <h1 className="heading-xl text-white mb-6 fade-in stagger-1">
-                  {post.title[language]}
-                </h1>
-                <div className="flex items-center gap-6 text-white/90 fade-in stagger-2">
-                  <div className="flex items-center gap-2">
-                    <User className="w-5 h-5" />
-                    <span>{post.author}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-5 h-5" />
-                    <span>{post.date}</span>
-                  </div>
-                  <span className="bg-primary-600 px-3 py-1 rounded-full text-sm">
-                    {post.category[language]}
-                  </span>
+        <div className="relative min-h-[600px] md:min-h-[700px] flex items-center bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 overflow-hidden">
+          {/* Imagen de fondo con overlay */}
+          <div className="absolute inset-0">
+            <img
+              src={post.image}
+              alt={post.title[language]}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/95 via-neutral-900/85 to-primary-900/80"></div>
+          </div>
+
+          {/* Grid pattern sutil */}
+          <div
+            className="absolute inset-0 opacity-5 pointer-events-none z-10"
+            style={{
+              backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+              backgroundSize: "50px 50px",
+            }}
+          ></div>
+
+          {/* Contenido */}
+          <div className="section-container w-full relative z-10 py-20 md:py-32">
+            <div className="max-w-4xl mx-auto text-white">
+              <Link
+                to="/blog"
+                className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors fade-in"
+              >
+                <ArrowLeft className="w-5 h-5" />
+                Back to Blog
+              </Link>
+              <h1 className="heading-xl text-white mb-6 fade-in stagger-1">
+                {post.title[language]}
+              </h1>
+              <div className="flex items-center gap-6 text-white/90 fade-in stagger-2">
+                <div className="flex items-center gap-2">
+                  <User className="w-5 h-5" />
+                  <span>{post.author}</span>
                 </div>
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-5 h-5" />
+                  <span>{post.date}</span>
+                </div>
+                <span className="bg-primary-600 px-3 py-1 rounded-full text-sm">
+                  {post.category[language]}
+                </span>
               </div>
             </div>
           </div>
