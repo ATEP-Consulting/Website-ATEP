@@ -62,7 +62,6 @@ export const Contact = () => {
         keywords="contacto, presupuesto desarrollo web, consultoría IT Valencia, contratar desarrolladores, solicitar información"
         schemaType="Organization"
         schemaData={{
-          "@type": "Organization",
           contactPoint: {
             "@type": "ContactPoint",
             email: "info@atepconsulting.com",
