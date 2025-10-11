@@ -10,6 +10,7 @@ import {
 import { useLanguage } from "../context/LanguageContext";
 import { SEO } from "../components/SEO";
 import { ContactForm } from "../components/ContactForm";
+import ImageHero from "../components/ImageHero";
 
 export const Contact = () => {
   const { t } = useLanguage();
@@ -72,26 +73,12 @@ export const Contact = () => {
         }}
       />
 
-      {/* Hero Section - Limpio y directo */}
-      <section className="section-padding bg-gradient-to-br from-primary-50 via-white to-neutral-50">
-        <div className="section-container">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-100/50 backdrop-blur-sm rounded-full border border-primary-200/50 mb-6 fade-in">
-              <Send className="w-4 h-4 text-primary-600" />
-              <span className="text-sm font-medium text-primary-700">
-                {t("contact.badge") || "Get in Touch"}
-              </span>
-            </div>
-
-            <h1 className="text-4xl lg:text-5xl font-bold text-neutral-900 mb-6 fade-in stagger-1">
-              {t("contact.title")}
-            </h1>
-            <p className="text-xl text-neutral-600 leading-relaxed fade-in stagger-2">
-              {t("contact.subtitle")}
-            </p>
-          </div>
-        </div>
-      </section>
+      <ImageHero
+        icon={Send}
+        title={t("contact.title")}
+        description={t("contact.subtitle")}
+        backgroundImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop&q=80"
+      />
 
       {/* Contact Methods - Cards destacadas */}
       <section className="section-padding bg-white">

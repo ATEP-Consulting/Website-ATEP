@@ -1,3 +1,4 @@
+// Hero.jsx - ACTUALIZADO
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {
@@ -18,7 +19,6 @@ const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(true);
   const slides = getServicesData(t);
 
-  // Auto-play carousel
   useEffect(() => {
     if (!isPlaying) return;
 
@@ -29,17 +29,10 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, [isPlaying, slides.length]);
 
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
+  const goToSlide = (index) => setCurrentSlide(index);
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () =>
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
 
   const currentSlideData = slides[currentSlide];
 
@@ -60,7 +53,8 @@ const Hero = () => {
                 alt={slide.name}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/95 via-neutral-900/75 to-neutral-900/40"></div>
+              {/* ✅ Gradient mejorado - Oscuro con toque primary */}
+              <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/95 via-neutral-900/85 to-primary-900/80"></div>
             </div>
           ))}
         </div>
@@ -77,10 +71,9 @@ const Hero = () => {
         {/* Contenido principal */}
         <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto px-6 py-20 md:py-32">
           <div className="max-w-3xl space-y-8">
-            {/* Badge superior con animación */}
             <div
               key={`title-${currentSlide}`}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-primary-600/20 backdrop-blur-sm rounded-full border border-primary-500/30 animate-fade-in"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary-600/20 backdrop-blur-sm rounded-full border fade-in border-primary-500/30 animate-fade-in"
             >
               <span className="w-2 h-2 bg-primary-500 rounded-full animate-pulse"></span>
               <span className="text-sm font-medium text-primary-200">
@@ -88,24 +81,22 @@ const Hero = () => {
               </span>
             </div>
 
-            {/* Título con animación */}
             <h1
               key={`name-${currentSlide}`}
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight animate-fade-in-up"
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight animate-fade-in-up fade-in stagger-1"
             >
               {currentSlideData.name}
             </h1>
 
-            {/* Subtítulo */}
             <p
               key={`description-${currentSlide}`}
-              className="text-lg md:text-xl text-neutral-300 leading-relaxed max-w-2xl animate-fade-in-up"
+              className="text-lg md:text-xl text-neutral-300 leading-relaxed max-w-2xl animate-fade-in-up fade-in stagger-2"
               style={{ animationDelay: "0.1s" }}
             >
               {currentSlideData.description}
             </p>
 
-            <div className="flex flex-col gap-4 sm:flex-row animate-fade-in-up">
+            <div className="flex flex-col gap-4 sm:flex-row animate-fade-in-up fade-in stagger-3">
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-600 text-neutral-50 font-semibold rounded-lg hover:bg-primary-700 transition-all duration-300 group shadow-xl hover:shadow-2xl"
@@ -135,7 +126,6 @@ const Hero = () => {
                 >
                   <ChevronLeft className="w-5 h-5 text-white" />
                 </button>
-
                 <button
                   onClick={nextSlide}
                   className="w-11 h-11 flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full transition-all duration-300"
@@ -182,7 +172,6 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* Stats debajo del Hero */}
       <Stats stats={getHeroStats(t)} />
     </>
   );

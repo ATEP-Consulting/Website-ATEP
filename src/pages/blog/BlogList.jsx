@@ -4,6 +4,7 @@ import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
 import { BlogCard } from "../../components/BlogCard";
 import { blogPosts } from "../../utils/blogData";
+import ImageHero from "../../components/ImageHero";
 
 export const BlogList = () => {
   const { t, language } = useLanguage();
@@ -41,6 +42,13 @@ export const BlogList = () => {
         description="Artículos, guías y casos de éxito sobre desarrollo web, migración de sistemas, automatización y tecnologías modernas. Consejos prácticos para empresas."
         keywords="blog desarrollo web, artículos tecnología, guías programación, casos de éxito IT, tutoriales desarrollo"
         schemaType="WebPage"
+      />
+
+      <ImageHero
+        icon={BookOpen}
+        title={t("blog.title")}
+        description={t("blog.subtitle")}
+        backgroundImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop&q=80"
       />
 
       {/* Hero limpio - estilo Contact */}
