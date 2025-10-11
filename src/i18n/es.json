@@ -710,7 +710,8 @@
     "articleFound": "artículo encontrado",
     "articlesFound": "artículos encontrados",
     "noResults": "No se encontraron artículos. Intenta ajustar los filtros.",
-    "relatedPosts": "Artículos Relacionados"
+    "relatedPosts": "Artículos Relacionados",
+    "back": "Volver al Blog"
   },
   "contact": {
     "badge": "Contáctanos",

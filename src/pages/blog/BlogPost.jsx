@@ -75,7 +75,7 @@ export const BlogPost = () => {
                 className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors fade-in"
               >
                 <ArrowLeft className="w-5 h-5" />
-                Back to Blog
+                {t("blog.back")}
               </Link>
               <h1 className="heading-xl text-white mb-6 fade-in stagger-1">
                 {post.title[language]}

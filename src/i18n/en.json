@@ -705,7 +705,8 @@
     "articleFound": "article found",
     "articlesFound": "articles found",
     "noResults": "No articles found. Try adjusting your filters.",
-    "relatedPosts": "Related Articles"
+    "relatedPosts": "Related Articles",
+    "back": "Back to Blog"
   },
   "contact": {
     "badge": "Get in Touch",
