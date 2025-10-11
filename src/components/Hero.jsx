@@ -96,7 +96,10 @@ const Hero = () => {
               {currentSlideData.description}
             </p>
 
-            <div className="flex flex-col gap-4 sm:flex-row animate-fade-in-up fade-in stagger-3">
+            <div
+              key={`id-${currentSlide}`}
+              className="flex flex-col gap-4 sm:flex-row animate-fade-in-up fade-in stagger-3"
+            >
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-600 text-neutral-50 font-semibold rounded-lg hover:bg-primary-700 transition-all duration-300 group shadow-xl hover:shadow-2xl"
