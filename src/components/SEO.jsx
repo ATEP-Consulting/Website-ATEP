@@ -4,7 +4,7 @@ export const SEO = ({
   title,
   description,
   keywords,
-  image = "https://atepconsulting.com/og-image.png",
+  image = "https://www.atepconsulting.com/og-image.png",
   type = "website",
   schemaType = "Organization",
   schemaData = {},
