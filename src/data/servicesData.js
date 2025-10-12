@@ -1,5 +1,4 @@
 import { Globe, Code2, Users, RefreshCw, Zap } from "lucide-react";
-
 import { ProfessionalWebsites } from "../pages/services/ProfessionalWebsites";
 import { FullStackDevelopment } from "../pages/services/FullStackDevelopment";
 import { OnDemandTeam } from "../pages/services/OnDemandTeam";
@@ -15,8 +14,7 @@ export const getServicesData = (t) => [
     description: t("services.professionalWebsites.description"),
     path: "/services/professional-websites",
     component: ProfessionalWebsites,
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&q=80",
+    image: "images/services/ProfessionalWebsites-service.webp",
   },
   {
     id: "full-stack-development",
@@ -26,8 +24,7 @@ export const getServicesData = (t) => [
     description: t("services.fullStackDevelopment.description"),
     path: "/services/full-stack-development",
     component: FullStackDevelopment,
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop&q=80",
+    image: "images/services/FullStackDevelopment-service.webp",
     whatWeDo: t("services.fullStackDevelopment.whatWeDo"),
     whatWeDoText: t("services.fullStackDevelopment.whatWeDoText"),
     benefits: t("services.fullStackDevelopment.benefits"),
@@ -46,8 +43,7 @@ export const getServicesData = (t) => [
     description: t("services.onDemandTeam.description"),
     path: "/services/on-demand-team",
     component: OnDemandTeam,
-    image:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop&q=80",
+    image: "images/services/OnDemandTeam-service.webp",
   },
   {
     id: "legacy-migration",
@@ -57,8 +53,7 @@ export const getServicesData = (t) => [
     description: t("services.legacyMigration.description"),
     path: "/services/legacy-migration",
     component: LegacyMigration,
-    image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop&q=80",
+    image: "images/services/LegacyMigration-service.webp",
     whatWeDo: t("services.legacyMigration.whatWeDo"),
     whatWeDoText: t("services.legacyMigration.whatWeDoText"),
     benefits: t("services.legacyMigration.benefits"),
@@ -77,8 +72,7 @@ export const getServicesData = (t) => [
     description: t("services.automation.description"),
     path: "/services/automation",
     component: Automation,
-    image:
-      "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop&q=80",
+    image: "images/services/Automation-service.webp",
     whatWeDo: t("services.automation.whatWeDo"),
     whatWeDoText: t("services.automation.whatWeDoText"),
     benefits: t("services.automation.benefits"),

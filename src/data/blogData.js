@@ -1,13 +1,13 @@
 export const blogPosts = [
   {
-    slug: 'digital-transformation-guide-2025',
+    slug: "digital-transformation-guide-2025",
     title: {
-      en: 'Complete Guide to Digital Transformation in 2025',
-      es: 'Guía Completa de Transformación Digital en 2025',
+      en: "Complete Guide to Digital Transformation in 2025",
+      es: "Guía Completa de Transformación Digital en 2025",
     },
     excerpt: {
-      en: 'Discover the key strategies and technologies driving successful digital transformation initiatives in modern businesses.',
-      es: 'Descubre las estrategias clave y tecnologías que impulsan iniciativas exitosas de transformación digital en empresas modernas.',
+      en: "Discover the key strategies and technologies driving successful digital transformation initiatives in modern businesses.",
+      es: "Descubre las estrategias clave y tecnologías que impulsan iniciativas exitosas de transformación digital en empresas modernas.",
     },
     content: {
       en: `Digital transformation has become a necessity for businesses looking to stay competitive in today's rapidly evolving marketplace. This comprehensive guide explores the essential elements of successful digital transformation.
@@ -53,23 +53,23 @@ La computación en la nube, la inteligencia artificial y la automatización est�
 
 El viaje hacia la transformación digital no está exento de obstáculos. Los desafíos comunes incluyen resistencia al cambio, limitaciones de sistemas legados y brechas de habilidades. El éxito requiere liderazgo fuerte, comunicación clara y un compromiso con el aprendizaje continuo.`,
     },
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=600&fit=crop&q=80',
-    author: 'Gabriela Albertini',
-    date: '2025-01-15',
+    image: "/images/blog/Blog2.webp",
+    author: "Gabriela Albertini",
+    date: "2025-01-15",
     category: {
-      en: 'Digital Transformation',
-      es: 'Transformación Digital',
+      en: "Digital Transformation",
+      es: "Transformación Digital",
     },
   },
   {
-    slug: 'benefits-of-automation',
+    slug: "benefits-of-automation",
     title: {
-      en: 'The Business Benefits of Process Automation',
-      es: 'Los Beneficios Empresariales de la Automatización de Procesos',
+      en: "The Business Benefits of Process Automation",
+      es: "Los Beneficios Empresariales de la Automatización de Procesos",
     },
     excerpt: {
-      en: 'Learn how automation can transform your business operations, reduce costs, and improve efficiency across all departments.',
-      es: 'Aprende cómo la automatización puede transformar tus operaciones empresariales, reducir costos y mejorar la eficiencia en todos los departamentos.',
+      en: "Learn how automation can transform your business operations, reduce costs, and improve efficiency across all departments.",
+      es: "Aprende cómo la automatización puede transformar tus operaciones empresariales, reducir costos y mejorar la eficiencia en todos los departamentos.",
     },
     content: {
       en: `Process automation is revolutionizing how businesses operate, offering unprecedented opportunities for efficiency and growth. In this article, we explore the tangible benefits of implementing automation in your organization.
@@ -115,23 +115,23 @@ A medida que tu negocio crece, la automatización te permite escalar operaciones
 
 Comienza identificando procesos repetitivos basados en reglas que consumen tiempo significativo. Comienza pequeño con proyectos piloto para demostrar valor, luego expande los esfuerzos de automatización en toda la organización.`,
     },
-    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&h=600&fit=crop&q=80',
-    author: 'Pablo Teijeiro',
-    date: '2025-01-10',
+    image: "/images/blog/Blog1.webp",
+    author: "Pablo Teijeiro",
+    date: "2025-01-10",
     category: {
-      en: 'Automation',
-      es: 'Automatización',
+      en: "Automation",
+      es: "Automatización",
     },
   },
   {
-    slug: 'legacy-system-modernization',
+    slug: "legacy-system-modernization",
     title: {
-      en: 'Why Legacy System Modernization Cannot Wait',
-      es: 'Por Qué la Modernización de Sistemas Legados No Puede Esperar',
+      en: "Why Legacy System Modernization Cannot Wait",
+      es: "Por Qué la Modernización de Sistemas Legados No Puede Esperar",
     },
     excerpt: {
-      en: 'Outdated systems pose significant risks to your business. Discover why modernization is critical and how to approach it strategically.',
-      es: 'Los sistemas obsoletos representan riesgos significativos para tu negocio. Descubre por qué la modernización es crítica y cómo abordarla estratégicamente.',
+      en: "Outdated systems pose significant risks to your business. Discover why modernization is critical and how to approach it strategically.",
+      es: "Los sistemas obsoletos representan riesgos significativos para tu negocio. Descubre por qué la modernización es crítica y cómo abordarla estratégicamente.",
     },
     content: {
       en: `Legacy systems may have served your business well in the past, but they increasingly pose risks and limitations that can hinder growth and competitiveness. Here's why modernization should be a priority.
@@ -177,12 +177,12 @@ La modernización exitosa requiere planificación cuidadosa y un enfoque por fas
 
 Trabajar con consultores experimentados puede reducir significativamente los riesgos y desafíos de los proyectos de modernización. El socio adecuado aporta metodologías probadas y experiencia técnica para garantizar el éxito.`,
     },
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=600&fit=crop&q=80',
-    author: 'Gabriela Albertini',
-    date: '2025-01-05',
+    image: "/images/blog/Blog3.webp",
+    author: "Gabriela Albertini",
+    date: "2025-01-05",
     category: {
-      en: 'Legacy Migration',
-      es: 'Migración de Sistemas',
+      en: "Legacy Migration",
+      es: "Migración de Sistemas",
     },
   },
 ];

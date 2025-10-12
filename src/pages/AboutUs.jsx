@@ -19,39 +19,27 @@ export const AboutUs = () => {
   const values = [
     {
       icon: Users,
-      title: t("about.value1Title") || "Assistance",
-      description:
-        t("about.value1Text") ||
-        "We are always by your side. We provide proactive and continuous support, guaranteeing a smooth implementation and the efficient achievement of your goals",
-      image:
-        "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=80",
+      title: t("about.value1Title"),
+      description: t("about.value1Text"),
+      image: "images/company/Assistance.webp",
     },
     {
       icon: Handshake,
-      title: t("about.value2Title") || "Trust",
-      description:
-        t("about.value2Text") ||
-        "We build every relationship on trust. We maintain open communication and clear processes to ensure an honest and complete vision at every phase",
-      image:
-        "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=80",
+      title: t("about.value2Title"),
+      description: t("about.value2Text"),
+      image: "images/company/Trust.webp",
     },
     {
       icon: Star,
-      title: t("about.value3Title") || "Excellence",
-      description:
-        t("about.value3Text") ||
-        "We exceed the standard in every solution. Our commitment to quality and expert knowledge drives us to deliver results that surpass expectations",
-      image:
-        "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=80",
+      title: t("about.value3Title"),
+      description: t("about.value3Text"),
+      image: "images/company/Excellence.webp",
     },
     {
       icon: ShieldPlus,
-      title: t("about.value4Title") || "Professionalism",
-      description:
-        t("about.value4Text") ||
-        "We act with the highest rigor and ethics. We adhere to the industry's highest standards, ensuring seriousness, responsibility, and respectful treatment",
-      image:
-        "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=80",
+      title: t("about.value4Title"),
+      description: t("about.value4Text"),
+      image: "images/company/Professionalism.webp",
     },
   ];
 
@@ -62,7 +50,7 @@ export const AboutUs = () => {
       bio: t("about.gabriela.bio"),
       image:
         "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&q=80",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://www.linkedin.com/in/gabriela-albertini/",
     },
     {
       name: t("about.pablo.name"),
@@ -70,15 +58,8 @@ export const AboutUs = () => {
       bio: t("about.pablo.bio"),
       image:
         "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&q=80",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://www.linkedin.com/in/pablo-teijeiro-55a483191/",
     },
-  ];
-
-  const stats = [
-    { number: "15+", label: t("about.stat1") || "Years Experience" },
-    { number: "500+", label: t("about.stat2") || "Projects Completed" },
-    { number: "50+", label: t("about.stat3") || "Team Members" },
-    { number: "98%", label: t("about.stat4") || "Client Satisfaction" },
   ];
 
   return (
@@ -95,7 +76,7 @@ export const AboutUs = () => {
         icon={Users}
         title={t("about.title")}
         description={t("about.subtitle")}
-        backgroundImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop&q=80"
+        backgroundImage="/images/company/Company.webp"
       />
 
       {/* Stats Section */}
@@ -131,7 +112,7 @@ export const AboutUs = () => {
             <div className="relative slide-up stagger-1">
               <div className="absolute -inset-4 bg-gradient-to-br from-primary-200 to-primary-300 rounded-3xl blur-2xl opacity-30"></div>
               <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=80"
+                src="/images/company/Mission.webp"
                 alt="Our Story"
                 className="relative rounded-2xl shadow-2xl"
               />
@@ -162,37 +143,42 @@ export const AboutUs = () => {
               return (
                 <div
                   key={index}
-                  className="sticky mb-8 lg:mb-12"
+                  className="sticky mb-8"
                   style={{
-                    top: `${120 + index * 20}px`,
-                    zIndex: index + 1,
+                    top: `${80 + index * 32}px`,
+                    zIndex: index + 1, // ✅ CORREGIDO
                   }}
                 >
-                  <div className="group rounded-lg bg-gradient-to-br from-primary-50 via-white to-neutral-50 border border-neutral-100 overflow-hidden">
-                    <div className="grid md:grid-cols-2 gap-0 items-center">
-                      {/* Contenido de texto - SIEMPRE A LA IZQUIERDA */}
-                      <div className="p-8 lg:p-12">
-                        <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-50 rounded-2xl flex items-center justify-center mb-6 transform transition-transform duration-300 group-hover:scale-110">
-                          <Icon className="w-8 h-8 text-primary-600" />
-                        </div>
-                        <h3 className="text-2xl lg:text-3xl font-bold text-neutral-900 mb-4">
+                  <div className="group relative rounded-3xl transition-all duration-300 border bg-white min-h-[400px] md:min-h-[320px] overflow-hidden">
+                    <div className="flex flex-col md:flex-row items-stretch h-full">
+                      {/* Contenido de texto */}
+                      <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+                        <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4 leading-tight">
                           {value.title}
                         </h3>
-                        <p className="text-lg text-neutral-600 leading-relaxed">
+
+                        <div className="w-20 h-1.5 bg-primary-600 rounded-full mb-6"></div>
+
+                        <p className="text-lg md:text-xl text-neutral-600 leading-relaxed max-w-xl">
                           {value.description}
                         </p>
                       </div>
 
-                      {/* Imagen - SIEMPRE A LA DERECHA */}
-                      <div className="relative h-64 md:h-full min-h-[320px] overflow-hidden">
-                        <img
-                          src={value.image}
-                          alt={value.title}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"></div>
+                      {/* Icono grande */}
+                      <div className="flex-shrink-0 flex items-center justify-center p-8 md:p-12  md:min-w-[280px]">
+                        <div className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-3xl bg-white flex items-center justify-center transform transition-all duration-500">
+                          <Icon
+                            className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 text-primary-600"
+                            strokeWidth={1.5}
+                          />
+                        </div>
                       </div>
                     </div>
+
+                    {/* Número decorativo */}
+                    {/* <div className="absolute top-6 right-6 md:top-8 md:right-8 text-7xl md:text-8xl lg:text-9xl font-bold text-neutral-100 leading-none">
+                      0{index + 1}
+                    </div> */}
                   </div>
                 </div>
               );
@@ -222,11 +208,11 @@ export const AboutUs = () => {
                   index + 1
                 }`}
               >
-                <img
+                {/* <img
                   src={member.image}
                   alt={member.name}
                   className="w-full h-80 object-cover object-top grayscale transition-all duration-700 ease-out group-hover:grayscale-0 group-hover:scale-105"
-                />
+                /> */}
 
                 <div className="p-6 text-center">
                   <h3 className="text-xl font-semibold text-neutral-900 mb-1">

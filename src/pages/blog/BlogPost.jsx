@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
 import { BlogCard } from "../../components/BlogCard";
-import { blogPosts } from "../../utils/blogData";
+import { blogPosts } from "../../data/blogData";
 
 export const BlogPost = () => {
   const { slug } = useParams();

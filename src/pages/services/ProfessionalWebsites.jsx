@@ -26,7 +26,7 @@ export const ProfessionalWebsites = () => {
       <ServiceDetailTemplate
         serviceKey="professionalWebsites"
         heroIcon={Globe}
-        heroImage="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=1080&fit=crop&q=80"
+        heroImage="/images/services/ProfessionalWebsites-service.webp"
       />
     </>
   );

@@ -17,7 +17,7 @@ export const Automation = () => {
       <ServiceDetailTemplate
         serviceKey="automation"
         heroIcon={Zap}
-        heroImage="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=1080&fit=crop&q=80"
+        heroImage="/images/services/Automation-service.webp"
       />
     </>
   );

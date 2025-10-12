@@ -67,7 +67,7 @@ export const ServicesOverview = () => {
         icon={Globe}
         title={t("services.title")}
         description={t("services.subtitle")}
-        backgroundImage="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&h=1080&fit=crop&q=80"
+        backgroundImage="/images/services/ServicesOverview.webp"
       />
 
       <section className="section-padding bg-white">

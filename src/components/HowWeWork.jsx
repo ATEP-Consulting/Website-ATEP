@@ -162,14 +162,14 @@ export const HowWeWork = () => {
                         }`}
                       >
                         <img
-                          src={`https://images.unsplash.com/photo-${
+                          src={`images/home/${
                             index === 0
-                              ? "1423666639041-f56000c27a9a"
+                              ? "FirstConsult.webp"
                               : index === 1
-                              ? "1552664730-d307ca884978"
+                              ? "Diagnosis.webp"
                               : index === 2
-                              ? "1460925895917-afdab827c52f"
-                              : "1504384308090-c894fdcc538d"
+                              ? "Proposal.webp"
+                              : "Implementation.webp"
                           }?w=800&h=600&fit=crop&q=80`}
                           alt={step.title}
                           className="w-full h-full object-cover"

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
 import { BlogCard } from "../../components/BlogCard";
-import { blogPosts } from "../../utils/blogData";
+import { blogPosts } from "../../data/blogData";
 import ImageHero from "../../components/ImageHero";
 
 export const BlogList = () => {
@@ -48,7 +48,7 @@ export const BlogList = () => {
         icon={BookOpen}
         title={t("blog.title")}
         description={t("blog.subtitle")}
-        backgroundImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop&q=80"
+        backgroundImage="images/blog/Blog-page.webp"
       />
 
       {/* Filtros */}

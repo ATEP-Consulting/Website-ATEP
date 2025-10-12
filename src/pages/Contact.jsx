@@ -77,7 +77,7 @@ export const Contact = () => {
         icon={Send}
         title={t("contact.title")}
         description={t("contact.subtitle")}
-        backgroundImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop&q=80"
+        backgroundImage="images/contact/ContactUs.webp"
       />
 
       {/* Contact Methods - Cards destacadas */}

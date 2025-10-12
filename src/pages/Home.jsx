@@ -82,7 +82,6 @@ export const Home = () => {
           text: t("hero.heroSecondaryCta"),
           to: "/services",
         }}
-        image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=1000&fit=crop&q=80"
       />
 
       <ClientLogos
@@ -149,9 +148,9 @@ export const Home = () => {
 
               // Imágenes para cada tarjeta
               const images = [
-                "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop", // Team collaboration
-                "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop", // Analytics/Data
-                "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop", // Technology/Innovation
+                "images/home/ExpertTeam.webp", // Team collaboration
+                "images/home/ProvenResults.webp", // Analytics/Data
+                "images/home/CustomerFocus.webp", // Technology/Innovation
               ];
 
               return (
