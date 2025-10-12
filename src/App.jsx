@@ -60,20 +60,15 @@ function AppRoutes() {
 function App() {
   return (
     <HelmetProvider>
-      <GoogleReCaptchaProvider
-        reCaptchaKey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-        language="es"
-      >
-        <LanguageProvider>
-          <SnackbarProvider>
-            <BrowserRouter>
-              <ScrollToTop />
-              <AppRoutes />
-            </BrowserRouter>
-            <WhatsAppButton />
-          </SnackbarProvider>
-        </LanguageProvider>
-      </GoogleReCaptchaProvider>
+      <LanguageProvider>
+        <SnackbarProvider>
+          <BrowserRouter>
+            <ScrollToTop />
+            <AppRoutes />
+          </BrowserRouter>
+          <WhatsAppButton />
+        </SnackbarProvider>
+      </LanguageProvider>
     </HelmetProvider>
   );
 }
