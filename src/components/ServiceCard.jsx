@@ -33,7 +33,7 @@ export const ServiceCard = ({ icon: Icon, name, description, path, image }) => {
           to={path}
           className="inline-flex items-center gap-2 text-primary-600 font-semibold transition-colors duration-300 group-hover:text-primary-700"
         >
-          <span>{t("services.readMore")}</span>
+          <span>{name}</span>
           <ArrowRight className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
       </div>
