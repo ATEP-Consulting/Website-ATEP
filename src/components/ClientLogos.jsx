@@ -18,6 +18,7 @@ export const ClientLogos = ({ logos }) => {
               src={logo.src}
               alt={logo.alt}
               className="h-12 w-auto grayscale slide-up stagger-1"
+              loading="lazy"
             />
           ))}
         </div>

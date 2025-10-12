@@ -7,7 +7,12 @@ export const ServiceCard = ({ icon: Icon, name, description, path, image }) => {
   return (
     <div className="group relative bg-white rounded-lg overflow-hidden border border-neutral-200 h-full flex flex-col">
       <div className="relative h-64 flex-shrink-0">
-        <img src={image} alt={name} className="w-full h-full object-cover" />
+        <img
+          src={image}
+          alt={name}
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
       </div>
 

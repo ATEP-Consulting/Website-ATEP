@@ -54,6 +54,7 @@ export const BlogPost = () => {
               src={post.image}
               alt={post.title[language]}
               className="w-full h-full object-cover"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/95 via-neutral-900/85 to-primary-900/80"></div>
           </div>

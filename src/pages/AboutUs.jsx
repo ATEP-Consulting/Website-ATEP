@@ -115,6 +115,7 @@ export const AboutUs = () => {
                 src="/images/company/Mission.webp"
                 alt="Our Story"
                 className="relative rounded-2xl shadow-2xl"
+                loading="lazy"
               />
             </div>
           </div>
@@ -212,6 +213,7 @@ export const AboutUs = () => {
                   src={member.image}
                   alt={member.name}
                   className="w-full h-80 object-cover object-top grayscale transition-all duration-700 ease-out group-hover:grayscale-0 group-hover:scale-105"
+                  loading="lazy"
                 /> */}
 
                 <div className="p-6 text-center">

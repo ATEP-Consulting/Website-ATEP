@@ -20,6 +20,7 @@ export const BlogCard = ({
           src={image}
           alt={title}
           className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+          loading="lazy"
         />
         {category && (
           <span className="absolute top-4 left-4 bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-medium">

@@ -173,6 +173,7 @@ export const HowWeWork = () => {
                           }?w=800&h=600&fit=crop&q=80`}
                           alt={step.title}
                           className="w-full h-full object-cover"
+                          loading="lazy"
                         />
                       </div>
                     </div>

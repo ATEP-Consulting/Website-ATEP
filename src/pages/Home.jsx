@@ -166,6 +166,7 @@ export const Home = () => {
                       src={images[index]}
                       alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
                     />
                     {/* Overlay sutil */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
