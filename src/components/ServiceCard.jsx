@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { useLanguage } from "../context/LanguageContext";
 
 export const ServiceCard = ({ icon: Icon, name, description, path, image }) => {
-  const { t } = useLanguage();
   return (
     <div className="group relative bg-white rounded-lg overflow-hidden border border-neutral-200 h-full flex flex-col">
       <div className="relative h-64 flex-shrink-0">
