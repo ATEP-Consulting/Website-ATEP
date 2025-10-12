@@ -52,7 +52,7 @@ const Hero = () => {
                 src={slide.image}
                 alt={slide.name}
                 className="w-full h-full object-cover"
-                loading="lazy"
+                fetchpriority="high"
               />
               {/* ✅ Gradient mejorado - Oscuro con toque primary */}
               <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/95 via-neutral-900/85 to-primary-900/80"></div>
