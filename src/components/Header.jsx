@@ -83,7 +83,6 @@ export const Header = () => {
               src={logo}
               alt="ATEP Consulting Logo"
               className="h-12 w-12 object-contain"
-              loading="lazy"
             />
             <div className="flex items-center">
               <span className="text-2xl font-bold text-primary-600">ATEP</span>

@@ -50,7 +50,6 @@ export const Footer = () => {
                 src={logo}
                 alt="ATEP Consulting Logo"
                 className="h-10 w-10 object-contain"
-                loading="lazy"
               />
               <div className="flex items-center">
                 <span className="text-2xl font-bold text-primary-500">
