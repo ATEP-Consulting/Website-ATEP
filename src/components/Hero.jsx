@@ -150,8 +150,8 @@ const Hero = () => {
                     <div
                       className={`h-1 rounded-full transition-all duration-300 ${
                         index === currentSlide
-                          ? "w-14 bg-primary-500"
-                          : "w-9 bg-white/40 hover:bg-white/60"
+                          ? "w-24 md:w-36 bg-primary-500"
+                          : "w-10 md:w-20 bg-white/40 hover:bg-white/60"
                       }`}
                     />
                   </button>
