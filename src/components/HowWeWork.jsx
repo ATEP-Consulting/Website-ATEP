@@ -135,7 +135,7 @@ export const HowWeWork = () => {
                       <div className="mb-4">
                         <span
                           className={`text-6xl font-bold transition-colors duration-500 ${
-                            isActive ? "text-primary-600" : "text-primary-200"
+                            isActive ? "text-primary-600" : "text-primary-600"
                           }`}
                         >
                           {step.number}
