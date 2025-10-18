@@ -62,7 +62,7 @@ export const ServiceDetailTemplate = ({ serviceKey, heroIcon, heroImage }) => {
                     <div className="text-3xl font-bold text-primary-600 mb-2">
                       {stat.number}
                     </div>
-                    <div className="text-sm text-neutral-600">{stat.label}</div>
+                    <div className="text-md text-neutral-600">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -105,7 +105,7 @@ export const ServiceDetailTemplate = ({ serviceKey, heroIcon, heroImage }) => {
                       <h3 className="text-lg font-semibold text-neutral-900 mb-2 group-hover:text-primary-700 transition-colors">
                         {project.title}
                       </h3>
-                      <p className="text-neutral-600 leading-relaxed text-sm">
+                      <p className="text-neutral-600 leading-relaxed text-md">
                         {project.description}
                       </p>
                     </div>
@@ -183,7 +183,7 @@ export const ServiceDetailTemplate = ({ serviceKey, heroIcon, heroImage }) => {
                       <h3 className="text-lg font-semibold text-neutral-900 mb-2">
                         {benefit.title}
                       </h3>
-                      <p className="text-neutral-600 leading-relaxed text-sm">
+                      <p className="text-neutral-600 leading-relaxed text-md">
                         {benefit.description}
                       </p>
                     </div>
@@ -222,7 +222,7 @@ export const ServiceDetailTemplate = ({ serviceKey, heroIcon, heroImage }) => {
                     <h3 className="text-lg font-semibold text-neutral-900 mb-3">
                       {feature.title}
                     </h3>
-                    <p className="text-neutral-600 leading-relaxed text-sm">
+                    <p className="text-neutral-600 leading-relaxed text-md">
                       {feature.description}
                     </p>
                   </div>
