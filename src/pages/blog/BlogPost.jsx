@@ -47,7 +47,7 @@ export const BlogPost = () => {
       />
 
       <article>
-        <div className="relative min-h-[600px] md:min-h-[700px] flex items-center bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 overflow-hidden">
+        <div className="relative min-h-[700px] md:min-h-[800px] flex items-center bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 overflow-hidden">
           {/* Imagen de fondo con overlay */}
           <div className="absolute inset-0">
             <img
