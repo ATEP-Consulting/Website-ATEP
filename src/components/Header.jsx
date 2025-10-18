@@ -1,16 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import {
-  Menu,
-  X,
-  ChevronDown,
-  Server,
-  Globe,
-  Zap,
-  Cloud,
-  BarChart3,
-  Shield,
-} from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import logo from "../assets/logos/new-logo-atep.svg";
@@ -72,9 +62,17 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md" : "bg-white/95 backdrop-blur-sm"
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ease-in-out ${
+        isScrolled || isOpen ? "bg-white/95 backdrop-blur-lg shadow-lg" : ""
       } ${visible ? "translate-y-0" : "-translate-y-full"}`}
+      style={
+        !isScrolled && !isOpen
+          ? {
+              background:
+                "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)",
+            }
+          : {}
+      }
     >
       <nav className="section-container">
         <div className="flex items-center justify-between h-20">
@@ -85,8 +83,20 @@ export const Header = () => {
               className="h-12 w-12 object-contain"
             />
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-primary-600">ATEP</span>
-              <span className="text-2xl font-light text-neutral-800 ml-1">
+              <span
+                className={`text-2xl font-bold transition-all duration-500 ${
+                  isScrolled || isOpen ? "text-primary-600" : "text-primary-500"
+                }`}
+              >
+                ATEP
+              </span>
+              <span
+                className={`text-2xl font-light ml-1 transition-all duration-500 ${
+                  isScrolled || isOpen
+                    ? "text-neutral-800"
+                    : "text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
+                }`}
+              >
                 Consulting
               </span>
             </div>
@@ -97,10 +107,14 @@ export const Header = () => {
               <div key={link.path} className="flex items-center gap-8">
                 <Link
                   to={link.path}
-                  className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                  className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-500 ${
                     location.pathname === link.path
-                      ? "bg-primary-100 text-primary-700"
-                      : "text-neutral-700 hover:bg-primary-100 hover:text-primary-700"
+                      ? isScrolled
+                        ? "bg-primary-100 text-primary-700"
+                        : "bg-white/20 text-white backdrop-blur-sm"
+                      : isScrolled
+                      ? "text-neutral-700 hover:bg-primary-100 hover:text-primary-700"
+                      : "text-white hover:bg-white/10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
                   }`}
                 >
                   {link.label}
@@ -111,10 +125,14 @@ export const Header = () => {
                   <div className="relative services-dropdown">
                     <button
                       onClick={() => setServicesOpen((prev) => !prev)}
-                      className={`font-medium transition-all duration-300 flex items-center gap-1 px-4 py-2 rounded-lg ${
+                      className={`font-medium transition-all duration-500 flex items-center gap-1 px-4 py-2 rounded-lg ${
                         location.pathname.startsWith("/services")
-                          ? "text-primary-700 bg-primary-100"
-                          : "text-neutral-700 hover:text-primary-800 hover:bg-primary-100"
+                          ? isScrolled
+                            ? "text-primary-700 bg-primary-100"
+                            : "text-white bg-white/20 backdrop-blur-sm"
+                          : isScrolled
+                          ? "text-neutral-700 hover:text-primary-800 hover:bg-primary-100"
+                          : "text-white hover:bg-white/10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
                       }`}
                     >
                       {t("nav.services")}
@@ -161,15 +179,34 @@ export const Header = () => {
                 )}
               </div>
             ))}
-            <LanguageSwitcher />
+            <LanguageSwitcher isScrolled={isScrolled} />
           </div>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-neutral-700 hover:text-primary-600 transition-colors"
+            className={`lg:hidden p-2 transition-all duration-500 ${
+              isScrolled || isOpen
+                ? "text-neutral-700 hover:text-primary-600"
+                : "text-white hover:text-white/80 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
+            }`}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <div className="relative w-6 h-6">
+              <Menu
+                className={`w-6 h-6 absolute inset-0 transition-all duration-300 ${
+                  isOpen
+                    ? "opacity-0 rotate-90 scale-0"
+                    : "opacity-100 rotate-0 scale-100"
+                }`}
+              />
+              <X
+                className={`w-6 h-6 absolute inset-0 transition-all duration-300 ${
+                  isOpen
+                    ? "opacity-100 rotate-0 scale-100"
+                    : "opacity-0 rotate-90 scale-0"
+                }`}
+              />
+            </div>
           </button>
         </div>
 

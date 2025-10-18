@@ -38,7 +38,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="relative min-h-[600px] md:min-h-[700px] flex flex-col overflow-hidden bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900">
+      <section className="relative min-h-[700px] md:min-h-[800px] flex flex-col overflow-hidden bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900">
         {/* Background Image con overlay oscuro */}
         <div className="absolute inset-0">
           {slides.map((slide, index) => (
