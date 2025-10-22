@@ -21,6 +21,8 @@ import HamptonLogo from "../assets/logos/hampton-logo.svg";
 import VertiluxLogo from "../assets/logos/vertilux-logo.svg";
 import { getServicesData } from "../data/servicesData";
 
+//
+
 export const Home = () => {
   const { t } = useLanguage();
   const services = getServicesData(t);
