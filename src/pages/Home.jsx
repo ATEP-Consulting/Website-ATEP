@@ -1,11 +1,5 @@
 import { Link } from "react-router-dom";
 import {
-  Server,
-  Globe,
-  Zap,
-  Cloud,
-  RefreshCw,
-  Code2,
   Award,
   Users,
   TrendingUp,
@@ -21,7 +15,6 @@ import HamptonLogo from "../assets/logos/hampton-logo.svg";
 import VertiluxLogo from "../assets/logos/vertilux-logo.svg";
 import { getServicesData } from "../data/servicesData";
 
-//
 
 export const Home = () => {
   const { t } = useLanguage();
