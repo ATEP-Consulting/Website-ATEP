@@ -20,6 +20,7 @@ export const CaseStripe = ({ label = "", variant = "navy", image, alt }) => {
           alt={alt || label}
           loading="lazy"
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "center top" }}
         />
       </div>
     );

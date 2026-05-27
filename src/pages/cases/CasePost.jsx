@@ -119,7 +119,7 @@ export const CasePost = () => {
             className="px-6 sm:px-10 lg:px-16 py-10 tm:py-14"
             style={{ background: "var(--bg)" }}
           >
-            <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
+            <div className="overflow-hidden" style={{ aspectRatio: "16/10" }}>
               <CaseStripe
                 label={`${caseItem.client[language]} · ${language === "es" ? "captura del producto" : "product screenshot"}`}
                 variant="navy"
