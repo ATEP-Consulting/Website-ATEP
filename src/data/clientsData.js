@@ -11,13 +11,10 @@ export const clients = [
   "Style by Global",
   "Hampton Textile Printing",
   "Vertilux",
-  "Grupo Gastroadictos",
   "LNH & Partner",
   "Tibi's Market",
   "Luis Royuela Nutricionistas",
   // Añade aquí más clientes según los tengas.
-  // Ejemplos comentados para que veas el formato:
-  // "Grupo Gastroadictos",
-  // "LNH & Partner",
-  // "Tibi's Market",
+  // Ejemplo:
+  // "Nombre del Cliente",
 ];

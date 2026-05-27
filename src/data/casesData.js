@@ -2,8 +2,8 @@ export const cases = [
   {
     slug: "sentra",
     client: {
-      es: "Grupo Gastroadictos",
-      en: "Gastroadictos Group",
+      es: "Grupo de restauración · 7 locales",
+      en: "Restaurant group · 7 locations",
     },
     sector: {
       es: "Hostelería · Restauración",
@@ -76,7 +76,7 @@ export const cases = [
       es: "Ver el grupo entero en un único panel cambió cómo dirigimos la semana — pasamos de reaccionar a anticipar.",
       en: "Seeing the whole group in a single panel changed how we run the week — we went from reacting to anticipating.",
     },
-    quoteAuthor: "Equipo de dirección · Grupo Gastroadictos",
+    quoteAuthor: "Equipo de dirección · Grupo de restauración",
   },
   {
     slug: "atep-inventory",

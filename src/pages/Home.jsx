@@ -8,6 +8,7 @@ import { cases as casesData } from "../data/casesData";
 import { CaseCard } from "../components/CaseCard";
 import { ClientsMarquee } from "../components/ClientsMarquee";
 import { blogPosts } from "../data/blogData";
+import { getHeroStats } from "../config/heroStats";
 import { tDisplay, tSerif, tEyebrow, FONT } from "../lib/typography";
 
 const SectionEyebrow = ({ children }) => (
@@ -20,12 +21,7 @@ export const Home = () => {
   const { t, language } = useLanguage();
   const services = getServicesData(t);
 
-  const stats = [
-    { number: t("stats.stat1.number"), label: t("stats.stat1.label") },
-    { number: t("stats.stat2.number"), label: t("stats.stat2.label") },
-    { number: t("stats.stat3.number"), label: t("stats.stat3.label") },
-    { number: t("stats.stat4.number"), label: t("stats.stat4.label") },
-  ];
+  const stats = getHeroStats(t);
 
   const processSteps = [
     {
