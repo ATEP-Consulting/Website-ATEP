@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 
 export const SEO = ({
   title,
@@ -10,9 +11,9 @@ export const SEO = ({
   schemaData = {},
 }) => {
   const seoLanguage = "es_ES";
-  const baseUrl = "https://atepconsulting.com";
-  const currentUrl =
-    typeof window !== "undefined" ? window.location.href : baseUrl;
+  const baseUrl = "https://www.atepconsulting.com";
+  const { pathname } = useLocation();
+  const currentUrl = `${baseUrl}${pathname}`;
 
   const fullTitle = title
     ? `${title} | ATEP Consulting`
@@ -33,7 +34,7 @@ export const SEO = ({
         name: "ATEP Consulting",
         alternateName: "ATEP",
         url: baseUrl,
-        logo: `${baseUrl}/logo-atep.png`,
+        logo: `${baseUrl}/new-logo-atep.png`,
         image: image,
         description: description,
         address: {
@@ -82,7 +83,7 @@ export const SEO = ({
           "@type": "Organization",
           name: "ATEP Consulting",
           url: baseUrl,
-          logo: `${baseUrl}/logo-atep.png`,
+          logo: `${baseUrl}/new-logo-atep.png`,
         },
         areaServed: {
           "@type": "Country",
@@ -131,7 +132,7 @@ export const SEO = ({
           name: "ATEP Consulting",
           logo: {
             "@type": "ImageObject",
-            url: `${baseUrl}/logo-atep.png`,
+            url: `${baseUrl}/new-logo-atep.png`,
           },
         },
         ...schemaData,
@@ -145,7 +146,7 @@ export const SEO = ({
         name: "ATEP Consulting",
         url: baseUrl,
         description: description,
-        logo: `${baseUrl}/logo-atep.png`,
+        logo: `${baseUrl}/new-logo-atep.png`,
         address: {
           "@type": "PostalAddress",
           addressLocality: "Paterna",

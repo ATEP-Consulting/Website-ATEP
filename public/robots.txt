@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: https://atepconsulting.com/sitemap.xml
+Sitemap: https://www.atepconsulting.com/sitemap.xml
