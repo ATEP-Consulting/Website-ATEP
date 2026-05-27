@@ -3,8 +3,9 @@ import { Linkedin, Instagram } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { useTheme } from "../context/ThemeContext";
 import { getServicesData } from "../data/servicesData";
-import { tDisplay, tEyebrow } from "../lib/typography";
+import { tDisplay, tEyebrow, FONT } from "../lib/typography";
 import CTA from "./CTA";
+import logo from "../assets/logos/new-logo-atep.svg";
 
 const LinkRow = ({ to, href, external = false, children, onNavy }) => {
   const color = onNavy ? "rgba(245,241,232,0.85)" : "var(--ink-soft)";
@@ -85,10 +86,33 @@ export const Footer = () => {
       />
 
       <footer
-        className="px-6 sm:px-10 lg:px-16 pt-20 pb-9"
+        className="relative overflow-hidden px-6 sm:px-10 lg:px-16 pt-20 pb-9"
         style={{ background: footerBg, color: footerInk }}
       >
-       <div className="max-w-[1600px] mx-auto w-full">
+        {/* Watermark sutil "ATEP Consulting" detrás del contenido */}
+        <div
+          aria-hidden
+          className="pointer-events-none select-none absolute inset-0 flex items-center justify-center"
+          style={{ zIndex: 0 }}
+        >
+          <span
+            className="whitespace-nowrap italic"
+            style={{
+              fontFamily: FONT.serif,
+              fontWeight: 500,
+              fontSize: "clamp(140px, 22vw, 360px)",
+              letterSpacing: "-0.04em",
+              lineHeight: 1,
+              color: isDark
+                ? "rgba(245,241,232,0.04)"
+                : "rgba(245,241,232,0.06)",
+            }}
+          >
+            ATEP Consulting
+          </span>
+        </div>
+
+       <div className="relative max-w-[1600px] mx-auto w-full" style={{ zIndex: 1 }}>
         <div
           className="grid gap-10 tm:gap-14 pb-14"
           style={{
@@ -98,6 +122,37 @@ export const Footer = () => {
         >
           <div className="grid grid-cols-1 tm:grid-cols-4 gap-10 tm:gap-14">
             <div className="tm:col-span-2">
+              <Link
+                to="/"
+                aria-label="ATEP Consulting · Inicio"
+                className="inline-flex items-center gap-3 mb-8 no-underline"
+                style={{ color: footerInk }}
+              >
+                <span
+                  className="flex items-center justify-center"
+                  style={{
+                    width: 56,
+                    height: 56,
+                    background: onNavy
+                      ? "rgba(245,241,232,0.08)"
+                      : "var(--bg)",
+                    border: `1px solid ${ruleColor}`,
+                  }}
+                >
+                  <img
+                    src={logo}
+                    alt=""
+                    aria-hidden
+                    className="w-9 h-9 object-contain"
+                  />
+                </span>
+                <span style={{ ...tDisplay(22, 500), color: footerInk }}>
+                  ATEP{" "}
+                  <em style={{ fontWeight: 400, opacity: 0.7 }}>
+                    Consulting
+                  </em>
+                </span>
+              </Link>
               <div
                 style={{
                   ...tDisplay("clamp(28px, 4vw, 44px)", 500),

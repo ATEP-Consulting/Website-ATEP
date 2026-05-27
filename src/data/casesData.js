@@ -378,6 +378,173 @@ export const cases = [
       "React Icons",
     ],
   },
+  {
+    slug: "hampton-textile-printing",
+    client: {
+      es: "Hampton Textile Printing",
+      en: "Hampton Textile Printing",
+    },
+    sector: {
+      es: "Industria · Migración ERP empresarial",
+      en: "Industry · Enterprise ERP migration",
+    },
+    location: "Tennessee · USA",
+    year: 2026,
+    duration: {
+      es: "Multi-fase · cutover sin downtime",
+      en: "Multi-phase · zero-downtime cutover",
+    },
+    teamSize: {
+      es: "Squad dedicado + auditor externo (BC&S)",
+      en: "Dedicated squad + external auditor (BC&S)",
+    },
+    title: {
+      es: "De BBx/UniBasic a ERPNext 15 con IA corporativa, sin downtime ni pérdida contable",
+      en: "From BBx/UniBasic to ERPNext 15 with corporate AI, zero downtime, zero accounting loss",
+    },
+    description: {
+      es: "Migración auditada del ERP de una empresa familiar de impresión textil 24/7 con 20+ años de lógica acumulada. Arquitectura IaC, IA corporativa con aislamiento real, validación con framework propio de Parallel Testing y plan de salida garantizado.",
+      en: "Audited ERP migration for a 24/7 family-owned textile printing company with 20+ years of accumulated business logic. IaC architecture, corporate AI with real isolation, validation via in-house Parallel Testing framework and guaranteed exit plan.",
+    },
+    metric: {
+      value: "99%+",
+      label: {
+        es: "paridad contable con el balance histórico",
+        en: "accounting parity with historical ledger",
+      },
+    },
+    challenge: {
+      es: "Hampton operaba sobre un ERP escrito en BBx/UniBasic — tecnología de los años 80 con proveedores en extinción, sin ecosistema de integraciones moderno y un coste de mantenimiento creciente. Cero margen para perder datos contables, cero tolerancia a downtime en una operación 24/7, y décadas de conocimiento de negocio enterrado en miles de programas heredados. El mandato: modernizar el ERP sin que el cliente lo notase, preservar al céntimo la contabilidad histórica, dejar la operación auditable de extremo a extremo y entregar un sistema del que el cliente pudiera salir sin depender del proveedor.",
+      en: "Hampton was running on an ERP written in BBx/UniBasic — '80s technology with vanishing vendors, no modern integration ecosystem and ever-growing maintenance cost. Zero margin to lose accounting data, zero downtime tolerance in 24/7 operations, and decades of business knowledge buried in thousands of legacy programs. The mandate: modernize the ERP without the client noticing, preserve historical accounting down to the cent, leave operations auditable end-to-end, and deliver a system the client could exit without provider lock-in.",
+    },
+    solution: {
+      es: "Implementamos una plataforma completa sobre ERPNext 15 con una app Frappe a medida (htp_textile) en arquitectura monorepo — toda la customización vive como hook, sin forks del core. Infraestructura como código con Pulumi + Ansible (reproducible desde cero en menos de un día). Seguridad de grado empresarial: Vault HA con Shamir 5/3, MinIO con Object Lock COMPLIANCE, SOPS-age para secretos, commits firmados obligatorios. SSO único con Authentik OIDC sobre ERP, RAG, docs y observabilidad. IA corporativa con Anthropic Contextual Retrieval, recuperación híbrida RRF + reranker BGE-v2-m3, Qdrant multi-vector, GraphRAG sobre Kuzu y aislamiento por tenant. Contrato Anthropic enterprise + ZDR + BAA asignado al cliente. Validación con Parallel Testing Framework propietario: 160 escenarios en 8 módulos ejecutados contra legacy y ERPNext con comparación campo a campo.",
+      en: "We implemented a full platform on ERPNext 15 with a custom Frappe app (htp_textile) in a monorepo architecture — all customization lives as hooks, no core forks. Infrastructure as code with Pulumi + Ansible (reproducible from scratch in under a day). Enterprise-grade security: Vault HA with Shamir 5/3, MinIO with Object Lock COMPLIANCE, SOPS-age for secrets, mandatory signed commits. Single SSO with Authentik OIDC across ERP, RAG, docs and observability. Corporate AI with Anthropic Contextual Retrieval, hybrid RRF retrieval + BGE-v2-m3 reranker, Qdrant multi-vector, GraphRAG over Kuzu and per-tenant isolation. Anthropic enterprise contract + ZDR + BAA assigned to the client. Validation with proprietary Parallel Testing Framework: 160 scenarios across 8 modules executed against legacy and ERPNext with field-by-field comparison.",
+    },
+    results: [
+      {
+        value: "160",
+        label: {
+          es: "escenarios paralelos en verde 4 semanas",
+          en: "parallel scenarios green for 4 weeks",
+        },
+      },
+      {
+        value: "0",
+        label: {
+          es: "downtime perceptible en el cutover",
+          en: "perceptible cutover downtime",
+        },
+      },
+      {
+        value: "100/100",
+        label: {
+          es: "facturas con match exacto campo a campo",
+          en: "invoices with exact field-by-field match",
+        },
+      },
+    ],
+    stack: [
+      "ERPNext 15",
+      "Frappe",
+      "Python",
+      "TypeScript",
+      "Pulumi",
+      "Ansible",
+      "Vault HA",
+      "MinIO",
+      "Authentik OIDC",
+      "Qdrant",
+      "Kuzu",
+      "Anthropic Claude (Sonnet + Haiku)",
+      "GraphRAG",
+      "Graphiti",
+      "OpenTelemetry",
+      "Grafana",
+      "Hetzner",
+      "Tailscale",
+      "Cloudflare",
+    ],
+    quote: {
+      es: "Cutover basado en evidencia, no en fe. El cliente tomó la decisión de migrar con datos campo a campo — no con confianza.",
+      en: "An evidence-based cutover, not a leap of faith. The client made the migration call with field-by-field data — not with trust.",
+    },
+    quoteAuthor: "Sponsor ejecutivo · Hampton Textile Printing",
+  },
+  {
+    slug: "luis-royuela-nutricionistas",
+    client: {
+      es: "Luis Royuela Nutricionistas",
+      en: "Luis Royuela Nutritionists",
+    },
+    sector: {
+      es: "Salud · Nutrición clínica",
+      en: "Health · Clinical nutrition",
+    },
+    location: "España",
+    year: 2025,
+    duration: {
+      es: "4 semanas",
+      en: "4 weeks",
+    },
+    teamSize: {
+      es: "2 personas",
+      en: "2 people",
+    },
+    title: {
+      es: "Web institucional para un nutricionista clínico, optimizada para captar pacientes locales",
+      en: "Corporate website for a clinical nutritionist, optimized to attract local patients",
+    },
+    description: {
+      es: "Sitio web profesional para una consulta de nutrición clínica con presencia en SEO local, servicios diferenciados y formulario de captación de pacientes integrado con la agenda del profesional.",
+      en: "Professional website for a clinical nutrition practice with local SEO presence, differentiated services and a patient acquisition form integrated with the practitioner's calendar.",
+    },
+    metric: {
+      value: "1.2s",
+      label: {
+        es: "tiempo de carga en móvil 4G",
+        en: "load time on mobile 4G",
+      },
+    },
+    challenge: {
+      es: "Luis Royuela necesitaba una web profesional que reflejara la seriedad de una consulta sanitaria, posicionara para búsquedas locales (nutricionista + ciudad) y convirtiera visitantes en consultas concertadas. El sitio anterior era una plantilla genérica sin diferenciación de servicios (nutrición deportiva, clínica, pediátrica) ni canales claros de contacto. Las consultas llegaban por canales dispersos sin trazabilidad.",
+      en: "Luis Royuela needed a professional website reflecting the seriousness of a clinical practice, ranking for local searches (nutritionist + city), and converting visitors into booked consultations. The previous site was a generic template with no service differentiation (sports, clinical, pediatric nutrition) and no clear contact channels. Inquiries arrived through scattered channels with no traceability.",
+    },
+    solution: {
+      es: "Diseñamos un sitio limpio, profesional y mobile-first con páginas individuales por especialidad (deportiva, clínica, pediátrica, oncológica), bio profesional con credenciales auditables, blog para captar tráfico orgánico de búsquedas relacionadas con nutrición, y formulario de contacto que envía los datos al canal preferido del nutricionista. SEO técnico desde el día uno: schema.org Person + MedicalBusiness, sitemap, robots, Open Graph y meta tags localizados.",
+      en: "We designed a clean, professional and mobile-first site with individual pages per specialty (sports, clinical, pediatric, oncology), professional bio with auditable credentials, a blog to capture organic traffic from nutrition-related searches, and a contact form delivering inquiries to the practitioner's preferred channel. Technical SEO from day one: schema.org Person + MedicalBusiness, sitemap, robots, Open Graph and localized meta tags.",
+    },
+    results: [
+      {
+        value: "100",
+        label: {
+          es: "Lighthouse performance",
+          en: "Lighthouse performance",
+        },
+      },
+      {
+        value: "4",
+        label: {
+          es: "especialidades diferenciadas",
+          en: "differentiated specialties",
+        },
+      },
+      {
+        value: "0",
+        label: {
+          es: "mantenimiento técnico para el cliente",
+          en: "technical maintenance on the client",
+        },
+      },
+    ],
+    stack: [
+      "React 18",
+      "Vite",
+      "Tailwind CSS",
+      "SEO técnico (schema.org MedicalBusiness)",
+      "Vercel",
+    ],
+  },
 ];
 
 export const getCases = () => cases;
