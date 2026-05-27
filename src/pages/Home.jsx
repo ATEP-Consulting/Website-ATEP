@@ -1,41 +1,65 @@
 import { Link } from "react-router-dom";
-import {
-  Award,
-  Users,
-  TrendingUp,
-} from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { SEO } from "../components/SEO";
-import { ServicesCarousel } from "../components/ServicesCarousel";
-import { HowWeWork } from "../components/HowWeWork";
-import Hero from "../components/Hero";
-import { ClientLogos } from "../components/ClientLogos";
+import { Reveal, RevealStagger } from "../components/Reveal";
+import { CountingNumber } from "../components/CountingNumber";
+import { getServicesData } from "../data/servicesData";
+import { blogPosts } from "../data/blogData";
+import { tDisplay, tSerif, tEyebrow, FONT } from "../lib/typography";
 import StyleLogo from "../assets/logos/style-logo.svg";
 import HamptonLogo from "../assets/logos/hampton-logo.svg";
 import VertiluxLogo from "../assets/logos/vertilux-logo.svg";
-import { getServicesData } from "../data/servicesData";
 
+const SectionEyebrow = ({ children }) => (
+  <div className="mb-4" style={tEyebrow("var(--muted)")}>
+    — {children}
+  </div>
+);
 
 export const Home = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const services = getServicesData(t);
+
+  const stats = [
+    { number: t("stats.stat1.number"), label: t("stats.stat1.label") },
+    { number: t("stats.stat2.number"), label: t("stats.stat2.label") },
+    { number: t("stats.stat3.number"), label: t("stats.stat3.label") },
+    { number: t("stats.stat4.number"), label: t("stats.stat4.label") },
+  ];
+
+  const processSteps = [
+    { num: "01", title: t("home.step1Title"), text: t("home.step1Description") },
+    { num: "02", title: t("home.step2Title"), text: t("home.step2Description") },
+    { num: "03", title: t("home.step3Title"), text: t("home.step3Description") },
+    { num: "04", title: t("home.step4Title"), text: t("home.step4Description") },
+  ];
 
   const whyChoose = [
     {
-      icon: Award,
       title: t("home.whyChoose1Title"),
       text: t("home.whyChoose1Text"),
+      img: "/images/home/ExpertTeam.webp",
     },
     {
-      icon: TrendingUp,
       title: t("home.whyChoose2Title"),
       text: t("home.whyChoose2Text"),
+      img: "/images/home/ProvenResults.webp",
     },
     {
-      icon: Users,
       title: t("home.whyChoose3Title"),
       text: t("home.whyChoose3Text"),
+      img: "/images/home/CustomerFocus.webp",
     },
+  ];
+
+  const recentPosts = [...blogPosts]
+    .sort((a, b) => (a.date < b.date ? 1 : -1))
+    .slice(0, 3);
+
+  const clientLogos = [
+    { src: StyleLogo, alt: "Style" },
+    { src: HamptonLogo, alt: "Hampton" },
+    { src: VertiluxLogo, alt: "Vertilux" },
   ];
 
   return (
@@ -56,146 +80,598 @@ export const Home = () => {
         }}
       />
 
-      <Hero
-        badge={t("hero.heroBadge")}
-        title={
-          <>
-            {t("hero.heroTitle1")}
-            <span className="text-primary-600">
-              {t("hero.heroTitle2")}
-            </span>{" "}
-            {t("hero.heroTitle3")}{" "}
-            <span className="text-primary-600">{t("hero.heroTitle4")}</span>
-          </>
-        }
-        subtitle={t("hero.heroSubtitle")}
-        primaryButton={{
-          text: t("hero.heroCta"),
-          to: "/contact",
-        }}
-        secondaryButton={{
-          text: t("hero.heroSecondaryCta"),
-          to: "/services",
-        }}
-      />
+      {/* HERO */}
+      <section
+        className="px-6 sm:px-10 lg:px-16 pt-12 pb-14 tm:pt-24 tm:pb-24"
+        style={{ background: "var(--bg)" }}
+      >
+        <div className="grid gap-10 tm:gap-16 items-end" style={{ gridTemplateColumns: "1fr" }}>
+          <div className="grid grid-cols-1 tm:grid-cols-5 gap-10 tm:gap-16 items-end">
+            <div className="tm:col-span-3">
+              <Reveal y={16}>
+                <div style={tEyebrow("var(--muted)")}>
+                  — {language === "es"
+                    ? "Consultoría IT & desarrollo de software · Valencia, España"
+                    : "IT consulting & software development · Valencia, Spain"}
+                </div>
+              </Reveal>
+              <Reveal delay={120} y={32} dur={1100}>
+                <h1
+                  className="mt-6 tm:mt-8"
+                  style={{
+                    ...tDisplay("clamp(44px, 8vw, 96px)", 500),
+                    color: "var(--ink)",
+                    margin: 0,
+                  }}
+                >
+                  {t("hero.heroTitle1")}
+                  <em style={{ color: "var(--accent)", fontWeight: 400 }}>
+                    {t("hero.heroTitle2")}
+                  </em>
+                  {t("hero.heroTitle3")}
+                  <em style={{ color: "var(--accent)", fontWeight: 400 }}>
+                    {t("hero.heroTitle4")}
+                  </em>
+                </h1>
+              </Reveal>
+              <Reveal delay={360} y={24}>
+                <p
+                  className="mt-6 tm:mt-9 italic"
+                  style={{
+                    ...tSerif("clamp(17px, 1.4vw, 20px)", 400),
+                    color: "var(--muted)",
+                    maxWidth: 580,
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {t("hero.heroSubtitle")}
+                </p>
+              </Reveal>
+              <Reveal delay={520} y={16}>
+                <div className="mt-7 tm:mt-10 flex gap-3 flex-wrap">
+                  <Link
+                    to="/contact"
+                    className="inline-block px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] no-underline transition-all duration-150 hover:-translate-y-[1px]"
+                    style={{ background: "var(--navy)", color: "var(--bg)" }}
+                  >
+                    {t("hero.heroCta")} →
+                  </Link>
+                  <Link
+                    to="/services"
+                    className="inline-block px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] no-underline transition-colors duration-150"
+                    style={{
+                      background: "transparent",
+                      color: "var(--ink)",
+                      border: "1px solid var(--ink)",
+                    }}
+                  >
+                    {t("hero.heroSecondaryCta")}
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
 
-      <ClientLogos
-        logos={[
-          { src: StyleLogo, alt: "Client 1" },
-          { src: HamptonLogo, alt: "Client 2" },
-          { src: VertiluxLogo, alt: "Client 3" },
-        ]}
-      />
-
-      <HowWeWork />
-
-      <section className="section-padding bg-white">
-        <div className="section-container">
-          <div className="text-center mb-16 flex flex-col items-center">
-            <h2 className="heading-lg mb-4 slide-up">
-              {t("home.servicesTitle1")}{" "}
-              <span className="text-primary-600">
-                {t("home.servicesTitle2")}
-              </span>
-            </h2>
-            <p className="text-xl text-neutral-600 slide-up stagger-1 sm:w-2/3">
-              {t("home.servicesSubtitle")}
-            </p>
-          </div>
-
-          <div className="slide-up stagger-1 -mx-4 sm:-mx-6 lg:-mx-8">
-            <ServicesCarousel services={services} />
-          </div>
-
-          <div className="text-center mt-20">
-            <Link to="/services" className="btn-outline">
-              {t("services.viewAll")}
-            </Link>
+            <Reveal delay={280} y={36} dur={1100} className="tm:col-span-2">
+              <div className="relative" style={{ aspectRatio: "4/5" }}>
+                <img
+                  src="/images/home/ExpertTeam.webp"
+                  alt={
+                    language === "es"
+                      ? "Equipo de ATEP Consulting"
+                      : "ATEP Consulting team"
+                  }
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="eager"
+                  fetchpriority="high"
+                />
+                <div
+                  className="absolute bottom-4 left-4 right-4 tm:bottom-6 tm:left-6 tm:right-6 p-5 tm:p-6"
+                  style={{
+                    background: "var(--bg)",
+                    border: "1px solid var(--navy)",
+                  }}
+                >
+                  <div className="mb-[10px]" style={tEyebrow("var(--muted)")}>
+                    {language === "es" ? "Valencia · España" : "Valencia · Spain"}
+                  </div>
+                  <div
+                    style={{
+                      ...tDisplay("clamp(20px, 2.4vw, 28px)", 500),
+                      color: "var(--ink)",
+                    }}
+                  >
+                    {language === "es" ? (
+                      <>
+                        {t("hero.heroBadge").split(" ").slice(0, -3).join(" ")}{" "}
+                        <em>
+                          {t("hero.heroBadge").split(" ").slice(-3).join(" ")}.
+                        </em>
+                      </>
+                    ) : (
+                      <>{t("hero.heroBadge")}.</>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      <section className="section-padding bg-neutral-50">
-        <div className="section-container">
-          <div className="text-center mb-16 flex flex-col items-center">
-            <h2 className="heading-lg mb-4 slide-up">
-              {t("home.whyChooseTitle1")}{" "}
-              <span className="text-primary-600">
-                {t("home.whyChooseTitle2")}
-              </span>
-              {t("home.whyChooseTitle3")}{" "}
-              <span className="text-primary-600">
-                {t("home.whyChooseTitle4")}
-              </span>
-              {t("home.whyChooseTitle5")}{" "}
-              <span className="text-primary-600">
-                {t("home.whyChooseTitle6")}
-              </span>
-            </h2>
-            <p className="text-xl text-neutral-600 slide-up stagger-1 sm:w-2/3">
-              {t("home.whyChooseSubtitle")}
-            </p>
+      {/* CLIENT LOGOS */}
+      <section
+        className="px-6 sm:px-10 lg:px-16 py-10 tm:py-14"
+        style={{
+          borderTop: "1px solid var(--rule)",
+          borderBottom: "1px solid var(--rule)",
+        }}
+      >
+        <Reveal y={16}>
+          <div className="mb-6" style={tEyebrow("var(--muted)")}>
+            — {t("logo.title")}
           </div>
+        </Reveal>
+        <RevealStagger
+          stagger={80}
+          base={120}
+          y={12}
+          className="flex flex-wrap items-center gap-x-12 gap-y-6"
+        >
+          {clientLogos.map((logo) => (
+            <img
+              key={logo.alt}
+              src={logo.src}
+              alt={logo.alt}
+              className="h-10 tm:h-12 w-auto opacity-70 transition-opacity duration-200 hover:opacity-100"
+              style={{ filter: "grayscale(100%)" }}
+              loading="lazy"
+            />
+          ))}
+        </RevealStagger>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {whyChoose.map((item, index) => {
-              const Icon = item.icon;
-
-              // Imágenes para cada tarjeta
-              const images = [
-                "images/home/ExpertTeam.webp", // Team collaboration
-                "images/home/ProvenResults.webp", // Analytics/Data
-                "images/home/CustomerFocus.webp", // Technology/Innovation
-              ];
-
-              return (
-                <div
-                  key={item.title}
-                  className={`group relative bg-white rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 slide-up stagger-${
-                    index + 1
-                  }`}
+      {/* STATS */}
+      <section
+        className="px-6 sm:px-10 lg:px-16 py-20 tm:py-28"
+        style={{ background: "var(--bg-surface)" }}
+      >
+        <div className="grid gap-10 tm:gap-16 items-end" style={{ gridTemplateColumns: "1fr" }}>
+          <div className="grid grid-cols-1 tm:grid-cols-3 gap-10 tm:gap-16 items-end">
+            <Reveal y={24}>
+              <div>
+                <SectionEyebrow>
+                  {language === "es" ? "En números" : "In numbers"}
+                </SectionEyebrow>
+                <h2
+                  style={{
+                    ...tDisplay("clamp(32px, 4vw, 52px)", 500),
+                    margin: 0,
+                    color: "var(--ink)",
+                  }}
                 >
-                  {/* Imagen con efecto zoom */}
-                  <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary-100 to-primary-50">
-                    <img
-                      src={images[index]}
-                      alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      loading="lazy"
-                    />
-                    {/* Overlay sutil */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                  </div>
-
-                  {/* Icono centrado entre imagen y contenido */}
+                  {language === "es" ? (
+                    <>
+                      Resultados que{" "}
+                      <em>cuentan</em>.
+                    </>
+                  ) : (
+                    <>
+                      Results that{" "}
+                      <em>count</em>.
+                    </>
+                  )}
+                </h2>
+              </div>
+            </Reveal>
+            <RevealStagger
+              stagger={120}
+              base={200}
+              y={20}
+              className="tm:col-span-2 grid grid-cols-2 tm:grid-cols-4 gap-6 tm:gap-7"
+            >
+              {stats.map((s) => (
+                <div
+                  key={s.label}
+                  className="pt-4 tm:pt-5"
+                  style={{ borderTop: "1px solid var(--navy)" }}
+                >
                   <div
-                    className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-xl flex items-center justify-center shadow-lg"
-                    style={{ top: "12rem" }}
+                    style={{
+                      ...tDisplay("clamp(40px, 5vw, 60px)", 500),
+                      color: "var(--ink)",
+                    }}
                   >
-                    <Icon className="w-8 h-8 text-primary-600" />
+                    <CountingNumber value={s.number} dur={1800} />
                   </div>
-
-                  {/* Contenido */}
-                  <div className="p-8 pt-12">
-                    <h3 className="heading-sm mb-4 transition-colors duration-300 group-hover:text-primary-600">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-body leading-relaxed">{item.text}</p>
+                  <div
+                    className="mt-[6px]"
+                    style={{ fontSize: 13, color: "var(--muted)" }}
+                  >
+                    {s.label}
                   </div>
-
-                  {/* Línea decorativa inferior */}
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full transition-all duration-300 group-hover:w-20"></div>
                 </div>
-              );
-            })}
-          </div>
-          <div className="text-center mt-12">
-            <Link to="/company" className="btn-outline">
-              {t("about.viewAll")}
-            </Link>
+              ))}
+            </RevealStagger>
           </div>
         </div>
+      </section>
+
+      {/* SERVICES */}
+      <section
+        className="px-6 sm:px-10 lg:px-16 py-20 tm:py-28"
+        style={{ background: "var(--bg)" }}
+      >
+        <Reveal y={24}>
+          <div className="flex flex-col tm:flex-row justify-between items-start tm:items-end gap-4 tm:gap-0 mb-10 tm:mb-14">
+            <div>
+              <SectionEyebrow>{t("nav.services")}</SectionEyebrow>
+              <h2
+                style={{
+                  ...tDisplay("clamp(36px, 5vw, 60px)", 500),
+                  margin: 0,
+                  color: "var(--ink)",
+                }}
+              >
+                {language === "es" ? (
+                  <>
+                    Cinco prácticas,
+                    <br />
+                    <em>un mismo</em> estándar.
+                  </>
+                ) : (
+                  <>
+                    Five practices,
+                    <br />
+                    <em>one</em> standard.
+                  </>
+                )}
+              </h2>
+            </div>
+            <Link
+              to="/services"
+              className="text-[14px] no-underline whitespace-nowrap"
+              style={{
+                color: "var(--ink)",
+                textDecoration: "underline",
+                textUnderlineOffset: 4,
+              }}
+            >
+              {t("services.viewAll")} →
+            </Link>
+          </div>
+        </Reveal>
+        <RevealStagger
+          stagger={80}
+          base={180}
+          y={20}
+          className="grid grid-cols-1 tm:grid-cols-3"
+          style={{
+            borderTop: "1px solid var(--navy)",
+          }}
+        >
+          {services.map((s, idx) => (
+            <Link
+              key={s.id}
+              to={s.path}
+              className="block no-underline p-6 tm:p-7 tm:min-h-[260px] transition-colors duration-150"
+              style={{
+                color: "inherit",
+                borderRight: "1px solid var(--navy)",
+                borderBottom: "1px solid var(--navy)",
+                borderLeft: idx % 3 === 0 ? "1px solid var(--navy)" : "none",
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.background = "var(--bg-surface)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.background = "transparent")
+              }
+            >
+              <div style={tEyebrow("var(--accent)")}>
+                {String(idx + 1).padStart(2, "0")}
+              </div>
+              <h3
+                className="my-3"
+                style={{
+                  ...tDisplay("clamp(22px, 2.4vw, 28px)", 500),
+                  color: "var(--ink)",
+                  margin: "14px 0 12px",
+                }}
+              >
+                {s.name}
+              </h3>
+              <p
+                className="m-0"
+                style={{
+                  fontSize: 14.5,
+                  lineHeight: 1.55,
+                  color: "var(--muted)",
+                }}
+              >
+                {s.description}
+              </p>
+              <div
+                className="mt-5 text-[13px]"
+                style={{ color: "var(--ink)" }}
+              >
+                {language === "es" ? "Leer más" : "Read more"} →
+              </div>
+            </Link>
+          ))}
+        </RevealStagger>
+      </section>
+
+      {/* PROCESS */}
+      <section
+        className="px-6 sm:px-10 lg:px-16 py-20 tm:py-28"
+        style={{ background: "var(--bg)" }}
+      >
+        <Reveal y={20}>
+          <SectionEyebrow>
+            {language === "es" ? "Cómo trabajamos" : "How we work"}
+          </SectionEyebrow>
+          <h2
+            className="mb-10 tm:mb-16"
+            style={{
+              ...tDisplay("clamp(36px, 5vw, 60px)", 500),
+              color: "var(--ink)",
+              maxWidth: 900,
+              margin: "0 0 56px",
+            }}
+          >
+            {language === "es" ? (
+              <>
+                Un proceso transparente,
+                <br />
+                <em>previsible</em> y medible.
+              </>
+            ) : (
+              <>
+                A transparent process —
+                <br />
+                <em>predictable</em> and measurable.
+              </>
+            )}
+          </h2>
+        </Reveal>
+        <RevealStagger
+          stagger={140}
+          base={160}
+          y={28}
+          className="grid grid-cols-2 tm:grid-cols-4 gap-8 tm:gap-8 pt-8"
+          style={{ borderTop: "1px solid var(--navy)" }}
+        >
+          {processSteps.map((p) => (
+            <div key={p.num}>
+              <div
+                style={{
+                  ...tDisplay("clamp(48px, 5vw, 68px)", 500),
+                  color: "var(--accent)",
+                  lineHeight: 1,
+                }}
+              >
+                {p.num}
+              </div>
+              <h3
+                className="mb-3"
+                style={{
+                  ...tDisplay("clamp(18px, 1.8vw, 24px)", 500),
+                  color: "var(--ink)",
+                  margin: "20px 0 12px",
+                }}
+              >
+                {p.title}
+              </h3>
+              <p
+                style={{
+                  fontSize: 14,
+                  color: "var(--muted)",
+                  margin: 0,
+                  lineHeight: 1.55,
+                }}
+              >
+                {p.text}
+              </p>
+            </div>
+          ))}
+        </RevealStagger>
+      </section>
+
+      {/* WHY CHOOSE US */}
+      <section
+        className="px-6 sm:px-10 lg:px-16 py-20 tm:py-28"
+        style={{ background: "var(--bg-surface)" }}
+      >
+        <Reveal y={20}>
+          <div className="flex flex-col tm:flex-row justify-between items-start tm:items-end gap-4 tm:gap-0 mb-10 tm:mb-14">
+            <div>
+              <SectionEyebrow>
+                {language === "es" ? "Por qué elegirnos" : "Why us"}
+              </SectionEyebrow>
+              <h2
+                style={{
+                  ...tDisplay("clamp(36px, 5vw, 60px)", 500),
+                  margin: 0,
+                  color: "var(--ink)",
+                  maxWidth: 800,
+                }}
+              >
+                {language === "es" ? (
+                  <>
+                    De la estrategia al{" "}
+                    <em>éxito</em>, sin desvíos.
+                  </>
+                ) : (
+                  <>
+                    From strategy to{" "}
+                    <em>success</em>, no detours.
+                  </>
+                )}
+              </h2>
+            </div>
+            <Link
+              to="/company"
+              className="text-[14px] no-underline whitespace-nowrap"
+              style={{
+                color: "var(--ink)",
+                textDecoration: "underline",
+                textUnderlineOffset: 4,
+              }}
+            >
+              {t("about.viewAll")} →
+            </Link>
+          </div>
+        </Reveal>
+        <RevealStagger
+          stagger={120}
+          base={160}
+          y={24}
+          className="grid grid-cols-1 tm:grid-cols-3 gap-8 tm:gap-10"
+        >
+          {whyChoose.map((item, idx) => (
+            <article
+              key={item.title}
+              className="flex flex-col"
+              style={{ background: "var(--bg-panel)" }}
+            >
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-6 tm:p-7">
+                <div className="mb-3" style={tEyebrow("var(--accent)")}>
+                  {String(idx + 1).padStart(2, "0")}
+                </div>
+                <h3
+                  className="mb-3"
+                  style={{
+                    ...tDisplay("clamp(22px, 2.2vw, 26px)", 500),
+                    color: "var(--ink)",
+                    margin: "0 0 12px",
+                  }}
+                >
+                  {item.title}
+                </h3>
+                <p
+                  className="m-0"
+                  style={{
+                    fontSize: 14.5,
+                    color: "var(--muted)",
+                    lineHeight: 1.55,
+                  }}
+                >
+                  {item.text}
+                </p>
+              </div>
+            </article>
+          ))}
+        </RevealStagger>
+      </section>
+
+      {/* BLOG */}
+      <section
+        className="px-6 sm:px-10 lg:px-16 py-20 tm:py-28"
+        style={{ background: "var(--bg)" }}
+      >
+        <Reveal y={20}>
+          <div className="flex flex-col tm:flex-row justify-between items-start tm:items-end gap-4 tm:gap-0 mb-10 tm:mb-14">
+            <div>
+              <SectionEyebrow>
+                {language === "es" ? "Notas y publicaciones" : "Writing & notes"}
+              </SectionEyebrow>
+              <h2
+                style={{
+                  ...tDisplay("clamp(34px, 4.5vw, 54px)", 500),
+                  margin: 0,
+                  color: "var(--ink)",
+                }}
+              >
+                {language === "es" ? (
+                  <>
+                    Lo último
+                    <br />
+                    desde el blog.
+                  </>
+                ) : (
+                  <>
+                    Recent
+                    <br />
+                    from our blog.
+                  </>
+                )}
+              </h2>
+            </div>
+            <Link
+              to="/blog"
+              className="text-[14px] no-underline whitespace-nowrap"
+              style={{
+                color: "var(--ink)",
+                textDecoration: "underline",
+                textUnderlineOffset: 4,
+              }}
+            >
+              {language === "es" ? "Ver todos los artículos" : "See all articles"} →
+            </Link>
+          </div>
+        </Reveal>
+        <RevealStagger
+          stagger={130}
+          base={160}
+          y={20}
+          className="grid grid-cols-1 tm:grid-cols-3 gap-0 tm:gap-8"
+        >
+          {recentPosts.map((post) => {
+            const dateStr = new Date(post.date).toLocaleDateString(
+              language === "es" ? "es-ES" : "en-US",
+              { year: "numeric", month: "long" }
+            );
+            return (
+              <Link
+                key={post.slug}
+                to={`/blog/${post.slug}`}
+                className="block no-underline pt-6 pb-5 tm:pb-0 transition-colors duration-150"
+                style={{
+                  color: "inherit",
+                  borderTop: "1px solid var(--navy)",
+                }}
+              >
+                <div
+                  className="flex justify-between mb-5"
+                  style={tEyebrow("var(--muted)")}
+                >
+                  <span>
+                    {post.category?.[language] || post.category?.es || ""}
+                  </span>
+                  <span>{dateStr}</span>
+                </div>
+                <h3
+                  className="m-0"
+                  style={{
+                    ...tDisplay("clamp(20px, 2.2vw, 26px)", 500),
+                    color: "var(--ink)",
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {post.title?.[language] || post.title?.es}
+                </h3>
+                <div
+                  className="mt-5 italic"
+                  style={{
+                    fontSize: 13,
+                    color: "var(--muted)",
+                    fontFamily: FONT.serif,
+                  }}
+                >
+                  {language === "es" ? "Leer artículo" : "Read article"} →
+                </div>
+              </Link>
+            );
+          })}
+        </RevealStagger>
       </section>
     </>
   );
