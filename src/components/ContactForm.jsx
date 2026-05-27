@@ -5,6 +5,7 @@ import emailjs from "emailjs-com";
 import { useLanguage } from "../context/LanguageContext";
 import { useSnackbar } from "../context/SnackBarContext";
 import { tEyebrow, FONT } from "../lib/typography";
+import { trackEvent } from "../lib/analytics";
 
 const UnderlineInput = ({
   id,
@@ -147,6 +148,10 @@ export const ContactForm = () => {
       );
 
       showSnackbar(t("contact.successMessage"), "success");
+      trackEvent("generate_lead", {
+        method: "contact_form",
+        form_subject: formData.subject,
+      });
       setFormData({
         name: "",
         email: "",
@@ -159,6 +164,9 @@ export const ContactForm = () => {
     } catch (error) {
       console.error("EmailJS error:", error);
       showSnackbar(t("contact.errorMessage"), "error");
+      trackEvent("contact_form_error", {
+        error_type: error?.text || error?.message || "unknown",
+      });
     } finally {
       setIsSubmitting(false);
     }

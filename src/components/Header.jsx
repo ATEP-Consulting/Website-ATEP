@@ -8,6 +8,7 @@ import { CaseStripe } from "./CaseStripe";
 import { getServicesData } from "../data/servicesData";
 import { cases as casesData } from "../data/casesData";
 import { tDisplay, tSerif, tEyebrow, FONT } from "../lib/typography";
+import { trackEvent } from "../lib/analytics";
 import logo from "../assets/logos/new-logo-atep.svg";
 
 const useMediaQuery = (query) => {
@@ -74,11 +75,12 @@ const Logo = () => (
   </Link>
 );
 
-const CtaButton = ({ to, children, primary = false }) => {
+const CtaButton = ({ to, children, primary = false, onClick }) => {
   if (primary) {
     return (
       <Link
         to={to}
+        onClick={onClick}
         className="px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] inline-block whitespace-nowrap no-underline transition-all duration-150 hover:-translate-y-[1px]"
         style={{ background: "var(--navy)", color: "var(--bg)" }}
       >
@@ -89,6 +91,7 @@ const CtaButton = ({ to, children, primary = false }) => {
   return (
     <Link
       to={to}
+      onClick={onClick}
       className="px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] inline-block whitespace-nowrap no-underline transition-colors duration-150"
       style={{
         background: "transparent",
@@ -234,7 +237,13 @@ const DesktopHeader = () => {
       <div className="flex items-center gap-3">
         <ThemeToggle />
         <LanguageSwitcher />
-        <CtaButton to="/contact" primary>
+        <CtaButton
+          to="/contact"
+          primary
+          onClick={() =>
+            trackEvent("schedule_call_click", { location: "header_desktop" })
+          }
+        >
           {t("nav.scheduleCall")} →
         </CtaButton>
       </div>
@@ -818,7 +827,10 @@ const MobileHeader = () => {
           </div>
           <Link
             to="/contact"
-            onClick={() => setOpen(false)}
+            onClick={() => {
+              trackEvent("schedule_call_click", { location: "header_mobile" });
+              setOpen(false);
+            }}
             className="block text-center px-6 py-[18px] text-[14px] font-medium tracking-[0.02em] no-underline"
             style={{ background: "var(--navy)", color: "var(--bg)" }}
           >

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { tDisplay, tEyebrow } from "../lib/typography";
+import { trackEvent } from "../lib/analytics";
 
 const CTA = ({
   badge,
@@ -8,6 +9,7 @@ const CTA = ({
   primaryButton,
   secondaryButton,
   trustIndicators = [],
+  location = "global_footer",
 }) => {
   return (
     <section
@@ -49,6 +51,13 @@ const CTA = ({
           {primaryButton && (
             <Link
               to={primaryButton.to}
+              onClick={() =>
+                trackEvent("cta_click", {
+                  location,
+                  cta_type: "primary",
+                  cta_text: primaryButton.text,
+                })
+              }
               className="inline-block px-8 py-4 text-[14px] font-medium tracking-[0.02em] no-underline transition-all duration-150 hover:-translate-y-[1px]"
               style={{ background: "var(--navy)", color: "var(--bg)" }}
             >
@@ -59,6 +68,13 @@ const CTA = ({
           {secondaryButton && (
             <Link
               to={secondaryButton.to}
+              onClick={() =>
+                trackEvent("cta_click", {
+                  location,
+                  cta_type: "secondary",
+                  cta_text: secondaryButton.text,
+                })
+              }
               className="inline-block px-8 py-4 text-[14px] font-medium tracking-[0.02em] no-underline transition-colors duration-150"
               style={{
                 color: "var(--ink)",

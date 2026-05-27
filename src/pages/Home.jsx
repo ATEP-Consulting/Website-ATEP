@@ -10,6 +10,7 @@ import { ClientsMarquee } from "../components/ClientsMarquee";
 import { blogPosts } from "../data/blogData";
 import { getHeroStats } from "../config/heroStats";
 import { tDisplay, tSerif, tEyebrow, FONT } from "../lib/typography";
+import { trackEvent } from "../lib/analytics";
 
 const SectionEyebrow = ({ children }) => (
   <div className="mb-4" style={tEyebrow("var(--muted)")}>
@@ -137,6 +138,13 @@ export const Home = () => {
                 <div className="mt-7 tm:mt-10 flex gap-3 flex-wrap">
                   <Link
                     to="/contact"
+                    onClick={() =>
+                      trackEvent("cta_click", {
+                        location: "home_hero",
+                        cta_type: "primary",
+                        cta_text: t("hero.heroCta"),
+                      })
+                    }
                     className="inline-block px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] no-underline transition-all duration-150 hover:-translate-y-[1px]"
                     style={{ background: "var(--navy)", color: "var(--bg)" }}
                   >
@@ -144,6 +152,13 @@ export const Home = () => {
                   </Link>
                   <Link
                     to="/services"
+                    onClick={() =>
+                      trackEvent("cta_click", {
+                        location: "home_hero",
+                        cta_type: "secondary",
+                        cta_text: t("hero.heroSecondaryCta"),
+                      })
+                    }
                     className="inline-block px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] no-underline transition-colors duration-150"
                     style={{
                       background: "transparent",

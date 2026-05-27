@@ -6,6 +6,7 @@ import { ContactForm } from "../components/ContactForm";
 import ImageHero from "../components/ImageHero";
 import { Reveal, RevealStagger } from "../components/Reveal";
 import { tEyebrow, tSerif } from "../lib/typography";
+import { trackEvent } from "../lib/analytics";
 
 export const Contact = () => {
   const { t, language } = useLanguage();
@@ -122,6 +123,13 @@ export const Contact = () => {
                     {b.href ? (
                       <a
                         href={b.href}
+                        onClick={() => {
+                          if (b.href.startsWith("mailto:")) {
+                            trackEvent("email_click", { location: "contact_page" });
+                          } else if (b.href.startsWith("tel:")) {
+                            trackEvent("phone_click", { location: "contact_page" });
+                          }
+                        }}
                         className="no-underline transition-colors duration-150"
                         style={{
                           fontSize: 16,
@@ -164,6 +172,12 @@ export const Contact = () => {
                         href={s.url}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() =>
+                          trackEvent("social_click", {
+                            location: "contact_page",
+                            network: s.label.toLowerCase(),
+                          })
+                        }
                         aria-label={s.label}
                         className="w-10 h-10 flex items-center justify-center transition-colors duration-150"
                         style={{
