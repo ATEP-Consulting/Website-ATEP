@@ -29,6 +29,21 @@ const useMediaQuery = (query) => {
   return matches;
 };
 
+// Devuelve true cuando el scroll vertical supera el threshold (default 4px).
+// Se usa para fusionar el header con el fondo cuando estás arriba del todo,
+// y separar con borderBottom cuando empieza a haber contenido por debajo.
+const useScrolled = (threshold = 4) => {
+  const [scrolled, setScrolled] = useState(() =>
+    typeof window !== "undefined" && window.scrollY > threshold,
+  );
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > threshold);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [threshold]);
+  return scrolled;
+};
+
 const NavDot = ({ active }) => (
   <span
     aria-hidden
@@ -93,6 +108,7 @@ const DesktopHeader = () => {
   const services = getServicesData(t);
   const [openMenu, setOpenMenu] = useState(null); // null | "services" | "cases"
   const closeTimer = useRef(null);
+  const scrolled = useScrolled();
 
   const openMegaMenu = (key) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -138,9 +154,10 @@ const DesktopHeader = () => {
       className="sticky top-0 z-30 py-[22px]"
       style={{
         background: "var(--bg)",
-        borderBottom: "1px solid var(--rule)",
+        borderBottom: `1px solid ${scrolled ? "var(--rule)" : "transparent"}`,
         backdropFilter: "blur(12px)",
         WebkitBackdropFilter: "blur(12px)",
+        transition: "border-color .2s ease",
       }}
     >
       <div className="max-w-[1600px] mx-auto w-full px-16 flex items-center justify-between">
@@ -619,6 +636,7 @@ const MobileHeader = () => {
   const services = getServicesData(t);
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const scrolled = useScrolled();
 
   useEffect(() => {
     if (!open) return;
@@ -663,9 +681,12 @@ const MobileHeader = () => {
         className="sticky top-0 z-30 px-5 py-4 flex items-center justify-between"
         style={{
           background: "var(--bg)",
-          borderBottom: "1px solid var(--rule)",
+          borderBottom: `1px solid ${
+            scrolled || open ? "var(--rule)" : "transparent"
+          }`,
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
+          transition: "border-color .2s ease",
         }}
       >
         <Logo />
