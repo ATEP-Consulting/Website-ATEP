@@ -29,13 +29,13 @@
     "toDark": "Cambiar a modo oscuro"
   },
   "hero": {
-    "heroBadge": "Transformando Negocios desde 2023",
-    "heroTitle1": "Transforma tu",
-    "heroTitle2": " Negocio",
-    "heroTitle3": "con Consultoría ",
-    "heroTitle4": "Estratégica",
-    "heroSubtitle": "Ayudamos a las empresas a alcanzar sus objetivos a través de soluciones innovadoras y estrategias personalizadas.",
-    "heroCta": "Comenzar",
+    "heroBadge": "Construimos software sin dependencias del proveedor",
+    "heroTitle1": "Convertimos",
+    "heroTitle2": " deuda técnica",
+    "heroTitle3": "en software que",
+    "heroTitle4": " trabaja para ti",
+    "heroSubtitle": "Migramos sistemas legacy, construimos plataformas a medida e integramos IA aplicada — con código que te pertenece y un proceso auditado de principio a fin.",
+    "heroCta": "Cuéntanos tu proyecto",
     "heroSecondaryCta": "Ver Servicios",
     "heroStat1": "Proyectos Completados",
     "heroStat2": "Satisfacción del Cliente",
@@ -44,20 +44,20 @@
   },
   "stats": {
     "stat1": {
-      "number": "2+",
-      "label": "Años de experiencia"
+      "number": "8h",
+      "label": "Horas/semana ahorradas en reporting"
     },
     "stat2": {
-      "number": "5+",
-      "label": "Proyectos completados"
+      "number": "0",
+      "label": "Downtime en cutover de ERP"
     },
     "stat3": {
-      "number": "5+",
-      "label": "Clientes satisfechos"
+      "number": "92%",
+      "label": "Menos tiempo en cuadrantes"
     },
     "stat4": {
       "number": "100%",
-      "label": "Soluciones personalizadas"
+      "label": "Código y propiedad del cliente"
     }
   },
   "logo": {
@@ -88,22 +88,22 @@
     "whyChooseTitle5": " sin",
     "whyChooseTitle6": " Desvíos",
     "whyChooseSubtitle": "Nuestra rigurosa metodología elimina la incertidumbre, garantizando que cada fase de su proyecto se ejecute con precisión, calidad y puntualidad",
-    "whyChoose1Title": "Equipo Experto",
-    "whyChoose1Text": "Nuestros consultores experimentados aportan profundo conocimiento de la industria y experiencia técnica a cada proyecto.",
-    "whyChoose2Title": "Resultados Comprobados",
-    "whyChoose2Text": "Entregamos resultados medibles que impulsan el crecimiento y mejoran la eficiencia operativa.",
-    "whyChoose3Title": "Enfoque en el Cliente",
-    "whyChoose3Text": "Tu éxito es nuestra prioridad. Construimos asociaciones duraderas a través de un soporte dedicado."
+    "whyChoose1Title": "Código que te pertenece",
+    "whyChoose1Text": "Entregamos el código fuente completo, documentado y sin dependencia de nosotros. Puedes cambiarnos mañana sin perder nada.",
+    "whyChoose2Title": "Proceso auditado, no salto de fe",
+    "whyChoose2Text": "Validamos contra el sistema original antes del cutover — escenarios reproducibles, match campo a campo. Decisiones con datos, no con confianza.",
+    "whyChoose3Title": "Integración en 48h",
+    "whyChoose3Text": "Sin proceso de selección largo. Llamas hoy, primer commit pasado mañana. Misma zona horaria, mismo idioma, cero curva de adaptación."
   },
   "CTA": {
-    "badge": "Comienza hoy",
-    "title": "¿Listo para transformar tu negocio?",
-    "subtitle": "Hablemos sobre cómo podemos ayudarte a alcanzar tus objetivos.",
-    "primaryButton": "Contactar",
+    "badge": "Conversación honesta",
+    "title": "Tu problema técnico merece una conversación honesta",
+    "subtitle": "No mandamos un comercial. Respondemos con un análisis técnico inicial, sin compromiso.",
+    "primaryButton": "Pide una valoración gratuita",
     "secondaryButton": "Ver servicios",
     "trust1": "Sin compromiso",
     "trust2": "Respuesta en 24h",
-    "trust3": "100% personalizado"
+    "trust3": "Análisis técnico, no pitch comercial"
   },
   "services": {
     "title": "Nuestros Servicios",

@@ -190,21 +190,51 @@ export const Contact = () => {
               </Reveal>
             </div>
 
-            {/* RIGHT: form */}
-            <Reveal y={32} delay={200} dur={1100}>
-              <div
-                className="p-6 tm:p-10"
-                style={{ background: "var(--bg-surface)" }}
-              >
-                <div
-                  className="mb-7 tm:mb-9"
-                  style={tEyebrow("var(--muted)")}
+            {/* RIGHT: testimonial + form */}
+            <div>
+              <Reveal y={24} delay={150}>
+                <figure
+                  className="mb-8 tm:mb-10 pl-5 tm:pl-6"
+                  style={{ borderLeft: "2px solid var(--accent)" }}
                 >
-                  — {language === "es" ? "Formulario" : "Form"}
+                  <blockquote
+                    className="italic m-0"
+                    style={{
+                      ...tSerif("clamp(16px, 1.25vw, 19px)", 400),
+                      color: "var(--ink)",
+                      lineHeight: 1.55,
+                    }}
+                  >
+                    {language === "es"
+                      ? "“Ver el grupo entero en un único panel cambió cómo dirigimos la semana — pasamos de reaccionar a anticipar.”"
+                      : "“Seeing the whole group in a single panel changed how we run the week — we went from reacting to anticipating.”"}
+                  </blockquote>
+                  <figcaption
+                    className="mt-3"
+                    style={tEyebrow("var(--muted)")}
+                  >
+                    {language === "es"
+                      ? "Equipo de dirección · Grupo de restauración"
+                      : "Management team · Hospitality group"}
+                  </figcaption>
+                </figure>
+              </Reveal>
+
+              <Reveal y={32} delay={250} dur={1100}>
+                <div
+                  className="p-6 tm:p-10"
+                  style={{ background: "var(--bg-surface)" }}
+                >
+                  <div
+                    className="mb-7 tm:mb-9"
+                    style={tEyebrow("var(--muted)")}
+                  >
+                    — {language === "es" ? "Formulario" : "Form"}
+                  </div>
+                  <ContactForm />
                 </div>
-                <ContactForm />
-              </div>
-            </Reveal>
+              </Reveal>
+            </div>
           </div>
         </section>
       </GoogleReCaptchaProvider>

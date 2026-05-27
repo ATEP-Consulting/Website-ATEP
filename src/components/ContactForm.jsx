@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import emailjs from "emailjs-com";
@@ -88,7 +88,6 @@ export const ContactForm = () => {
     honeypot: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [canSubmit, setCanSubmit] = useState(false);
   const [submitAttempts, setSubmitAttempts] = useState(0);
 
   const isFormValid =
@@ -164,11 +163,6 @@ export const ContactForm = () => {
       setIsSubmitting(false);
     }
   };
-
-  useEffect(() => {
-    const timer = setTimeout(() => setCanSubmit(true), 3000);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <form onSubmit={handleSubmit} className="grid gap-7">
@@ -257,19 +251,17 @@ export const ContactForm = () => {
 
       <button
         type="submit"
-        disabled={isSubmitting || !isFormValid || !canSubmit}
+        disabled={isSubmitting || !isFormValid}
         className="mt-2 inline-block w-full tm:w-auto px-7 py-[16px] text-[14px] font-medium tracking-[0.02em] transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed hover:enabled:-translate-y-[1px]"
         style={{
           background: "var(--navy)",
           color: "var(--bg)",
           border: "none",
-          cursor: isSubmitting || !isFormValid || !canSubmit ? "not-allowed" : "pointer",
+          cursor: isSubmitting || !isFormValid ? "not-allowed" : "pointer",
         }}
       >
         {isSubmitting
           ? t("contact.sending") || "Enviando..."
-          : !canSubmit
-          ? t("contact.loading") || "Cargando..."
           : `${t("contact.formButton")} →`}
       </button>
 

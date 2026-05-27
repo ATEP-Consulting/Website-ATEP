@@ -1,27 +1,20 @@
 // Stats que se muestran en Home y AboutUs.
 //
-// Tres de los cuatro valores se calculan dinámicamente:
-//   - Años de experiencia: año actual - COMPANY_FOUNDED_YEAR
-//   - Proyectos completados: longitud del array de casos
-//   - Clientes satisfechos: longitud del array de clientes
-// El cuarto (soluciones personalizadas %) sigue como valor en i18n porque
-// es cualitativo, no un contador.
-
-import { cases } from "../data/casesData";
-import { clients } from "../data/clientsData";
-import { getYearsActive } from "./company";
+// Ahora son métricas de outcome extraídas de proyectos reales (ver casesData.js).
+// Antes mostraban volumen (años, nº proyectos, nº clientes), que con números
+// pequeños generaba desconfianza en lugar de credibilidad.
 
 export const getHeroStats = (t) => [
   {
-    number: `${getYearsActive()}+`,
+    number: t("stats.stat1.number"),
     label: t("stats.stat1.label"),
   },
   {
-    number: `${cases.length}+`,
+    number: t("stats.stat2.number"),
     label: t("stats.stat2.label"),
   },
   {
-    number: `${clients.length}+`,
+    number: t("stats.stat3.number"),
     label: t("stats.stat3.label"),
   },
   {

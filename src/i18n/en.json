@@ -29,13 +29,13 @@
     "toDark": "Switch to dark mode"
   },
   "hero": {
-    "heroBadge": "Transforming Businesses Since 2023",
-    "heroTitle1": "Transform your",
-    "heroTitle2": " Business",
-    "heroTitle3": "with Strategic",
-    "heroTitle4": " Consulting",
-    "heroSubtitle": "We help companies achieve their goals through innovative solutions and personalized strategies.",
-    "heroCta": "Get Started",
+    "heroBadge": "We build software without vendor lock-in",
+    "heroTitle1": "We turn",
+    "heroTitle2": " technical debt",
+    "heroTitle3": "into software that",
+    "heroTitle4": " works for you",
+    "heroSubtitle": "We migrate legacy systems, build custom platforms, and integrate applied AI — with code you own and an audited process from end to end.",
+    "heroCta": "Tell us about your project",
     "heroSecondaryCta": "Explore Services",
     "heroStat1": "Projects Completed",
     "heroStat2": "Client Satisfaction",
@@ -44,20 +44,20 @@
   },
   "stats": {
     "stat1": {
-      "number": "2+",
-      "label": "Years of experience"
+      "number": "8h",
+      "label": "Weekly hours saved on reporting"
     },
     "stat2": {
-      "number": "5+",
-      "label": "Projects completed"
+      "number": "0",
+      "label": "Downtime on legacy ERP cutover"
     },
     "stat3": {
-      "number": "5+",
-      "label": "Satisfied Clients"
+      "number": "92%",
+      "label": "Less time on scheduling"
     },
     "stat4": {
       "number": "100%",
-      "label": "Customized solutions"
+      "label": "Client owns the code"
     }
   },
   "logo": {
@@ -88,22 +88,22 @@
     "whyChooseTitle5": " without",
     "whyChooseTitle6": " Detours",
     "whyChooseSubtitle": "Our rigorous methodology eliminates uncertainty, ensuring every phase of your project is executed with precision, quality, and punctuality",
-    "whyChoose1Title": "Expert Team",
-    "whyChoose1Text": "Our experienced consultants bring deep industry knowledge and technical expertise to every project.",
-    "whyChoose2Title": "Proven Results",
-    "whyChoose2Text": "We deliver measurable outcomes that drive growth and improve operational efficiency.",
-    "whyChoose3Title": "Customer Focus",
-    "whyChoose3Text": "Your success is our priority. We build lasting partnerships through dedicated support."
+    "whyChoose1Title": "Code that belongs to you",
+    "whyChoose1Text": "We hand over the full source code, documented and free of any dependency on us. You can replace us tomorrow without losing anything.",
+    "whyChoose2Title": "Audited process, not a leap of faith",
+    "whyChoose2Text": "We validate against the original system before cutover — reproducible scenarios, field-by-field match. Decisions backed by data, not trust.",
+    "whyChoose3Title": "Onboarded in 48h",
+    "whyChoose3Text": "No long selection process. Call today, first commit the day after. Same time zone, same language, zero ramp-up."
   },
   "CTA": {
-    "badge": "Start Today",
-    "title": "Ready to Transform Your Business?",
-    "subtitle": "Let's discuss how we can help you achieve your goals.",
-    "primaryButton": "Get in Touch",
+    "badge": "Honest conversation",
+    "title": "Your technical problem deserves an honest conversation",
+    "subtitle": "We don't send a sales rep. We respond with an initial technical assessment — no strings attached.",
+    "primaryButton": "Request a free assessment",
     "secondaryButton": "View Services",
     "trust1": "No commitment",
     "trust2": "Response in 24h",
-    "trust3": "100% personalized"
+    "trust3": "Technical review, not a sales pitch"
   },
   "services": {
     "title": "Our Services",
