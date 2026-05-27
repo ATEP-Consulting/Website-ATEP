@@ -1,281 +1,598 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import logo from "../assets/logos/new-logo-atep.svg";
+import { ThemeToggle } from "./ThemeToggle";
 import { getServicesData } from "../data/servicesData";
+import { tDisplay, tSerif, tEyebrow, FONT } from "../lib/typography";
+import logo from "../assets/logos/new-logo-atep.svg";
 
-export const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [visible, setVisible] = useState(true);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const { t } = useLanguage();
-  const services = getServicesData(t);
+const useMediaQuery = (query) => {
+  const get = () =>
+    typeof window !== "undefined" && window.matchMedia
+      ? window.matchMedia(query).matches
+      : false;
+  const [matches, setMatches] = useState(get);
+  useEffect(() => {
+    if (!window.matchMedia) return;
+    const m = window.matchMedia(query);
+    const h = () => setMatches(m.matches);
+    h();
+    m.addEventListener?.("change", h) ?? m.addListener(h);
+    return () => {
+      m.removeEventListener?.("change", h) ?? m.removeListener(h);
+    };
+  }, [query]);
+  return matches;
+};
+
+const Logo = () => (
+  <Link
+    to="/"
+    className="flex items-center gap-3 no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+    style={{ color: "var(--ink)" }}
+  >
+    <img
+      src={logo}
+      alt="ATEP Consulting"
+      className="h-9 w-9 object-contain"
+    />
+    <span style={tSerif(20, 500)} className="leading-none">
+      ATEP{" "}
+      <span style={{ color: "var(--muted)", fontStyle: "italic" }}>
+        Consulting
+      </span>
+    </span>
+  </Link>
+);
+
+const CtaButton = ({ to, children, primary = false }) => {
+  if (primary) {
+    return (
+      <Link
+        to={to}
+        className="px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] inline-block whitespace-nowrap no-underline transition-all duration-150 hover:-translate-y-[1px]"
+        style={{ background: "var(--navy)", color: "var(--bg)" }}
+      >
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <Link
+      to={to}
+      className="px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] inline-block whitespace-nowrap no-underline transition-colors duration-150"
+      style={{
+        background: "transparent",
+        color: "var(--ink)",
+        border: "1px solid var(--ink)",
+      }}
+    >
+      {children}
+    </Link>
+  );
+};
+
+const DesktopHeader = () => {
+  const { t, language } = useLanguage();
   const location = useLocation();
+  const navigate = useNavigate();
+  const services = getServicesData(t);
+  const [megaOpen, setMegaOpen] = useState(false);
+  const closeTimer = useRef(null);
+
+  const openMega = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setMegaOpen(true);
+  };
+  const scheduleCloseMega = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setMegaOpen(false), 220);
+  };
+  const closeMega = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setMegaOpen(false);
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.scrollY;
-      setIsScrolled(currentScrollPos > 10);
-      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
-      setPrevScrollPos(currentScrollPos);
+    const onKey = (e) => {
+      if (e.key === "Escape") closeMega();
     };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollPos]);
-
-  useEffect(() => {
-    setIsOpen(false);
-    setServicesOpen(false);
-  }, [location]);
-
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (
-        window.innerWidth >= 1024 &&
-        !e.target.closest(".services-dropdown")
-      ) {
-        setServicesOpen(false);
-      }
-    };
-
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
   }, []);
 
-  const navLinks = [
-    { path: "/", label: t("nav.home") },
-    { path: "/company", label: t("nav.about") },
-    { path: "/contact", label: t("nav.contact") },
-    { path: "/blog", label: t("nav.blog") },
+  useEffect(() => {
+    closeMega();
+  }, [location.pathname]);
+
+  const items = [
+    { key: "home", path: "/", label: t("nav.home") },
+    { key: "services", path: "/services", label: t("nav.services"), mega: true },
+    { key: "about", path: "/company", label: t("nav.about") },
+    { key: "blog", path: "/blog", label: t("nav.blog") },
+    { key: "contact", path: "/contact", label: t("nav.contact") },
   ];
 
-  const serviceLinks = services.map((service) => ({
-    path: service.path,
-    label: service.name,
-    icon: service.icon,
-  }));
+  const isActive = (path) => {
+    if (path === "/") return location.pathname === "/";
+    return location.pathname.startsWith(path);
+  };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ease-in-out ${
-        isScrolled || isOpen ? "bg-white/95 backdrop-blur-lg shadow-lg" : ""
-      } ${visible ? "translate-y-0" : "-translate-y-full"}`}
-      style={
-        !isScrolled && !isOpen
-          ? {
-              background:
-                "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)",
-            }
-          : {}
-      }
+      className="sticky top-0 z-30 px-16 py-[22px] flex items-center justify-between"
+      style={{
+        background: "var(--bg)",
+        borderBottom: "1px solid var(--rule)",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+      }}
     >
-      <nav className="section-container">
-        <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-2">
-            <img
-              src={logo}
-              alt="ATEP Consulting Logo"
-              className="h-12 w-12 object-contain"
-            />
-            <div className="flex items-center">
-              <span
-                className={`text-2xl font-bold transition-all duration-500 ${
-                  isScrolled || isOpen ? "text-primary-600" : "text-primary-500"
-                }`}
+      <Logo />
+
+      <nav className="flex items-center gap-8">
+        {items.map((it) => {
+          const active = isActive(it.path);
+          if (it.mega) {
+            return (
+              <div
+                key={it.key}
+                onMouseEnter={openMega}
+                onMouseLeave={scheduleCloseMega}
+                className="relative"
               >
-                ATEP
-              </span>
-              <span
-                className={`text-2xl font-light ml-1 transition-all duration-500 ${
-                  isScrolled || isOpen
-                    ? "text-neutral-800"
-                    : "text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
-                }`}
-              >
-                Consulting
-              </span>
-            </div>
-          </Link>
-
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <div key={link.path} className="flex items-center gap-8">
-                <Link
-                  to={link.path}
-                  className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-500 ${
-                    location.pathname === link.path
-                      ? isScrolled
-                        ? "bg-primary-100 text-primary-700"
-                        : "bg-white/20 text-white backdrop-blur-sm"
-                      : isScrolled
-                      ? "text-neutral-700 hover:bg-primary-100 hover:text-primary-700"
-                      : "text-white hover:bg-white/10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-
-                {/* 👇 Insertamos el dropdown justo después de Home */}
-                {link.path === "/" && (
-                  <div className="relative services-dropdown">
-                    <button
-                      onClick={() => setServicesOpen((prev) => !prev)}
-                      className={`font-medium transition-all duration-500 flex items-center gap-1 px-4 py-2 rounded-lg ${
-                        location.pathname.startsWith("/services")
-                          ? isScrolled
-                            ? "text-primary-700 bg-primary-100"
-                            : "text-white bg-white/20 backdrop-blur-sm"
-                          : isScrolled
-                          ? "text-neutral-700 hover:text-primary-800 hover:bg-primary-100"
-                          : "text-white hover:bg-white/10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
-                      }`}
-                    >
-                      {t("nav.services")}
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-300 ${
-                          servicesOpen ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
-
-                    {servicesOpen && (
-                      <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-neutral-100 py-4 duration-200 z-50">
-                        <div className="px-4 pb-3 border-b border-neutral-100">
-                          <Link
-                            to="/services"
-                            className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold text-primary-600 hover:text-primary-800 hover:bg-primary-100 transition-all duration-300"
-                          >
-                            {t("services.viewAll")}
-                            <span>→</span>
-                          </Link>
-                        </div>
-                        <div className="py-2">
-                          {serviceLinks.map((service) => {
-                            const Icon = service.icon;
-                            return (
-                              <Link
-                                key={service.path}
-                                to={service.path}
-                                className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-50 hover:text-primary-800 transition-all duration-300 group"
-                              >
-                                <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center group-hover:bg-primary-100 transition-all duration-300">
-                                  <Icon className="w-5 h-5 text-primary-600" />
-                                </div>
-                                <span className="text-sm font-medium text-neutral-700 group-hover:text-primary-800">
-                                  {service.label}
-                                </span>
-                              </Link>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            ))}
-            <LanguageSwitcher isScrolled={isScrolled} />
-          </div>
-
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden p-2 transition-all duration-500 ${
-              isScrolled || isOpen
-                ? "text-neutral-700 hover:text-primary-600"
-                : "text-white hover:text-white/80 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
-            }`}
-            aria-label="Toggle menu"
-          >
-            <div className="relative w-6 h-6">
-              <Menu
-                className={`w-6 h-6 absolute inset-0 transition-all duration-300 ${
-                  isOpen
-                    ? "opacity-0 rotate-90 scale-0"
-                    : "opacity-100 rotate-0 scale-100"
-                }`}
-              />
-              <X
-                className={`w-6 h-6 absolute inset-0 transition-all duration-300 ${
-                  isOpen
-                    ? "opacity-100 rotate-0 scale-100"
-                    : "opacity-0 rotate-90 scale-0"
-                }`}
-              />
-            </div>
-          </button>
-        </div>
-
-        {isOpen && (
-          <div className="lg:hidden py-4 border-t border-neutral-200">
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`font-medium py-2 transition-colors duration-200 ${
-                    location.pathname === link.path
-                      ? "text-primary-600"
-                      : "text-neutral-700 hover:text-primary-600"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-
-              <div>
                 <button
-                  onClick={() => setServicesOpen(!servicesOpen)}
-                  className={`font-medium py-2 transition-colors duration-200 flex items-center gap-1 ${
-                    location.pathname.startsWith("/services")
-                      ? "text-primary-600"
-                      : "text-neutral-700 hover:text-primary-600"
-                  }`}
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    closeMega();
+                    navigate(it.path);
+                  }}
+                  onFocus={openMega}
+                  className="text-[13.5px] cursor-pointer pb-[3px] flex items-center gap-[6px] transition-all duration-150 bg-transparent border-none focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                  style={{
+                    color: active || megaOpen ? "var(--ink)" : "var(--muted)",
+                    fontWeight: active || megaOpen ? 500 : 400,
+                    fontFamily: "inherit",
+                    borderBottom:
+                      active || megaOpen
+                        ? "1px solid var(--ink)"
+                        : "1px solid transparent",
+                  }}
                 >
-                  {t("nav.services")}
+                  {it.label}
                   <ChevronDown
-                    className={`w-4 h-4 transition-transform duration-200 ${
-                      servicesOpen ? "rotate-180" : ""
-                    }`}
+                    size={12}
+                    className="transition-transform duration-200"
+                    style={{ transform: megaOpen ? "rotate(180deg)" : "rotate(0)" }}
                   />
                 </button>
-
-                {servicesOpen && (
-                  <div className="pl-4 mt-2 space-y-2">
-                    <Link
-                      to="/services"
-                      className="block py-2 text-sm font-semibold text-primary-600"
-                    >
-                      {t("services.viewAll")} →
-                    </Link>
-                    {serviceLinks.map((service) => {
-                      const Icon = service.icon;
-                      return (
-                        <Link
-                          key={service.path}
-                          to={service.path}
-                          className="flex items-center gap-2 py-2 text-sm text-neutral-700 hover:text-primary-600"
-                        >
-                          <Icon className="w-4 h-4" />
-                          {service.label}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                )}
               </div>
-
-              <div className="pt-2 border-t border-neutral-200">
-                <LanguageSwitcher />
-              </div>
-            </div>
-          </div>
-        )}
+            );
+          }
+          return (
+            <Link
+              key={it.key}
+              to={it.path}
+              onMouseEnter={megaOpen ? scheduleCloseMega : undefined}
+              className="text-[13.5px] cursor-pointer pb-[3px] no-underline transition-all duration-150"
+              style={{
+                color: active ? "var(--ink)" : "var(--muted)",
+                fontWeight: active ? 500 : 400,
+                borderBottom: active
+                  ? "1px solid var(--ink)"
+                  : "1px solid transparent",
+              }}
+            >
+              {it.label}
+            </Link>
+          );
+        })}
       </nav>
+
+      <div className="flex items-center gap-3">
+        <ThemeToggle />
+        <LanguageSwitcher />
+        <CtaButton to="/contact" primary>
+          {language === "es" ? "Agendar llamada" : "Schedule a call"} →
+        </CtaButton>
+      </div>
+
+      <MegaServices
+        open={megaOpen}
+        services={services}
+        onMouseEnter={openMega}
+        onMouseLeave={scheduleCloseMega}
+        onNavigate={closeMega}
+      />
     </header>
   );
+};
+
+const MegaServices = ({ open, services, onMouseEnter, onMouseLeave, onNavigate }) => {
+  const { t, language } = useLanguage();
+  return (
+    <div
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      aria-hidden={!open}
+      className="absolute top-full left-0 right-0 px-16 pt-12 pb-9"
+      style={{
+        background: "var(--bg)",
+        borderBottom: "1px solid var(--rule)",
+        boxShadow: open
+          ? "0 24px 64px -24px rgba(10,22,38,0.18)"
+          : "none",
+        opacity: open ? 1 : 0,
+        transform: open ? "translateY(0)" : "translateY(-8px)",
+        pointerEvents: open ? "auto" : "none",
+        visibility: open ? "visible" : "hidden",
+        transition: `opacity .22s ease, transform .22s ease, visibility 0s linear ${
+          open ? "0s" : ".22s"
+        }`,
+      }}
+    >
+      <div className="grid gap-14" style={{ gridTemplateColumns: "2.2fr 1fr" }}>
+        {/* Services grid */}
+        <div>
+          <div
+            className="flex justify-between items-baseline mb-7 pb-3"
+            style={{ borderBottom: "1px solid var(--rule)" }}
+          >
+            <div style={tEyebrow("var(--muted)")}>
+              — {language === "es" ? "Nuestros servicios" : "Our services"}
+            </div>
+            <div style={{ ...tEyebrow("var(--dim)"), fontSize: 10 }}>
+              {language === "es"
+                ? `${services.length} prácticas`
+                : `${services.length} practices`}
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-x-8 gap-y-7">
+            {services.map((s, idx) => (
+              <Link
+                key={s.id}
+                to={s.path}
+                onClick={onNavigate}
+                className="block no-underline pt-3 px-3 pb-3 group transition-colors duration-150"
+                style={{
+                  color: "inherit",
+                  borderTop: "1px solid var(--rule)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderTopColor = "var(--accent)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderTopColor = "var(--rule)";
+                }}
+              >
+                <div className="flex items-baseline justify-between mb-[6px]">
+                  <span
+                    style={{
+                      ...tEyebrow("var(--accent)"),
+                      fontSize: 10,
+                    }}
+                  >
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <span
+                    style={{
+                      ...tEyebrow("var(--muted)"),
+                      fontSize: 11,
+                    }}
+                    className="transition-transform duration-200 group-hover:translate-x-1"
+                  >
+                    →
+                  </span>
+                </div>
+                <h3
+                  style={{ ...tSerif(20, 500), color: "var(--ink)", margin: "0 0 6px" }}
+                >
+                  {s.name}
+                </h3>
+                <p
+                  className="m-0 mb-[10px] leading-[1.45]"
+                  style={{ fontSize: 13, color: "var(--muted)" }}
+                >
+                  {s.description}
+                </p>
+                <div
+                  style={{
+                    fontFamily: FONT.mono,
+                    fontSize: 10.5,
+                    color: "var(--dim)",
+                    letterSpacing: "0.02em",
+                  }}
+                >
+                  {s.badge}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Help block */}
+        <div className="pl-10" style={{ borderLeft: "1px solid var(--rule)" }}>
+          <div
+            className="flex justify-between items-baseline mb-5 pb-3"
+            style={{ borderBottom: "1px solid var(--rule)" }}
+          >
+            <div style={tEyebrow("var(--muted)")}>
+              — {language === "es" ? "¿Necesitas ayuda?" : "Need help?"}
+            </div>
+          </div>
+          <h3
+            style={{ ...tSerif(22, 500), color: "var(--ink)", margin: "0 0 12px", lineHeight: 1.2 }}
+          >
+            {language === "es"
+              ? "Hablemos de tu proyecto"
+              : "Let's talk about your project"}
+          </h3>
+          <p
+            className="m-0 mb-5 leading-[1.55]"
+            style={{ fontSize: 13.5, color: "var(--muted)" }}
+          >
+            {language === "es"
+              ? "Te asesoramos sin compromiso sobre el servicio que mejor se adapta a ti. Equipo técnico disponible en 48h."
+              : "Free consultation on the service that fits you best. Technical team available within 48h."}
+          </p>
+          <Link
+            to="/contact"
+            onClick={onNavigate}
+            className="inline-block px-[18px] py-[10px] text-[13px] no-underline whitespace-nowrap transition-all duration-150 hover:-translate-y-[1px]"
+            style={{ background: "var(--navy)", color: "var(--bg)" }}
+          >
+            {t("CTA.primaryButton") || (language === "es" ? "Contactar ahora" : "Get in touch")} →
+          </Link>
+        </div>
+      </div>
+
+      {/* Bottom strip */}
+      <div
+        className="mt-9 pt-5 flex justify-between items-center flex-wrap gap-4"
+        style={{ borderTop: "1px solid var(--rule)" }}
+      >
+        <div style={{ ...tEyebrow("var(--muted)"), fontSize: 10.5 }}>
+          {language === "es"
+            ? "— ¿No sabes qué necesitas?"
+            : "— Not sure what you need?"}
+        </div>
+        <div className="flex gap-4 items-center">
+          <Link
+            to="/services"
+            onClick={onNavigate}
+            className="text-[13.5px] no-underline whitespace-nowrap"
+            style={{
+              color: "var(--ink)",
+              textDecoration: "underline",
+              textUnderlineOffset: 4,
+            }}
+          >
+            {t("services.viewAll") || (language === "es" ? "Ver todos los servicios" : "View all services")} →
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const MobileHeader = () => {
+  const { t, language } = useLanguage();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const services = getServicesData(t);
+  const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  useEffect(() => {
+    setOpen(false);
+    setServicesOpen(false);
+  }, [location.pathname]);
+
+  const items = [
+    { key: "home", path: "/", label: t("nav.home") },
+    { key: "services", path: "/services", label: t("nav.services"), expandable: true },
+    { key: "about", path: "/company", label: t("nav.about") },
+    { key: "blog", path: "/blog", label: t("nav.blog") },
+    { key: "contact", path: "/contact", label: t("nav.contact") },
+  ];
+
+  const isActive = (path) => {
+    if (path === "/") return location.pathname === "/";
+    return location.pathname.startsWith(path);
+  };
+
+  return (
+    <>
+      <header
+        className="sticky top-0 z-30 px-5 py-4 flex items-center justify-between"
+        style={{
+          background: "var(--bg)",
+          borderBottom: "1px solid var(--rule)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+        }}
+      >
+        <Logo />
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-label={
+            open
+              ? language === "es"
+                ? "Cerrar menú"
+                : "Close menu"
+              : language === "es"
+              ? "Abrir menú"
+              : "Open menu"
+          }
+          aria-expanded={open}
+          className="w-11 h-11 flex items-center justify-center bg-transparent cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+          style={{ color: "var(--ink)", border: "1px solid var(--rule-strong)" }}
+        >
+          {open ? <X size={18} /> : <Menu size={20} />}
+        </button>
+      </header>
+
+      <div
+        aria-hidden={!open}
+        className="fixed inset-0 z-20 flex flex-col overflow-y-auto"
+        style={{
+          background: "var(--bg)",
+          opacity: open ? 1 : 0,
+          pointerEvents: open ? "auto" : "none",
+          transform: open ? "translateY(0)" : "translateY(-12px)",
+          transition: "opacity .25s ease, transform .25s ease",
+          paddingTop: 76,
+        }}
+      >
+        <nav className="px-6 pt-8 pb-6 flex-1">
+          {items.map((it) => {
+            const active = isActive(it.path);
+            if (it.expandable) {
+              return (
+                <div key={it.key} style={{ borderTop: "1px solid var(--rule)" }}>
+                  <button
+                    type="button"
+                    onClick={() => setServicesOpen((s) => !s)}
+                    className="flex w-full justify-between items-center py-5 min-h-14 cursor-pointer bg-transparent border-none"
+                  >
+                    <span
+                      style={{
+                        ...tDisplay(40, 500),
+                        color: active ? "var(--accent)" : "var(--ink)",
+                        fontStyle: active ? "italic" : "normal",
+                      }}
+                    >
+                      {it.label}
+                    </span>
+                    <ChevronDown
+                      size={20}
+                      style={{
+                        color: "var(--muted)",
+                        transform: servicesOpen ? "rotate(180deg)" : "rotate(0)",
+                        transition: "transform .2s",
+                      }}
+                    />
+                  </button>
+                  <div
+                    className="overflow-hidden transition-[max-height] duration-300"
+                    style={{ maxHeight: servicesOpen ? 600 : 0 }}
+                  >
+                    <div className="pb-4">
+                      {services.map((s, idx) => (
+                        <Link
+                          key={s.id}
+                          to={s.path}
+                          className="flex items-baseline gap-[14px] py-3 no-underline"
+                          style={{
+                            color: "var(--ink)",
+                            borderTop: "1px solid var(--rule)",
+                          }}
+                        >
+                          <span
+                            style={{
+                              ...tEyebrow("var(--accent)"),
+                              fontSize: 10,
+                              minWidth: 24,
+                            }}
+                          >
+                            {String(idx + 1).padStart(2, "0")}
+                          </span>
+                          <span style={{ ...tSerif(18, 400), color: "var(--ink-soft)" }}>
+                            {s.name}
+                          </span>
+                        </Link>
+                      ))}
+                      <Link
+                        to="/services"
+                        className="block mt-3 pt-3 no-underline"
+                        style={{ borderTop: "1px solid var(--rule)" }}
+                      >
+                        <span style={{ ...tEyebrow("var(--muted)"), fontSize: 11 }}>
+                          {t("services.viewAll") ||
+                            (language === "es"
+                              ? "Ver todos los servicios"
+                              : "View all services")}{" "}
+                          →
+                        </span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+            return (
+              <Link
+                key={it.key}
+                to={it.path}
+                className="block no-underline py-5 min-h-14"
+                style={{
+                  ...tDisplay(40, 500),
+                  color: active ? "var(--accent)" : "var(--ink)",
+                  fontStyle: active ? "italic" : "normal",
+                  borderTop: "1px solid var(--rule)",
+                }}
+              >
+                {it.label}
+              </Link>
+            );
+          })}
+          <div style={{ borderTop: "1px solid var(--rule)", marginTop: -1 }} />
+        </nav>
+
+        <div
+          className="px-6 pt-6 pb-10"
+          style={{
+            borderTop: "1px solid var(--rule)",
+            background: "var(--bg-surface)",
+          }}
+        >
+          <div className="flex gap-3 items-center mb-6">
+            <ThemeToggle />
+            <LanguageSwitcher />
+          </div>
+          <Link
+            to="/contact"
+            onClick={() => setOpen(false)}
+            className="block text-center px-6 py-[18px] text-[14px] font-medium tracking-[0.02em] no-underline"
+            style={{ background: "var(--navy)", color: "var(--bg)" }}
+          >
+            {language === "es" ? "Agendar llamada" : "Schedule a call"} →
+          </Link>
+          <div
+            className="mt-6 text-center"
+            style={{ ...tEyebrow("var(--muted)"), fontSize: 10 }}
+          >
+            info@atepconsulting.com · +34 647 748 705
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export const Header = () => {
+  const isMobile = useMediaQuery("(max-width: 820px)");
+  return isMobile ? <MobileHeader /> : <DesktopHeader />;
 };

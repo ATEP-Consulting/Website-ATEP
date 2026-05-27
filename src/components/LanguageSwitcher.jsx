@@ -1,21 +1,33 @@
-import { Globe } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
-export const LanguageSwitcher = ({ isScrolled = true }) => {
-  const { language, toggleLanguage } = useLanguage();
+export const LanguageSwitcher = () => {
+  const { language, setLanguage } = useLanguage();
+  const langs = ["es", "en"];
 
   return (
-    <button
-      onClick={toggleLanguage}
-      className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-500 ${
-        isScrolled
-          ? "text-neutral-700 hover:text-primary-800 hover:bg-primary-100"
-          : "text-white hover:bg-white/10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
-      }`}
-      aria-label="Toggle language"
+    <div
+      className="flex items-stretch font-mono"
+      style={{ border: "1px solid var(--rule-strong)" }}
     >
-      <Globe className="w-5 h-5" />
-      <span className="uppercase">{language}</span>
-    </button>
+      {langs.map((l) => {
+        const active = language === l;
+        return (
+          <button
+            key={l}
+            type="button"
+            onClick={() => setLanguage(l)}
+            aria-label={l === "es" ? "Español" : "English"}
+            aria-pressed={active}
+            className="px-3 py-[5px] text-[11px] font-medium uppercase tracking-[0.12em] transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            style={{
+              background: active ? "var(--navy)" : "transparent",
+              color: active ? "var(--bg)" : "var(--muted)",
+            }}
+          >
+            {l}
+          </button>
+        );
+      })}
+    </div>
   );
 };

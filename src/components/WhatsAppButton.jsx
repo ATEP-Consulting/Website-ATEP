@@ -1,5 +1,5 @@
-import { useLanguage } from "../context/LanguageContext";
 import { MessageCircle } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 export const WhatsAppButton = () => {
   const { t } = useLanguage();
@@ -11,21 +11,31 @@ export const WhatsAppButton = () => {
       href={`https://wa.me/${phoneNumber}?text=${message}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 group"
-      aria-label="Contactar por WhatsApp"
+      className="fixed bottom-6 right-6 z-40 group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+      aria-label="WhatsApp"
     >
-      <div className="relative">
-        <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-75" />
-
-        <div className="relative bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-2xl transition-all duration-300 group-hover:scale-110">
-          <MessageCircle className="w-7 h-7" />
-        </div>
-
-        <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-neutral-800 text-white px-4 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-          {t("whatsapp.tooltip")}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 rotate-45 w-2 h-2 bg-neutral-800" />
-        </div>
-      </div>
+      <span
+        className="hidden sm:inline-block px-3 py-2 text-[11px] font-medium uppercase tracking-[0.12em] opacity-0 -translate-x-2 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 pointer-events-none"
+        style={{
+          background: "var(--bg-panel)",
+          color: "var(--ink)",
+          border: "1px solid var(--rule)",
+          fontFamily:
+            '"IBM Plex Mono", ui-monospace, Menlo, monospace',
+        }}
+      >
+        {t("whatsapp.tooltip")}
+      </span>
+      <span
+        className="w-14 h-14 flex items-center justify-center transition-transform duration-200 group-hover:-translate-y-[2px]"
+        style={{
+          background: "var(--accent)",
+          color: "var(--bg)",
+          boxShadow: "0 10px 30px -10px rgba(10,22,38,0.35)",
+        }}
+      >
+        <MessageCircle size={22} strokeWidth={1.8} />
+      </span>
     </a>
   );
 };

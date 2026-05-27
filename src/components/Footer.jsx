@@ -1,16 +1,63 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Instagram } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import { useTheme } from "../context/ThemeContext";
+import { getServicesData } from "../data/servicesData";
+import { tDisplay, tEyebrow } from "../lib/typography";
 import CTA from "./CTA";
-import logo from "../assets/logos/new-logo-atep.svg";
+
+const LinkRow = ({ to, href, external = false, children, onNavy }) => {
+  const color = onNavy ? "rgba(245,241,232,0.85)" : "var(--ink-soft)";
+  const hover = "var(--accent)";
+  const baseStyle = {
+    color,
+    textDecoration: "none",
+    transition: "color .15s",
+    fontSize: 14,
+  };
+  const handlers = {
+    onMouseEnter: (e) => (e.currentTarget.style.color = hover),
+    onMouseLeave: (e) => (e.currentTarget.style.color = color),
+  };
+  if (external) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" style={baseStyle} {...handlers}>
+        {children}
+      </a>
+    );
+  }
+  if (to) {
+    return (
+      <Link to={to} style={baseStyle} {...handlers}>
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <span style={{ ...baseStyle, cursor: "default" }}>{children}</span>
+  );
+};
 
 export const Footer = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const { theme } = useTheme();
+  const services = getServicesData(t);
+  const isDark = theme === "dark";
 
-  const quickLinks = [
-    { path: "/", label: t("nav.home") },
+  // Light theme → navy bg, cream text. Dark theme → bg-surface, ink text.
+  const onNavy = !isDark;
+  const footerBg = isDark ? "var(--bg-surface)" : "var(--navy)";
+  const footerInk = isDark ? "var(--ink)" : "rgba(245,241,232,0.92)";
+  const ruleColor = isDark ? "var(--rule)" : "rgba(245,241,232,0.18)";
+  const eyebrowColor = isDark
+    ? "var(--muted)"
+    : "rgba(245,241,232,0.55)";
+  const dimColor = isDark
+    ? "var(--dim)"
+    : "rgba(245,241,232,0.55)";
+
+  const companyLinks = [
     { path: "/company", label: t("nav.about") },
-    { path: "/services", label: t("nav.services") },
     { path: "/blog", label: t("nav.blog") },
     { path: "/contact", label: t("nav.contact") },
   ];
@@ -21,142 +68,193 @@ export const Footer = () => {
     { path: "/legal-notice", label: t("legal.title") },
   ];
 
-  const socialLinks = [
-    { icon: Linkedin, url: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Instagram, url: "https://facebook.com", label: "Instagram" },
-  ];
-
   return (
-    <footer className="bg-neutral-900 text-neutral-300">
+    <>
       <CTA
         badge={t("CTA.badge")}
         title={t("CTA.title")}
         subtitle={t("CTA.subtitle")}
-        primaryButton={{
-          text: t("CTA.primaryButton"),
-          to: "/contact",
-        }}
-        secondaryButton={{
-          text: t("CTA.secondaryButton"),
-          to: "/services",
-        }}
-        trustIndicators={[t("CTA.trust1"), t("CTA.trust2"), t("CTA.trust3")]}
+        primaryButton={{ text: t("CTA.primaryButton"), to: "/contact" }}
+        secondaryButton={{ text: t("CTA.secondaryButton"), to: "/services" }}
+        trustIndicators={[
+          t("CTA.trust1"),
+          t("CTA.trust2"),
+          t("CTA.trust3"),
+        ].filter(Boolean)}
       />
-      <div className="section-container py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <div>
-            <Link to="/" className="flex items-center gap-2">
-              <img
-                src={logo}
-                alt="ATEP Consulting Logo"
-                className="h-10 w-10 object-contain"
-              />
-              <div className="flex items-center">
-                <span className="text-2xl font-bold text-primary-500">
-                  ATEP
-                </span>
-                <span className="text-2xl font-light text-white ml-1">
-                  Consulting
-                </span>
+
+      <footer
+        className="px-6 sm:px-10 lg:px-16 pt-20 pb-9"
+        style={{ background: footerBg, color: footerInk }}
+      >
+        <div
+          className="grid gap-10 tm:gap-14 pb-14"
+          style={{
+            gridTemplateColumns: "1fr",
+            borderBottom: `1px solid ${ruleColor}`,
+          }}
+        >
+          <div className="grid grid-cols-1 tm:grid-cols-4 gap-10 tm:gap-14">
+            <div className="tm:col-span-2">
+              <div
+                style={{
+                  ...tDisplay("clamp(28px, 4vw, 44px)", 500),
+                  color: footerInk,
+                  maxWidth: 420,
+                }}
+              >
+                {language === "es" ? (
+                  <>
+                    Construimos
+                    <br />
+                    el software{" "}
+                    <em style={{ color: "var(--accent)" }}>
+                      que sostiene tu negocio.
+                    </em>
+                  </>
+                ) : (
+                  <>
+                    We build
+                    <br />
+                    the software{" "}
+                    <em style={{ color: "var(--accent)" }}>
+                      that runs your business.
+                    </em>
+                  </>
+                )}
               </div>
-            </Link>
-            <p className="text-sm leading-relaxed mb-6">
-              {t("footer.tagline")}
-            </p>
-            <div className="flex gap-4">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.label}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors duration-200"
-                    aria-label={social.label}
-                  >
-                    <Icon className="w-5 h-5" />
-                  </a>
-                );
-              })}
+              <div
+                style={{ ...tEyebrow(eyebrowColor), color: eyebrowColor, marginTop: 24 }}
+              >
+                ATEP Consulting · {language === "es" ? "desde 2023" : "since 2023"}
+              </div>
+
+              <div className="mt-8 flex gap-3">
+                <a
+                  href="https://www.linkedin.com/company/atepconsulting"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="w-10 h-10 flex items-center justify-center transition-colors duration-150"
+                  style={{
+                    border: `1px solid ${ruleColor}`,
+                    color: footerInk,
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "var(--accent)";
+                    e.currentTarget.style.borderColor = "var(--accent)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                    e.currentTarget.style.borderColor = ruleColor;
+                  }}
+                >
+                  <Linkedin size={16} />
+                </a>
+                <a
+                  href="https://www.instagram.com/atepconsulting"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="w-10 h-10 flex items-center justify-center transition-colors duration-150"
+                  style={{
+                    border: `1px solid ${ruleColor}`,
+                    color: footerInk,
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "var(--accent)";
+                    e.currentTarget.style.borderColor = "var(--accent)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                    e.currentTarget.style.borderColor = ruleColor;
+                  }}
+                >
+                  <Instagram size={16} />
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div>
-            <h3 className="text-white font-semibold text-lg mb-4">
-              {t("footer.quickLinks")}
-            </h3>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    className="text-sm hover:text-primary-500 transition-colors duration-200"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div>
+              <div
+                style={{ ...tEyebrow(eyebrowColor), color: eyebrowColor, marginBottom: 18 }}
+              >
+                {t("nav.services")}
+              </div>
+              <div className="flex flex-col gap-[10px]">
+                {services.map((s) => (
+                  <LinkRow key={s.id} to={s.path} onNavy={onNavy}>
+                    {s.name}
+                  </LinkRow>
+                ))}
+                <LinkRow to="/services" onNavy={onNavy}>
+                  {t("services.viewAll") || (language === "es" ? "Ver todos" : "View all")} →
+                </LinkRow>
+              </div>
+            </div>
 
-          <div>
-            <h3 className="text-white font-semibold text-lg mb-4">
-              {t("contact.badge")}
-            </h3>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-3 text-sm">
-                <Mail className="w-5 h-5 text-primary-500 flex-shrink-0" />
-                <a
-                  href="mailto:info@atepconsulting.com"
-                  className="hover:text-primary-500 transition-colors"
+            <div className="flex flex-col gap-10">
+              <div>
+                <div
+                  style={{ ...tEyebrow(eyebrowColor), color: eyebrowColor, marginBottom: 18 }}
                 >
-                  info@atepconsulting.com
-                </a>
-              </li>
-              <li className="flex items-center gap-3 text-sm">
-                <Phone className="w-5 h-5 text-primary-500 flex-shrink-0" />
-                <a
-                  href="tel:+34647748705"
-                  className="hover:text-primary-500 transition-colors"
-                >
-                  +34 647 748 705
-                </a>
-              </li>
-            </ul>
-          </div>
+                  {language === "es" ? "Empresa" : "Company"}
+                </div>
+                <div className="flex flex-col gap-[10px]">
+                  {companyLinks.map((l) => (
+                    <LinkRow key={l.path} to={l.path} onNavy={onNavy}>
+                      {l.label}
+                    </LinkRow>
+                  ))}
+                </div>
+              </div>
 
-          <div>
-            <h3 className="text-white font-semibold text-lg mb-4">
-              {t("footer.readyToStart")}
-            </h3>
-            <p className="text-sm mb-4 text-neutral-300">
-              {t("footer.readyToStartText")}
-            </p>
-            <Link
-              to="/contact"
-              className="btn-primary text-sm inline-block text-center"
-            >
-              {t("footer.contactButton")}
-            </Link>
+              <div>
+                <div
+                  style={{ ...tEyebrow(eyebrowColor), color: eyebrowColor, marginBottom: 18 }}
+                >
+                  {t("nav.contact")}
+                </div>
+                <div className="flex flex-col gap-[10px]">
+                  <LinkRow href="mailto:info@atepconsulting.com" external onNavy={onNavy}>
+                    info@atepconsulting.com
+                  </LinkRow>
+                  <LinkRow href="tel:+34647748705" external onNavy={onNavy}>
+                    +34 647 748 705
+                  </LinkRow>
+                  <LinkRow onNavy={onNavy}>
+                    {language === "es"
+                      ? "Paterna · Valencia · España"
+                      : "Paterna · Valencia · Spain"}
+                  </LinkRow>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-neutral-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm">{t("footer.copyright")}</p>
-          <div className="flex gap-6">
-            {legalLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className="text-sm hover:text-primary-600 transition-colors duration-200"
-              >
-                {link.label}
-              </Link>
+        <div
+          className="pt-6 flex flex-col tm:flex-row justify-between gap-2 tm:gap-0"
+          style={{ fontSize: 11.5, color: dimColor }}
+        >
+          <span>{t("footer.copyright")}</span>
+          <div className="flex flex-wrap gap-x-4 gap-y-1">
+            {legalLinks.map((l, i) => (
+              <span key={l.path} className="inline-flex items-center gap-4">
+                {i > 0 && <span aria-hidden>·</span>}
+                <Link
+                  to={l.path}
+                  style={{ color: "inherit", textDecoration: "none" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "inherit")}
+                >
+                  {l.label}
+                </Link>
+              </span>
             ))}
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 };
