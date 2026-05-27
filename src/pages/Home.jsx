@@ -490,47 +490,86 @@ export const Home = () => {
             )}
           </h2>
         </Reveal>
-        <RevealStagger
-          stagger={140}
-          base={160}
-          y={28}
-          className="grid grid-cols-2 tm:grid-cols-4 gap-8 tm:gap-8 pt-8"
-          style={{ borderTop: "1px solid var(--navy)" }}
-        >
-          {processSteps.map((p) => (
-            <div key={p.num}>
-              <div
-                style={{
-                  ...tDisplay("clamp(48px, 5vw, 68px)", 500),
-                  color: "var(--accent)",
-                  lineHeight: 1,
-                }}
-              >
-                {p.num}
+        <div className="relative">
+          {/* Línea del timeline — horizontal en desktop, vertical en mobile.
+              Pasa exactamente por el centro de los bullets (6px desde el top
+              en desktop, 6px desde la izquierda en mobile). */}
+          <div
+            aria-hidden
+            className="hidden tm:block absolute h-px pointer-events-none"
+            style={{
+              background: "var(--accent)",
+              top: 5,
+              left: 6,
+              right: 6,
+            }}
+          />
+          <div
+            aria-hidden
+            className="tm:hidden absolute w-px pointer-events-none"
+            style={{
+              background: "var(--accent)",
+              left: 5,
+              top: 6,
+              bottom: 6,
+            }}
+          />
+
+          <RevealStagger
+            stagger={140}
+            base={160}
+            y={28}
+            className="grid grid-cols-1 tm:grid-cols-4 gap-10 tm:gap-10 pl-8 tm:pl-0 pt-6"
+            itemClassName="h-full"
+          >
+            {processSteps.map((p) => (
+              <div key={p.num} className="relative h-full">
+                {/* Bullet (punto del timeline) — granate, sobre la línea.
+                    Desktop: arriba centrado horizontalmente en la columna.
+                    Mobile: a la izquierda del item, sobre la línea vertical. */}
+                <span
+                  aria-hidden
+                  className="absolute rounded-full tm:-top-[16px] tm:left-1/2 tm:-translate-x-1/2 -left-[36px] top-0"
+                  style={{
+                    width: 11,
+                    height: 11,
+                    background: "var(--accent)",
+                    boxShadow: "0 0 0 4px var(--bg)",
+                  }}
+                />
+                <div
+                  style={{
+                    ...tDisplay("clamp(48px, 5vw, 68px)", 500),
+                    color: "var(--accent)",
+                    lineHeight: 1,
+                  }}
+                >
+                  {p.num}
+                </div>
+                <h3
+                  className="mb-3"
+                  style={{
+                    ...tDisplay("clamp(18px, 1.8vw, 24px)", 500),
+                    color: "var(--ink)",
+                    margin: "20px 0 12px",
+                  }}
+                >
+                  {p.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: 14,
+                    color: "var(--muted)",
+                    margin: 0,
+                    lineHeight: 1.55,
+                  }}
+                >
+                  {p.text}
+                </p>
               </div>
-              <h3
-                className="mb-3"
-                style={{
-                  ...tDisplay("clamp(18px, 1.8vw, 24px)", 500),
-                  color: "var(--ink)",
-                  margin: "20px 0 12px",
-                }}
-              >
-                {p.title}
-              </h3>
-              <p
-                style={{
-                  fontSize: 14,
-                  color: "var(--muted)",
-                  margin: 0,
-                  lineHeight: 1.55,
-                }}
-              >
-                {p.text}
-              </p>
-            </div>
-          ))}
-        </RevealStagger>
+            ))}
+          </RevealStagger>
+        </div>
       </section>
 
       {/* WHY CHOOSE US */}
