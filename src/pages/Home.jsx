@@ -6,11 +6,9 @@ import { CountingNumber } from "../components/CountingNumber";
 import { getServicesData } from "../data/servicesData";
 import { cases as casesData } from "../data/casesData";
 import { CaseCard } from "../components/CaseCard";
+import { ClientsMarquee } from "../components/ClientsMarquee";
 import { blogPosts } from "../data/blogData";
 import { tDisplay, tSerif, tEyebrow, FONT } from "../lib/typography";
-import StyleLogo from "../assets/logos/style-logo.svg";
-import HamptonLogo from "../assets/logos/hampton-logo.svg";
-import VertiluxLogo from "../assets/logos/vertilux-logo.svg";
 
 const SectionEyebrow = ({ children }) => (
   <div className="mb-4" style={tEyebrow("var(--muted)")}>
@@ -73,12 +71,6 @@ export const Home = () => {
   const recentPosts = [...blogPosts]
     .sort((a, b) => (a.date < b.date ? 1 : -1))
     .slice(0, 3);
-
-  const clientLogos = [
-    { src: StyleLogo, alt: "Style" },
-    { src: HamptonLogo, alt: "Hampton" },
-    { src: VertiluxLogo, alt: "Vertilux" },
-  ];
 
   return (
     <>
@@ -225,37 +217,8 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* CLIENT LOGOS */}
-      <section
-        className="px-6 sm:px-10 lg:px-16 py-10 tm:py-14"
-        style={{
-          borderTop: "1px solid var(--rule)",
-          borderBottom: "1px solid var(--rule)",
-        }}
-      >
-        <Reveal y={16}>
-          <div className="mb-6" style={tEyebrow("var(--muted)")}>
-            — {t("logo.title")}
-          </div>
-        </Reveal>
-        <RevealStagger
-          stagger={80}
-          base={120}
-          y={12}
-          className="flex flex-wrap items-center gap-x-12 gap-y-6"
-        >
-          {clientLogos.map((logo) => (
-            <img
-              key={logo.alt}
-              src={logo.src}
-              alt={logo.alt}
-              className="h-10 tm:h-12 w-auto opacity-70 transition-opacity duration-200 hover:opacity-100"
-              style={{ filter: "grayscale(100%)" }}
-              loading="lazy"
-            />
-          ))}
-        </RevealStagger>
-      </section>
+      {/* CLIENT LOGOS — marquee infinito de wordmarks */}
+      <ClientsMarquee />
 
       {/* STATS */}
       <section

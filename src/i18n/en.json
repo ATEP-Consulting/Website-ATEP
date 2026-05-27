@@ -112,7 +112,7 @@
     "readMore": "Read More",
 
     "professionalWebsites": {
-      "name": "Professional Websites",
+      "name": "Corporate Websites",
       "description": "Fast, optimized websites designed to convert visitors into customers.",
       "badge": "Ultra-fast loading",
       "keywords": "web development, professional websites, SEO, responsive design, business websites",
@@ -201,7 +201,7 @@
     },
 
     "fullStackDevelopment": {
-      "name": "Web Application Development",
+      "name": "Custom Web Apps",
       "description": "Complete custom platforms and applications, from concept to production",
       "badge": "100% Custom Solution",
       "keywords": "full stack development, web applications, SaaS development, React, TypeScript, Node.js, custom software",
@@ -335,7 +335,7 @@
     },
 
     "onDemandTeam": {
-      "name": "On-Demand Tech Team",
+      "name": "Tech Reinforcement",
       "description": "Development reinforcement when your team needs it, available within 48 hours.",
       "badge": "Available in 48 Hours",
       "keywords": "on-demand developers, tech team, software outsourcing, temporary developers, IT support, remote development",
@@ -559,7 +559,7 @@
     "automation": {
       "name": "Process Automation",
       "description": "Save time and reduce errors by automating repetitive business tasks.",
-      "badge": "Higher Productivity",
+      "badge": "Save hours every week",
       "keywords": "automation, RPA, process robots, efficiency, error reduction, integrations, bots, scripts, productivity",
 
       "whatWeDo": "What We Do",
@@ -670,6 +670,186 @@
       ],
 
       "ctaText": "Is your team wasting time on repetitive tasks? Automate them and boost productivity today."
+    },
+    "aiSolutions": {
+      "name": "Applied Artificial Intelligence",
+      "description": "Assistants, chatbots and AI agents that understand your business and work with your real information.",
+      "badge": "AI with purpose",
+      "keywords": "artificial intelligence, AI, LLM, GPT, chatbot, AI assistant, RAG, agents, OpenAI, Anthropic, smart automation",
+      "whatWeDo": "What We Do",
+      "whatWeDoText": "We design and ship business-grade AI solutions: chatbots that know your products, assistants that answer using your internal documentation, agents that execute complex tasks, and automatic analysis of unstructured data. We work with leading models (OpenAI, Anthropic, open-source models) and connect to your existing systems.",
+      "stats": [
+        { "number": "24/7", "label": "Assistant availability" },
+        { "number": "80%", "label": "Reduction in repetitive queries" },
+        { "number": "3s", "label": "Average response with your data" },
+        { "number": "100%", "label": "Traceability of every answer" }
+      ],
+      "benefits": "Why bring AI in now",
+      "benefitsSubtitle": "It's not magic — it's freeing your team from cognitive tasks a well-built assistant handles in seconds",
+      "benefitsList": [
+        { "title": "24/7 support without scaling headcount", "description": "Your chatbot handles customer queries at any hour and escalates only the cases that really need a human." },
+        { "title": "Your knowledge, instantly accessible", "description": "Manuals, contracts, FAQs and internal policies: your team asks in natural language and gets precise answers citing the source." },
+        { "title": "Analysis of unstructured data", "description": "Emails, tickets, reviews or contracts: AI extracts patterns, sentiment and recommended actions without anyone reading them one by one." },
+        { "title": "Agents that execute, not just chat", "description": "Beyond chat: agents that update your CRM, generate reports, schedule meetings or trigger workflows with the right context." }
+      ],
+      "featuresTitle": "Technical capabilities",
+      "featuresSubtitle": "Applied AI at the detail level, no black boxes",
+      "features": [
+        { "title": "Leading models", "description": "We work with OpenAI, Anthropic and open-source models when privacy demands it." },
+        { "title": "RAG over your data", "description": "The assistant answers using only your real documentation, not generic internet knowledge." },
+        { "title": "Full traceability", "description": "Every answer cites its source and is logged for audit." }
+      ],
+      "processTitle": "How we approach it",
+      "processSubtitle": "From use case to production in weeks, not months",
+      "processSteps": [
+        { "number": "01", "title": "Concrete use case", "description": "We identify the flow where AI adds the most value: support, sales, HR or operations." },
+        { "number": "02", "title": "Prototype in 2 weeks", "description": "We build an MVP with your real data so you see results before investing more." },
+        { "number": "03", "title": "Integration with your systems", "description": "We connect the assistant with your CRM, database, ERP or whichever channel you need." },
+        { "number": "04", "title": "Monitoring and improvement", "description": "Usage metrics, continuous prompt tuning and training with real feedback." }
+      ],
+      "whyChoose": "Why ATEP",
+      "whyChooseText": "We don't sell 'AI' as a buzzword. We design specific solutions that solve a concrete operational problem, with clear metrics and your data privacy as a priority. If AI isn't the answer, we'll tell you.",
+      "guarantees": [
+        { "text": "Confidentiality of your data" },
+        { "text": "Open-source models available" },
+        { "text": "Transparent usage metrics" }
+      ],
+      "ctaText": "Got a repetitive process or an AI use case in mind? Tell us the context and we'll let you know whether it makes sense and how to tackle it."
+    },
+    "mobileApps": {
+      "name": "Bespoke Mobile Apps",
+      "description": "Native and cross-platform applications for iOS and Android, built to scale and last over time.",
+      "badge": "iOS · Android · Cross-platform",
+      "keywords": "mobile apps, iOS development, Android development, React Native, Swift, Kotlin, custom app, mobile application",
+      "whatWeDo": "What We Do",
+      "whatWeDoText": "We build mobile apps from scratch or evolve the ones you already have. We work both native (Swift for iOS, Kotlin for Android) and cross-platform with React Native when the case justifies it. We design for performance, accessibility and long-term maintainability — not just for launch day.",
+      "stats": [
+        { "number": "2", "label": "Platforms from a single codebase" },
+        { "number": "60fps", "label": "Smoothness in critical transitions" },
+        { "number": "<3s", "label": "Cold start time" },
+        { "number": "100%", "label": "iOS + Android coverage" }
+      ],
+      "benefits": "Why a custom app over a template",
+      "benefitsSubtitle": "Your business has unique flows. A template forces you to adapt your operation to the product, not the other way around.",
+      "benefitsList": [
+        { "title": "Real performance, not demo performance", "description": "We optimize every screen so the app works just as well with 100 records as with 100,000." },
+        { "title": "Offline-first when you need it", "description": "Smart sync so your app works without connection and reconciles data when the network comes back." },
+        { "title": "Relevant push notifications", "description": "Segmented, contextual push — not spam. Open and conversion metrics built in." },
+        { "title": "Maintainable years out", "description": "Documented code, automated tests and architecture ready to grow without rewrites." }
+      ],
+      "featuresTitle": "Stack and capabilities",
+      "featuresSubtitle": "Tech choices that back up the engineering decision",
+      "features": [
+        { "title": "Native when it matters", "description": "Swift and Kotlin for apps with performance requirements or intensive hardware use (camera, GPS, sensors)." },
+        { "title": "React Native for speed", "description": "One codebase for both platforms when time-to-market matters and the app is reasonably standard." },
+        { "title": "App Store + Play Store", "description": "We handle the full publishing process, reviews and updates." }
+      ],
+      "processTitle": "How we build your app",
+      "processSubtitle": "Two-week sprints with a demo at the end of each one",
+      "processSteps": [
+        { "number": "01", "title": "Discovery and prototype", "description": "Key flows validated in a clickable prototype before writing code." },
+        { "number": "02", "title": "MVP in 8-12 weeks", "description": "Working version with the critical flows ready for real user testing." },
+        { "number": "03", "title": "Iteration with feedback", "description": "We refine what usage data shows actually matters, not what we assumed at the start." },
+        { "number": "04", "title": "Launch and operation", "description": "Release on both stores and ongoing support if you need it." }
+      ],
+      "whyChoose": "Why ATEP",
+      "whyChooseText": "We're not an agency that delivers and disappears. We design every app thinking about who's going to maintain it three years from now — usually us, so we set a high bar on code, tests and documentation.",
+      "guarantees": [
+        { "text": "Documented and audited code" },
+        { "text": "Automated tests from day one" },
+        { "text": "Publishing on App Store and Play Store" }
+      ],
+      "ctaText": "Got an app idea or want to modernize an existing one? We'll tell you within 24h whether native or cross-platform is the right call for your case."
+    },
+    "ecommerce": {
+      "name": "Custom E-commerce",
+      "description": "Fast online stores, optimized for conversion and built to sell — with or without a traditional payment gateway.",
+      "badge": "Designed to sell",
+      "keywords": "ecommerce, online store, online sales, Stripe, Shopify, headless commerce, payment gateway, WooCommerce, shopping cart",
+      "whatWeDo": "What We Do",
+      "whatWeDoText": "We build custom online stores. From catalogs with WhatsApp checkout (no gateway fees) to headless platforms with Stripe, Shopify or WooCommerce. We design for speed and conversion: every step of the funnel is built so the customer completes the purchase.",
+      "stats": [
+        { "number": "<2s", "label": "Product page load time" },
+        { "number": "+25%", "label": "Typical conversion lift" },
+        { "number": "100%", "label": "Mobile-first checkout" },
+        { "number": "0", "label": "Per-sale fees with WhatsApp" }
+      ],
+      "benefits": "Why your store deserves more than a template",
+      "benefitsSubtitle": "Every decimal of conversion counts. A generic store limits you exactly where you shouldn't be limited.",
+      "benefitsList": [
+        { "title": "Speed that sells", "description": "Every extra second of load time costs you conversion. We optimize performance to the last kilobyte." },
+        { "title": "Friction-free checkout", "description": "Fewer steps, fewer fields, more conversion. We design the buying flow to minimize abandonment." },
+        { "title": "No per-sale fees (optional)", "description": "WhatsApp or email checkout for small businesses that don't want to give up a % to Stripe or PayPal." },
+        { "title": "Real inventory integration", "description": "If you have an ERP, POS or inventory system, we connect them so stock and prices are always in sync." }
+      ],
+      "featuresTitle": "Technical options",
+      "featuresSubtitle": "We pick the stack based on your business, not the other way around",
+      "features": [
+        { "title": "Headless or all-in-one", "description": "Headless Shopify when you want full flexibility, or classic WooCommerce/Shopify when you prefer simplicity." },
+        { "title": "Gateways you choose", "description": "Stripe, PayPal, Redsys, Bizum or WhatsApp checkout. Every business has its own." },
+        { "title": "Multi-language and multi-currency", "description": "If you sell outside your country, the store adapts to the visitor's language and currency." }
+      ],
+      "processTitle": "How we launch your store",
+      "processSubtitle": "Catalog, checkout and metrics ready before going loud",
+      "processSteps": [
+        { "number": "01", "title": "Strategy and stack", "description": "We decide together on gateway, hosting, integrations and management model." },
+        { "number": "02", "title": "Design and catalog", "description": "Product template, categories, navigation and technical SEO from day one." },
+        { "number": "03", "title": "Checkout and metrics", "description": "Optimized buying flow and analytics built in to measure every step of the funnel." },
+        { "number": "04", "title": "Launch and support", "description": "Data migration if you come from another platform, training for your team and post-launch support." }
+      ],
+      "whyChoose": "Why ATEP",
+      "whyChooseText": "We sell stores that sell. We care about conversion, AOV and CAC much more than showing you the latest technology. Every technical decision is justified by the impact on your P&L.",
+      "guarantees": [
+        { "text": "Lighthouse performance 90+" },
+        { "text": "Mobile-first and optimized checkout" },
+        { "text": "Team training included" }
+      ],
+      "ctaText": "Want to launch a new store or improve the conversion of your existing one? We start with a quick no-commitment audit."
+    },
+    "support": {
+      "name": "Continuous Support and Maintenance",
+      "description": "Dedicated squad that knows your product and responds with clear SLAs. So your platform evolves without surprises.",
+      "badge": "Your trusted tech team",
+      "keywords": "software maintenance, technical support, SLA, dedicated team, product evolution, monitoring, observability, hotfix",
+      "whatWeDo": "What We Do",
+      "whatWeDoText": "We keep alive the products we deliver — both ours and third-party ones. Dedicated squad that knows your code, proactive monitoring, SLA-backed hotfixes and a quarterly evolution roadmap shared with you. Technical stability as a commitment, not as reactivity.",
+      "stats": [
+        { "number": "<4h", "label": "SLA for critical incidents" },
+        { "number": "99.9%", "label": "Guaranteed uptime" },
+        { "number": "24/7", "label": "Proactive monitoring" },
+        { "number": "1", "label": "Dedicated point of contact" }
+      ],
+      "benefits": "Why serious maintenance matters",
+      "benefitsSubtitle": "A product without maintenance is an asset that depreciates every month",
+      "benefitsList": [
+        { "title": "Knowledge that doesn't get lost", "description": "Your dedicated squad knows the code, the architecture decisions and the business context. You don't start from scratch with every change." },
+        { "title": "Real, auditable SLAs", "description": "Measured response and resolution times, with transparent monthly reports. You know exactly what you're paying for." },
+        { "title": "Quarterly evolution roadmap", "description": "We don't just put out fires: we propose performance, security and UX improvements every quarter." },
+        { "title": "Observability stack included", "description": "Datadog, Sentry, PagerDuty and similar configured from day one. We detect problems before your users do." }
+      ],
+      "featuresTitle": "What the service covers",
+      "featuresSubtitle": "Full support, not patch by patch",
+      "features": [
+        { "title": "SLA-backed hotfixes", "description": "Immediate response to critical incidents, with priority based on agreed severity." },
+        { "title": "Continuous evolution", "description": "Quarterly planned improvements aligned with your business roadmap." },
+        { "title": "Security updates", "description": "Dependencies, patches and security audits handled proactively." }
+      ],
+      "processTitle": "How we work",
+      "processSubtitle": "A predictable model so support stops being a hidden cost",
+      "processSteps": [
+        { "number": "01", "title": "Technical onboarding", "description": "Code audit, monitoring setup and operational documentation." },
+        { "number": "02", "title": "Agreed SLAs", "description": "We define together response times and priorities based on business impact." },
+        { "number": "03", "title": "Day-to-day operation", "description": "Slack or dedicated channel, transparent ticketing and response within SLA." },
+        { "number": "04", "title": "Quarterly review", "description": "Incident report, next-quarter roadmap and model adjustment if needed." }
+      ],
+      "whyChoose": "Why ATEP",
+      "whyChooseText": "We care that the product keeps working three years from now just like it did the day we launched it. We don't sell hours, we sell commitment: if something breaks, we fix it. If something can be improved, we propose it.",
+      "guarantees": [
+        { "text": "Written SLA in the contract" },
+        { "text": "Monthly activity report" },
+        { "text": "30-day no-penalty exit" }
+      ],
+      "ctaText": "Does your product need serious maintenance or do you have an inherited one without a tech team behind it? Let's talk about the right model for you."
     },
     "ctaTitle": "Ready to Boost Your Project?",
     "ctaButton": "Let's Talk About Your Case"

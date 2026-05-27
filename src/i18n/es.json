@@ -112,7 +112,7 @@
     "readMore": "Ver más",
 
     "professionalWebsites": {
-      "name": "Páginas Web Profesionales",
+      "name": "Webs Corporativas",
       "description": "Sitios web rápidos, optimizados y diseñados para convertir visitantes en clientes.",
       "badge": "Carga ultra-rápida",
       "keywords": "páginas web, desarrollo web, diseño web, SEO, optimización, web profesional",
@@ -201,7 +201,7 @@
     },
 
     "fullStackDevelopment": {
-      "name": "Desarrollo de Aplicaciones Web",
+      "name": "Apps Web a Medida",
       "description": "Plataformas y aplicaciones completas a tu medida, del concepto a producción",
       "badge": "Solución 100% Personalizada",
       "keywords": "full stack development, web applications, SaaS development, React, TypeScript, Node.js, custom software",
@@ -335,7 +335,7 @@
     },
 
     "onDemandTeam": {
-      "name": "Equipo Técnico On-Demand",
+      "name": "Refuerzo Técnico",
       "description": "Refuerzo de desarrollo cuando tu equipo lo necesita, disponible en 48h.",
       "badge": "Disponibles en 48 Horas",
       "keywords": "equipo on demand, desarrolladores externos, refuerzo técnico, outsourcing, soporte desarrollo, equipo remoto",
@@ -561,7 +561,7 @@
     "automation": {
       "name": "Automatización de Procesos",
       "description": "Ahorra tiempo y reduce errores automatizando tareas repetitivas en tu empresa.",
-      "badge": "Mayor Productividad",
+      "badge": "Ahorra horas cada semana",
       "keywords": "automatización, RPA, robots de procesos, eficiencia, reducción de errores, integraciones, bots, scripts, productividad",
 
       "whatWeDo": "Qué Hacemos",
@@ -675,6 +675,186 @@
       ],
 
       "ctaText": "¿Tu equipo pierde tiempo en tareas repetitivas? Automatízalas y gana productividad desde hoy."
+    },
+    "aiSolutions": {
+      "name": "Inteligencia Artificial Aplicada",
+      "description": "Asistentes, chatbots y agentes con IA que entienden tu negocio y trabajan con tu información real.",
+      "badge": "IA con propósito",
+      "keywords": "inteligencia artificial, IA, LLM, GPT, chatbot, asistente IA, RAG, agentes, OpenAI, Anthropic, automatización inteligente",
+      "whatWeDo": "Lo Que Hacemos",
+      "whatWeDoText": "Diseñamos e implementamos soluciones de IA aplicada al negocio: chatbots que conocen tus productos, asistentes que responden con tu documentación interna, agentes que ejecutan tareas complejas y análisis automático de datos no estructurados. Trabajamos con los modelos líderes (OpenAI, Anthropic, modelos abiertos) y conectamos con tus sistemas existentes.",
+      "stats": [
+        { "number": "24/7", "label": "Disponibilidad del asistente" },
+        { "number": "80%", "label": "Reducción de consultas repetitivas" },
+        { "number": "3s", "label": "Respuesta media con tu información" },
+        { "number": "100%", "label": "Trazabilidad de cada respuesta" }
+      ],
+      "benefits": "Por qué incorporar IA ahora",
+      "benefitsSubtitle": "No es magia, es liberar a tu equipo de tareas cognitivas que un asistente bien diseñado resuelve en segundos",
+      "benefitsList": [
+        { "title": "Soporte 24/7 sin escalar plantilla", "description": "Tu chatbot atiende a clientes en cualquier momento y escala a una persona solo los casos que lo requieren de verdad." },
+        { "title": "Tu conocimiento, accesible al instante", "description": "Manuales, contratos, FAQs y políticas internas: tu equipo pregunta en lenguaje natural y recibe respuestas precisas con cita de la fuente." },
+        { "title": "Análisis de datos no estructurados", "description": "Emails, tickets, reseñas o contratos: la IA extrae patrones, sentimiento y acciones recomendadas sin que nadie tenga que leerlos uno a uno." },
+        { "title": "Agentes que ejecutan, no solo conversan", "description": "Más allá del chat: agentes que actualizan tu CRM, generan informes, programan reuniones o disparan workflows con la información correcta." }
+      ],
+      "featuresTitle": "Capacidades técnicas",
+      "featuresSubtitle": "IA aplicada al detalle, sin caja negra",
+      "features": [
+        { "title": "Modelos líderes", "description": "Trabajamos con OpenAI, Anthropic y modelos abiertos cuando la privacidad lo exige." },
+        { "title": "RAG sobre tu información", "description": "El asistente responde solo con tu documentación real, no con conocimiento genérico de internet." },
+        { "title": "Trazabilidad completa", "description": "Cada respuesta cita su fuente y queda registrada para auditoría." }
+      ],
+      "processTitle": "Cómo lo abordamos",
+      "processSubtitle": "De caso de uso a producción en semanas, no meses",
+      "processSteps": [
+        { "number": "01", "title": "Caso de uso concreto", "description": "Identificamos el flujo donde la IA aporta más valor: soporte, ventas, RRHH u operaciones." },
+        { "number": "02", "title": "Prototipo en 2 semanas", "description": "Construimos un MVP con tu información real para que veas resultados antes de invertir más." },
+        { "number": "03", "title": "Integración con tus sistemas", "description": "Conectamos el asistente con tu CRM, base de datos, ERP o el canal que necesites." },
+        { "number": "04", "title": "Monitorización y mejora", "description": "Métricas de uso, ajuste continuo del prompt y entrenamiento con feedback real." }
+      ],
+      "whyChoose": "Por qué con ATEP",
+      "whyChooseText": "No vendemos 'IA' como buzzword. Diseñamos soluciones específicas que resuelven un problema concreto de tu operación, con métricas claras y la privacidad de tus datos como prioridad. Si la IA no es la respuesta, te lo decimos.",
+      "guarantees": [
+        { "text": "Confidencialidad de tus datos" },
+        { "text": "Modelos open-source disponibles" },
+        { "text": "Métricas de uso transparentes" }
+      ],
+      "ctaText": "¿Tienes un proceso repetitivo o una idea de uso de IA en mente? Cuéntanos el contexto y te decimos si tiene sentido y cómo abordarlo."
+    },
+    "mobileApps": {
+      "name": "Apps Móviles a Medida",
+      "description": "Aplicaciones nativas y multiplataforma para iOS y Android, pensadas para escalar y mantenerse en el tiempo.",
+      "badge": "iOS · Android · Cross-platform",
+      "keywords": "apps móviles, desarrollo iOS, desarrollo Android, React Native, Swift, Kotlin, app a medida, aplicación móvil",
+      "whatWeDo": "Lo Que Hacemos",
+      "whatWeDoText": "Desarrollamos apps móviles desde cero o evolucionamos las que ya tienes. Trabajamos tanto nativo (Swift para iOS, Kotlin para Android) como multiplataforma con React Native cuando el caso lo justifica. Diseñamos para rendimiento, accesibilidad y mantenibilidad a largo plazo — no solo para el lanzamiento.",
+      "stats": [
+        { "number": "2", "label": "Plataformas con una sola base" },
+        { "number": "60fps", "label": "Fluidez en transiciones críticas" },
+        { "number": "<3s", "label": "Tiempo de arranque en frío" },
+        { "number": "100%", "label": "Cobertura iOS + Android" }
+      ],
+      "benefits": "Por qué una app a medida y no un template",
+      "benefitsSubtitle": "Tu negocio tiene flujos únicos. Una plantilla te obliga a adaptar tu operación al producto, no al revés.",
+      "benefitsList": [
+        { "title": "Rendimiento real, no de demo", "description": "Optimizamos cada pantalla para que la app funcione igual de bien con 100 que con 100.000 registros." },
+        { "title": "Offline-first cuando lo necesitas", "description": "Sincronización inteligente para que tu app funcione sin conexión y consolide datos cuando vuelva la red." },
+        { "title": "Notificaciones push relevantes", "description": "Push segmentado y contextual, no spam. Métricas de apertura y conversión integradas." },
+        { "title": "Mantenibilidad a años vista", "description": "Código documentado, tests automatizados y arquitectura preparada para crecer sin reescrituras." }
+      ],
+      "featuresTitle": "Stack y capacidades",
+      "featuresSubtitle": "Tecnologías que respaldan la decisión técnica",
+      "features": [
+        { "title": "Nativo cuando importa", "description": "Swift y Kotlin para apps con requisitos de rendimiento o uso intensivo de hardware (cámara, GPS, sensores)." },
+        { "title": "React Native para velocidad", "description": "Una base de código para ambas plataformas cuando el time-to-market manda y la app es razonablemente estándar." },
+        { "title": "App Store + Play Store", "description": "Nos encargamos del proceso completo de publicación, revisiones y actualizaciones." }
+      ],
+      "processTitle": "Cómo desarrollamos tu app",
+      "processSubtitle": "Sprints quincenales con demo al final de cada uno",
+      "processSteps": [
+        { "number": "01", "title": "Discovery y prototipo", "description": "Flujos clave validados en prototipo navegable antes de escribir código." },
+        { "number": "02", "title": "MVP en 8-12 semanas", "description": "Versión funcional con los flujos críticos lista para testing real con usuarios." },
+        { "number": "03", "title": "Iteración con feedback", "description": "Refinamos lo que la métrica de uso muestra que importa, no lo que asumíamos al principio." },
+        { "number": "04", "title": "Publicación y operación", "description": "Lanzamiento en ambas stores y soporte continuo si lo necesitas." }
+      ],
+      "whyChoose": "Por qué con ATEP",
+      "whyChooseText": "No somos una agencia que entrega y desaparece. Diseñamos cada app pensando en quién la va a mantener dentro de tres años — normalmente nosotros mismos, así que ponemos el listón alto en código, tests y documentación.",
+      "guarantees": [
+        { "text": "Código documentado y auditado" },
+        { "text": "Tests automatizados desde el día 1" },
+        { "text": "Publicación en App Store y Play Store" }
+      ],
+      "ctaText": "¿Tienes una idea de app o quieres modernizar una existente? Te decimos en 24h si nativo o multiplataforma es la mejor decisión para tu caso."
+    },
+    "ecommerce": {
+      "name": "E-commerce a Medida",
+      "description": "Tiendas online rápidas, optimizadas para conversión y diseñadas para vender — con o sin pasarela de pago tradicional.",
+      "badge": "Diseñado para vender",
+      "keywords": "ecommerce, tienda online, ventas online, Stripe, Shopify, headless commerce, pasarela de pago, WooCommerce, carrito de compra",
+      "whatWeDo": "Lo Que Hacemos",
+      "whatWeDoText": "Construimos tiendas online a tu medida. Desde catálogos con checkout por WhatsApp (sin comisiones de pasarela) hasta plataformas headless con Stripe, Shopify o WooCommerce. Diseñamos para velocidad y conversión: cada paso del embudo está pensado para que el cliente termine la compra.",
+      "stats": [
+        { "number": "<2s", "label": "Carga de la ficha de producto" },
+        { "number": "+25%", "label": "Tasa de conversión típica" },
+        { "number": "100%", "label": "Mobile-first checkout" },
+        { "number": "0", "label": "Coste por venta con WhatsApp" }
+      ],
+      "benefits": "Por qué tu tienda merece más que un template",
+      "benefitsSubtitle": "Cada decimal de conversión cuenta. Una tienda genérica te limita justo donde no deberías limitarte.",
+      "benefitsList": [
+        { "title": "Velocidad que vende", "description": "Cada segundo de carga extra te cuesta conversión. Optimizamos performance hasta el último kilobyte." },
+        { "title": "Checkout sin fricción", "description": "Menos pasos, menos campos, más conversión. Diseñamos el flujo de compra para minimizar abandonos." },
+        { "title": "Sin comisión por venta (opcional)", "description": "Checkout por WhatsApp o email para negocios pequeños que no quieren ceder un % a Stripe o PayPal." },
+        { "title": "Integraciones reales con tu stock", "description": "Si tienes ERP, TPV o gestor de inventario, lo conectamos para que stock y precios siempre estén sincronizados." }
+      ],
+      "featuresTitle": "Opciones técnicas",
+      "featuresSubtitle": "Elegimos el stack según tu negocio, no al revés",
+      "features": [
+        { "title": "Headless o all-in-one", "description": "Shopify headless cuando quieres flexibilidad total, o WooCommerce/Shopify clásico cuando prefieres simplicidad." },
+        { "title": "Pasarelas que tú elijas", "description": "Stripe, PayPal, Redsys, Bizum o checkout por WhatsApp. Cada negocio tiene la suya." },
+        { "title": "Multi-idioma y multi-divisa", "description": "Si vendes fuera de España, la tienda se adapta sola al idioma y moneda del visitante." }
+      ],
+      "processTitle": "Cómo lanzamos tu tienda",
+      "processSubtitle": "Catálogo, checkout y métricas listos antes de hacer ruido",
+      "processSteps": [
+        { "number": "01", "title": "Estrategia y stack", "description": "Decidimos juntos pasarela, hosting, integraciones y modelo de gestión." },
+        { "number": "02", "title": "Diseño y catálogo", "description": "Plantilla de producto, categorías, navegación y SEO técnico desde el día uno." },
+        { "number": "03", "title": "Checkout y métricas", "description": "Flujo de compra optimizado y analítica integrada para medir cada paso del embudo." },
+        { "number": "04", "title": "Lanzamiento y soporte", "description": "Migración de datos si vienes de otra plataforma, formación de tu equipo y soporte post-lanzamiento." }
+      ],
+      "whyChoose": "Por qué con ATEP",
+      "whyChooseText": "Vendemos tiendas que venden. Nos importa la conversión, el AOV y el CAC mucho más que enseñarte la última tecnología. Cada decisión técnica se justifica por el impacto en tu cuenta de resultados.",
+      "guarantees": [
+        { "text": "Performance Lighthouse 90+" },
+        { "text": "Mobile-first y checkout optimizado" },
+        { "text": "Formación a tu equipo incluida" }
+      ],
+      "ctaText": "¿Quieres lanzar una tienda nueva o mejorar la conversión de la que ya tienes? Empezamos con una auditoría rápida sin compromiso."
+    },
+    "support": {
+      "name": "Soporte y Mantenimiento Continuo",
+      "description": "Squad dedicado que conoce tu producto y responde con SLA claros. Para que tu plataforma evolucione sin sorpresas.",
+      "badge": "Tu equipo técnico de confianza",
+      "keywords": "mantenimiento software, soporte técnico, SLA, equipo dedicado, evolución producto, monitorización, observabilidad, hotfix",
+      "whatWeDo": "Lo Que Hacemos",
+      "whatWeDoText": "Mantenemos vivos los productos que entregamos — los nuestros y los de terceros. Squad dedicado que conoce tu código, monitorización proactiva, hotfixes con SLA y un roadmap evolutivo trimestral compartido contigo. La estabilidad técnica como compromiso, no como reactividad.",
+      "stats": [
+        { "number": "<4h", "label": "SLA para incidencias críticas" },
+        { "number": "99.9%", "label": "Uptime garantizado" },
+        { "number": "24/7", "label": "Monitorización proactiva" },
+        { "number": "1", "label": "Punto de contacto dedicado" }
+      ],
+      "benefits": "Por qué un mantenimiento serio importa",
+      "benefitsSubtitle": "Un producto sin mantenimiento es un activo que se devalúa cada mes",
+      "benefitsList": [
+        { "title": "Conocimiento que no se pierde", "description": "Tu squad dedicado conoce el código, las decisiones de arquitectura y el contexto del negocio. No empiezas de cero con cada cambio." },
+        { "title": "SLA reales y auditables", "description": "Tiempos de respuesta y resolución medidos, con informe mensual transparente. Sabes exactamente qué estás pagando." },
+        { "title": "Roadmap evolutivo trimestral", "description": "No solo apagamos fuegos: proponemos mejoras de performance, seguridad y experiencia cada trimestre." },
+        { "title": "Stack de observabilidad incluido", "description": "Datadog, Sentry, PagerDuty y similares configurados desde el primer día. Detectamos problemas antes que tus usuarios." }
+      ],
+      "featuresTitle": "Qué cubre el servicio",
+      "featuresSubtitle": "Soporte completo, no parche por parche",
+      "features": [
+        { "title": "Hotfixes con SLA", "description": "Respuesta inmediata a incidencias críticas, con prioridad según severidad acordada." },
+        { "title": "Evolución continua", "description": "Mejoras planificadas trimestralmente, alineadas con tu roadmap de negocio." },
+        { "title": "Actualizaciones de seguridad", "description": "Dependencias, parches y auditorías de seguridad gestionadas proactivamente." }
+      ],
+      "processTitle": "Cómo trabajamos",
+      "processSubtitle": "Un modelo predecible para que el soporte deje de ser un coste oculto",
+      "processSteps": [
+        { "number": "01", "title": "Onboarding técnico", "description": "Auditoría del código, configuración de monitorización y documentación operativa." },
+        { "number": "02", "title": "SLA acordados", "description": "Definimos juntos tiempos de respuesta y prioridades según el impacto en tu negocio." },
+        { "number": "03", "title": "Operación día a día", "description": "Slack o canal dedicado, ticketing transparente y respuesta dentro del SLA." },
+        { "number": "04", "title": "Revisión trimestral", "description": "Reporte de incidencias, evolutivo del próximo trimestre y ajuste del modelo si hace falta." }
+      ],
+      "whyChoose": "Por qué con ATEP",
+      "whyChooseText": "Nos importa que el producto siga funcionando dentro de tres años igual que el día que lo lanzamos. No vendemos horas, vendemos compromiso: si algo se rompe, lo arreglamos. Si algo puede mejorar, te lo proponemos.",
+      "guarantees": [
+        { "text": "SLA por escrito en el contrato" },
+        { "text": "Informe mensual de actividad" },
+        { "text": "Salida sin penalización a 30 días" }
+      ],
+      "ctaText": "¿Tu producto necesita mantenimiento serio o tienes uno heredado sin equipo técnico detrás? Hablemos sobre el modelo que mejor encaja."
     },
     "ctaTitle": "¿Listo para Impulsar tu Proyecto?",
     "ctaButton": "Hablemos de tu Caso"

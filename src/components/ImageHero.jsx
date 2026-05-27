@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Reveal } from "./Reveal";
 import { tDisplay, tSerif, tEyebrow } from "../lib/typography";
 
@@ -7,6 +8,7 @@ const ImageHero = ({
   description,
   backgroundImage,
   alt,
+  cta,
 }) => {
   const hasImage = Boolean(backgroundImage);
 
@@ -21,7 +23,7 @@ const ImageHero = ({
       <div
         className={
           hasImage
-            ? "grid grid-cols-1 tm:grid-cols-5 gap-10 tm:gap-16 items-end"
+            ? "grid grid-cols-1 tm:grid-cols-5 gap-10 tm:gap-16 items-center"
             : ""
         }
       >
@@ -33,11 +35,10 @@ const ImageHero = ({
           )}
           <Reveal delay={eyebrow ? 120 : 0} y={32} dur={1100}>
             <h1
-              className="mt-6 tm:mt-8"
+              className="mt-10 tm:mt-16 mb-0"
               style={{
                 ...tDisplay("clamp(40px, 7vw, 88px)", 500),
                 color: "var(--ink)",
-                margin: 0,
               }}
             >
               {title}
@@ -46,7 +47,7 @@ const ImageHero = ({
           {description && (
             <Reveal delay={320} y={20}>
               <p
-                className="mt-6 tm:mt-8 italic"
+                className="mt-6 tm:mt-8 italic mb-0"
                 style={{
                   ...tSerif("clamp(17px, 1.4vw, 20px)", 400),
                   color: "var(--muted)",
@@ -58,11 +59,31 @@ const ImageHero = ({
               </p>
             </Reveal>
           )}
+          {cta && cta.label && cta.to && (
+            <Reveal delay={480} y={16}>
+              <div className="mt-7 tm:mt-10">
+                <Link
+                  to={cta.to}
+                  className="inline-block px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] no-underline transition-all duration-150 hover:-translate-y-[1px]"
+                  style={{ background: "var(--navy)", color: "var(--bg)" }}
+                >
+                  {cta.label} →
+                </Link>
+              </div>
+            </Reveal>
+          )}
         </div>
 
         {hasImage && (
           <Reveal delay={280} y={36} dur={1100} className="tm:col-span-2">
-            <div className="relative" style={{ aspectRatio: "4/5" }}>
+            <div
+              className="relative w-full mx-auto"
+              style={{
+                aspectRatio: "4/5",
+                maxHeight: "min(640px, 72vh)",
+                maxWidth: "min(540px, 100%)",
+              }}
+            >
               <img
                 src={backgroundImage}
                 alt={alt || title}

@@ -79,6 +79,15 @@ export default {
       maxWidth: {
         '8xl': '88rem',
       },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 60s linear infinite',
+      },
     },
   },
   plugins: [],

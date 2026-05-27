@@ -29,6 +29,16 @@ const useMediaQuery = (query) => {
   return matches;
 };
 
+const NavDot = ({ active }) => (
+  <span
+    aria-hidden
+    className={`absolute left-1/2 -translate-x-1/2 -bottom-[10px] w-[5px] h-[5px] rounded-full transition-opacity duration-200 ${
+      active ? "opacity-100" : "opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"
+    }`}
+    style={{ background: "var(--accent)" }}
+  />
+);
+
 const Logo = () => (
   <Link
     to="/"
@@ -156,15 +166,17 @@ const DesktopHeader = () => {
                     navigate(it.path);
                   }}
                   onFocus={() => openMegaMenu(it.mega)}
-                  className="text-[13.5px] cursor-pointer pb-[3px] flex items-center gap-[6px] transition-all duration-150 bg-transparent border-none focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                  className="group relative text-[13.5px] cursor-pointer inline-flex items-center gap-[6px] transition-colors duration-150 bg-transparent border-none focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                   style={{
                     color: active || isThisOpen ? "var(--ink)" : "var(--muted)",
                     fontWeight: active || isThisOpen ? 500 : 400,
                     fontFamily: "inherit",
-                    borderBottom:
-                      active || isThisOpen
-                        ? "1px solid var(--ink)"
-                        : "1px solid transparent",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!active && !isThisOpen) e.currentTarget.style.color = "var(--ink)";
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!active && !isThisOpen) e.currentTarget.style.color = "var(--muted)";
                   }}
                 >
                   {it.label}
@@ -173,6 +185,7 @@ const DesktopHeader = () => {
                     className="transition-transform duration-200"
                     style={{ transform: isThisOpen ? "rotate(180deg)" : "rotate(0)" }}
                   />
+                  <NavDot active={active || isThisOpen} />
                 </button>
               </div>
             );
@@ -181,17 +194,21 @@ const DesktopHeader = () => {
             <Link
               key={it.key}
               to={it.path}
-              onMouseEnter={openMenu ? scheduleCloseMega : undefined}
-              className="text-[13.5px] cursor-pointer pb-[3px] no-underline transition-all duration-150"
+              onMouseEnter={(e) => {
+                if (openMenu) scheduleCloseMega();
+                if (!active) e.currentTarget.style.color = "var(--ink)";
+              }}
+              onMouseLeave={(e) => {
+                if (!active) e.currentTarget.style.color = "var(--muted)";
+              }}
+              className="group relative text-[13.5px] cursor-pointer no-underline transition-colors duration-150 inline-block"
               style={{
                 color: active ? "var(--ink)" : "var(--muted)",
                 fontWeight: active ? 500 : 400,
-                borderBottom: active
-                  ? "1px solid var(--ink)"
-                  : "1px solid transparent",
               }}
             >
               {it.label}
+              <NavDot active={active} />
             </Link>
           );
         })}

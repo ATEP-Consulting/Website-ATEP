@@ -23,11 +23,38 @@ export const ServicesOverview = () => {
             "@type": "OfferCatalog",
             name: "Servicios de Tecnología",
             itemListElement: [
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Desarrollo Web Profesional" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Desarrollo Full-Stack" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Equipos On-Demand" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Migración de Sistemas Legacy" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Automatización de Procesos" } },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Desarrollo Web Profesional",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Desarrollo Full-Stack",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: { "@type": "Service", name: "Equipos On-Demand" },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Migración de Sistemas Legacy",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Automatización de Procesos",
+                },
+              },
             ],
           },
         }}
@@ -85,9 +112,7 @@ export const ServicesOverview = () => {
                     {s.description}
                   </p>
                   {s.badge && (
-                    <div
-                      className="mt-6 flex flex-wrap gap-2"
-                    >
+                    <div className="mt-6 flex flex-wrap gap-2">
                       <span
                         style={{
                           fontSize: 10.5,

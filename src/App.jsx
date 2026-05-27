@@ -10,6 +10,10 @@ import { FullStackDevelopment } from "./pages/services/FullStackDevelopment";
 import { OnDemandTeam } from "./pages/services/OnDemandTeam";
 import { LegacyMigration } from "./pages/services/LegacyMigration";
 import { Automation } from "./pages/services/Automation";
+import { AISolutions } from "./pages/services/AISolutions";
+import { MobileApps } from "./pages/services/MobileApps";
+import { Ecommerce } from "./pages/services/Ecommerce";
+import { Support } from "./pages/services/Support";
 import { BlogList } from "./pages/blog/BlogList";
 import { BlogPost } from "./pages/blog/BlogPost";
 import { CasesList } from "./pages/cases/CasesList";
@@ -47,6 +51,10 @@ function AppRoutes() {
           element={<LegacyMigration />}
         />
         <Route path="/services/automation" element={<Automation />} />
+        <Route path="/services/ai-solutions" element={<AISolutions />} />
+        <Route path="/services/mobile-apps" element={<MobileApps />} />
+        <Route path="/services/ecommerce" element={<Ecommerce />} />
+        <Route path="/services/support" element={<Support />} />
 
         <Route path="blog" element={<BlogList />} />
         <Route path="blog/:slug" element={<BlogPost />} />

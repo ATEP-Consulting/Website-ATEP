@@ -45,6 +45,10 @@ export const ServiceDetailTemplate = ({ serviceKey, heroImage }) => {
         description={service.description}
         backgroundImage={heroImage}
         alt={service.name}
+        cta={{
+          label: t("CTA.primaryButton"),
+          to: "/contact",
+        }}
       />
 
       {/* WHAT WE DO + STATS */}
@@ -159,8 +163,7 @@ export const ServiceDetailTemplate = ({ serviceKey, heroImage }) => {
                 className="p-6 tm:p-8"
                 style={{
                   borderBottom: "1px solid var(--navy)",
-                  borderRight:
-                    idx % 2 === 0 ? "1px solid var(--navy)" : "none",
+                  borderRight: idx % 2 === 0 ? "1px solid var(--navy)" : "none",
                 }}
               >
                 <div style={tEyebrow("var(--accent)")} className="mb-3">
@@ -384,8 +387,7 @@ export const ServiceDetailTemplate = ({ serviceKey, heroImage }) => {
                 className="p-6 tm:p-7"
                 style={{
                   borderBottom: "1px solid var(--navy)",
-                  borderRight:
-                    idx % 3 !== 2 ? "1px solid var(--navy)" : "none",
+                  borderRight: idx % 3 !== 2 ? "1px solid var(--navy)" : "none",
                 }}
               >
                 <div style={tEyebrow("var(--accent)")} className="mb-3">
@@ -570,7 +572,9 @@ export const ServiceDetailTemplate = ({ serviceKey, heroImage }) => {
               border: "1px solid var(--ink)",
             }}
           >
-            {language === "es" ? "Ver todos los servicios" : "View all services"}
+            {language === "es"
+              ? "Ver todos los servicios"
+              : "View all services"}
           </Link>
         </div>
       </section>
