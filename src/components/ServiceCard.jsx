@@ -1,40 +1,73 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
+import { tDisplay, tEyebrow, FONT } from "../lib/typography";
 
-export const ServiceCard = ({ icon: Icon, name, description, path, image }) => {
+export const ServiceCard = ({
+  name,
+  description,
+  badge,
+  path,
+  index = 0,
+}) => {
+  const { language } = useLanguage();
   return (
-    <div className="group relative bg-white rounded-lg overflow-hidden border border-neutral-200 h-full flex flex-col">
-      <div className="relative h-64 flex-shrink-0">
-        <img
-          src={image}
-          alt={name}
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+    <Link
+      to={path}
+      className="block no-underline p-6 tm:p-7 h-full tm:min-h-[260px] transition-colors duration-150"
+      style={{
+        color: "inherit",
+        background: "transparent",
+        border: "1px solid var(--navy)",
+      }}
+      onMouseEnter={(e) =>
+        (e.currentTarget.style.background = "var(--bg-surface)")
+      }
+      onMouseLeave={(e) =>
+        (e.currentTarget.style.background = "transparent")
+      }
+    >
+      <div style={tEyebrow("var(--accent)")}>
+        {String(index + 1).padStart(2, "0")}
       </div>
-
-      <div className="absolute top-56 left-8 w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center shadow-lg z-10">
-        <Icon className="w-8 h-8 text-white" />
-      </div>
-
-      <div className="relative p-8 pt-12 flex flex-col flex-grow">
-        <h3 className="text-xl lg:text-2xl font-bold text-neutral-900 mb-4">
-          {name}
-        </h3>
-
-        <p className="text-base text-neutral-600 leading-relaxed mb-6 flex-grow">
-          {description}
-        </p>
-
-        <Link
-          to={path}
-          className="inline-flex items-center gap-2 text-primary-600 font-semibold transition-colors duration-300 group-hover:text-primary-700"
+      <h3
+        style={{
+          ...tDisplay("clamp(22px, 2.4vw, 28px)", 500),
+          color: "var(--ink)",
+          margin: "14px 0 12px",
+        }}
+      >
+        {name}
+      </h3>
+      <p
+        className="m-0"
+        style={{
+          fontSize: 14.5,
+          lineHeight: 1.55,
+          color: "var(--muted)",
+        }}
+      >
+        {description}
+      </p>
+      {badge && (
+        <div
+          className="mt-4"
+          style={{
+            fontFamily: FONT.mono,
+            fontSize: 10.5,
+            color: "var(--dim)",
+            letterSpacing: "0.06em",
+            textTransform: "uppercase",
+          }}
         >
-          <span>{name}</span>
-          <ArrowRight className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1" />
-        </Link>
+          {badge}
+        </div>
+      )}
+      <div
+        className="mt-5 text-[13px]"
+        style={{ color: "var(--ink)" }}
+      >
+        {language === "es" ? "Leer más" : "Read more"} →
       </div>
-    </div>
+    </Link>
   );
 };

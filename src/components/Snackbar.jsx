@@ -1,6 +1,6 @@
-// src/components/Snackbar.jsx
 import { useEffect, useState } from "react";
 import { CheckCircle, XCircle, X } from "lucide-react";
+import { FONT } from "../lib/typography";
 
 export const Snackbar = ({
   message,
@@ -11,64 +11,61 @@ export const Snackbar = ({
   const [progress, setProgress] = useState(100);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      onClose();
-    }, duration);
-
-    // Animación de la barra de progreso
+    const timer = setTimeout(onClose, duration);
     const interval = setInterval(() => {
       setProgress((prev) => {
-        const newProgress = prev - 100 / (duration / 50);
-        return newProgress <= 0 ? 0 : newProgress;
+        const next = prev - 100 / (duration / 50);
+        return next <= 0 ? 0 : next;
       });
     }, 50);
-
     return () => {
       clearTimeout(timer);
       clearInterval(interval);
     };
   }, [duration, onClose]);
 
-  const styles = {
-    success: {
-      bg: "bg-green-50",
-      border: "border-green-500",
-      text: "text-green-800",
-      icon: CheckCircle,
-      progressBg: "bg-green-500",
-    },
-    error: {
-      bg: "bg-red-50",
-      border: "border-red-500",
-      text: "text-red-800",
-      icon: XCircle,
-      progressBg: "bg-red-500",
-    },
-  };
-
-  const style = styles[type];
-  const Icon = style.icon;
+  const isSuccess = type === "success";
+  const Icon = isSuccess ? CheckCircle : XCircle;
+  const accentColor = isSuccess ? "var(--accent)" : "#c53030";
 
   return (
-    <div className="fixed top-4 right-4 z-50 animate-slide-up">
+    <div className="fixed top-5 right-5 z-50 animate-slide-up">
       <div
-        className={`relative flex items-center gap-3 ${style.bg} ${style.text} border-l-4 ${style.border} rounded-lg shadow-2xl px-6 py-4 min-w-[320px] max-w-md overflow-hidden`}
+        className="relative flex items-start gap-3 px-5 py-4 min-w-[320px] max-w-md overflow-hidden"
+        style={{
+          background: "var(--bg-panel)",
+          color: "var(--ink)",
+          borderLeft: `3px solid ${accentColor}`,
+          boxShadow: "0 18px 48px -18px rgba(10,22,38,0.35)",
+          fontFamily: FONT.sans,
+        }}
       >
-        <Icon className="w-6 h-6 flex-shrink-0" />
-        <p className="flex-1 font-medium">{message}</p>
+        <Icon size={20} className="mt-[2px] flex-shrink-0" style={{ color: accentColor }} />
+        <p className="flex-1 text-[14px] leading-snug m-0">{message}</p>
         <button
+          type="button"
           onClick={onClose}
-          className="p-1 hover:bg-black/10 rounded transition-colors"
-          aria-label="Close"
+          aria-label="Cerrar"
+          className="flex-shrink-0 p-1 transition-colors"
+          style={{
+            background: "transparent",
+            color: "var(--muted)",
+            border: "none",
+            cursor: "pointer",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "var(--ink)")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
         >
-          <X className="w-5 h-5" />
+          <X size={16} />
         </button>
 
-        {/* Barra de progreso */}
-        <div className="absolute bottom-0 left-0 h-1 w-full bg-black/10">
+        <div
+          className="absolute bottom-0 left-0 h-[2px] w-full"
+          style={{ background: "var(--rule)" }}
+        >
           <div
-            className={`h-full ${style.progressBg} transition-all duration-50 ease-linear`}
-            style={{ width: `${progress}%` }}
+            className="h-full transition-[width] duration-75 ease-linear"
+            style={{ width: `${progress}%`, background: accentColor }}
           />
         </div>
       </div>

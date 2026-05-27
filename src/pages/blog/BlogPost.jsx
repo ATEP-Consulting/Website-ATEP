@@ -1,22 +1,27 @@
-import { useParams, Navigate } from "react-router-dom";
-import { Calendar, User, ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useParams, Navigate, Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
 import { BlogCard } from "../../components/BlogCard";
+import { Reveal, RevealStagger } from "../../components/Reveal";
 import { blogPosts } from "../../data/blogData";
+import { tDisplay, tSerif, tEyebrow, FONT } from "../../lib/typography";
 
 export const BlogPost = () => {
   const { slug } = useParams();
   const { t, language } = useLanguage();
 
   const post = blogPosts.find((p) => p.slug === slug);
+  if (!post) return <Navigate to="/blog" replace />;
 
-  if (!post) {
-    return <Navigate to="/blog" replace />;
-  }
+  const related = blogPosts.filter((p) => p.slug !== slug).slice(0, 2);
 
-  const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 2);
+  const dateStr = post.date
+    ? new Date(post.date).toLocaleDateString(
+        language === "es" ? "es-ES" : "en-US",
+        { year: "numeric", month: "long", day: "numeric" }
+      )
+    : post.date;
 
   return (
     <>
@@ -31,139 +36,214 @@ export const BlogPost = () => {
           headline: post.title[language],
           datePublished: post.publishedDate,
           dateModified: post.modifiedDate,
-          author: {
-            "@type": "Person",
-            name: post.author,
-          },
+          author: { "@type": "Person", name: post.author },
           publisher: {
             "@type": "Organization",
             name: "ATEP Consulting",
             logo: {
               "@type": "ImageObject",
-              url: "https://atepconsulting.com/logo-atep.png",
+              url: "https://www.atepconsulting.com/new-logo-atep.png",
             },
           },
         }}
       />
 
       <article>
-        <div className="relative min-h-[700px] md:min-h-[800px] flex items-center bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 overflow-hidden">
-          {/* Imagen de fondo con overlay */}
-          <div className="absolute inset-0">
-            <img
-              src={post.image}
-              alt={post.title[language]}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/95 via-neutral-900/85 to-primary-900/80"></div>
-          </div>
+        {/* HERO */}
+        <header
+          className="px-6 sm:px-10 lg:px-16 pt-12 pb-12 tm:pt-20 tm:pb-16"
+          style={{
+            background: "var(--bg)",
+            borderBottom: "1px solid var(--rule)",
+          }}
+        >
+          <Reveal y={12}>
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 mb-8 no-underline transition-colors duration-150"
+              style={{
+                color: "var(--muted)",
+                fontFamily: FONT.mono,
+                fontSize: 11.5,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.color = "var(--ink)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.color = "var(--muted)")
+              }
+            >
+              <ArrowLeft size={14} />
+              {t("blog.back")}
+            </Link>
+          </Reveal>
 
-          {/* Grid pattern sutil */}
-          <div
-            className="absolute inset-0 opacity-5 pointer-events-none z-10"
-            style={{
-              backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-              backgroundSize: "50px 50px",
-            }}
-          ></div>
+          <Reveal y={16}>
+            <div
+              className="flex flex-wrap items-baseline gap-x-5 gap-y-2 mb-6"
+              style={tEyebrow("var(--muted)")}
+            >
+              <span style={{ color: "var(--accent)" }}>
+                {post.category[language]}
+              </span>
+              <span>{dateStr}</span>
+              {post.author && <span>· {post.author}</span>}
+            </div>
+          </Reveal>
 
-          {/* Contenido */}
-          <div className="section-container w-full relative z-10 py-20 md:py-32">
-            <div className="max-w-4xl mx-auto text-white">
-              <Link
-                to="/blog"
-                className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors fade-in"
+          <Reveal y={28} delay={120} dur={1100}>
+            <h1
+              style={{
+                ...tDisplay("clamp(36px, 6vw, 80px)", 500),
+                color: "var(--ink)",
+                margin: 0,
+                maxWidth: 1100,
+              }}
+            >
+              {post.title[language]}
+            </h1>
+          </Reveal>
+
+          {post.excerpt && (
+            <Reveal y={20} delay={300}>
+              <p
+                className="mt-6 tm:mt-8 italic"
+                style={{
+                  ...tSerif("clamp(17px, 1.4vw, 20px)", 400),
+                  color: "var(--muted)",
+                  lineHeight: 1.5,
+                  maxWidth: 800,
+                  margin: 0,
+                }}
               >
-                <ArrowLeft className="w-5 h-5" />
-                {t("blog.back")}
-              </Link>
-              <h1 className="heading-xl text-white mb-6 fade-in stagger-1">
-                {post.title[language]}
-              </h1>
-              <div className="flex items-center gap-6 text-white/90 fade-in stagger-2">
-                <div className="flex items-center gap-2">
-                  <User className="w-5 h-5" />
-                  <span>{post.author}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-5 h-5" />
-                  <span>{post.date}</span>
-                </div>
-                <span className="bg-primary-600 px-3 py-1 rounded-full text-sm">
-                  {post.category[language]}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+                {post.excerpt[language]}
+              </p>
+            </Reveal>
+          )}
+        </header>
 
-        <section className="section-padding bg-white">
-          <div className="section-container">
-            <div className="max-w-4xl mx-auto">
-              <div className="prose prose-lg max-w-none">
-                {post.content[language]
-                  .split("\n\n")
-                  .map((paragraph, index) => {
-                    if (paragraph.startsWith("## ")) {
-                      return (
-                        <h2 key={index} className="heading-md mt-12 mb-6">
-                          {paragraph.replace("## ", "")}
-                        </h2>
-                      );
-                    }
-                    if (
-                      paragraph.startsWith("1. ") ||
-                      paragraph.match(/^\d+\. /)
-                    ) {
-                      const items = paragraph.split("\n");
-                      return (
-                        <ol
-                          key={index}
-                          className="list-decimal list-inside space-y-2 text-body mb-6"
-                        >
-                          {items.map((item, i) => (
-                            <li key={i}>
-                              {item
-                                .replace(/^\d+\.\s\*\*/, "")
-                                .replace(/\*\*:/, ":")}
-                            </li>
-                          ))}
-                        </ol>
-                      );
-                    }
-                    return (
-                      <p key={index} className="text-body mb-6 leading-relaxed">
-                        {paragraph}
-                      </p>
-                    );
-                  })}
+        {/* COVER */}
+        {post.image && (
+          <Reveal y={24} dur={1100}>
+            <div
+              className="px-6 sm:px-10 lg:px-16 py-10 tm:py-14"
+              style={{ background: "var(--bg)" }}
+            >
+              <div
+                className="overflow-hidden"
+                style={{ aspectRatio: "16/9" }}
+              >
+                <img
+                  src={post.image}
+                  alt={post.title[language]}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
             </div>
+          </Reveal>
+        )}
+
+        {/* CONTENT */}
+        <section
+          className="px-6 sm:px-10 lg:px-16 py-12 tm:py-20"
+          style={{ background: "var(--bg)" }}
+        >
+          <div className="max-w-3xl mx-auto">
+            {post.content[language]
+              .split("\n\n")
+              .map((paragraph, idx) => {
+                if (paragraph.startsWith("## ")) {
+                  return (
+                    <h2
+                      key={idx}
+                      className="mt-12 mb-5"
+                      style={{
+                        ...tDisplay("clamp(24px, 2.8vw, 36px)", 500),
+                        color: "var(--ink)",
+                        margin: "48px 0 20px",
+                      }}
+                    >
+                      {paragraph.replace("## ", "")}
+                    </h2>
+                  );
+                }
+                if (paragraph.match(/^\d+\. /m)) {
+                  const items = paragraph.split("\n").filter(Boolean);
+                  return (
+                    <ol
+                      key={idx}
+                      className="mb-6 pl-6 space-y-3"
+                      style={{
+                        listStyle: "decimal",
+                        ...tSerif("clamp(16px, 1.2vw, 18px)", 400),
+                        color: "var(--ink)",
+                        lineHeight: 1.65,
+                      }}
+                    >
+                      {items.map((item, i) => (
+                        <li key={i}>
+                          {item
+                            .replace(/^\d+\.\s\*\*/, "")
+                            .replace(/\*\*:/, ":")
+                            .replace(/^\d+\.\s/, "")}
+                        </li>
+                      ))}
+                    </ol>
+                  );
+                }
+                return (
+                  <p
+                    key={idx}
+                    className="mb-6"
+                    style={{
+                      ...tSerif("clamp(16px, 1.2vw, 18px)", 400),
+                      color: "var(--ink)",
+                      lineHeight: 1.7,
+                    }}
+                  >
+                    {paragraph}
+                  </p>
+                );
+              })}
           </div>
         </section>
 
-        {relatedPosts.length > 0 && (
-          <section className="section-padding bg-neutral-50">
-            <div className="section-container">
-              <h2 className="heading-md mb-8 text-center">
-                {t("blog.relatedPosts")}
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                {relatedPosts.map((relatedPost) => (
-                  <BlogCard
-                    key={relatedPost.slug}
-                    slug={relatedPost.slug}
-                    title={relatedPost.title[language]}
-                    excerpt={relatedPost.excerpt[language]}
-                    image={relatedPost.image}
-                    author={relatedPost.author}
-                    date={relatedPost.date}
-                    category={relatedPost.category[language]}
-                  />
-                ))}
+        {/* RELATED */}
+        {related.length > 0 && (
+          <section
+            className="px-6 sm:px-10 lg:px-16 py-16 tm:py-24"
+            style={{ background: "var(--bg-surface)" }}
+          >
+            <Reveal y={20}>
+              <div
+                className="mb-8 tm:mb-10"
+                style={tEyebrow("var(--muted)")}
+              >
+                — {t("blog.relatedPosts")}
               </div>
-            </div>
+            </Reveal>
+            <RevealStagger
+              stagger={120}
+              base={100}
+              y={20}
+              className="grid grid-cols-1 tm:grid-cols-2 gap-8"
+            >
+              {related.map((rp) => (
+                <BlogCard
+                  key={rp.slug}
+                  slug={rp.slug}
+                  title={rp.title[language]}
+                  excerpt={rp.excerpt[language]}
+                  image={rp.image}
+                  author={rp.author}
+                  date={rp.date}
+                  category={rp.category[language]}
+                />
+              ))}
+            </RevealStagger>
           </section>
         )}
       </article>

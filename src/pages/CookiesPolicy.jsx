@@ -1,9 +1,15 @@
-import { Cookie } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { SEO } from "../components/SEO";
+import {
+  LegalPage,
+  LegalSection,
+  LegalP,
+  LegalUl,
+} from "../components/LegalPage";
+import { tEyebrow, tSerif } from "../lib/typography";
 
 export const CookiesPolicy = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const cookieTypes = [
     {
@@ -35,151 +41,129 @@ export const CookiesPolicy = () => {
         schemaType="WebPage"
       />
 
-      <section className="section-padding bg-gradient-to-br from-primary-50 to-white">
-        <div className="section-container">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-4 mb-6 fade-in">
-              <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center">
-                <Cookie className="w-8 h-8 text-primary-600" />
-              </div>
-              <h1 className="heading-xl">{t("cookies.title")}</h1>
-            </div>
-            <p className="text-neutral-600 fade-in stagger-1">
-              {t("cookies.lastUpdated")}: {t("cookies.lastUpdatedDate")}
-            </p>
-          </div>
-        </div>
-      </section>
+      <LegalPage
+        eyebrow={language === "es" ? "Aviso legal" : "Legal"}
+        title={t("cookies.title")}
+        lastUpdatedLabel={t("cookies.lastUpdated")}
+        lastUpdatedDate={t("cookies.lastUpdatedDate")}
+        intro={t("cookies.intro")}
+      >
+        <LegalSection title={t("cookies.whatAre")}>
+          <LegalP>{t("cookies.whatAreText")}</LegalP>
+        </LegalSection>
 
-      <section className="section-padding bg-white">
-        <div className="section-container">
-          <div className="max-w-4xl mx-auto space-y-12">
-            {/* Introducción */}
-            <div className="slide-up">
-              <p className="text-body leading-relaxed">{t("cookies.intro")}</p>
-            </div>
+        <LegalSection title={t("cookies.howWeUse")}>
+          <LegalP>{t("cookies.howWeUseText")}</LegalP>
+        </LegalSection>
 
-            {/* Qué son las cookies */}
-            <div className="slide-up stagger-1">
-              <h2 className="heading-md mb-4">{t("cookies.whatAre")}</h2>
-              <p className="text-body leading-relaxed">
-                {t("cookies.whatAreText")}
-              </p>
-            </div>
-
-            {/* Cómo usamos las cookies */}
-            <div className="slide-up stagger-2">
-              <h2 className="heading-md mb-4">{t("cookies.howWeUse")}</h2>
-              <p className="text-body leading-relaxed">
-                {t("cookies.howWeUseText")}
-              </p>
-            </div>
-
-            {/* Tipos de cookies */}
-            <div className="slide-up stagger-3">
-              <h2 className="heading-md mb-4">{t("cookies.types")}</h2>
-              <div className="space-y-6">
-                {cookieTypes.map((cookie, index) => (
-                  <div
-                    key={index}
-                    className="border-l-4 border-primary-500 pl-6 py-2"
-                  >
-                    <h3 className="font-semibold text-lg text-neutral-800 mb-2">
-                      {cookie.type}
-                    </h3>
-                    <p className="text-body mb-2">{cookie.description}</p>
-                    <p className="text-sm text-neutral-600">
-                      <span className="font-medium">
-                        {t("cookies.examplesLabel")}:
-                      </span>{" "}
-                      {cookie.examples}
-                    </p>
-                    <p className="text-sm text-neutral-600">
-                      <span className="font-medium">
-                        {t("cookies.durationLabel")}:
-                      </span>{" "}
-                      {cookie.duration}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Cookies de terceros */}
-            <div className="slide-up stagger-4">
-              <h2 className="heading-md mb-4">{t("cookies.thirdParty")}</h2>
-              <p className="text-body leading-relaxed mb-4">
-                {t("cookies.thirdPartyText")}
-              </p>
-              <ul className="list-disc list-inside space-y-2 ml-4 text-body">
-                <li>{t("cookies.thirdPartyItem1")}</li>
-                <li>{t("cookies.thirdPartyItem2")}</li>
-              </ul>
-            </div>
-
-            {/* Control de cookies */}
-            <div className="slide-up stagger-5">
-              <h2 className="heading-md mb-4">{t("cookies.control")}</h2>
-              <p className="text-body leading-relaxed mb-4">
-                {t("cookies.controlText")}
-              </p>
-              <div className="bg-neutral-50 p-6 rounded-lg">
-                <h3 className="font-semibold text-neutral-800 mb-3">
-                  {t("cookies.browserSettings")}
-                </h3>
-                <ul className="space-y-2 text-body">
-                  <li>
-                    <span className="font-medium">Chrome:</span>{" "}
-                    {t("cookies.chromeInstructions")}
-                  </li>
-                  <li>
-                    <span className="font-medium">Firefox:</span>{" "}
-                    {t("cookies.firefoxInstructions")}
-                  </li>
-                  <li>
-                    <span className="font-medium">Safari:</span>{" "}
-                    {t("cookies.safariInstructions")}
-                  </li>
-                  <li>
-                    <span className="font-medium">Edge:</span>{" "}
-                    {t("cookies.edgeInstructions")}
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Aceptación de cookies */}
-            <div className="slide-up stagger-6">
-              <h2 className="heading-md mb-4">{t("cookies.acceptance")}</h2>
-              <p className="text-body leading-relaxed">
-                {t("cookies.acceptanceText")}
-              </p>
-            </div>
-
-            {/* Actualizaciones */}
-            <div className="slide-up stagger-7">
-              <h2 className="heading-md mb-4">{t("cookies.updates")}</h2>
-              <p className="text-body leading-relaxed">
-                {t("cookies.updatesText")}
-              </p>
-            </div>
-
-            {/* Contacto */}
-            <div className="slide-up stagger-8 border-t border-neutral-200 pt-8">
-              <h2 className="heading-md mb-4">{t("cookies.contact")}</h2>
-              <p className="text-body text-neutral-600">
-                {t("cookies.contactText")}{" "}
-                <a
-                  href="mailto:info@atepconsulting.com"
-                  className="text-primary-600 hover:underline"
+        <LegalSection title={t("cookies.types")}>
+          <div className="space-y-7">
+            {cookieTypes.map((c) => (
+              <div
+                key={c.type}
+                className="pl-5"
+                style={{ borderLeft: "3px solid var(--accent)" }}
+              >
+                <h3
+                  className="mb-3"
+                  style={{
+                    ...tSerif("clamp(17px, 1.4vw, 20px)", 500),
+                    color: "var(--ink)",
+                    margin: "0 0 10px",
+                  }}
                 >
-                  info@atepconsulting.com
-                </a>
-              </p>
-            </div>
+                  {c.type}
+                </h3>
+                <LegalP>{c.description}</LegalP>
+                <p
+                  className="text-[13.5px] mb-1"
+                  style={{ color: "var(--muted)" }}
+                >
+                  <span style={tEyebrow("var(--muted)")}>
+                    {t("cookies.examplesLabel")}
+                  </span>{" "}
+                  {c.examples}
+                </p>
+                <p
+                  className="text-[13.5px]"
+                  style={{ color: "var(--muted)" }}
+                >
+                  <span style={tEyebrow("var(--muted)")}>
+                    {t("cookies.durationLabel")}
+                  </span>{" "}
+                  {c.duration}
+                </p>
+              </div>
+            ))}
           </div>
-        </div>
-      </section>
+        </LegalSection>
+
+        <LegalSection title={t("cookies.thirdParty")}>
+          <LegalP>{t("cookies.thirdPartyText")}</LegalP>
+          <LegalUl
+            items={[t("cookies.thirdPartyItem1"), t("cookies.thirdPartyItem2")]}
+          />
+        </LegalSection>
+
+        <LegalSection title={t("cookies.control")}>
+          <LegalP>{t("cookies.controlText")}</LegalP>
+          <div
+            className="mt-5 p-5"
+            style={{ background: "var(--bg-surface)" }}
+          >
+            <h3
+              className="mb-4"
+              style={{
+                ...tSerif("clamp(16px, 1.2vw, 18px)", 500),
+                color: "var(--ink)",
+                margin: "0 0 14px",
+              }}
+            >
+              {t("cookies.browserSettings")}
+            </h3>
+            <ul className="space-y-2">
+              {[
+                ["Chrome", t("cookies.chromeInstructions")],
+                ["Firefox", t("cookies.firefoxInstructions")],
+                ["Safari", t("cookies.safariInstructions")],
+                ["Edge", t("cookies.edgeInstructions")],
+              ].map(([b, txt]) => (
+                <li
+                  key={b}
+                  className="text-[14.5px]"
+                  style={{ color: "var(--ink)" }}
+                >
+                  <span style={{ fontWeight: 500 }}>{b}:</span> {txt}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </LegalSection>
+
+        <LegalSection title={t("cookies.acceptance")}>
+          <LegalP>{t("cookies.acceptanceText")}</LegalP>
+        </LegalSection>
+
+        <LegalSection title={t("cookies.updates")}>
+          <LegalP>{t("cookies.updatesText")}</LegalP>
+        </LegalSection>
+
+        <LegalSection title={t("cookies.contact")}>
+          <LegalP muted>
+            {t("cookies.contactText")}{" "}
+            <a
+              href="mailto:info@atepconsulting.com"
+              style={{
+                color: "var(--accent)",
+                textDecoration: "underline",
+                textUnderlineOffset: 3,
+              }}
+            >
+              info@atepconsulting.com
+            </a>
+          </LegalP>
+        </LegalSection>
+      </LegalPage>
     </>
   );
 };

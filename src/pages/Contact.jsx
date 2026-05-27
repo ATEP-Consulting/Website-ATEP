@@ -1,58 +1,52 @@
-import {
-  Mail,
-  Phone,
-  Globe,
-  Clock,
-  Send,
-  Linkedin,
-  Instagram,
-} from "lucide-react";
+import { Linkedin, Instagram } from "lucide-react";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { useLanguage } from "../context/LanguageContext";
 import { SEO } from "../components/SEO";
 import { ContactForm } from "../components/ContactForm";
 import ImageHero from "../components/ImageHero";
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import { Reveal, RevealStagger } from "../components/Reveal";
+import { tEyebrow, tSerif } from "../lib/typography";
 
 export const Contact = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
-  const contactMethods = [
+  const infoBlocks = [
     {
-      icon: Mail,
-      title: t("contact.emailTitle") || "Email Us",
+      label: t("contact.emailTitle") || (language === "es" ? "Email" : "Email"),
       value: "info@atepconsulting.com",
-      link: "mailto:info@atepconsulting.com",
-      description: t("contact.emailDesc") || "We reply within 24 hours",
+      href: "mailto:info@atepconsulting.com",
     },
     {
-      icon: Phone,
-      title: t("contact.phoneTitle") || "Call Us",
+      label: t("contact.phoneTitle") || (language === "es" ? "Teléfono" : "Phone"),
       value: "+34 647 748 705",
-      link: "tel:+34647748705",
-      description: t("contact.phoneDesc") || "Available 24/7 for you",
+      href: "tel:+34647748705",
     },
     {
-      icon: Globe,
-      title: t("contact.remoteTitle") || "Remote Services",
-      value: t("contact.remoteValue") || "Worldwide",
-      link: null,
-      description: t("contact.remoteDesc") || "We work with clients globally",
+      label: language === "es" ? "Oficina" : "Office",
+      value: language === "es"
+        ? "Paterna · Valencia\nEspaña"
+        : "Paterna · Valencia\nSpain",
+      href: null,
+    },
+    {
+      label: language === "es" ? "Horario" : "Hours",
+      value: language === "es"
+        ? "Lun–Vie · 9:00–18:00 CET"
+        : "Mon–Fri · 9:00–18:00 CET",
+      href: null,
     },
   ];
 
-  const socialLinks = [
+  const socials = [
     {
       icon: Linkedin,
-      url: "https://linkedin.com/company/atepconsulting",
+      url: "https://www.linkedin.com/company/atepconsulting",
       label: "LinkedIn",
-      color: "hover:bg-[#0A66C2]",
     },
     {
       icon: Instagram,
-      url: "https://instagram.com/atepconsulting",
+      url: "https://www.instagram.com/atepconsulting",
       label: "Instagram",
-      color:
-        "hover:bg-gradient-to-br hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#515BD4]",
     },
   ];
 
@@ -60,7 +54,7 @@ export const Contact = () => {
     <>
       <GoogleReCaptchaProvider
         reCaptchaKey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-        language="es"
+        language={language}
       >
         <SEO
           title="Contacto - Hablemos de tu Proyecto"
@@ -79,149 +73,138 @@ export const Contact = () => {
         />
 
         <ImageHero
-          icon={Send}
+          eyebrow={language === "es" ? "Conversemos" : "Let's talk"}
           title={t("contact.title")}
           description={t("contact.subtitle")}
-          backgroundImage="images/contact/ContactUs.webp"
         />
 
-        {/* Contact Methods - Cards destacadas */}
-        <section className="section-padding bg-white">
-          <div className="section-container">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
-              {contactMethods.map((method, index) => {
-                const Icon = method.icon;
-                return (
+        <section
+          className="px-6 sm:px-10 lg:px-16 py-16 tm:py-24"
+          style={{ background: "var(--bg)" }}
+        >
+          <div className="grid grid-cols-1 tm:grid-cols-[1.2fr_1fr] gap-12 tm:gap-24 items-start">
+            {/* LEFT: info */}
+            <div>
+              <Reveal y={20}>
+                <p
+                  className="italic"
+                  style={{
+                    ...tSerif("clamp(17px, 1.4vw, 20px)", 400),
+                    color: "var(--muted)",
+                    maxWidth: 520,
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {language === "es"
+                    ? "Si nos cuentas un poco del contexto, te respondemos en menos de 24h con próximos pasos concretos — no con un comercial genérico."
+                    : "Tell us a bit of context and we'll respond in under 24h with concrete next steps — not a generic sales pitch."}
+                </p>
+              </Reveal>
+
+              <RevealStagger
+                stagger={90}
+                base={300}
+                y={14}
+                className="mt-10 tm:mt-14 grid gap-6 tm:gap-7"
+              >
+                {infoBlocks.map((b) => (
                   <div
-                    key={method.title}
-                    className={`group text-center p-8 rounded-2xl bg-gradient-to-br from-neutral-50 to-white border-2 border-neutral-100 transition-all duration-300 slide-up stagger-${
-                      index + 1
-                    }`}
+                    key={b.label}
+                    className="pb-5"
+                    style={{ borderBottom: "1px solid var(--rule)" }}
                   >
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-50 rounded-2xl flex items-center justify-center mx-auto mb-4 transform transition-transform duration-500 group-hover:scale-110">
-                      <Icon className="w-8 h-8 text-primary-600" />
+                    <div
+                      className="mb-[6px]"
+                      style={tEyebrow("var(--muted)")}
+                    >
+                      {b.label}
                     </div>
-
-                    <h3 className="text-lg font-bold text-neutral-900 mb-2">
-                      {method.title}
-                    </h3>
-
-                    <p className="text-sm text-neutral-500 mb-3">
-                      {method.description}
-                    </p>
-
-                    {method.link ? (
+                    {b.href ? (
                       <a
-                        href={method.link}
-                        className="inline-block text-primary-600 font-semibold hover:text-primary-700 transition-colors"
+                        href={b.href}
+                        className="no-underline transition-colors duration-150"
+                        style={{
+                          fontSize: 16,
+                          color: "var(--ink)",
+                          lineHeight: 1.5,
+                          whiteSpace: "pre-line",
+                        }}
+                        onMouseEnter={(e) =>
+                          (e.currentTarget.style.color = "var(--accent)")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.currentTarget.style.color = "var(--ink)")
+                        }
                       >
-                        {method.value}
+                        {b.value}
                       </a>
                     ) : (
-                      <p className="text-neutral-700 font-semibold">
-                        {method.value}
-                      </p>
-                    )}
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full transition-all duration-300 group-hover:w-20"></div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Form y sidebar */}
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-                {/* Formulario - Ocupa más espacio (3 columnas) */}
-                <div className="lg:col-span-3 slide-up">
-                  <div className="bg-white rounded-2xl border-2 border-neutral-100 p-8 lg:p-10">
-                    <div className="mb-8">
-                      <h2 className="text-2xl lg:text-3xl font-bold text-neutral-900 mb-3">
-                        {t("contact.formTitle") || "Send us a message"}
-                      </h2>
-                      <p className="text-neutral-600">
-                        {t("contact.formSubtitle") ||
-                          "Fill out the form below and we'll get back to you within 24 hours"}
-                      </p>
-                    </div>
-                    <ContactForm />
-                  </div>
-                </div>
-
-                {/* Info adicional - Sidebar (2 columnas) */}
-                <div className="lg:col-span-2 space-y-6 slide-up stagger-1">
-                  {/* Disponibilidad 24/7 */}
-                  <div className="bg-gradient-to-br from-primary-50 to-white rounded-2xl border-2 border-primary-100 p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center">
-                        <Clock className="w-6 h-6 text-primary-600" />
+                      <div
+                        style={{
+                          fontSize: 16,
+                          color: "var(--ink)",
+                          lineHeight: 1.5,
+                          whiteSpace: "pre-line",
+                        }}
+                      >
+                        {b.value}
                       </div>
-                      <h3 className="text-lg font-bold text-neutral-900">
-                        {t("contact.availabilityTitle") || "24/7 Availability"}
-                      </h3>
-                    </div>
-                    <p className="text-neutral-700 text-sm leading-relaxed mb-4">
-                      {t("contact.availabilityText") ||
-                        "We're available around the clock to assist you. Reach out anytime, and we'll respond as quickly as possible."}
-                    </p>
-                    <div className="flex items-center gap-2 text-sm">
-                      <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                      <span className="font-semibold text-green-700">
-                        {t("contact.onlineNow") || "Online Now"}
-                      </span>
-                    </div>
+                    )}
                   </div>
+                ))}
+              </RevealStagger>
 
-                  {/* Redes Sociales */}
-                  <div className="bg-gradient-to-br from-neutral-50 to-white rounded-2xl border-2 border-neutral-100 p-6">
-                    <h3 className="text-lg font-bold text-neutral-900 mb-4">
-                      {t("contact.followTitle") || "Follow Us"}
-                    </h3>
-                    <p className="text-neutral-600 text-sm mb-6">
-                      {t("contact.followText") ||
-                        "Stay updated with our latest news and insights"}
-                    </p>
-                    <div className="grid grid-cols-2 gap-3">
-                      {socialLinks.map((social) => {
-                        const Icon = social.icon;
-                        return (
-                          <a
-                            key={social.label}
-                            href={social.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`flex items-center gap-3 p-4 bg-white rounded-xl border-2 border-neutral-100 transition-all duration-300 hover:border-transparent hover:text-white ${social.color} group`}
-                            aria-label={social.label}
-                          >
-                            <Icon className="w-5 h-5" />
-                            <span className="text-sm font-semibold">
-                              {social.label}
-                            </span>
-                          </a>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* CTA de urgencia */}
-                  <div className="bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-2xl p-6 text-white">
-                    <h3 className="text-lg font-bold mb-2">
-                      {t("contact.urgentTitle") || "Need immediate help?"}
-                    </h3>
-                    <p className="text-neutral-300 text-sm mb-4">
-                      {t("contact.urgentText") ||
-                        "Call us directly for instant support"}
-                    </p>
-                    <a
-                      href="tel:+1234567890"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-white text-neutral-900 font-semibold rounded-lg hover:bg-neutral-100 transition-colors w-full justify-center"
-                    >
-                      <Phone className="w-5 h-5" />
-                      +34 647 748 705
-                    </a>
-                  </div>
+              <Reveal y={16} delay={600}>
+                <div className="mt-8 flex gap-3">
+                  {socials.map((s) => {
+                    const Icon = s.icon;
+                    return (
+                      <a
+                        key={s.label}
+                        href={s.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={s.label}
+                        className="w-10 h-10 flex items-center justify-center transition-colors duration-150"
+                        style={{
+                          border: "1px solid var(--rule-strong)",
+                          color: "var(--ink)",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = "var(--accent)";
+                          e.currentTarget.style.color = "var(--bg)";
+                          e.currentTarget.style.borderColor = "var(--accent)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = "transparent";
+                          e.currentTarget.style.color = "var(--ink)";
+                          e.currentTarget.style.borderColor =
+                            "var(--rule-strong)";
+                        }}
+                      >
+                        <Icon size={16} />
+                      </a>
+                    );
+                  })}
                 </div>
-              </div>
+              </Reveal>
             </div>
+
+            {/* RIGHT: form */}
+            <Reveal y={32} delay={200} dur={1100}>
+              <div
+                className="p-6 tm:p-10"
+                style={{ background: "var(--bg-surface)" }}
+              >
+                <div
+                  className="mb-7 tm:mb-9"
+                  style={tEyebrow("var(--muted)")}
+                >
+                  — {language === "es" ? "Formulario" : "Form"}
+                </div>
+                <ContactForm />
+              </div>
+            </Reveal>
           </div>
         </section>
       </GoogleReCaptchaProvider>

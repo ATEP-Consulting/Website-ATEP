@@ -1,10 +1,15 @@
-// src/pages/LegalNotice.jsx
-import { Scale } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { SEO } from "../components/SEO";
+import {
+  LegalPage,
+  LegalSection,
+  LegalP,
+  LegalUl,
+} from "../components/LegalPage";
 
 export const LegalNotice = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <>
@@ -15,170 +20,116 @@ export const LegalNotice = () => {
         schemaType="WebPage"
       />
 
-      <section className="section-padding bg-gradient-to-br from-primary-50 to-white">
-        <div className="section-container">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-4 mb-6 fade-in">
-              <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center">
-                <Scale className="w-8 h-8 text-primary-600" />
-              </div>
-              <h1 className="heading-xl">{t("legal.title")}</h1>
-            </div>
-            <p className="text-neutral-600 fade-in stagger-1">
-              {t("legal.lastUpdated")}: {t("legal.lastUpdatedDate")}
-            </p>
-          </div>
-        </div>
-      </section>
+      <LegalPage
+        eyebrow={language === "es" ? "Aviso legal" : "Legal"}
+        title={t("legal.title")}
+        lastUpdatedLabel={t("legal.lastUpdated")}
+        lastUpdatedDate={t("legal.lastUpdatedDate")}
+        intro={t("legal.intro")}
+      >
+        <LegalSection title={t("legal.identification")}>
+          <LegalP>{t("legal.identificationText")}</LegalP>
+          <ul className="list-disc pl-6 space-y-2 mb-4">
+            <li>
+              <span style={{ fontWeight: 500 }}>{t("legal.companyNameLabel")}:</span>{" "}
+              ATEP CONSULTING 2.0 SL.
+            </li>
+            <li>
+              <span style={{ fontWeight: 500 }}>{t("legal.cifLabel")}:</span>{" "}
+              B44593572
+            </li>
+            <li>
+              <span style={{ fontWeight: 500 }}>{t("legal.addressLabel")}:</span>{" "}
+              CALLE NUMERO 611 (MONTECAÑADA), 3
+            </li>
+            <li>
+              <span style={{ fontWeight: 500 }}>{t("legal.emailLabel")}:</span>{" "}
+              info@atepconsulting.com
+            </li>
+            <li>
+              <span style={{ fontWeight: 500 }}>{t("legal.phoneLabel")}:</span>{" "}
+              +34 647 748 705
+            </li>
+          </ul>
+        </LegalSection>
 
-      <section className="section-padding bg-white">
-        <div className="section-container">
-          <div className="max-w-4xl mx-auto space-y-12">
-            {/* Introducción */}
-            <div className="slide-up">
-              <p className="text-body leading-relaxed">{t("legal.intro")}</p>
-            </div>
+        <LegalSection title={t("legal.purpose")}>
+          <LegalP>{t("legal.purposeText")}</LegalP>
+        </LegalSection>
 
-            {/* Datos identificativos */}
-            <div className="slide-up stagger-1">
-              <h2 className="heading-md mb-4">{t("legal.identification")}</h2>
-              <div className="text-body leading-relaxed space-y-2">
-                <p>{t("legal.identificationText")}</p>
-                <ul className="list-disc list-inside space-y-1 ml-4">
-                  <li>
-                    <span className="font-medium">
-                      {t("legal.companyNameLabel")}:
-                    </span>{" "}
-                    ATEP CONSULTING 2.0 SL.
-                  </li>
-                  <li>
-                    <span className="font-medium">{t("legal.cifLabel")}:</span>{" "}
-                    B44593572
-                  </li>
-                  <li>
-                    <span className="font-medium">
-                      {t("legal.addressLabel")}:
-                    </span>{" "}
-                    CALLE NUMERO 611 (MONTECAÑADA), 3
-                  </li>
-                  <li>
-                    <span className="font-medium">
-                      {t("legal.emailLabel")}:
-                    </span>{" "}
-                    info@atepconsulting.com
-                  </li>
-                  <li>
-                    <span className="font-medium">
-                      {t("legal.phoneLabel")}:
-                    </span>{" "}
-                    +43 647 748 705
-                  </li>
-                </ul>
-              </div>
-            </div>
+        <LegalSection title={t("legal.accessConditions")}>
+          <LegalP>{t("legal.accessConditionsText")}</LegalP>
+          <LegalUl
+            items={[
+              t("legal.accessItem1"),
+              t("legal.accessItem2"),
+              t("legal.accessItem3"),
+              t("legal.accessItem4"),
+            ]}
+          />
+        </LegalSection>
 
-            {/* Objeto */}
-            <div className="slide-up stagger-2">
-              <h2 className="heading-md mb-4">{t("legal.purpose")}</h2>
-              <p className="text-body leading-relaxed">
-                {t("legal.purposeText")}
-              </p>
-            </div>
+        <LegalSection title={t("legal.intellectualProperty")}>
+          <LegalP>{t("legal.intellectualPropertyText")}</LegalP>
+        </LegalSection>
 
-            {/* Condiciones de acceso */}
-            <div className="slide-up stagger-3">
-              <h2 className="heading-md mb-4">{t("legal.accessConditions")}</h2>
-              <p className="text-body leading-relaxed mb-4">
-                {t("legal.accessConditionsText")}
-              </p>
-              <ul className="list-disc list-inside space-y-2 ml-4 text-body">
-                <li>{t("legal.accessItem1")}</li>
-                <li>{t("legal.accessItem2")}</li>
-                <li>{t("legal.accessItem3")}</li>
-                <li>{t("legal.accessItem4")}</li>
-              </ul>
-            </div>
+        <LegalSection title={t("legal.liability")}>
+          <LegalP>{t("legal.liabilityText")}</LegalP>
+          <LegalUl
+            items={[
+              t("legal.liabilityItem1"),
+              t("legal.liabilityItem2"),
+              t("legal.liabilityItem3"),
+            ]}
+          />
+        </LegalSection>
 
-            {/* Propiedad intelectual */}
-            <div className="slide-up stagger-4">
-              <h2 className="heading-md mb-4">
-                {t("legal.intellectualProperty")}
-              </h2>
-              <p className="text-body leading-relaxed">
-                {t("legal.intellectualPropertyText")}
-              </p>
-            </div>
+        <LegalSection title={t("legal.externalLinks")}>
+          <LegalP>{t("legal.externalLinksText")}</LegalP>
+        </LegalSection>
 
-            {/* Responsabilidad */}
-            <div className="slide-up stagger-5">
-              <h2 className="heading-md mb-4">{t("legal.liability")}</h2>
-              <p className="text-body leading-relaxed mb-4">
-                {t("legal.liabilityText")}
-              </p>
-              <ul className="list-disc list-inside space-y-2 ml-4 text-body">
-                <li>{t("legal.liabilityItem1")}</li>
-                <li>{t("legal.liabilityItem2")}</li>
-                <li>{t("legal.liabilityItem3")}</li>
-              </ul>
-            </div>
+        <LegalSection title={t("legal.dataProtection")}>
+          <LegalP>
+            {t("legal.dataProtectionText")}{" "}
+            <Link
+              to="/privacy-policy"
+              style={{
+                color: "var(--accent)",
+                textDecoration: "underline",
+                textUnderlineOffset: 3,
+                fontWeight: 500,
+              }}
+            >
+              {t("legal.privacyPolicyLink")}
+            </Link>
+            .
+          </LegalP>
+        </LegalSection>
 
-            {/* Enlaces externos */}
-            <div className="slide-up stagger-6">
-              <h2 className="heading-md mb-4">{t("legal.externalLinks")}</h2>
-              <p className="text-body leading-relaxed">
-                {t("legal.externalLinksText")}
-              </p>
-            </div>
+        <LegalSection title={t("legal.applicableLegislation")}>
+          <LegalP>{t("legal.applicableLegislationText")}</LegalP>
+        </LegalSection>
 
-            {/* Protección de datos */}
-            <div className="slide-up stagger-7">
-              <h2 className="heading-md mb-4">{t("legal.dataProtection")}</h2>
-              <p className="text-body leading-relaxed">
-                {t("legal.dataProtectionText")}{" "}
-                <a
-                  href="/privacy-policy"
-                  className="text-primary-600 hover:underline font-medium"
-                >
-                  {t("legal.privacyPolicyLink")}
-                </a>
-                .
-              </p>
-            </div>
+        <LegalSection title={t("legal.modifications")}>
+          <LegalP>{t("legal.modificationsText")}</LegalP>
+        </LegalSection>
 
-            {/* Legislación aplicable */}
-            <div className="slide-up stagger-8">
-              <h2 className="heading-md mb-4">
-                {t("legal.applicableLegislation")}
-              </h2>
-              <p className="text-body leading-relaxed">
-                {t("legal.applicableLegislationText")}
-              </p>
-            </div>
-
-            {/* Modificaciones */}
-            <div className="slide-up stagger-9">
-              <h2 className="heading-md mb-4">{t("legal.modifications")}</h2>
-              <p className="text-body leading-relaxed">
-                {t("legal.modificationsText")}
-              </p>
-            </div>
-
-            {/* Contacto */}
-            <div className="slide-up stagger-10 border-t border-neutral-200 pt-8">
-              <h2 className="heading-md mb-4">{t("legal.contact")}</h2>
-              <p className="text-body text-neutral-600">
-                {t("legal.contactText")}{" "}
-                <a
-                  href="mailto:info@atepconsulting.com"
-                  className="text-primary-600 hover:underline"
-                >
-                  info@atepconsulting.com
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+        <LegalSection title={t("legal.contact")}>
+          <LegalP muted>
+            {t("legal.contactText")}{" "}
+            <a
+              href="mailto:info@atepconsulting.com"
+              style={{
+                color: "var(--accent)",
+                textDecoration: "underline",
+                textUnderlineOffset: 3,
+              }}
+            >
+              info@atepconsulting.com
+            </a>
+          </LegalP>
+        </LegalSection>
+      </LegalPage>
     </>
   );
 };

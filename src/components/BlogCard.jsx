@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
-import { Calendar, User, ArrowRight } from "lucide-react";
+import { tDisplay, tEyebrow } from "../lib/typography";
 
 export const BlogCard = ({
   slug,
@@ -11,45 +11,88 @@ export const BlogCard = ({
   date,
   category,
 }) => {
-  const { t } = useLanguage();
+  const { language } = useLanguage();
+  const dateStr = date
+    ? new Date(date).toLocaleDateString(
+        language === "es" ? "es-ES" : "en-US",
+        { year: "numeric", month: "long", day: "numeric" }
+      )
+    : "";
 
   return (
-    <article className="card group">
-      <div className="relative overflow-hidden rounded-lg mb-6">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-          loading="lazy"
-        />
-        {category && (
-          <span className="absolute top-4 left-4 bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-            {category}
-          </span>
-        )}
-      </div>
-
-      <div className="flex items-center gap-4 text-sm text-neutral-500 mb-4">
-        <div className="flex items-center gap-2">
-          <User className="w-4 h-4" />
-          <span>{author}</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <Calendar className="w-4 h-4" />
-          <span>{date}</span>
-        </div>
-      </div>
-
-      <h3 className="heading-sm mb-3 line-clamp-2">{title}</h3>
-      <p className="text-body mb-6 line-clamp-3">{excerpt}</p>
-
-      <Link
-        to={`/blog/${slug}`}
-        className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:gap-3 transition-all duration-200"
+    <Link
+      to={`/blog/${slug}`}
+      className="block no-underline group h-full"
+      style={{ color: "inherit" }}
+    >
+      <article
+        className="flex flex-col h-full"
+        style={{ background: "var(--bg-panel)" }}
       >
-        {t("blog.readMore")}
-        <ArrowRight className="w-5 h-5" />
-      </Link>
-    </article>
+        {image && (
+          <div className="relative overflow-hidden aspect-[4/3]">
+            <img
+              src={image}
+              alt={title}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+        )}
+        <div
+          className="p-5 tm:p-6 flex-1 flex flex-col"
+          style={{ borderTop: "1px solid var(--rule)" }}
+        >
+          <div
+            className="flex justify-between items-baseline mb-4"
+            style={tEyebrow("var(--muted)")}
+          >
+            {category && <span style={{ color: "var(--accent)" }}>{category}</span>}
+            {dateStr && <span>{dateStr}</span>}
+          </div>
+          <h3
+            className="mb-3"
+            style={{
+              ...tDisplay("clamp(18px, 1.8vw, 22px)", 500),
+              color: "var(--ink)",
+              lineHeight: 1.25,
+              margin: 0,
+            }}
+          >
+            {title}
+          </h3>
+          {excerpt && (
+            <p
+              className="m-0 mt-3 line-clamp-3"
+              style={{
+                fontSize: 14,
+                color: "var(--muted)",
+                lineHeight: 1.55,
+              }}
+            >
+              {excerpt}
+            </p>
+          )}
+          <div
+            className="mt-5 pt-4 flex justify-between items-baseline"
+            style={{
+              borderTop: "1px solid var(--rule)",
+            }}
+          >
+            {author && (
+              <span style={{ fontSize: 12.5, color: "var(--muted)" }}>
+                {author}
+              </span>
+            )}
+            <span
+              className="text-[13px] transition-transform duration-200 group-hover:translate-x-1"
+              style={{ color: "var(--ink)" }}
+            >
+              {language === "es" ? "Leer" : "Read"} →
+            </span>
+          </div>
+        </div>
+      </article>
+    </Link>
   );
 };

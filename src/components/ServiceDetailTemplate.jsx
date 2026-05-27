@@ -1,17 +1,24 @@
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import ImageHero from "./ImageHero";
+import { Reveal, RevealStagger } from "./Reveal";
+import { CountingNumber } from "./CountingNumber";
+import { tDisplay, tSerif, tEyebrow } from "../lib/typography";
 
-export const ServiceDetailTemplate = ({ serviceKey, heroIcon, heroImage }) => {
-  const { t } = useLanguage();
+const SectionEyebrow = ({ children }) => (
+  <div className="mb-4" style={tEyebrow("var(--muted)")}>
+    — {children}
+  </div>
+);
 
-  // Helper para validar arrays
+export const ServiceDetailTemplate = ({ serviceKey, heroImage }) => {
+  const { t, language } = useLanguage();
+
   const getArray = (key) => {
     const data = t(key, { returnObjects: true });
     return Array.isArray(data) ? data : [];
   };
 
-  // Obtener todos los datos del servicio desde las traducciones
   const service = {
     name: t(`services.${serviceKey}.name`),
     description: t(`services.${serviceKey}.description`),
@@ -21,292 +28,550 @@ export const ServiceDetailTemplate = ({ serviceKey, heroIcon, heroImage }) => {
     benefitsSubtitle: t(`services.${serviceKey}.benefitsSubtitle`),
     whyChoose: t(`services.${serviceKey}.whyChoose`),
     whyChooseText: t(`services.${serviceKey}.whyChooseText`),
-    ctaText: t(`services.${serviceKey}.ctaText`),
-
-    // Usar helper para arrays
     stats: getArray(`services.${serviceKey}.stats`),
     benefitsList: getArray(`services.${serviceKey}.benefitsList`),
     projectTypes: getArray(`services.${serviceKey}.projectTypes`),
     useCases: getArray(`services.${serviceKey}.useCases`),
     features: getArray(`services.${serviceKey}.features`),
     processSteps: getArray(`services.${serviceKey}.processSteps`),
-    techStack: getArray(`services.${serviceKey}.techStack`),
     guarantees: getArray(`services.${serviceKey}.guarantees`),
   };
 
   return (
     <>
       <ImageHero
-        icon={heroIcon}
+        eyebrow={t("nav.services")}
         title={service.name}
         description={service.description}
         backgroundImage={heroImage}
+        alt={service.name}
       />
 
-      {/* What We Do */}
-      <section className="section-padding bg-white">
-        <div className="section-container">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12 slide-up">
-              <h2 className="heading-lg mb-6">{service.whatWeDo}</h2>
-              <p className="text-body leading-relaxed text-neutral-700 max-w-3xl mx-auto">
-                {service.whatWeDoText}
-              </p>
-            </div>
-
-            {/* Stats - Minimalista */}
-            {service.stats.length > 0 && (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 slide-up stagger-1">
-                {service.stats.map((stat, index) => (
-                  <div key={index} className="text-center p-6">
-                    <div className="text-3xl font-bold text-primary-600 mb-2">
-                      {stat.number}
-                    </div>
-                    <div className="text-md text-neutral-600">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+      {/* WHAT WE DO + STATS */}
+      <section
+        className="px-6 sm:px-10 lg:px-16 py-20 tm:py-24"
+        style={{ background: "var(--bg)" }}
+      >
+        <div className="grid grid-cols-1 tm:grid-cols-3 gap-10 tm:gap-16 items-start">
+          <Reveal y={24}>
+            <SectionEyebrow>
+              {language === "es" ? "Lo que hacemos" : "What we do"}
+            </SectionEyebrow>
+            <h2
+              style={{
+                ...tDisplay("clamp(32px, 4vw, 52px)", 500),
+                color: "var(--ink)",
+                margin: 0,
+              }}
+            >
+              {service.whatWeDo}
+            </h2>
+          </Reveal>
+          <Reveal y={20} delay={120} className="tm:col-span-2">
+            <p
+              style={{
+                ...tSerif("clamp(17px, 1.4vw, 20px)", 400),
+                color: "var(--ink)",
+                lineHeight: 1.6,
+                margin: 0,
+              }}
+            >
+              {service.whatWeDoText}
+            </p>
+          </Reveal>
         </div>
+
+        {service.stats.length > 0 && (
+          <RevealStagger
+            stagger={120}
+            base={240}
+            y={20}
+            className="mt-14 tm:mt-20 grid grid-cols-2 tm:grid-cols-4 gap-6 tm:gap-7"
+          >
+            {service.stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="pt-4 tm:pt-5"
+                style={{ borderTop: "1px solid var(--navy)" }}
+              >
+                <div
+                  style={{
+                    ...tDisplay("clamp(36px, 4.5vw, 56px)", 500),
+                    color: "var(--ink)",
+                  }}
+                >
+                  <CountingNumber value={stat.number} dur={1800} />
+                </div>
+                <div
+                  className="mt-[6px]"
+                  style={{ fontSize: 13, color: "var(--muted)" }}
+                >
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </RevealStagger>
+        )}
       </section>
 
-      {/* Project Types */}
-      {service.projectTypes && service.projectTypes.length > 0 && (
-        <section className="section-padding bg-neutral-50 relative overflow-hidden">
-          {/* Decoración sutil de fondo */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-transparent pointer-events-none" />
-
-          <div className="section-container relative z-10">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12 slide-up">
-                <h2 className="heading-lg mb-4 text-neutral-900">
-                  {t(`services.${serviceKey}.projectTypesTitle`)}
-                </h2>
-                <p className="text-body text-neutral-600 max-w-3xl mx-auto">
-                  {t(`services.${serviceKey}.projectTypesSubtitle`)}
+      {/* PROJECT TYPES */}
+      {service.projectTypes.length > 0 && (
+        <section
+          className="px-6 sm:px-10 lg:px-16 py-20 tm:py-24"
+          style={{ background: "var(--bg-surface)" }}
+        >
+          <Reveal y={20}>
+            <SectionEyebrow>
+              {language === "es" ? "Tipos de proyecto" : "Project types"}
+            </SectionEyebrow>
+            <h2
+              className="mb-3"
+              style={{
+                ...tDisplay("clamp(30px, 3.6vw, 48px)", 500),
+                color: "var(--ink)",
+                margin: 0,
+                maxWidth: 900,
+              }}
+            >
+              {t(`services.${serviceKey}.projectTypesTitle`)}
+            </h2>
+            <p
+              className="mt-5 italic"
+              style={{
+                ...tSerif("clamp(16px, 1.2vw, 18px)", 400),
+                color: "var(--muted)",
+                maxWidth: 700,
+              }}
+            >
+              {t(`services.${serviceKey}.projectTypesSubtitle`)}
+            </p>
+          </Reveal>
+          <RevealStagger
+            stagger={100}
+            base={180}
+            y={20}
+            className="mt-10 tm:mt-14 grid grid-cols-1 tm:grid-cols-2"
+            style={{ borderTop: "1px solid var(--navy)" }}
+          >
+            {service.projectTypes.map((project, idx) => (
+              <div
+                key={project.title}
+                className="p-6 tm:p-8"
+                style={{
+                  borderBottom: "1px solid var(--navy)",
+                  borderRight:
+                    idx % 2 === 0 ? "1px solid var(--navy)" : "none",
+                }}
+              >
+                <div style={tEyebrow("var(--accent)")} className="mb-3">
+                  {String(idx + 1).padStart(2, "0")}
+                </div>
+                <h3
+                  style={{
+                    ...tSerif("clamp(20px, 1.8vw, 22px)", 500),
+                    color: "var(--ink)",
+                    margin: "0 0 10px",
+                  }}
+                >
+                  {project.title}
+                </h3>
+                <p
+                  className="m-0"
+                  style={{
+                    fontSize: 14.5,
+                    lineHeight: 1.55,
+                    color: "var(--muted)",
+                  }}
+                >
+                  {project.description}
                 </p>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {service.projectTypes.map((project, index) => (
-                  <div
-                    key={index}
-                    className="group bg-white p-8 rounded-xl border border-neutral-200 hover:border-primary-600 shadow-sm hover:shadow-md transition-all duration-300 slide-up flex items-start gap-4"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    {/* Punto decorativo animado */}
-                    <div className="relative flex-shrink-0 mt-1">
-                      <span className="block w-3 h-3 rounded-full bg-primary-600 shadow-[0_0_10px_3px_rgba(190,18,60,0.4)] animate-pulse" />
-                    </div>
-
-                    {/* Contenido */}
-                    <div>
-                      <h3 className="text-lg font-semibold text-neutral-900 mb-2 group-hover:text-primary-700 transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-neutral-600 leading-relaxed text-md">
-                        {project.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+            ))}
+          </RevealStagger>
         </section>
       )}
 
-      {/* Use Cases */}
+      {/* USE CASES */}
       {service.useCases.length > 0 && (
-        <section className="section-padding bg-neutral-50">
-          <div className="section-container">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12 slide-up">
-                <h2 className="heading-lg mb-4">
-                  {t(`services.${serviceKey}.useCasesTitle`)}
-                </h2>
-                <p className="text-body text-neutral-600">
-                  {t(`services.${serviceKey}.useCasesSubtitle`)}
+        <section
+          className="px-6 sm:px-10 lg:px-16 py-20 tm:py-24"
+          style={{ background: "var(--bg)" }}
+        >
+          <Reveal y={20}>
+            <SectionEyebrow>
+              {language === "es" ? "Casos de uso" : "Use cases"}
+            </SectionEyebrow>
+            <h2
+              style={{
+                ...tDisplay("clamp(30px, 3.6vw, 48px)", 500),
+                color: "var(--ink)",
+                margin: 0,
+                maxWidth: 900,
+              }}
+            >
+              {t(`services.${serviceKey}.useCasesTitle`)}
+            </h2>
+            <p
+              className="mt-5 italic"
+              style={{
+                ...tSerif("clamp(16px, 1.2vw, 18px)", 400),
+                color: "var(--muted)",
+                maxWidth: 700,
+              }}
+            >
+              {t(`services.${serviceKey}.useCasesSubtitle`)}
+            </p>
+          </Reveal>
+          <RevealStagger
+            stagger={100}
+            base={180}
+            y={20}
+            className="mt-10 tm:mt-14 grid grid-cols-1 tm:grid-cols-2 gap-6 tm:gap-8"
+          >
+            {service.useCases.map((useCase, idx) => (
+              <article
+                key={useCase.title}
+                className="p-6 tm:p-7"
+                style={{
+                  background: "var(--bg-surface)",
+                  border: "1px solid var(--rule)",
+                }}
+              >
+                <div style={tEyebrow("var(--accent)")} className="mb-3">
+                  {String(idx + 1).padStart(2, "0")}
+                </div>
+                <h3
+                  style={{
+                    ...tSerif("clamp(18px, 1.6vw, 22px)", 500),
+                    color: "var(--ink)",
+                    margin: "0 0 10px",
+                  }}
+                >
+                  {useCase.title}
+                </h3>
+                <p
+                  className="m-0"
+                  style={{
+                    fontSize: 14.5,
+                    lineHeight: 1.55,
+                    color: "var(--muted)",
+                  }}
+                >
+                  {useCase.description}
                 </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {service.useCases.map((useCase, index) => (
-                  <div
-                    key={index}
-                    className="group bg-neutral-50 p-8 rounded-xl border border-neutral-200 hover:border-primary-600 transition-all duration-300 slide-up"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                      {useCase.icon}
-                    </div>
-                    <h3 className="text-xl font-semibold text-neutral-900 mb-3">
-                      {useCase.title}
-                    </h3>
-                    <p className="text-neutral-600 leading-relaxed">
-                      {useCase.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+              </article>
+            ))}
+          </RevealStagger>
         </section>
       )}
 
-      {/* Benefits */}
+      {/* BENEFITS */}
       {service.benefitsList.length > 0 && (
-        <section className="section-padding bg-neutral-50">
-          <div className="section-container">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12 slide-up">
-                <h2 className="heading-lg mb-4">{service.benefits}</h2>
-                {service.benefitsSubtitle && (
-                  <p className="text-body text-neutral-600">
-                    {service.benefitsSubtitle}
-                  </p>
-                )}
+        <section
+          className="px-6 sm:px-10 lg:px-16 py-20 tm:py-24"
+          style={{ background: "var(--bg-surface)" }}
+        >
+          <Reveal y={20}>
+            <SectionEyebrow>
+              {language === "es" ? "Beneficios" : "Benefits"}
+            </SectionEyebrow>
+            <h2
+              style={{
+                ...tDisplay("clamp(30px, 3.6vw, 48px)", 500),
+                color: "var(--ink)",
+                margin: 0,
+                maxWidth: 900,
+              }}
+            >
+              {service.benefits}
+            </h2>
+            {service.benefitsSubtitle && (
+              <p
+                className="mt-5 italic"
+                style={{
+                  ...tSerif("clamp(16px, 1.2vw, 18px)", 400),
+                  color: "var(--muted)",
+                  maxWidth: 700,
+                }}
+              >
+                {service.benefitsSubtitle}
+              </p>
+            )}
+          </Reveal>
+          <RevealStagger
+            stagger={90}
+            base={180}
+            y={20}
+            className="mt-10 tm:mt-14 grid grid-cols-1 tm:grid-cols-2 gap-y-6 gap-x-10"
+          >
+            {service.benefitsList.map((benefit, idx) => (
+              <div
+                key={benefit.title}
+                className="pt-4"
+                style={{ borderTop: "1px solid var(--navy)" }}
+              >
+                <div className="flex items-baseline justify-between mb-2">
+                  <span style={tEyebrow("var(--accent)")}>
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <h3
+                  style={{
+                    ...tSerif("clamp(18px, 1.6vw, 22px)", 500),
+                    color: "var(--ink)",
+                    margin: "0 0 8px",
+                  }}
+                >
+                  {benefit.title}
+                </h3>
+                <p
+                  className="m-0"
+                  style={{
+                    fontSize: 14.5,
+                    lineHeight: 1.55,
+                    color: "var(--muted)",
+                  }}
+                >
+                  {benefit.description}
+                </p>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {service.benefitsList.map((benefit, index) => (
-                  <div
-                    key={index}
-                    className="group flex items-start gap-4 p-6 bg-white rounded-xl border border-neutral-200 hover:border-primary-600 transition-all duration-300 slide-up"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <div className="flex-shrink-0 w-6 h-6 mt-1">
-                      <CheckCircle className="w-6 h-6 text-primary-600 group-hover:scale-110 transition-transform duration-300" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-neutral-900 mb-2">
-                        {benefit.title}
-                      </h3>
-                      <p className="text-neutral-600 leading-relaxed text-md">
-                        {benefit.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+            ))}
+          </RevealStagger>
         </section>
       )}
 
-      {/* Features */}
+      {/* FEATURES */}
       {service.features.length > 0 && (
-        <section className="section-padding bg-white">
-          <div className="section-container">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12 slide-up">
-                <h2 className="heading-lg mb-4">
-                  {t(`services.${serviceKey}.featuresTitle`)}
-                </h2>
-                <p className="text-body text-neutral-600">
-                  {t(`services.${serviceKey}.featuresSubtitle`)}
+        <section
+          className="px-6 sm:px-10 lg:px-16 py-20 tm:py-24"
+          style={{ background: "var(--bg)" }}
+        >
+          <Reveal y={20}>
+            <SectionEyebrow>
+              {language === "es" ? "Características" : "Features"}
+            </SectionEyebrow>
+            <h2
+              style={{
+                ...tDisplay("clamp(30px, 3.6vw, 48px)", 500),
+                color: "var(--ink)",
+                margin: 0,
+                maxWidth: 900,
+              }}
+            >
+              {t(`services.${serviceKey}.featuresTitle`)}
+            </h2>
+            <p
+              className="mt-5 italic"
+              style={{
+                ...tSerif("clamp(16px, 1.2vw, 18px)", 400),
+                color: "var(--muted)",
+                maxWidth: 700,
+              }}
+            >
+              {t(`services.${serviceKey}.featuresSubtitle`)}
+            </p>
+          </Reveal>
+          <RevealStagger
+            stagger={90}
+            base={180}
+            y={20}
+            className="mt-10 tm:mt-14 grid grid-cols-1 tm:grid-cols-3"
+            style={{ borderTop: "1px solid var(--navy)" }}
+          >
+            {service.features.map((feature, idx) => (
+              <div
+                key={feature.title}
+                className="p-6 tm:p-7"
+                style={{
+                  borderBottom: "1px solid var(--navy)",
+                  borderRight:
+                    idx % 3 !== 2 ? "1px solid var(--navy)" : "none",
+                }}
+              >
+                <div style={tEyebrow("var(--accent)")} className="mb-3">
+                  {String(idx + 1).padStart(2, "0")}
+                </div>
+                <h3
+                  style={{
+                    ...tSerif("clamp(18px, 1.4vw, 20px)", 500),
+                    color: "var(--ink)",
+                    margin: "0 0 8px",
+                  }}
+                >
+                  {feature.title}
+                </h3>
+                <p
+                  className="m-0"
+                  style={{
+                    fontSize: 14,
+                    lineHeight: 1.55,
+                    color: "var(--muted)",
+                  }}
+                >
+                  {feature.description}
                 </p>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {service.features.map((feature, index) => (
-                  <div
-                    key={index}
-                    className="group text-center p-8 bg-neutral-50 rounded-xl border border-neutral-200 hover:border-primary-600 transition-all duration-300 slide-up"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <div className="inline-flex w-14 h-14 bg-primary-100 rounded-full items-center justify-center mb-6 group-hover:bg-primary-600 transition-colors duration-300">
-                      <CheckCircle className="w-7 h-7 text-primary-600 group-hover:text-white transition-colors duration-300" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-neutral-900 mb-3">
-                      {feature.title}
-                    </h3>
-                    <p className="text-neutral-600 leading-relaxed text-md">
-                      {feature.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+            ))}
+          </RevealStagger>
         </section>
       )}
 
-      {/* Process Steps - Rediseñado */}
+      {/* PROCESS STEPS */}
       {service.processSteps.length > 0 && (
-        <section className="section-padding bg-neutral-50">
-          <div className="section-container">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-16 slide-up">
-                <h2 className="heading-lg mb-4">
-                  {t(`services.${serviceKey}.processTitle`)}
-                </h2>
-                <p className="text-body text-neutral-600">
-                  {t(`services.${serviceKey}.processSubtitle`)}
-                </p>
-              </div>
-
-              <div className="space-y-8">
-                {service.processSteps.map((step, index) => (
-                  <div
-                    key={index}
-                    className="group flex items-start gap-6 p-8 bg-white rounded-xl border border-neutral-200 hover:border-primary-600 transition-all duration-300 slide-up"
-                    style={{ animationDelay: `${index * 100}ms` }}
+        <section
+          className="px-6 sm:px-10 lg:px-16 py-20 tm:py-24"
+          style={{ background: "var(--bg-surface)" }}
+        >
+          <Reveal y={20}>
+            <SectionEyebrow>
+              {language === "es" ? "Proceso" : "Process"}
+            </SectionEyebrow>
+            <h2
+              style={{
+                ...tDisplay("clamp(30px, 3.6vw, 48px)", 500),
+                color: "var(--ink)",
+                margin: 0,
+                maxWidth: 900,
+              }}
+            >
+              {t(`services.${serviceKey}.processTitle`)}
+            </h2>
+            <p
+              className="mt-5 italic"
+              style={{
+                ...tSerif("clamp(16px, 1.2vw, 18px)", 400),
+                color: "var(--muted)",
+                maxWidth: 700,
+              }}
+            >
+              {t(`services.${serviceKey}.processSubtitle`)}
+            </p>
+          </Reveal>
+          <RevealStagger
+            stagger={120}
+            base={200}
+            y={24}
+            className="mt-10 tm:mt-14"
+            style={{ borderTop: "1px solid var(--navy)" }}
+          >
+            {service.processSteps.map((step, idx) => (
+              <div
+                key={step.title}
+                className="grid grid-cols-1 tm:grid-cols-[120px_1fr] gap-4 tm:gap-12 py-8 tm:py-10"
+                style={{ borderBottom: "1px solid var(--navy)" }}
+              >
+                <div
+                  style={{
+                    ...tDisplay("clamp(40px, 4vw, 56px)", 500),
+                    color: "var(--accent)",
+                    lineHeight: 1,
+                  }}
+                >
+                  {step.number || String(idx + 1).padStart(2, "0")}
+                </div>
+                <div>
+                  <h3
+                    style={{
+                      ...tSerif("clamp(20px, 1.8vw, 24px)", 500),
+                      color: "var(--ink)",
+                      margin: "0 0 10px",
+                    }}
                   >
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center group-hover:bg-primary-600 transition-colors duration-300">
-                        <span className="text-lg font-bold text-primary-600 group-hover:text-white transition-colors duration-300">
-                          {step.number || `0${index + 1}`}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-neutral-900 mb-2">
-                        {step.title}
-                      </h3>
-                      <p className="text-neutral-600 leading-relaxed">
-                        {step.description}
-                      </p>
-                    </div>
-                    <ArrowRight className="w-5 h-5 text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                ))}
+                    {step.title}
+                  </h3>
+                  <p
+                    className="m-0"
+                    style={{
+                      fontSize: 15,
+                      lineHeight: 1.6,
+                      color: "var(--muted)",
+                    }}
+                  >
+                    {step.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          </div>
+            ))}
+          </RevealStagger>
         </section>
       )}
 
-      {/* Why Choose Us - Rediseñado más sutil */}
-      <section className="section-padding bg-white">
-        <div className="section-container">
-          <div className="max-w-4xl mx-auto">
-            <div className="slide-up">
-              <h2 className="heading-lg mb-8 text-center">
-                {service.whyChoose}
-              </h2>
+      {/* WHY CHOOSE US */}
+      <section
+        className="px-6 sm:px-10 lg:px-16 py-20 tm:py-24"
+        style={{ background: "var(--bg)" }}
+      >
+        <Reveal y={20}>
+          <SectionEyebrow>
+            {language === "es" ? "Por qué nosotros" : "Why us"}
+          </SectionEyebrow>
+          <h2
+            className="mb-10 tm:mb-12"
+            style={{
+              ...tDisplay("clamp(30px, 3.6vw, 48px)", 500),
+              color: "var(--ink)",
+              margin: 0,
+              maxWidth: 900,
+            }}
+          >
+            {service.whyChoose}
+          </h2>
+        </Reveal>
 
-              <div className="bg-neutral-50 border-l-4 border-primary-600 p-10 rounded-r-xl">
-                <p className="text-lg leading-relaxed text-neutral-700 mb-8">
-                  {service.whyChooseText}
-                </p>
+        <Reveal y={24} delay={140}>
+          <blockquote
+            className="m-0 my-10 tm:my-12 p-6 tm:p-10"
+            style={{
+              borderLeft: "3px solid var(--accent)",
+              ...tSerif("clamp(17px, 1.5vw, 21px)", 400),
+              color: "var(--ink)",
+              lineHeight: 1.55,
+              fontStyle: "italic",
+            }}
+          >
+            {service.whyChooseText}
+          </blockquote>
 
-                {service.guarantees.length > 0 && (
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-neutral-200">
-                    {service.guarantees.map((guarantee, index) => (
-                      <div key={index} className="flex items-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-primary-600 flex-shrink-0" />
-                        <p className="font-medium text-neutral-800">
-                          {guarantee.text || guarantee}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+          {service.guarantees.length > 0 && (
+            <div
+              className="grid grid-cols-1 tm:grid-cols-3 gap-y-3 gap-x-10 pt-8"
+              style={{ borderTop: "1px solid var(--rule)" }}
+            >
+              {service.guarantees.map((g, i) => (
+                <div
+                  key={i}
+                  className="flex items-baseline gap-3"
+                  style={{ fontSize: 14.5, color: "var(--ink)" }}
+                >
+                  <span style={{ color: "var(--accent)", fontWeight: 600 }}>
+                    ✓
+                  </span>
+                  <span>{g.text || g}</span>
+                </div>
+              ))}
             </div>
-          </div>
+          )}
+        </Reveal>
+
+        <div className="mt-12 flex flex-wrap gap-3">
+          <Link
+            to="/contact"
+            className="inline-block px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] no-underline transition-all duration-150 hover:-translate-y-[1px]"
+            style={{ background: "var(--navy)", color: "var(--bg)" }}
+          >
+            {t("CTA.primaryButton")} →
+          </Link>
+          <Link
+            to="/services"
+            className="inline-block px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] no-underline transition-colors duration-150"
+            style={{
+              background: "transparent",
+              color: "var(--ink)",
+              border: "1px solid var(--ink)",
+            }}
+          >
+            {language === "es" ? "Ver todos los servicios" : "View all services"}
+          </Link>
         </div>
       </section>
     </>

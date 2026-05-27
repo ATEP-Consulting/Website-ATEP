@@ -1,9 +1,14 @@
-import { Shield } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { SEO } from "../components/SEO";
+import {
+  LegalPage,
+  LegalSection,
+  LegalP,
+  LegalUl,
+} from "../components/LegalPage";
 
 export const PrivacyPolicy = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <>
@@ -14,169 +19,116 @@ export const PrivacyPolicy = () => {
         schemaType="WebPage"
       />
 
-      <section className="section-padding bg-gradient-to-br from-primary-50 to-white">
-        <div className="section-container">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-4 mb-6 fade-in">
-              <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center">
-                <Shield className="w-8 h-8 text-primary-600" />
-              </div>
-              <h1 className="heading-xl">{t("privacy.title")}</h1>
-            </div>
-            <p className="text-neutral-600 fade-in stagger-1">
-              {t("privacy.lastUpdated")}: {t("privacy.lastUpdatedDate")}
-            </p>
-          </div>
-        </div>
-      </section>
+      <LegalPage
+        eyebrow={language === "es" ? "Aviso legal" : "Legal"}
+        title={t("privacy.title")}
+        lastUpdatedLabel={t("privacy.lastUpdated")}
+        lastUpdatedDate={t("privacy.lastUpdatedDate")}
+        intro={t("privacy.intro")}
+      >
+        <LegalSection title={t("privacy.responsible")}>
+          <LegalP>{t("privacy.responsibleText")}</LegalP>
+          <LegalUl
+            items={[
+              t("privacy.companyName"),
+              t("privacy.companyAddress"),
+              t("privacy.companyEmail"),
+              t("privacy.companyPhone"),
+            ]}
+          />
+        </LegalSection>
 
-      <section className="section-padding bg-white">
-        <div className="section-container">
-          <div className="max-w-4xl mx-auto space-y-12">
-            {/* Introducción */}
-            <div className="slide-up">
-              <p className="text-body leading-relaxed">{t("privacy.intro")}</p>
-            </div>
+        <LegalSection title={t("privacy.collection")}>
+          <LegalP>{t("privacy.collectionText")}</LegalP>
+          <LegalUl
+            items={[
+              t("privacy.collectionItem1"),
+              t("privacy.collectionItem2"),
+              t("privacy.collectionItem3"),
+              t("privacy.collectionItem4"),
+            ]}
+          />
+        </LegalSection>
 
-            {/* Responsable del tratamiento */}
-            <div className="slide-up stagger-1">
-              <h2 className="heading-md mb-4">{t("privacy.responsible")}</h2>
-              <div className="text-body leading-relaxed space-y-2">
-                <p>{t("privacy.responsibleText")}</p>
-                <ul className="list-disc list-inside space-y-1 ml-4">
-                  <li>{t("privacy.companyName")}</li>
-                  <li>{t("privacy.companyAddress")}</li>
-                  <li>{t("privacy.companyEmail")}</li>
-                  <li>{t("privacy.companyPhone")}</li>
-                </ul>
-              </div>
-            </div>
+        <LegalSection title={t("privacy.purpose")}>
+          <LegalP>{t("privacy.purposeText")}</LegalP>
+          <LegalUl
+            items={[
+              t("privacy.purposeItem1"),
+              t("privacy.purposeItem2"),
+              t("privacy.purposeItem3"),
+              t("privacy.purposeItem4"),
+            ]}
+          />
+        </LegalSection>
 
-            {/* Datos que recopilamos */}
-            <div className="slide-up stagger-2">
-              <h2 className="heading-md mb-4">{t("privacy.collection")}</h2>
-              <p className="text-body leading-relaxed mb-4">
-                {t("privacy.collectionText")}
-              </p>
-              <ul className="list-disc list-inside space-y-2 ml-4 text-body">
-                <li>{t("privacy.collectionItem1")}</li>
-                <li>{t("privacy.collectionItem2")}</li>
-                <li>{t("privacy.collectionItem3")}</li>
-                <li>{t("privacy.collectionItem4")}</li>
-              </ul>
-            </div>
+        <LegalSection title={t("privacy.legalBasis")}>
+          <LegalP>{t("privacy.legalBasisText")}</LegalP>
+        </LegalSection>
 
-            {/* Finalidad del tratamiento */}
-            <div className="slide-up stagger-3">
-              <h2 className="heading-md mb-4">{t("privacy.purpose")}</h2>
-              <p className="text-body leading-relaxed mb-4">
-                {t("privacy.purposeText")}
-              </p>
-              <ul className="list-disc list-inside space-y-2 ml-4 text-body">
-                <li>{t("privacy.purposeItem1")}</li>
-                <li>{t("privacy.purposeItem2")}</li>
-                <li>{t("privacy.purposeItem3")}</li>
-                <li>{t("privacy.purposeItem4")}</li>
-              </ul>
-            </div>
+        <LegalSection title={t("privacy.retention")}>
+          <LegalP>{t("privacy.retentionText")}</LegalP>
+        </LegalSection>
 
-            {/* Base legal */}
-            <div className="slide-up stagger-4">
-              <h2 className="heading-md mb-4">{t("privacy.legalBasis")}</h2>
-              <p className="text-body leading-relaxed">
-                {t("privacy.legalBasisText")}
-              </p>
-            </div>
+        <LegalSection title={t("privacy.recipients")}>
+          <LegalP>{t("privacy.recipientsText")}</LegalP>
+          <LegalUl
+            items={[
+              t("privacy.recipientsItem1"),
+              t("privacy.recipientsItem2"),
+              t("privacy.recipientsItem3"),
+            ]}
+          />
+        </LegalSection>
 
-            {/* Conservación de datos */}
-            <div className="slide-up stagger-5">
-              <h2 className="heading-md mb-4">{t("privacy.retention")}</h2>
-              <p className="text-body leading-relaxed">
-                {t("privacy.retentionText")}
-              </p>
-            </div>
+        <LegalSection title={t("privacy.rights")}>
+          <LegalP>{t("privacy.rightsText")}</LegalP>
+          <LegalUl
+            items={[
+              t("privacy.rightsItem1"),
+              t("privacy.rightsItem2"),
+              t("privacy.rightsItem3"),
+              t("privacy.rightsItem4"),
+              t("privacy.rightsItem5"),
+              t("privacy.rightsItem6"),
+              t("privacy.rightsItem7"),
+            ]}
+          />
+          <LegalP>{t("privacy.rightsExercise")}</LegalP>
+        </LegalSection>
 
-            {/* Destinatarios de los datos */}
-            <div className="slide-up stagger-6">
-              <h2 className="heading-md mb-4">{t("privacy.recipients")}</h2>
-              <p className="text-body leading-relaxed mb-4">
-                {t("privacy.recipientsText")}
-              </p>
-              <ul className="list-disc list-inside space-y-2 ml-4 text-body">
-                <li>{t("privacy.recipientsItem1")}</li>
-                <li>{t("privacy.recipientsItem2")}</li>
-                <li>{t("privacy.recipientsItem3")}</li>
-              </ul>
-            </div>
+        <LegalSection title={t("privacy.protection")}>
+          <LegalP>{t("privacy.protectionText")}</LegalP>
+        </LegalSection>
 
-            {/* Derechos del usuario */}
-            <div className="slide-up stagger-7">
-              <h2 className="heading-md mb-4">{t("privacy.rights")}</h2>
-              <p className="text-body leading-relaxed mb-4">
-                {t("privacy.rightsText")}
-              </p>
-              <ul className="list-disc list-inside space-y-2 ml-4 text-body">
-                <li>{t("privacy.rightsItem1")}</li>
-                <li>{t("privacy.rightsItem2")}</li>
-                <li>{t("privacy.rightsItem3")}</li>
-                <li>{t("privacy.rightsItem4")}</li>
-                <li>{t("privacy.rightsItem5")}</li>
-                <li>{t("privacy.rightsItem6")}</li>
-                <li>{t("privacy.rightsItem7")}</li>
-              </ul>
-              <p className="text-body leading-relaxed mt-4">
-                {t("privacy.rightsExercise")}
-              </p>
-            </div>
+        <LegalSection title={t("privacy.cookies")}>
+          <LegalP>{t("privacy.cookiesText")}</LegalP>
+        </LegalSection>
 
-            {/* Medidas de seguridad */}
-            <div className="slide-up stagger-8">
-              <h2 className="heading-md mb-4">{t("privacy.protection")}</h2>
-              <p className="text-body leading-relaxed">
-                {t("privacy.protectionText")}
-              </p>
-            </div>
+        <LegalSection title={t("privacy.thirdParty")}>
+          <LegalP>{t("privacy.thirdPartyText")}</LegalP>
+        </LegalSection>
 
-            {/* Cookies */}
-            <div className="slide-up stagger-9">
-              <h2 className="heading-md mb-4">{t("privacy.cookies")}</h2>
-              <p className="text-body leading-relaxed">
-                {t("privacy.cookiesText")}
-              </p>
-            </div>
+        <LegalSection title={t("privacy.modifications")}>
+          <LegalP>{t("privacy.modificationsText")}</LegalP>
+        </LegalSection>
 
-            {/* Enlaces a terceros */}
-            <div className="slide-up stagger-10">
-              <h2 className="heading-md mb-4">{t("privacy.thirdParty")}</h2>
-              <p className="text-body leading-relaxed">
-                {t("privacy.thirdPartyText")}
-              </p>
-            </div>
-
-            {/* Modificaciones */}
-            <div className="slide-up stagger-11">
-              <h2 className="heading-md mb-4">{t("privacy.modifications")}</h2>
-              <p className="text-body leading-relaxed">
-                {t("privacy.modificationsText")}
-              </p>
-            </div>
-
-            {/* Contacto */}
-            <div className="slide-up stagger-12 border-t border-neutral-200 pt-8">
-              <h2 className="heading-md mb-4">{t("privacy.contact")}</h2>
-              <p className="text-body text-neutral-600">
-                {t("privacy.contactText")}{" "}
-                <a
-                  href="mailto:info@atepconsulting.com"
-                  className="text-primary-600 hover:underline"
-                >
-                  info@atepconsulting.com
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+        <LegalSection title={t("privacy.contact")}>
+          <LegalP muted>
+            {t("privacy.contactText")}{" "}
+            <a
+              href="mailto:info@atepconsulting.com"
+              style={{
+                color: "var(--accent)",
+                textDecoration: "underline",
+                textUnderlineOffset: 3,
+              }}
+            >
+              info@atepconsulting.com
+            </a>
+          </LegalP>
+        </LegalSection>
+      </LegalPage>
     </>
   );
 };

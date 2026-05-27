@@ -1,29 +1,28 @@
-import { BookOpen, Search } from "lucide-react";
 import { useState } from "react";
+import { Search } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
 import { BlogCard } from "../../components/BlogCard";
-import { blogPosts } from "../../data/blogData";
+import { Reveal, RevealStagger } from "../../components/Reveal";
 import ImageHero from "../../components/ImageHero";
+import { blogPosts } from "../../data/blogData";
+import { tEyebrow, FONT } from "../../lib/typography";
 
 export const BlogList = () => {
   const { t, language } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Obtener categorías únicas
   const categories = [
     "all",
-    ...new Set(blogPosts.map((post) => post.category[language])),
+    ...new Set(blogPosts.map((p) => p.category[language])),
   ];
 
-  // Ordenar por fecha más reciente
   const sortedPosts = [...blogPosts].sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
 
-  // Filtrar posts
-  const filteredPosts = sortedPosts.filter((post) => {
+  const filtered = sortedPosts.filter((post) => {
     const matchesCategory =
       selectedCategory === "all" ||
       post.category[language] === selectedCategory;
@@ -31,7 +30,6 @@ export const BlogList = () => {
       searchTerm === "" ||
       post.title[language].toLowerCase().includes(searchTerm.toLowerCase()) ||
       post.excerpt[language].toLowerCase().includes(searchTerm.toLowerCase());
-
     return matchesCategory && matchesSearch;
   });
 
@@ -45,91 +43,147 @@ export const BlogList = () => {
       />
 
       <ImageHero
-        icon={BookOpen}
+        eyebrow="Blog"
         title={t("blog.title")}
         description={t("blog.subtitle")}
-        backgroundImage="images/blog/Blog-page.webp"
       />
 
-      {/* Filtros */}
-      <section className="section-padding bg-white">
-        <div className="section-container">
-          <div className="max-w-6xl mx-auto mb-12">
-            <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
-              {/* Búsqueda */}
-              <div className="relative w-full lg:w-96">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-neutral-400" />
+      {/* Filters */}
+      <section
+        className="px-6 sm:px-10 lg:px-16 pt-12 tm:pt-16 pb-8"
+        style={{ background: "var(--bg)" }}
+      >
+        <Reveal y={16}>
+          <div className="flex flex-col tm:flex-row gap-4 tm:items-end tm:justify-between">
+            <div className="w-full tm:max-w-md">
+              <div style={tEyebrow("var(--muted)")} className="mb-3">
+                {language === "es" ? "Buscar" : "Search"}
+              </div>
+              <div className="relative">
+                <Search
+                  size={16}
+                  className="absolute left-3 top-1/2 -translate-y-1/2"
+                  style={{ color: "var(--muted)" }}
+                />
                 <input
                   type="text"
                   placeholder={
-                    t("blog.searchPlaceholder") || "Search articles..."
+                    t("blog.searchPlaceholder") ||
+                    (language === "es"
+                      ? "Buscar artículos..."
+                      : "Search articles...")
                   }
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 border-2 border-neutral-200 rounded-lg focus:outline-none focus:border-primary-500 transition-colors"
+                  className="w-full pl-10 pr-3 py-3 outline-none transition-colors duration-150"
+                  style={{
+                    background: "transparent",
+                    border: "1px solid var(--rule-strong)",
+                    color: "var(--ink)",
+                    fontSize: 14,
+                  }}
+                  onFocus={(e) =>
+                    (e.target.style.borderColor = "var(--accent)")
+                  }
+                  onBlur={(e) =>
+                    (e.target.style.borderColor = "var(--rule-strong)")
+                  }
                 />
-              </div>
-
-              {/* Filtros por categoría */}
-              <div className="flex flex-wrap gap-2 justify-center lg:justify-end">
-                {categories.map((category) => (
-                  <button
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
-                      selectedCategory === category
-                        ? "bg-primary-600 text-white shadow-lg scale-105"
-                        : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
-                    }`}
-                  >
-                    {category === "all"
-                      ? t("blog.allCategories") || "All"
-                      : category}
-                  </button>
-                ))}
               </div>
             </div>
 
-            {/* Contador de resultados */}
-            <div className="mt-6 text-center lg:text-left">
-              <p className="text-neutral-600">
-                {filteredPosts.length}{" "}
-                {filteredPosts.length === 1
-                  ? t("blog.articleFound") || "article found"
-                  : t("blog.articlesFound") || "articles found"}
-              </p>
+            <div>
+              <div
+                style={tEyebrow("var(--muted)")}
+                className="mb-3 tm:text-right"
+              >
+                {language === "es" ? "Categorías" : "Categories"}
+              </div>
+              <div className="flex flex-wrap gap-2 tm:justify-end">
+                {categories.map((cat) => {
+                  const active = selectedCategory === cat;
+                  return (
+                    <button
+                      key={cat}
+                      type="button"
+                      onClick={() => setSelectedCategory(cat)}
+                      className="px-3 py-[7px] text-[11px] uppercase tracking-[0.1em] transition-colors duration-150 cursor-pointer"
+                      style={{
+                        background: active ? "var(--navy)" : "transparent",
+                        color: active ? "var(--bg)" : "var(--ink)",
+                        border: "1px solid var(--navy)",
+                        fontFamily: FONT.mono,
+                      }}
+                    >
+                      {cat === "all"
+                        ? t("blog.allCategories") ||
+                          (language === "es" ? "Todas" : "All")
+                        : cat}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
-          {/* Grid de posts */}
-          {filteredPosts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {filteredPosts.map((post, index) => (
-                <div
-                  key={post.slug}
-                  className={`slide-up stagger-${(index % 3) + 1}`}
-                >
-                  <BlogCard
-                    slug={post.slug}
-                    title={post.title[language]}
-                    excerpt={post.excerpt[language]}
-                    image={post.image}
-                    author={post.author}
-                    date={post.date}
-                    category={post.category[language]}
-                  />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-16">
-              <p className="text-xl text-neutral-600">
-                {t("blog.noResults") ||
-                  "No articles found. Try adjusting your filters."}
-              </p>
-            </div>
-          )}
-        </div>
+          <div
+            className="mt-6 pt-4 text-[13px]"
+            style={{
+              borderTop: "1px solid var(--rule)",
+              color: "var(--muted)",
+            }}
+          >
+            {filtered.length}{" "}
+            {filtered.length === 1
+              ? t("blog.articleFound") ||
+                (language === "es" ? "artículo" : "article")
+              : t("blog.articlesFound") ||
+                (language === "es" ? "artículos" : "articles")}
+          </div>
+        </Reveal>
+      </section>
+
+      {/* Posts grid */}
+      <section
+        className="px-6 sm:px-10 lg:px-16 pb-20 tm:pb-28"
+        style={{ background: "var(--bg)" }}
+      >
+        {filtered.length > 0 ? (
+          <RevealStagger
+            stagger={100}
+            base={80}
+            y={20}
+            className="grid grid-cols-1 tm:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {filtered.map((post) => (
+              <BlogCard
+                key={post.slug}
+                slug={post.slug}
+                title={post.title[language]}
+                excerpt={post.excerpt[language]}
+                image={post.image}
+                author={post.author}
+                date={post.date}
+                category={post.category[language]}
+              />
+            ))}
+          </RevealStagger>
+        ) : (
+          <div
+            className="py-20 text-center"
+            style={{
+              fontSize: 16,
+              color: "var(--muted)",
+              fontFamily: FONT.serif,
+              fontStyle: "italic",
+            }}
+          >
+            {t("blog.noResults") ||
+              (language === "es"
+                ? "No se encontraron artículos. Prueba con otros filtros."
+                : "No articles found. Try adjusting your filters.")}
+          </div>
+        )}
       </section>
     </>
   );
