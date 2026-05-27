@@ -4,7 +4,9 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { ThemeToggle } from "./ThemeToggle";
+import { CaseStripe } from "./CaseStripe";
 import { getServicesData } from "../data/servicesData";
+import { cases as casesData } from "../data/casesData";
 import { tDisplay, tSerif, tEyebrow, FONT } from "../lib/typography";
 import logo from "../assets/logos/new-logo-atep.svg";
 
@@ -79,20 +81,20 @@ const DesktopHeader = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const services = getServicesData(t);
-  const [megaOpen, setMegaOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState(null); // null | "services" | "cases"
   const closeTimer = useRef(null);
 
-  const openMega = () => {
+  const openMegaMenu = (key) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    setMegaOpen(true);
+    setOpenMenu(key);
   };
   const scheduleCloseMega = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setMegaOpen(false), 220);
+    closeTimer.current = setTimeout(() => setOpenMenu(null), 220);
   };
   const closeMega = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    setMegaOpen(false);
+    setOpenMenu(null);
   };
 
   useEffect(() => {
@@ -109,7 +111,8 @@ const DesktopHeader = () => {
 
   const items = [
     { key: "home", path: "/", label: t("nav.home") },
-    { key: "services", path: "/services", label: t("nav.services"), mega: true },
+    { key: "services", path: "/services", label: t("nav.services"), mega: "services" },
+    { key: "cases", path: "/cases", label: t("nav.cases"), mega: "cases" },
     { key: "about", path: "/company", label: t("nav.about") },
     { key: "blog", path: "/blog", label: t("nav.blog") },
     { key: "contact", path: "/contact", label: t("nav.contact") },
@@ -122,7 +125,7 @@ const DesktopHeader = () => {
 
   return (
     <header
-      className="sticky top-0 z-30 px-16 py-[22px] flex items-center justify-between"
+      className="sticky top-0 z-30 py-[22px]"
       style={{
         background: "var(--bg)",
         borderBottom: "1px solid var(--rule)",
@@ -130,16 +133,18 @@ const DesktopHeader = () => {
         WebkitBackdropFilter: "blur(12px)",
       }}
     >
+      <div className="max-w-[1600px] mx-auto w-full px-16 flex items-center justify-between">
       <Logo />
 
       <nav className="flex items-center gap-8">
         {items.map((it) => {
           const active = isActive(it.path);
+          const isThisOpen = it.mega && openMenu === it.mega;
           if (it.mega) {
             return (
               <div
                 key={it.key}
-                onMouseEnter={openMega}
+                onMouseEnter={() => openMegaMenu(it.mega)}
                 onMouseLeave={scheduleCloseMega}
                 className="relative"
               >
@@ -150,14 +155,14 @@ const DesktopHeader = () => {
                     closeMega();
                     navigate(it.path);
                   }}
-                  onFocus={openMega}
+                  onFocus={() => openMegaMenu(it.mega)}
                   className="text-[13.5px] cursor-pointer pb-[3px] flex items-center gap-[6px] transition-all duration-150 bg-transparent border-none focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                   style={{
-                    color: active || megaOpen ? "var(--ink)" : "var(--muted)",
-                    fontWeight: active || megaOpen ? 500 : 400,
+                    color: active || isThisOpen ? "var(--ink)" : "var(--muted)",
+                    fontWeight: active || isThisOpen ? 500 : 400,
                     fontFamily: "inherit",
                     borderBottom:
-                      active || megaOpen
+                      active || isThisOpen
                         ? "1px solid var(--ink)"
                         : "1px solid transparent",
                   }}
@@ -166,7 +171,7 @@ const DesktopHeader = () => {
                   <ChevronDown
                     size={12}
                     className="transition-transform duration-200"
-                    style={{ transform: megaOpen ? "rotate(180deg)" : "rotate(0)" }}
+                    style={{ transform: isThisOpen ? "rotate(180deg)" : "rotate(0)" }}
                   />
                 </button>
               </div>
@@ -176,7 +181,7 @@ const DesktopHeader = () => {
             <Link
               key={it.key}
               to={it.path}
-              onMouseEnter={megaOpen ? scheduleCloseMega : undefined}
+              onMouseEnter={openMenu ? scheduleCloseMega : undefined}
               className="text-[13.5px] cursor-pointer pb-[3px] no-underline transition-all duration-150"
               style={{
                 color: active ? "var(--ink)" : "var(--muted)",
@@ -199,11 +204,19 @@ const DesktopHeader = () => {
           {t("nav.scheduleCall")} →
         </CtaButton>
       </div>
+      </div>
 
       <MegaServices
-        open={megaOpen}
+        open={openMenu === "services"}
         services={services}
-        onMouseEnter={openMega}
+        onMouseEnter={() => openMegaMenu("services")}
+        onMouseLeave={scheduleCloseMega}
+        onNavigate={closeMega}
+      />
+      <MegaCases
+        open={openMenu === "cases"}
+        cases={casesData}
+        onMouseEnter={() => openMegaMenu("cases")}
         onMouseLeave={scheduleCloseMega}
         onNavigate={closeMega}
       />
@@ -222,7 +235,7 @@ const MegaServices = ({ open, services, onMouseEnter, onMouseLeave, onNavigate }
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       aria-hidden={!open}
-      className="absolute top-full left-0 right-0 px-16 pt-12 pb-9"
+      className="absolute top-full left-0 right-0"
       style={{
         background: "var(--bg)",
         borderBottom: "1px solid var(--rule)",
@@ -238,6 +251,7 @@ const MegaServices = ({ open, services, onMouseEnter, onMouseLeave, onNavigate }
         }`,
       }}
     >
+      <div className="max-w-[1600px] mx-auto w-full px-16 pt-12 pb-9">
       <div className="grid gap-14" style={{ gridTemplateColumns: "2.2fr 1fr" }}>
         {/* Services grid */}
         <div>
@@ -370,6 +384,212 @@ const MegaServices = ({ open, services, onMouseEnter, onMouseLeave, onNavigate }
           </Link>
         </div>
       </div>
+      </div>
+    </div>
+  );
+};
+
+const MegaCases = ({ open, cases, onMouseEnter, onMouseLeave, onNavigate }) => {
+  const { t, language } = useLanguage();
+  const featured = cases[0];
+  const list = cases.slice(0, 5);
+  const countLabel =
+    language === "es"
+      ? `${cases.length} ${t("mega.casesCount")}`
+      : `${cases.length} ${t("mega.casesCount")}`;
+
+  return (
+    <div
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      aria-hidden={!open}
+      className="absolute top-full left-0 right-0"
+      style={{
+        background: "var(--bg)",
+        borderBottom: "1px solid var(--rule)",
+        boxShadow: open
+          ? "0 24px 64px -24px rgba(10,22,38,0.18)"
+          : "none",
+        opacity: open ? 1 : 0,
+        transform: open ? "translateY(0)" : "translateY(-8px)",
+        pointerEvents: open ? "auto" : "none",
+        visibility: open ? "visible" : "hidden",
+        transition: `opacity .22s ease, transform .22s ease, visibility 0s linear ${
+          open ? "0s" : ".22s"
+        }`,
+      }}
+    >
+      <div className="max-w-[1600px] mx-auto w-full px-16 pt-12 pb-9">
+        <div className="grid gap-14" style={{ gridTemplateColumns: "1.4fr 1.8fr" }}>
+          {/* Featured case (left) */}
+          <div>
+            <div
+              className="flex justify-between items-baseline mb-7 pb-3"
+              style={{ borderBottom: "1px solid var(--rule)" }}
+            >
+              <div style={tEyebrow("var(--muted)")}>
+                — {language === "es" ? "Caso destacado" : "Featured case"}
+              </div>
+              <div style={{ ...tEyebrow("var(--dim)"), fontSize: 10 }}>
+                {featured.year}
+              </div>
+            </div>
+            {featured && (
+              <Link
+                to={`/cases/${featured.slug}`}
+                onClick={onNavigate}
+                className="block no-underline group"
+                style={{ color: "inherit" }}
+              >
+                <div className="relative w-full mb-5" style={{ aspectRatio: "16/10" }}>
+                  <CaseStripe
+                    label={`${featured.client[language]} · ${language === "es" ? "vista previa" : "preview"}`}
+                    variant="navy"
+                  />
+                </div>
+                <div
+                  className="flex items-baseline justify-between mb-2"
+                  style={tEyebrow("var(--muted)")}
+                >
+                  <span>{featured.sector[language]}</span>
+                </div>
+                <h3
+                  style={{
+                    ...tSerif(22, 500),
+                    color: "var(--ink)",
+                    margin: "0 0 10px",
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {featured.title[language]}
+                </h3>
+                <div
+                  className="flex justify-between items-baseline pt-3 mt-3"
+                  style={{ borderTop: "1px solid var(--rule)" }}
+                >
+                  <div
+                    style={{
+                      ...tDisplay(28, 500),
+                      color: "var(--accent)",
+                      lineHeight: 1,
+                    }}
+                  >
+                    {featured.metric.value}
+                  </div>
+                  <span
+                    className="text-[12px] transition-transform duration-200 group-hover:translate-x-1"
+                    style={{
+                      ...tEyebrow("var(--muted)"),
+                      fontSize: 10.5,
+                      textAlign: "right",
+                    }}
+                  >
+                    {featured.metric.label[language]}
+                  </span>
+                </div>
+              </Link>
+            )}
+          </div>
+
+          {/* All cases (right) */}
+          <div className="pl-10" style={{ borderLeft: "1px solid var(--rule)" }}>
+            <div
+              className="flex justify-between items-baseline mb-5 pb-3"
+              style={{ borderBottom: "1px solid var(--rule)" }}
+            >
+              <div style={tEyebrow("var(--muted)")}>
+                — {t("mega.ourCases")}
+              </div>
+              <div style={{ ...tEyebrow("var(--dim)"), fontSize: 10 }}>
+                {countLabel}
+              </div>
+            </div>
+            <div className="flex flex-col">
+              {list.map((c, idx) => (
+                <Link
+                  key={c.slug}
+                  to={`/cases/${c.slug}`}
+                  onClick={onNavigate}
+                  className="grid grid-cols-[40px_1fr_auto] gap-4 items-baseline py-3 no-underline transition-colors duration-150"
+                  style={{
+                    color: "inherit",
+                    borderTop:
+                      idx === 0 ? "none" : "1px solid var(--rule)",
+                  }}
+                  onMouseEnter={(e) => {
+                    const title = e.currentTarget.querySelector("[data-title]");
+                    if (title) title.style.color = "var(--accent)";
+                  }}
+                  onMouseLeave={(e) => {
+                    const title = e.currentTarget.querySelector("[data-title]");
+                    if (title) title.style.color = "var(--ink)";
+                  }}
+                >
+                  <span style={{ ...tEyebrow("var(--accent)"), fontSize: 10 }}>
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <div className="min-w-0">
+                    <div
+                      data-title
+                      className="transition-colors duration-150"
+                      style={{
+                        ...tSerif(16, 500),
+                        color: "var(--ink)",
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      {c.client[language]}
+                    </div>
+                    <div
+                      className="mt-[2px] truncate"
+                      style={{
+                        fontSize: 12,
+                        color: "var(--muted)",
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {c.sector[language]}
+                    </div>
+                  </div>
+                  <span
+                    style={{
+                      ...tDisplay(18, 500),
+                      color: "var(--accent)",
+                      lineHeight: 1,
+                    }}
+                  >
+                    {c.metric.value}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom strip */}
+        <div
+          className="mt-9 pt-5 flex justify-between items-center flex-wrap gap-4"
+          style={{ borderTop: "1px solid var(--rule)" }}
+        >
+          <div style={{ ...tEyebrow("var(--muted)"), fontSize: 10.5 }}>
+            — {t("mega.similarProject")}
+          </div>
+          <div className="flex gap-4 items-center">
+            <Link
+              to="/cases"
+              onClick={onNavigate}
+              className="text-[13.5px] no-underline whitespace-nowrap"
+              style={{
+                color: "var(--ink)",
+                textDecoration: "underline",
+                textUnderlineOffset: 4,
+              }}
+            >
+              {t("mega.viewAllCases")} →
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -408,6 +628,7 @@ const MobileHeader = () => {
   const items = [
     { key: "home", path: "/", label: t("nav.home") },
     { key: "services", path: "/services", label: t("nav.services"), expandable: true },
+    { key: "cases", path: "/cases", label: t("nav.cases") },
     { key: "about", path: "/company", label: t("nav.about") },
     { key: "blog", path: "/blog", label: t("nav.blog") },
     { key: "contact", path: "/contact", label: t("nav.contact") },

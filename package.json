@@ -27,6 +27,12 @@
       "/services/automation",
       "/contact",
       "/blog",
+      "/cases",
+      "/cases/sentra",
+      "/cases/atep-inventory",
+      "/cases/turnos",
+      "/cases/lnh-partner",
+      "/cases/tibis-market",
       "/privacy-policy",
       "/cookies-policy",
       "/legal-notice"

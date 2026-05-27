@@ -58,6 +58,7 @@ export const Footer = () => {
 
   const companyLinks = [
     { path: "/company", label: t("nav.about") },
+    { path: "/cases", label: t("nav.cases") },
     { path: "/blog", label: t("nav.blog") },
     { path: "/contact", label: t("nav.contact") },
   ];
@@ -87,6 +88,7 @@ export const Footer = () => {
         className="px-6 sm:px-10 lg:px-16 pt-20 pb-9"
         style={{ background: footerBg, color: footerInk }}
       >
+       <div className="max-w-[1600px] mx-auto w-full">
         <div
           className="grid gap-10 tm:gap-14 pb-14"
           style={{
@@ -254,6 +256,7 @@ export const Footer = () => {
             ))}
           </div>
         </div>
+       </div>
       </footer>
     </>
   );

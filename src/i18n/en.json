@@ -3,6 +3,7 @@
     "home": "Home",
     "about": "Company",
     "services": "Services",
+    "cases": "Cases",
     "blog": "Blog",
     "contact": "Contact",
     "scheduleCall": "Schedule a call",
@@ -16,7 +17,12 @@
     "helpText": "Free consultation on the service that fits you best. Technical team available within 48h.",
     "contactNow": "Get in touch",
     "notSure": "Not sure what you need?",
-    "viewAllServices": "View all services"
+    "viewAllServices": "View all services",
+    "ourCases": "Delivered work",
+    "viewAllCases": "View all cases",
+    "similarProject": "Got a similar project?",
+    "similarProjectText": "If you recognize a challenge similar to any of these cases, let's talk. We reply in under 24h with concrete next steps.",
+    "casesCount": "selected cases"
   },
   "theme": {
     "toLight": "Switch to light mode",

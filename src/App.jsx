@@ -12,6 +12,8 @@ import { LegacyMigration } from "./pages/services/LegacyMigration";
 import { Automation } from "./pages/services/Automation";
 import { BlogList } from "./pages/blog/BlogList";
 import { BlogPost } from "./pages/blog/BlogPost";
+import { CasesList } from "./pages/cases/CasesList";
+import { CasePost } from "./pages/cases/CasePost";
 import { Contact } from "./pages/Contact";
 import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { CookiesPolicy } from "./pages/CookiesPolicy";
@@ -48,6 +50,8 @@ function AppRoutes() {
 
         <Route path="blog" element={<BlogList />} />
         <Route path="blog/:slug" element={<BlogPost />} />
+        <Route path="cases" element={<CasesList />} />
+        <Route path="cases/:slug" element={<CasePost />} />
         <Route path="contact" element={<Contact />} />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
         <Route path="cookies-policy" element={<CookiesPolicy />} />

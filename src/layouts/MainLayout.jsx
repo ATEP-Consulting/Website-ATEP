@@ -8,7 +8,7 @@ export const MainLayout = () => {
     <div className="min-h-screen flex flex-col">
       <ScrollProgress />
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow w-full max-w-[1600px] mx-auto">
         <Outlet />
       </main>
       <Footer />

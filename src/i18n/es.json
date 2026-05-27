@@ -3,6 +3,7 @@
     "home": "Inicio",
     "about": "Empresa",
     "services": "Servicios",
+    "cases": "Casos",
     "blog": "Blog",
     "contact": "Contacto",
     "scheduleCall": "Agendar llamada",
@@ -16,7 +17,12 @@
     "helpText": "Te asesoramos sin compromiso sobre el servicio que mejor se adapta a ti. Equipo técnico disponible en 48h.",
     "contactNow": "Contactar ahora",
     "notSure": "¿No sabes qué necesitas?",
-    "viewAllServices": "Ver todos los servicios"
+    "viewAllServices": "Ver todos los servicios",
+    "ourCases": "Trabajo entregado",
+    "viewAllCases": "Ver todos los casos",
+    "similarProject": "¿Tienes un proyecto similar?",
+    "similarProjectText": "Si reconoces un reto parecido al de alguno de estos casos, hablemos. Respondemos en menos de 24h con próximos pasos concretos.",
+    "casesCount": "casos seleccionados"
   },
   "theme": {
     "toLight": "Cambiar a modo claro",

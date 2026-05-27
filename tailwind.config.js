@@ -33,8 +33,8 @@ export default {
         },
         cream: {
           DEFAULT: "#f5f1e8",
-          surface: "#ecdfc7",
-          surface2: "#e3d4b6",
+          surface: "#ede7da",
+          surface2: "#e1d8c6",
           panel: "#fdfaf2",
         },
         navy: {

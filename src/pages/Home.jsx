@@ -4,6 +4,8 @@ import { SEO } from "../components/SEO";
 import { Reveal, RevealStagger } from "../components/Reveal";
 import { CountingNumber } from "../components/CountingNumber";
 import { getServicesData } from "../data/servicesData";
+import { cases as casesData } from "../data/casesData";
+import { CaseCard } from "../components/CaseCard";
 import { blogPosts } from "../data/blogData";
 import { tDisplay, tSerif, tEyebrow, FONT } from "../lib/typography";
 import StyleLogo from "../assets/logos/style-logo.svg";
@@ -28,10 +30,26 @@ export const Home = () => {
   ];
 
   const processSteps = [
-    { num: "01", title: t("home.step1Title"), text: t("home.step1Description") },
-    { num: "02", title: t("home.step2Title"), text: t("home.step2Description") },
-    { num: "03", title: t("home.step3Title"), text: t("home.step3Description") },
-    { num: "04", title: t("home.step4Title"), text: t("home.step4Description") },
+    {
+      num: "01",
+      title: t("home.step1Title"),
+      text: t("home.step1Description"),
+    },
+    {
+      num: "02",
+      title: t("home.step2Title"),
+      text: t("home.step2Description"),
+    },
+    {
+      num: "03",
+      title: t("home.step3Title"),
+      text: t("home.step3Description"),
+    },
+    {
+      num: "04",
+      title: t("home.step4Title"),
+      text: t("home.step4Description"),
+    },
   ];
 
   const whyChoose = [
@@ -85,32 +103,32 @@ export const Home = () => {
         className="px-6 sm:px-10 lg:px-16 pt-12 pb-14 tm:pt-24 tm:pb-24"
         style={{ background: "var(--bg)" }}
       >
-        <div className="grid gap-10 tm:gap-16 items-end" style={{ gridTemplateColumns: "1fr" }}>
-          <div className="grid grid-cols-1 tm:grid-cols-5 gap-10 tm:gap-16 items-end">
+        <div className="max-w-[1600px] mx-auto">
+          <div className="grid grid-cols-1 tm:grid-cols-5 gap-10 tm:gap-16 items-center">
             <div className="tm:col-span-3">
               <Reveal y={16}>
                 <div style={tEyebrow("var(--muted)")}>
-                  — {language === "es"
+                  —{" "}
+                  {language === "es"
                     ? "Consultoría IT & desarrollo de software · Valencia, España"
                     : "IT consulting & software development · Valencia, Spain"}
                 </div>
               </Reveal>
               <Reveal delay={120} y={32} dur={1100}>
                 <h1
-                  className="mt-6 tm:mt-8"
+                  className="mt-12 tm:mt-10 mb-0"
                   style={{
                     ...tDisplay("clamp(44px, 8vw, 96px)", 500),
                     color: "var(--ink)",
-                    margin: 0,
                   }}
                 >
-                  {t("hero.heroTitle1")}
+                  {t("hero.heroTitle1").trim()}{" "}
                   <em style={{ color: "var(--accent)", fontWeight: 400 }}>
-                    {t("hero.heroTitle2")}
-                  </em>
-                  {t("hero.heroTitle3")}
+                    {t("hero.heroTitle2").trim()}
+                  </em>{" "}
+                  {t("hero.heroTitle3").trim()}{" "}
                   <em style={{ color: "var(--accent)", fontWeight: 400 }}>
-                    {t("hero.heroTitle4")}
+                    {t("hero.heroTitle4").trim()}
                   </em>
                 </h1>
               </Reveal>
@@ -152,7 +170,14 @@ export const Home = () => {
             </div>
 
             <Reveal delay={280} y={36} dur={1100} className="tm:col-span-2">
-              <div className="relative" style={{ aspectRatio: "4/5" }}>
+              <div
+                className="relative w-full mx-auto"
+                style={{
+                  aspectRatio: "4/5",
+                  maxHeight: "min(720px, 80vh)",
+                  maxWidth: "min(560px, 100%)",
+                }}
+              >
                 <img
                   src="/images/home/ExpertTeam.webp"
                   alt={
@@ -172,7 +197,9 @@ export const Home = () => {
                   }}
                 >
                   <div className="mb-[10px]" style={tEyebrow("var(--muted)")}>
-                    {language === "es" ? "Valencia · España" : "Valencia · Spain"}
+                    {language === "es"
+                      ? "Valencia · España"
+                      : "Valencia · Spain"}
                   </div>
                   <div
                     style={{
@@ -235,7 +262,10 @@ export const Home = () => {
         className="px-6 sm:px-10 lg:px-16 py-20 tm:py-28"
         style={{ background: "var(--bg-surface)" }}
       >
-        <div className="grid gap-10 tm:gap-16 items-end" style={{ gridTemplateColumns: "1fr" }}>
+        <div
+          className="grid gap-10 tm:gap-16 items-end"
+          style={{ gridTemplateColumns: "1fr" }}
+        >
           <div className="grid grid-cols-1 tm:grid-cols-3 gap-10 tm:gap-16 items-end">
             <Reveal y={24}>
               <div>
@@ -251,13 +281,11 @@ export const Home = () => {
                 >
                   {language === "es" ? (
                     <>
-                      Resultados que{" "}
-                      <em>cuentan</em>.
+                      Resultados que <em>cuentan</em>.
                     </>
                   ) : (
                     <>
-                      Results that{" "}
-                      <em>count</em>.
+                      Results that <em>count</em>.
                     </>
                   )}
                 </h2>
@@ -390,13 +418,80 @@ export const Home = () => {
               >
                 {s.description}
               </p>
-              <div
-                className="mt-5 text-[13px]"
-                style={{ color: "var(--ink)" }}
-              >
+              <div className="mt-5 text-[13px]" style={{ color: "var(--ink)" }}>
                 {language === "es" ? "Leer más" : "Read more"} →
               </div>
             </Link>
+          ))}
+        </RevealStagger>
+      </section>
+
+      {/* CASES */}
+      <section
+        className="px-6 sm:px-10 lg:px-16 py-20 tm:py-28"
+        style={{ background: "var(--navy)", color: "var(--bg)" }}
+      >
+        <Reveal y={20}>
+          <div className="flex flex-col tm:flex-row justify-between items-start tm:items-end gap-4 tm:gap-0 mb-10 tm:mb-14">
+            <div>
+              <div
+                className="mb-4"
+                style={{
+                  ...tEyebrow("rgba(245,241,232,0.6)"),
+                  color: "rgba(245,241,232,0.6)",
+                }}
+              >
+                — {language === "es" ? "Casos de éxito" : "Case studies"}
+              </div>
+              <h2
+                style={{
+                  ...tDisplay("clamp(36px, 5vw, 60px)", 500),
+                  color: "var(--bg)",
+                  margin: 0,
+                }}
+              >
+                {language === "es" ? (
+                  <>
+                    Trabajo entregado,
+                    <br />
+                    <em style={{ color: "#d94661" }}>
+                      resultados medibles
+                    </em>
+                    .
+                  </>
+                ) : (
+                  <>
+                    Delivered work,
+                    <br />
+                    <em style={{ color: "#d94661" }}>
+                      measurable results
+                    </em>
+                    .
+                  </>
+                )}
+              </h2>
+            </div>
+            <Link
+              to="/cases"
+              className="text-[14px] no-underline whitespace-nowrap"
+              style={{
+                color: "var(--bg)",
+                textDecoration: "underline",
+                textUnderlineOffset: 4,
+              }}
+            >
+              {language === "es" ? "Ver todos los casos" : "View all cases"} →
+            </Link>
+          </div>
+        </Reveal>
+        <RevealStagger
+          stagger={140}
+          base={140}
+          y={28}
+          className="grid grid-cols-1 tm:grid-cols-2 gap-6 tm:gap-8"
+        >
+          {casesData.slice(0, 2).map((c) => (
+            <CaseCard key={c.slug} caseItem={c} variant="navy" />
           ))}
         </RevealStagger>
       </section>
@@ -498,13 +593,11 @@ export const Home = () => {
               >
                 {language === "es" ? (
                   <>
-                    De la estrategia al{" "}
-                    <em>éxito</em>, sin desvíos.
+                    De la estrategia al <em>éxito</em>, sin desvíos.
                   </>
                 ) : (
                   <>
-                    From strategy to{" "}
-                    <em>success</em>, no detours.
+                    From strategy to <em>success</em>, no detours.
                   </>
                 )}
               </h2>
@@ -581,7 +674,9 @@ export const Home = () => {
           <div className="flex flex-col tm:flex-row justify-between items-start tm:items-end gap-4 tm:gap-0 mb-10 tm:mb-14">
             <div>
               <SectionEyebrow>
-                {language === "es" ? "Notas y publicaciones" : "Writing & notes"}
+                {language === "es"
+                  ? "Notas y publicaciones"
+                  : "Writing & notes"}
               </SectionEyebrow>
               <h2
                 style={{
@@ -614,7 +709,10 @@ export const Home = () => {
                 textUnderlineOffset: 4,
               }}
             >
-              {language === "es" ? "Ver todos los artículos" : "See all articles"} →
+              {language === "es"
+                ? "Ver todos los artículos"
+                : "See all articles"}{" "}
+              →
             </Link>
           </div>
         </Reveal>
@@ -627,7 +725,7 @@ export const Home = () => {
           {recentPosts.map((post) => {
             const dateStr = new Date(post.date).toLocaleDateString(
               language === "es" ? "es-ES" : "en-US",
-              { year: "numeric", month: "long" }
+              { year: "numeric", month: "long" },
             );
             return (
               <Link
