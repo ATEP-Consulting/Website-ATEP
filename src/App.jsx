@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./context/LanguageContext";
+import { ThemeProvider } from "./context/ThemeContext";
 import { MainLayout } from "./layouts/MainLayout";
 import { Home } from "./pages/Home";
 import { AboutUs } from "./pages/AboutUs";
@@ -60,15 +61,17 @@ function AppRoutes() {
 function App() {
   return (
     <HelmetProvider>
-      <LanguageProvider>
-        <SnackbarProvider>
-          <BrowserRouter>
-            <ScrollToTop />
-            <AppRoutes />
-          </BrowserRouter>
-          <WhatsAppButton />
-        </SnackbarProvider>
-      </LanguageProvider>
+      <ThemeProvider>
+        <LanguageProvider>
+          <SnackbarProvider>
+            <BrowserRouter>
+              <ScrollToTop />
+              <AppRoutes />
+            </BrowserRouter>
+            <WhatsAppButton />
+          </SnackbarProvider>
+        </LanguageProvider>
+      </ThemeProvider>
     </HelmetProvider>
   );
 }

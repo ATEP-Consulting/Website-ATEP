@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: ['class', '[data-theme="dark"]'],
   theme: {
     extend: {
       colors: {
@@ -30,6 +31,53 @@ export default {
           900: "#0f172a",
           950: "#020617",
         },
+        cream: {
+          DEFAULT: "#f5f1e8",
+          surface: "#ecdfc7",
+          surface2: "#e3d4b6",
+          panel: "#fdfaf2",
+        },
+        navy: {
+          DEFAULT: "#0b1f3a",
+          hover: "#13335c",
+          ink: "#0a1626",
+          soft: "#1a2a40",
+          surface: "#0f1d33",
+        },
+        accent: {
+          DEFAULT: "#9f1239",
+          hover: "#7a0d2c",
+          light: "#d94661",
+          ink: "#4c0519",
+        },
+        muted: {
+          DEFAULT: "#5a6a7e",
+          dim: "#8a96a8",
+        },
+      },
+      fontFamily: {
+        serif: ['"Newsreader"', '"Source Serif Pro"', 'Georgia', 'serif'],
+        sans: ['"IBM Plex Sans"', '-apple-system', 'system-ui', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'ui-monospace', 'Menlo', 'monospace'],
+      },
+      fontSize: {
+        'display': ['6.5rem', { lineHeight: '1', letterSpacing: '-0.02em' }],
+        'jumbo': ['5rem', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
+        'hero': ['4rem', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '22': '5.5rem',
+        '88': '22rem',
+        '100': '25rem',
+        '104': '26rem',
+        '120': '30rem',
+      },
+      screens: {
+        'tm': '820px',
+      },
+      maxWidth: {
+        '8xl': '88rem',
       },
     },
   },

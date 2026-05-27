@@ -2,20 +2,23 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="preload" href="/assets/index-BK8W6rqK.css" as="style" />
-    <link rel="stylesheet" href="/assets/index-BK8W6rqK.css" media="all" />
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-      as="style"
-      crossorigin="anonymous"
-      onload="this.rel='stylesheet'"
-    />
-    <noscript
-      ><link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-    /></noscript>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          var theme =
+            stored === "light" || stored === "dark"
+              ? stored
+              : window.matchMedia &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
 
     <!-- Google Analytics -->
     <script
@@ -43,7 +46,7 @@
     />
     <meta
       name="description"
-      content="Desarrollo web profesional, páginas web, aplicaciones a medida, autiomatizaciones IA, migración de sistemas legacy. Equipo técnico on-demand disponible en 48h. Valencia, España."
+      content="Desarrollo web profesional, aplicaciones a medida, automatización con IA y migración de sistemas legacy. Equipo técnico on-demand en 48h. Valencia, España."
     />
     <meta
       name="keywords"
@@ -51,21 +54,17 @@
     />
     <meta name="author" content="ATEP Consulting" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#be123c" />
+    <meta name="theme-color" content="#9f1239" />
 
-    <!-- Canonical -->
-    <link rel="canonical" href="https://www.atepconsulting.com/" />
-
-    <!-- Open Graph / WhatsApp / LinkedIn -->
+    <!-- Open Graph / WhatsApp / LinkedIn (canonical y og:url los gestiona SEO.jsx por ruta) -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.atepconsulting.com/" />
     <meta
       property="og:title"
       content="ATEP Consulting | Consultoría IT y Desarrollo de Software"
     />
     <meta
       property="og:description"
-      content="Desarrollo web profesional, páginas web, aplicaciones a medida, autiomatizaciones IA, migración de sistemas legacy. Equipo técnico on-demand disponible en 48h. Valencia, España."
+      content="Desarrollo web profesional, aplicaciones a medida, automatización con IA y migración de sistemas legacy. Equipo técnico on-demand en 48h. Valencia, España."
     />
     <meta
       property="og:image"
@@ -83,7 +82,7 @@
     />
     <meta
       name="twitter:description"
-      content="Desarrollo web profesional, páginas web, aplicaciones a medida, autiomatizaciones IA, migración de sistemas legacy. Equipo técnico on-demand disponible en 48h. Valencia, España."
+      content="Desarrollo web profesional, aplicaciones a medida, automatización con IA y migración de sistemas legacy. Equipo técnico on-demand en 48h. Valencia, España."
     />
     <meta
       name="twitter:image"
@@ -98,7 +97,7 @@
         "name": "ATEP Consulting",
         "alternateName": "ATEP",
         "url": "https://www.atepconsulting.com",
-        "logo": "https://www.atepconsulting.com/logo-atep.png",
+        "logo": "https://www.atepconsulting.com/new-logo-atep.png",
         "image": "https://www.atepconsulting.com/og-image.png",
         "description": "Consultoría IT especializada en desarrollo web, aplicaciones a medida, migración de sistemas y automatización de procesos.",
         "address": {
@@ -131,10 +130,8 @@
     </script>
 
     <!-- Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://api.emailjs.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <style>
       .grecaptcha-badge {

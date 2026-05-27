@@ -1,0 +1,45 @@
+:root {
+  --bg: #f5f1e8;
+  --bg-surface: #ecdfc7;
+  --bg-panel: #fdfaf2;
+  --ink: #0a1626;
+  --ink-soft: #1a2a40;
+  --navy: #0b1f3a;
+  --accent: #9f1239;
+  --accent-hover: #7a0d2c;
+  --muted: #5a6a7e;
+  --dim: #8a96a8;
+  --rule: rgba(10, 22, 38, 0.1);
+  --rule-strong: rgba(10, 22, 38, 0.2);
+}
+
+[data-theme="dark"] {
+  --bg: #0a1626;
+  --bg-surface: #0f1d33;
+  --bg-panel: #13243e;
+  --ink: #f5f1e8;
+  --ink-soft: #ecdfc7;
+  --navy: #f5f1e8;
+  --accent: #d94661;
+  --accent-hover: #e85a7a;
+  --muted: #9aa5b8;
+  --dim: #6b7891;
+  --rule: rgba(245, 241, 232, 0.12);
+  --rule-strong: rgba(245, 241, 232, 0.25);
+}
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
