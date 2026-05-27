@@ -123,6 +123,8 @@ export const CasePost = () => {
               <CaseStripe
                 label={`${caseItem.client[language]} · ${language === "es" ? "captura del producto" : "product screenshot"}`}
                 variant="navy"
+                image={caseItem.image}
+                alt={`${caseItem.client[language]} — ${caseItem.title[language]}`}
               />
             </div>
           </div>
@@ -160,6 +162,44 @@ export const CasePost = () => {
                   </div>
                 </div>
               ))}
+              {caseItem.liveUrl && (
+                <div
+                  className="py-4"
+                  style={{ borderBottom: "1px solid var(--rule)" }}
+                >
+                  <div
+                    className="mb-[6px]"
+                    style={tEyebrow("var(--muted)")}
+                  >
+                    {language === "es" ? "Web" : "Live site"}
+                  </div>
+                  <a
+                    href={caseItem.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-baseline gap-2 transition-colors duration-150"
+                    style={{
+                      fontSize: 15.5,
+                      color: "var(--ink)",
+                      lineHeight: 1.5,
+                      textDecoration: "underline",
+                      textUnderlineOffset: 4,
+                      wordBreak: "break-all",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.color = "var(--accent)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.color = "var(--ink)")
+                    }
+                  >
+                    {caseItem.liveUrl.replace(/^https?:\/\/(www\.)?/, "")}{" "}
+                    <span aria-hidden style={{ fontSize: 12 }}>
+                      ↗
+                    </span>
+                  </a>
+                </div>
+              )}
             </aside>
 
             <div>

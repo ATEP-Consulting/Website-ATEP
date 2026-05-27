@@ -32,6 +32,8 @@ export const CaseCard = ({ caseItem, variant = "navy" }) => {
         <CaseStripe
           label={`${caseItem.client[language]} · ${language === "es" ? "vista previa" : "preview"}`}
           variant={variant}
+          image={caseItem.image}
+          alt={`${caseItem.client[language]} — ${caseItem.title[language]}`}
         />
       </div>
       <div className="p-6 tm:p-7">

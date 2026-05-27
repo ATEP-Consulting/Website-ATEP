@@ -228,6 +228,8 @@ export const cases = [
       "IA generativa",
       "Stripe",
     ],
+    liveUrl: "https://www.goturnos.com",
+    image: "/images/cases/turnos.webp",
   },
   {
     slug: "lnh-partner",
@@ -303,6 +305,8 @@ export const cases = [
       "TypeScript",
       "Vercel",
     ],
+    liveUrl: "https://www.lnhpartner.com",
+    image: "/images/cases/lnh-partner.webp",
   },
   {
     slug: "tibis-market",
@@ -377,6 +381,8 @@ export const cases = [
       "React Router",
       "React Icons",
     ],
+    liveUrl: "https://www.tibismarket.com",
+    image: "/images/cases/tibis-market.webp",
   },
   {
     slug: "hampton-textile-printing",
@@ -544,6 +550,8 @@ export const cases = [
       "SEO técnico (schema.org MedicalBusiness)",
       "Vercel",
     ],
+    liveUrl: "https://www.luisroyuelanutricionistas.com",
+    image: "/images/cases/luis-royuela-nutricionistas.webp",
   },
 ];
 

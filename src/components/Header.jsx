@@ -408,8 +408,9 @@ const MegaServices = ({ open, services, onMouseEnter, onMouseLeave, onNavigate }
 
 const MegaCases = ({ open, cases, onMouseEnter, onMouseLeave, onNavigate }) => {
   const { t, language } = useLanguage();
-  const featured = cases[0];
-  const list = cases.slice(0, 5);
+  const sorted = [...cases].sort((a, b) => b.year - a.year);
+  const featured = sorted[0];
+  const list = sorted;
   const countLabel =
     language === "es"
       ? `${cases.length} ${t("mega.casesCount")}`

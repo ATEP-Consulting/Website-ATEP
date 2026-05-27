@@ -1,11 +1,29 @@
 import { FONT } from "../lib/typography";
 
-export const CaseStripe = ({ label = "", variant = "navy" }) => {
+export const CaseStripe = ({ label = "", variant = "navy", image, alt }) => {
   const slug = (label || "case")
     .replace(/\s+/g, "-")
     .replace(/[^a-z0-9-]/gi, "")
     .toLowerCase();
   const onNavy = variant === "navy";
+
+  // Si hay imagen real, la usamos como cover. Las rayas quedan como
+  // fallback para los casos privados (Hampton, Sentra, ATEP Inventory).
+  if (image) {
+    return (
+      <div
+        className="relative w-full h-full overflow-hidden"
+        style={{ background: onNavy ? "var(--navy)" : "var(--bg-surface)" }}
+      >
+        <img
+          src={image}
+          alt={alt || label}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+    );
+  }
 
   return (
     <div
