@@ -397,6 +397,7 @@ export const CasePost = () => {
               base={100}
               y={20}
               className="grid grid-cols-1 tm:grid-cols-2 gap-6 tm:gap-8"
+              itemClassName="h-full"
             >
               {related.map((rc, i) => (
                 <CaseCard

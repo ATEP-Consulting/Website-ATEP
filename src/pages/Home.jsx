@@ -339,12 +339,13 @@ export const Home = () => {
           style={{
             borderTop: "1px solid var(--navy)",
           }}
+          itemClassName="h-full"
         >
           {services.map((s, idx) => (
             <Link
               key={s.id}
               to={s.path}
-              className="block no-underline p-6 tm:p-7 tm:min-h-[260px] transition-colors duration-150"
+              className="block h-full no-underline p-6 tm:p-7 tm:min-h-[260px] transition-colors duration-150"
               style={{
                 color: "inherit",
                 borderRight: "1px solid var(--navy)",
@@ -452,6 +453,7 @@ export const Home = () => {
           base={140}
           y={28}
           className="grid grid-cols-1 tm:grid-cols-2 gap-6 tm:gap-8"
+          itemClassName="h-full"
         >
           {casesData.slice(0, 2).map((c) => (
             <CaseCard key={c.slug} caseItem={c} variant="navy" />
@@ -583,11 +585,12 @@ export const Home = () => {
           base={160}
           y={24}
           className="grid grid-cols-1 tm:grid-cols-3 gap-8 tm:gap-10"
+          itemClassName="h-full"
         >
           {whyChoose.map((item, idx) => (
             <article
               key={item.title}
-              className="flex flex-col"
+              className="flex flex-col h-full"
               style={{ background: "var(--bg-panel)" }}
             >
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -684,6 +687,7 @@ export const Home = () => {
           base={160}
           y={20}
           className="grid grid-cols-1 tm:grid-cols-3 gap-0 tm:gap-8"
+          itemClassName="h-full"
         >
           {recentPosts.map((post) => {
             const dateStr = new Date(post.date).toLocaleDateString(
@@ -694,7 +698,7 @@ export const Home = () => {
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
-                className="block no-underline pt-6 pb-5 tm:pb-0 transition-colors duration-150"
+                className="flex flex-col h-full no-underline pt-6 pb-5 tm:pb-0 transition-colors duration-150"
                 style={{
                   color: "inherit",
                   borderTop: "1px solid var(--navy)",

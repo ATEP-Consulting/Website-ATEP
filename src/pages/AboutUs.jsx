@@ -279,11 +279,12 @@ export const AboutUs = () => {
           base={180}
           y={24}
           className="grid grid-cols-1 tm:grid-cols-2 gap-8 tm:gap-12"
+          itemClassName="h-full"
         >
           {team.map((member, idx) => (
             <article
               key={member.name}
-              className="p-6 tm:p-8"
+              className="p-6 tm:p-8 h-full"
               style={{
                 background: "var(--bg-surface)",
                 borderTop: "2px solid var(--accent)",

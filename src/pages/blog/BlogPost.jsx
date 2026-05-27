@@ -230,6 +230,7 @@ export const BlogPost = () => {
               base={100}
               y={20}
               className="grid grid-cols-1 tm:grid-cols-2 gap-8"
+              itemClassName="h-full"
             >
               {related.map((rp) => (
                 <BlogCard

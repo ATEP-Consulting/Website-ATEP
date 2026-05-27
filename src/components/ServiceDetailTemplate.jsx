@@ -156,11 +156,12 @@ export const ServiceDetailTemplate = ({ serviceKey, heroImage }) => {
             y={20}
             className="mt-10 tm:mt-14 grid grid-cols-1 tm:grid-cols-2"
             style={{ borderTop: "1px solid var(--navy)" }}
+            itemClassName="h-full"
           >
             {service.projectTypes.map((project, idx) => (
               <div
                 key={project.title}
-                className="p-6 tm:p-8"
+                className="p-6 tm:p-8 h-full"
                 style={{
                   borderBottom: "1px solid var(--navy)",
                   borderRight: idx % 2 === 0 ? "1px solid var(--navy)" : "none",
@@ -230,11 +231,12 @@ export const ServiceDetailTemplate = ({ serviceKey, heroImage }) => {
             base={180}
             y={20}
             className="mt-10 tm:mt-14 grid grid-cols-1 tm:grid-cols-2 gap-6 tm:gap-8"
+            itemClassName="h-full"
           >
             {service.useCases.map((useCase, idx) => (
               <article
                 key={useCase.title}
-                className="p-6 tm:p-7"
+                className="p-6 tm:p-7 h-full"
                 style={{
                   background: "var(--bg-surface)",
                   border: "1px solid var(--rule)",
@@ -306,11 +308,12 @@ export const ServiceDetailTemplate = ({ serviceKey, heroImage }) => {
             base={180}
             y={20}
             className="mt-10 tm:mt-14 grid grid-cols-1 tm:grid-cols-2 gap-y-6 gap-x-10"
+            itemClassName="h-full"
           >
             {service.benefitsList.map((benefit, idx) => (
               <div
                 key={benefit.title}
-                className="pt-4"
+                className="pt-4 h-full"
                 style={{ borderTop: "1px solid var(--navy)" }}
               >
                 <div className="flex items-baseline justify-between mb-2">
@@ -380,11 +383,12 @@ export const ServiceDetailTemplate = ({ serviceKey, heroImage }) => {
             y={20}
             className="mt-10 tm:mt-14 grid grid-cols-1 tm:grid-cols-3"
             style={{ borderTop: "1px solid var(--navy)" }}
+            itemClassName="h-full"
           >
             {service.features.map((feature, idx) => (
               <div
                 key={feature.title}
-                className="p-6 tm:p-7"
+                className="p-6 tm:p-7 h-full"
                 style={{
                   borderBottom: "1px solid var(--navy)",
                   borderRight: idx % 3 !== 2 ? "1px solid var(--navy)" : "none",

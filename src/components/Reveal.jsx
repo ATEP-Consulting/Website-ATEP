@@ -101,13 +101,22 @@ export const RevealStagger = ({
   dur = 900,
   className,
   style = {},
+  itemClassName,
+  itemStyle,
   ...rest
 }) => {
   const arr = Children.toArray(children);
   return (
     <div className={className} style={style} {...rest}>
       {arr.map((c, i) => (
-        <Reveal key={c.key ?? i} delay={base + i * stagger} y={y} dur={dur}>
+        <Reveal
+          key={c.key ?? i}
+          delay={base + i * stagger}
+          y={y}
+          dur={dur}
+          className={itemClassName}
+          style={itemStyle}
+        >
           {c}
         </Reveal>
       ))}

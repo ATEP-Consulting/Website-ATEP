@@ -154,6 +154,7 @@ export const BlogList = () => {
             base={80}
             y={20}
             className="grid grid-cols-1 tm:grid-cols-2 lg:grid-cols-3 gap-8"
+            itemClassName="h-full"
           >
             {filtered.map((post) => (
               <BlogCard
