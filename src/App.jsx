@@ -26,6 +26,7 @@ import { ScrollToTop } from "./components/ScrollToTop";
 import { NotFound } from "./pages/NotFound";
 import { SnackbarProvider } from "./context/SnackBarContext";
 import { WhatsAppButton } from "./components/WhatsAppButton";
+import { CookieBanner } from "./components/CookieBanner";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { HelmetProvider } from "react-helmet-async";
 
@@ -79,8 +80,9 @@ function App() {
             <BrowserRouter>
               <ScrollToTop />
               <AppRoutes />
+              <WhatsAppButton />
+              <CookieBanner />
             </BrowserRouter>
-            <WhatsAppButton />
           </SnackbarProvider>
         </LanguageProvider>
       </ThemeProvider>

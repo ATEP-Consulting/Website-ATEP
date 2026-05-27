@@ -20,19 +20,43 @@
       })();
     </script>
 
-    <!-- Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-GDE5LM5ND1"
-    ></script>
+    <!-- Google Analytics + Consent Mode v2 -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
+      // Default: storage denegado hasta que el usuario acepte en el banner.
+      // wait_for_update da 500ms al banner para resolver antes de disparar pings.
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+        wait_for_update: 500,
+      });
+      // Reaplica el consentimiento previo (si existe) antes de cargar GA, para
+      // que el primer page_view ya respete la elección guardada del usuario.
+      try {
+        var prev = localStorage.getItem("atep_cookie_consent_v1");
+        if (prev === "granted") {
+          gtag("consent", "update", {
+            ad_storage: "granted",
+            ad_user_data: "granted",
+            ad_personalization: "granted",
+            analytics_storage: "granted",
+          });
+        }
+      } catch (e) {
+        /* localStorage indisponible: arrancamos en denied */
+      }
       gtag("js", new Date());
       gtag("config", "G-GDE5LM5ND1");
     </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GDE5LM5ND1"
+    ></script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/new-logo-atep.svg" />

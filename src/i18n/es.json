@@ -28,6 +28,14 @@
     "toLight": "Cambiar a modo claro",
     "toDark": "Cambiar a modo oscuro"
   },
+  "cookieBanner": {
+    "title": "Cookies y analítica",
+    "body": "Usamos cookies de analítica para entender cómo se navega la web y mejorar la experiencia. No las usamos para publicidad ni perfilado comercial.",
+    "accept": "Aceptar",
+    "reject": "Rechazar",
+    "moreInfo": "Más información",
+    "ariaLabel": "Aviso de cookies"
+  },
   "hero": {
     "heroBadge": "Construimos software sin dependencias del proveedor",
     "heroTitle1": "Convertimos",
