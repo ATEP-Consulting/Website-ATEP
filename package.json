@@ -12,6 +12,10 @@
     "typecheck": "tsc --noEmit -p tsconfig.app.json"
   },
   "reactSnap": {
+    "source": "dist",
+    "destination": "dist",
+    "inlineCss": false,
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
     "include": [
       "/",
       "/company",
@@ -21,7 +25,11 @@
       "/services/on-demand-team",
       "/services/legacy-migration",
       "/services/automation",
-      "/contact"
+      "/contact",
+      "/blog",
+      "/privacy-policy",
+      "/cookies-policy",
+      "/legal-notice"
     ]
   },
   "dependencies": {

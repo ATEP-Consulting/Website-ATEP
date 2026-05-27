@@ -4,7 +4,23 @@
     "about": "Empresa",
     "services": "Servicios",
     "blog": "Blog",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "scheduleCall": "Agendar llamada",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  },
+  "mega": {
+    "ourServices": "Nuestros servicios",
+    "needHelp": "¿Necesitas ayuda?",
+    "helpTitle": "Hablemos de tu proyecto",
+    "helpText": "Te asesoramos sin compromiso sobre el servicio que mejor se adapta a ti. Equipo técnico disponible en 48h.",
+    "contactNow": "Contactar ahora",
+    "notSure": "¿No sabes qué necesitas?",
+    "viewAllServices": "Ver todos los servicios"
+  },
+  "theme": {
+    "toLight": "Cambiar a modo claro",
+    "toDark": "Cambiar a modo oscuro"
   },
   "hero": {
     "heroBadge": "Transformando Negocios desde 2023",

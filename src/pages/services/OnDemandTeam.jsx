@@ -1,4 +1,3 @@
-import { Users } from "lucide-react";
 import { ServiceDetailTemplate } from "../../components/ServiceDetailTemplate";
 import { SEO } from "../../components/SEO";
 
@@ -16,7 +15,6 @@ export const OnDemandTeam = () => {
       />
       <ServiceDetailTemplate
         serviceKey="onDemandTeam"
-        heroIcon={Users}
         heroImage="/images/services/OnDemandTeam-service.webp"
       />
     </>

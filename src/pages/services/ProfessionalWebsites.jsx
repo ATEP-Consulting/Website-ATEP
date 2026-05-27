@@ -1,4 +1,3 @@
-import { Globe } from "lucide-react";
 import { ServiceDetailTemplate } from "../../components/ServiceDetailTemplate";
 import { SEO } from "../../components/SEO";
 
@@ -25,7 +24,6 @@ export const ProfessionalWebsites = () => {
       />
       <ServiceDetailTemplate
         serviceKey="professionalWebsites"
-        heroIcon={Globe}
         heroImage="/images/services/ProfessionalWebsites-service.webp"
       />
     </>

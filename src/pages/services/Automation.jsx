@@ -1,4 +1,3 @@
-import { Zap } from "lucide-react";
 import { ServiceDetailTemplate } from "../../components/ServiceDetailTemplate";
 import { SEO } from "../../components/SEO";
 
@@ -16,7 +15,6 @@ export const Automation = () => {
       />
       <ServiceDetailTemplate
         serviceKey="automation"
-        heroIcon={Zap}
         heroImage="/images/services/Automation-service.webp"
       />
     </>

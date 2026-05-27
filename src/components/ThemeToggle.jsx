@@ -4,16 +4,9 @@ import { useLanguage } from "../context/LanguageContext";
 
 export const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme();
-  const { language } = useLanguage();
+  const { t } = useLanguage();
   const isDark = theme === "dark";
-  const label =
-    language === "es"
-      ? isDark
-        ? "Cambiar a modo claro"
-        : "Cambiar a modo oscuro"
-      : isDark
-      ? "Switch to light mode"
-      : "Switch to dark mode";
+  const label = isDark ? t("theme.toLight") : t("theme.toDark");
 
   return (
     <button

@@ -4,7 +4,23 @@
     "about": "Company",
     "services": "Services",
     "blog": "Blog",
-    "contact": "Contact"
+    "contact": "Contact",
+    "scheduleCall": "Schedule a call",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "mega": {
+    "ourServices": "Our services",
+    "needHelp": "Need help?",
+    "helpTitle": "Let's talk about your project",
+    "helpText": "Free consultation on the service that fits you best. Technical team available within 48h.",
+    "contactNow": "Get in touch",
+    "notSure": "Not sure what you need?",
+    "viewAllServices": "View all services"
+  },
+  "theme": {
+    "toLight": "Switch to light mode",
+    "toDark": "Switch to dark mode"
   },
   "hero": {
     "heroBadge": "Transforming Businesses Since 2023",

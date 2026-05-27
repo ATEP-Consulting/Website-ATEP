@@ -1,4 +1,3 @@
-import { RefreshCw } from "lucide-react";
 import { ServiceDetailTemplate } from "../../components/ServiceDetailTemplate";
 import { SEO } from "../../components/SEO";
 
@@ -16,7 +15,6 @@ export const LegacyMigration = () => {
       />
       <ServiceDetailTemplate
         serviceKey="legacyMigration"
-        heroIcon={RefreshCw}
         heroImage="/images/services/LegacyMigration-service.webp"
       />
     </>

@@ -1,4 +1,3 @@
-import { Code2 } from "lucide-react";
 import { ServiceDetailTemplate } from "../../components/ServiceDetailTemplate";
 import { SEO } from "../../components/SEO";
 
@@ -21,7 +20,6 @@ export const FullStackDevelopment = () => {
       />
       <ServiceDetailTemplate
         serviceKey="fullStackDevelopment"
-        heroIcon={Code2}
         heroImage="/images/services/FullStackDevelopment-service.webp"
       />
     </>

@@ -75,7 +75,7 @@ const CtaButton = ({ to, children, primary = false }) => {
 };
 
 const DesktopHeader = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
   const services = getServicesData(t);
@@ -196,7 +196,7 @@ const DesktopHeader = () => {
         <ThemeToggle />
         <LanguageSwitcher />
         <CtaButton to="/contact" primary>
-          {language === "es" ? "Agendar llamada" : "Schedule a call"} →
+          {t("nav.scheduleCall")} →
         </CtaButton>
       </div>
 
@@ -213,6 +213,10 @@ const DesktopHeader = () => {
 
 const MegaServices = ({ open, services, onMouseEnter, onMouseLeave, onNavigate }) => {
   const { t, language } = useLanguage();
+  const practicesLabel =
+    language === "es"
+      ? `${services.length} prácticas`
+      : `${services.length} practices`;
   return (
     <div
       onMouseEnter={onMouseEnter}
@@ -242,12 +246,10 @@ const MegaServices = ({ open, services, onMouseEnter, onMouseLeave, onNavigate }
             style={{ borderBottom: "1px solid var(--rule)" }}
           >
             <div style={tEyebrow("var(--muted)")}>
-              — {language === "es" ? "Nuestros servicios" : "Our services"}
+              — {t("mega.ourServices")}
             </div>
             <div style={{ ...tEyebrow("var(--dim)"), fontSize: 10 }}>
-              {language === "es"
-                ? `${services.length} prácticas`
-                : `${services.length} practices`}
+              {practicesLabel}
             </div>
           </div>
           <div className="grid grid-cols-3 gap-x-8 gap-y-7">
@@ -320,23 +322,19 @@ const MegaServices = ({ open, services, onMouseEnter, onMouseLeave, onNavigate }
             style={{ borderBottom: "1px solid var(--rule)" }}
           >
             <div style={tEyebrow("var(--muted)")}>
-              — {language === "es" ? "¿Necesitas ayuda?" : "Need help?"}
+              — {t("mega.needHelp")}
             </div>
           </div>
           <h3
             style={{ ...tSerif(22, 500), color: "var(--ink)", margin: "0 0 12px", lineHeight: 1.2 }}
           >
-            {language === "es"
-              ? "Hablemos de tu proyecto"
-              : "Let's talk about your project"}
+            {t("mega.helpTitle")}
           </h3>
           <p
             className="m-0 mb-5 leading-[1.55]"
             style={{ fontSize: 13.5, color: "var(--muted)" }}
           >
-            {language === "es"
-              ? "Te asesoramos sin compromiso sobre el servicio que mejor se adapta a ti. Equipo técnico disponible en 48h."
-              : "Free consultation on the service that fits you best. Technical team available within 48h."}
+            {t("mega.helpText")}
           </p>
           <Link
             to="/contact"
@@ -344,7 +342,7 @@ const MegaServices = ({ open, services, onMouseEnter, onMouseLeave, onNavigate }
             className="inline-block px-[18px] py-[10px] text-[13px] no-underline whitespace-nowrap transition-all duration-150 hover:-translate-y-[1px]"
             style={{ background: "var(--navy)", color: "var(--bg)" }}
           >
-            {t("CTA.primaryButton") || (language === "es" ? "Contactar ahora" : "Get in touch")} →
+            {t("mega.contactNow")} →
           </Link>
         </div>
       </div>
@@ -355,9 +353,7 @@ const MegaServices = ({ open, services, onMouseEnter, onMouseLeave, onNavigate }
         style={{ borderTop: "1px solid var(--rule)" }}
       >
         <div style={{ ...tEyebrow("var(--muted)"), fontSize: 10.5 }}>
-          {language === "es"
-            ? "— ¿No sabes qué necesitas?"
-            : "— Not sure what you need?"}
+          — {t("mega.notSure")}
         </div>
         <div className="flex gap-4 items-center">
           <Link
@@ -370,7 +366,7 @@ const MegaServices = ({ open, services, onMouseEnter, onMouseLeave, onNavigate }
               textUnderlineOffset: 4,
             }}
           >
-            {t("services.viewAll") || (language === "es" ? "Ver todos los servicios" : "View all services")} →
+            {t("services.viewAll") || t("mega.viewAllServices")} →
           </Link>
         </div>
       </div>
@@ -379,7 +375,7 @@ const MegaServices = ({ open, services, onMouseEnter, onMouseLeave, onNavigate }
 };
 
 const MobileHeader = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
   const services = getServicesData(t);
@@ -437,15 +433,7 @@ const MobileHeader = () => {
         <button
           type="button"
           onClick={() => setOpen((o) => !o)}
-          aria-label={
-            open
-              ? language === "es"
-                ? "Cerrar menú"
-                : "Close menu"
-              : language === "es"
-              ? "Abrir menú"
-              : "Open menu"
-          }
+          aria-label={open ? t("nav.closeMenu") : t("nav.openMenu")}
           aria-expanded={open}
           className="w-11 h-11 flex items-center justify-center bg-transparent cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           style={{ color: "var(--ink)", border: "1px solid var(--rule-strong)" }}
@@ -530,11 +518,7 @@ const MobileHeader = () => {
                         style={{ borderTop: "1px solid var(--rule)" }}
                       >
                         <span style={{ ...tEyebrow("var(--muted)"), fontSize: 11 }}>
-                          {t("services.viewAll") ||
-                            (language === "es"
-                              ? "Ver todos los servicios"
-                              : "View all services")}{" "}
-                          →
+                          {t("services.viewAll") || t("mega.viewAllServices")} →
                         </span>
                       </Link>
                     </div>
@@ -578,7 +562,7 @@ const MobileHeader = () => {
             className="block text-center px-6 py-[18px] text-[14px] font-medium tracking-[0.02em] no-underline"
             style={{ background: "var(--navy)", color: "var(--bg)" }}
           >
-            {language === "es" ? "Agendar llamada" : "Schedule a call"} →
+            {t("nav.scheduleCall")} →
           </Link>
           <div
             className="mt-6 text-center"
