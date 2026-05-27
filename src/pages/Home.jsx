@@ -490,12 +490,23 @@ export const Home = () => {
             )}
           </h2>
         </Reveal>
+        <div className="relative">
+          {/* Línea granate del proceso: horizontal en desktop, vertical en mobile */}
+          <div
+            aria-hidden
+            className="hidden tm:block absolute top-0 left-0 right-0 h-px pointer-events-none"
+            style={{ background: "var(--accent)" }}
+          />
+          <div
+            aria-hidden
+            className="tm:hidden absolute left-0 top-0 bottom-0 w-px pointer-events-none"
+            style={{ background: "var(--accent)" }}
+          />
         <RevealStagger
           stagger={140}
           base={160}
           y={28}
-          className="grid grid-cols-2 tm:grid-cols-4 gap-8 tm:gap-8 pt-8"
-          style={{ borderTop: "1px solid var(--navy)" }}
+          className="grid grid-cols-1 tm:grid-cols-4 gap-10 tm:gap-8 pl-6 tm:pl-0 pt-8 tm:pt-10"
         >
           {processSteps.map((p) => (
             <div key={p.num}>
@@ -531,6 +542,7 @@ export const Home = () => {
             </div>
           ))}
         </RevealStagger>
+        </div>
       </section>
 
       {/* WHY CHOOSE US */}
