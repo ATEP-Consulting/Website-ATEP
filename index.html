@@ -20,7 +20,9 @@
       })();
     </script>
 
-    <!-- Google Analytics + Consent Mode v2 -->
+    <!-- Google Consent Mode v2 — se inicializa inline (necesario antes de
+         cargar GA). El script de gtag.js se carga diferido tras el LCP para
+         no penalizar el First Contentful Paint. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -52,11 +54,34 @@
       }
       gtag("js", new Date());
       gtag("config", "G-GDE5LM5ND1");
+
+      // Carga diferida del script de GA: esperamos al evento load (LCP ya
+      // pintado) o a la primera interacción del usuario, lo que ocurra antes.
+      // Reduce el coste de JS de tercera parte durante el critical path móvil.
+      (function loadGA() {
+        var loaded = false;
+        function inject() {
+          if (loaded) return;
+          loaded = true;
+          var s = document.createElement("script");
+          s.async = true;
+          s.src = "https://www.googletagmanager.com/gtag/js?id=G-GDE5LM5ND1";
+          document.head.appendChild(s);
+        }
+        if (document.readyState === "complete") {
+          setTimeout(inject, 1500);
+        } else {
+          window.addEventListener("load", function () {
+            setTimeout(inject, 1500);
+          });
+        }
+        ["pointerdown", "keydown", "touchstart", "scroll"].forEach(function (
+          ev,
+        ) {
+          window.addEventListener(ev, inject, { once: true, passive: true });
+        });
+      })();
     </script>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-GDE5LM5ND1"
-    ></script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/new-logo-atep.svg" />
@@ -156,6 +181,18 @@
     <!-- Performance -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://api.emailjs.com" />
+
+    <!-- Preload de la imagen LCP (hero) — se sirve la variante AVIF
+         responsive más liviana que coincida con el viewport. -->
+    <link
+      rel="preload"
+      as="image"
+      href="/images/home/ExpertTeam-768.avif"
+      imagesrcset="/images/home/ExpertTeam-480.avif 480w, /images/home/ExpertTeam-768.avif 768w, /images/home/ExpertTeam-1200.avif 1200w"
+      imagesizes="(max-width: 820px) 100vw, 40vw"
+      type="image/avif"
+      fetchpriority="high"
+    />
 
     <style>
       .grecaptcha-badge {

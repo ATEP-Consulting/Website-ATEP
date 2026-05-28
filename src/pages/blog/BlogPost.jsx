@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
 import { BlogCard } from "../../components/BlogCard";
+import { Image } from "../../components/Image";
 import { Reveal, RevealStagger } from "../../components/Reveal";
 import { blogPosts } from "../../data/blogData";
 import { tDisplay, tSerif, tEyebrow, FONT } from "../../lib/typography";
@@ -135,11 +136,11 @@ export const BlogPost = () => {
                 className="overflow-hidden"
                 style={{ aspectRatio: "16/9" }}
               >
-                <img
+                <Image
                   src={post.image}
                   alt={post.title[language]}
                   className="w-full h-full object-cover"
-                  loading="lazy"
+                  sizes="100vw"
                 />
               </div>
             </div>

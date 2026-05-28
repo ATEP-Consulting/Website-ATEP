@@ -4,6 +4,7 @@ import { SEO } from "../components/SEO";
 import ImageHero from "../components/ImageHero";
 import { Reveal, RevealStagger } from "../components/Reveal";
 import { CountingNumber } from "../components/CountingNumber";
+import { Image } from "../components/Image";
 import { getHeroStats } from "../config/heroStats";
 import { tDisplay, tSerif, tEyebrow } from "../lib/typography";
 
@@ -237,11 +238,11 @@ export const AboutUs = () => {
                     className={reversed ? "tm:order-1" : ""}
                     style={{ aspectRatio: "4/3" }}
                   >
-                    <img
+                    <Image
                       src={value.image}
                       alt={value.title}
                       className="w-full h-full object-cover"
-                      loading="lazy"
+                      sizes="(max-width: 820px) 100vw, 50vw"
                     />
                   </div>
                 </div>

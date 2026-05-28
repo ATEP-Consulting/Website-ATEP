@@ -5,13 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/optimize-images.cjs",
     "build": "vite build",
     "postbuild": "node scripts/postbuild.cjs",
     "prerender": "react-snap",
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json",
-    "capture:cases": "node scripts/capture-cases.cjs"
+    "capture:cases": "node scripts/capture-cases.cjs",
+    "optimize:images": "node scripts/optimize-images.cjs"
   },
   "reactSnap": {
     "source": "dist",

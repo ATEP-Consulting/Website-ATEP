@@ -1,4 +1,5 @@
 import { FONT } from "../lib/typography";
+import { Image } from "./Image";
 
 export const CaseStripe = ({ label = "", variant = "navy", image, alt }) => {
   const slug = (label || "case")
@@ -15,12 +16,12 @@ export const CaseStripe = ({ label = "", variant = "navy", image, alt }) => {
         className="relative w-full h-full overflow-hidden"
         style={{ background: onNavy ? "var(--navy)" : "var(--bg-surface)" }}
       >
-        <img
+        <Image
           src={image}
           alt={alt || label}
-          loading="lazy"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: "center top" }}
+          sizes="(max-width: 820px) 100vw, 50vw"
         />
       </div>
     );

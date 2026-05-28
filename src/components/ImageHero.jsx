@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Reveal } from "./Reveal";
+import { Image } from "./Image";
 import { tDisplay, tSerif, tEyebrow } from "../lib/typography";
 
 const ImageHero = ({
@@ -84,12 +85,14 @@ const ImageHero = ({
                 maxWidth: "min(540px, 100%)",
               }}
             >
-              <img
+              <Image
                 src={backgroundImage}
                 alt={alt || title}
                 className="absolute inset-0 w-full h-full object-cover"
-                loading="eager"
-                fetchpriority="high"
+                sizes="(max-width: 820px) 100vw, 40vw"
+                priority
+                width={540}
+                height={675}
               />
             </div>
           </Reveal>

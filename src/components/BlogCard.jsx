@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { tDisplay, tEyebrow } from "../lib/typography";
+import { Image } from "./Image";
 
 export const BlogCard = ({
   slug,
@@ -31,11 +32,11 @@ export const BlogCard = ({
       >
         {image && (
           <div className="relative overflow-hidden aspect-[4/3]">
-            <img
+            <Image
               src={image}
               alt={title}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
+              sizes="(max-width: 820px) 100vw, 33vw"
             />
           </div>
         )}

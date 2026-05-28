@@ -7,6 +7,7 @@ import { getServicesData } from "../data/servicesData";
 import { cases as casesData } from "../data/casesData";
 import { CaseCard } from "../components/CaseCard";
 import { ClientsMarquee } from "../components/ClientsMarquee";
+import { Image } from "../components/Image";
 import { blogPosts } from "../data/blogData";
 import { getHeroStats } from "../config/heroStats";
 import { tDisplay, tSerif, tEyebrow, FONT } from "../lib/typography";
@@ -181,7 +182,7 @@ export const Home = () => {
                   maxWidth: "min(560px, 100%)",
                 }}
               >
-                <img
+                <Image
                   src="/images/home/ExpertTeam.webp"
                   alt={
                     language === "es"
@@ -189,8 +190,10 @@ export const Home = () => {
                       : "ATEP Consulting team"
                   }
                   className="absolute inset-0 w-full h-full object-cover"
-                  loading="eager"
-                  fetchpriority="high"
+                  sizes="(max-width: 820px) 100vw, 40vw"
+                  priority
+                  width={560}
+                  height={700}
                 />
                 <div
                   className="absolute bottom-4 left-4 right-4 tm:bottom-6 tm:left-6 tm:right-6 p-5 tm:p-6"
@@ -646,11 +649,11 @@ export const Home = () => {
               style={{ background: "var(--bg-panel)" }}
             >
               <div className="relative aspect-[4/3] overflow-hidden">
-                <img
+                <Image
                   src={item.img}
                   alt={item.title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  loading="lazy"
+                  sizes="(max-width: 820px) 100vw, 33vw"
                 />
               </div>
               <div className="p-6 tm:p-7">
