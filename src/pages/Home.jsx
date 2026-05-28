@@ -349,23 +349,22 @@ export const Home = () => {
           stagger={80}
           base={180}
           y={20}
-          className="grid grid-cols-1 tm:grid-cols-3"
-          style={{
-            borderTop: "1px solid var(--navy)",
-          }}
+          className="grid grid-cols-1 gap-3 tm:gap-0 tm:grid-cols-3 tm:border-t tm:border-[var(--navy)]"
           itemClassName="h-full"
         >
           {services.map((s, idx) => (
             <Link
               key={s.id}
               to={s.path}
-              className="block h-full no-underline p-6 tm:p-7 tm:min-h-[260px] transition-colors duration-150"
-              style={{
-                color: "inherit",
-                borderRight: "1px solid var(--navy)",
-                borderBottom: "1px solid var(--navy)",
-                borderLeft: idx % 3 === 0 ? "1px solid var(--navy)" : "none",
-              }}
+              // Mobile: cada card es un rectángulo cerrado con sus 4 bordes
+              // y un pequeño gap entre ellas. Desktop: layout estilo tabla
+              // — los bordes se comparten con las cards vecinas (sólo
+              // borderLeft en la primera columna; el borderTop lo aporta
+              // el contenedor).
+              className={`block h-full no-underline p-6 tm:p-7 tm:min-h-[260px] transition-colors duration-150 border border-[var(--navy)] tm:border-t-0 tm:border-l-0 ${
+                idx % 3 === 0 ? "tm:border-l" : ""
+              }`}
+              style={{ color: "inherit" }}
               onMouseEnter={(e) =>
                 (e.currentTarget.style.background = "var(--bg-surface)")
               }

@@ -381,18 +381,18 @@ export const ServiceDetailTemplate = ({ serviceKey, heroImage }) => {
             stagger={90}
             base={180}
             y={20}
-            className="mt-10 tm:mt-14 grid grid-cols-1 tm:grid-cols-3"
-            style={{ borderTop: "1px solid var(--navy)" }}
+            className="mt-10 tm:mt-14 grid grid-cols-1 gap-3 tm:gap-0 tm:grid-cols-3 tm:border-t tm:border-[var(--navy)]"
             itemClassName="h-full"
           >
             {service.features.map((feature, idx) => (
               <div
                 key={feature.title}
-                className="p-6 tm:p-7 h-full"
-                style={{
-                  borderBottom: "1px solid var(--navy)",
-                  borderRight: idx % 3 !== 2 ? "1px solid var(--navy)" : "none",
-                }}
+                // Mobile: cada feature es un rectángulo cerrado con sus 4
+                // bordes. Desktop: layout tabla — sin borderTop (lo aporta
+                // el contenedor) y sin borderRight en la última columna.
+                className={`p-6 tm:p-7 h-full border border-[var(--navy)] tm:border-t-0 tm:border-l-0 tm:border-b ${
+                  idx % 3 !== 2 ? "tm:border-r" : "tm:border-r-0"
+                }`}
               >
                 <div style={tEyebrow("var(--accent)")} className="mb-3">
                   {String(idx + 1).padStart(2, "0")}
