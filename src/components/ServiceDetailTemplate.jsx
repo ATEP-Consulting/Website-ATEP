@@ -388,10 +388,12 @@ export const ServiceDetailTemplate = ({ serviceKey, heroImage }) => {
               <div
                 key={feature.title}
                 // Mobile: cada feature es un rectángulo cerrado con sus 4
-                // bordes. Desktop: layout tabla — sin borderTop (lo aporta
-                // el contenedor) y sin borderRight en la última columna.
-                className={`p-6 tm:p-7 h-full border border-[var(--navy)] tm:border-t-0 tm:border-l-0 tm:border-b ${
-                  idx % 3 !== 2 ? "tm:border-r" : "tm:border-r-0"
+                // bordes. Desktop: layout tabla — el borderTop lo aporta
+                // el contenedor; las cards comparten bordes verticales y
+                // sólo la primera columna conserva el borderLeft para
+                // cerrar el borde izquierdo del bloque.
+                className={`p-6 tm:p-7 h-full border border-[var(--navy)] tm:border-t-0 ${
+                  idx % 3 === 0 ? "" : "tm:border-l-0"
                 }`}
               >
                 <div style={tEyebrow("var(--accent)")} className="mb-3">

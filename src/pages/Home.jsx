@@ -358,11 +358,12 @@ export const Home = () => {
               to={s.path}
               // Mobile: cada card es un rectángulo cerrado con sus 4 bordes
               // y un pequeño gap entre ellas. Desktop: layout estilo tabla
-              // — los bordes se comparten con las cards vecinas (sólo
-              // borderLeft en la primera columna; el borderTop lo aporta
-              // el contenedor).
-              className={`block h-full no-underline p-6 tm:p-7 tm:min-h-[260px] transition-colors duration-150 border border-[var(--navy)] tm:border-t-0 tm:border-l-0 ${
-                idx % 3 === 0 ? "tm:border-l" : ""
+              // — el borderTop lo aporta el contenedor y los bordes
+              // verticales se comparten con las cards vecinas (sólo la
+              // primera columna conserva el borderLeft para cerrar el
+              // borde izquierdo del bloque).
+              className={`block h-full no-underline p-6 tm:p-7 tm:min-h-[260px] transition-colors duration-150 border border-[var(--navy)] tm:border-t-0 ${
+                idx % 3 === 0 ? "" : "tm:border-l-0"
               }`}
               style={{ color: "inherit" }}
               onMouseEnter={(e) =>
