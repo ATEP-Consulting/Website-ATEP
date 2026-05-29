@@ -13,10 +13,7 @@ export const LegacyMigration = () => {
           serviceType: "Migración de Sistemas Legacy",
         }}
       />
-      <ServiceDetailTemplate
-        serviceKey="legacyMigration"
-        heroImage="/images/services/LegacyMigration-service.webp"
-      />
+      <ServiceDetailTemplate serviceKey="legacyMigration" />
     </>
   );
 };

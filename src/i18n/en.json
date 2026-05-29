@@ -122,6 +122,7 @@
     "professionalWebsites": {
       "name": "Corporate Websites",
       "description": "Fast, optimized websites designed to convert visitors into customers.",
+      "heroStat": { "number": "1.2s", "label": "load time" },
       "badge": "Ultra-fast loading",
       "keywords": "web development, professional websites, SEO, responsive design, business websites",
       "whatWeDo": "What We Do",
@@ -211,6 +212,7 @@
     "fullStackDevelopment": {
       "name": "Custom Web Apps",
       "description": "Complete custom platforms and applications, from concept to production",
+      "heroStat": { "number": "0", "label": "vendor lock-in" },
       "badge": "100% Custom Solution",
       "keywords": "full stack development, web applications, SaaS development, React, TypeScript, Node.js, custom software",
 
@@ -345,6 +347,7 @@
     "onDemandTeam": {
       "name": "Tech Reinforcement",
       "description": "Development reinforcement when your team needs it, available within 48 hours.",
+      "heroStat": { "number": "48h", "label": "response after the call" },
       "badge": "Available in 48 Hours",
       "keywords": "on-demand developers, tech team, software outsourcing, temporary developers, IT support, remote development",
 
@@ -452,6 +455,7 @@
     "legacyMigration": {
       "name": "Legacy Migration & Modernization",
       "description": "Transform your legacy software into modern applications without disrupting operations.",
+      "heroStat": { "number": "0h", "label": "planned downtime" },
       "badge": "Maintainable, Documented Code",
       "keywords": "legacy migration, software modernization, refactoring, digital transformation, system upgrade, old software replacement",
 
@@ -567,6 +571,7 @@
     "automation": {
       "name": "Process Automation",
       "description": "Save time and reduce errors by automating repetitive business tasks.",
+      "heroStat": { "number": "70%", "label": "fewer manual tasks" },
       "badge": "Save hours every week",
       "keywords": "automation, RPA, process robots, efficiency, error reduction, integrations, bots, scripts, productivity",
 
@@ -682,6 +687,7 @@
     "aiSolutions": {
       "name": "Applied Artificial Intelligence",
       "description": "Assistants, chatbots and AI agents that understand your business and work with your real information.",
+      "heroStat": { "number": "80%", "label": "fewer repeat queries" },
       "badge": "AI with purpose",
       "keywords": "artificial intelligence, AI, LLM, GPT, chatbot, AI assistant, RAG, agents, OpenAI, Anthropic, smart automation",
       "whatWeDo": "What We Do",
@@ -727,6 +733,7 @@
     "mobileApps": {
       "name": "Bespoke Mobile Apps",
       "description": "Native and cross-platform applications for iOS and Android, built to scale and last over time.",
+      "heroStat": { "number": "60fps", "label": "native transitions" },
       "badge": "iOS · Android · Cross-platform",
       "keywords": "mobile apps, iOS development, Android development, React Native, Swift, Kotlin, custom app, mobile application",
       "whatWeDo": "What We Do",
@@ -772,6 +779,7 @@
     "ecommerce": {
       "name": "Custom E-commerce",
       "description": "Fast online stores, optimized for conversion and built to sell — with or without a traditional payment gateway.",
+      "heroStat": { "number": "+25%", "label": "typical conversion lift" },
       "badge": "Designed to sell",
       "keywords": "ecommerce, online store, online sales, Stripe, Shopify, headless commerce, payment gateway, WooCommerce, shopping cart",
       "whatWeDo": "What We Do",
@@ -817,6 +825,7 @@
     "support": {
       "name": "Continuous Support and Maintenance",
       "description": "Dedicated squad that knows your product and responds with clear SLAs. So your platform evolves without surprises.",
+      "heroStat": { "number": "99.9%", "label": "guaranteed uptime" },
       "badge": "Your trusted tech team",
       "keywords": "software maintenance, technical support, SLA, dedicated team, product evolution, monitoring, observability, hotfix",
       "whatWeDo": "What We Do",

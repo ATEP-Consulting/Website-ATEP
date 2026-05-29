@@ -18,10 +18,7 @@ export const FullStackDevelopment = () => {
           },
         }}
       />
-      <ServiceDetailTemplate
-        serviceKey="fullStackDevelopment"
-        heroImage="/images/services/FullStackDevelopment-service.webp"
-      />
+      <ServiceDetailTemplate serviceKey="fullStackDevelopment" />
     </>
   );
 };

@@ -13,10 +13,7 @@ export const OnDemandTeam = () => {
           serviceType: "Staff Augmentation",
         }}
       />
-      <ServiceDetailTemplate
-        serviceKey="onDemandTeam"
-        heroImage="/images/services/OnDemandTeam-service.webp"
-      />
+      <ServiceDetailTemplate serviceKey="onDemandTeam" />
     </>
   );
 };

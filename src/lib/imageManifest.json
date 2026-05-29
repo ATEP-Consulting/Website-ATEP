@@ -130,31 +130,5 @@
     768,
     1200,
     1600
-  ],
-  "/images/services/Automation-service.webp": [
-    480,
-    768
-  ],
-  "/images/services/FullStackDevelopment-service.webp": [
-    480,
-    768
-  ],
-  "/images/services/LegacyMigration-service.webp": [
-    480,
-    768
-  ],
-  "/images/services/OnDemandTeam-service.webp": [
-    480,
-    768
-  ],
-  "/images/services/ProfessionalWebsites-service.webp": [
-    480,
-    768
-  ],
-  "/images/services/ServicesOverview.webp": [
-    480,
-    768,
-    1200,
-    1600
   ]
 }

@@ -13,10 +13,7 @@ export const Automation = () => {
           serviceType: "Automatización de Procesos",
         }}
       />
-      <ServiceDetailTemplate
-        serviceKey="automation"
-        heroImage="/images/services/Automation-service.webp"
-      />
+      <ServiceDetailTemplate serviceKey="automation" />
     </>
   );
 };

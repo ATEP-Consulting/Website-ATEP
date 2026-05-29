@@ -19,6 +19,16 @@ export const ServiceDetailTemplate = ({ serviceKey, heroImage }) => {
     return Array.isArray(data) ? data : [];
   };
 
+  // Stat editorial que ocupa la columna derecha del hero cuando no hay
+  // imagen. Vive en i18n como services.<key>.heroStat = { number, label }.
+  const heroStatRaw = t(`services.${serviceKey}.heroStat`, {
+    returnObjects: true,
+  });
+  const heroStat =
+    heroStatRaw && typeof heroStatRaw === "object" && heroStatRaw.number
+      ? heroStatRaw
+      : null;
+
   const service = {
     name: t(`services.${serviceKey}.name`),
     description: t(`services.${serviceKey}.description`),
@@ -45,6 +55,7 @@ export const ServiceDetailTemplate = ({ serviceKey, heroImage }) => {
         description={service.description}
         backgroundImage={heroImage}
         alt={service.name}
+        stat={heroStat}
         cta={{
           label: t("CTA.primaryButton"),
           to: "/contact",

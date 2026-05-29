@@ -22,10 +22,7 @@ export const ProfessionalWebsites = () => {
           },
         }}
       />
-      <ServiceDetailTemplate
-        serviceKey="professionalWebsites"
-        heroImage="/images/services/ProfessionalWebsites-service.webp"
-      />
+      <ServiceDetailTemplate serviceKey="professionalWebsites" />
     </>
   );
 };

@@ -122,6 +122,7 @@
     "professionalWebsites": {
       "name": "Webs Corporativas",
       "description": "Sitios web rápidos, optimizados y diseñados para convertir visitantes en clientes.",
+      "heroStat": { "number": "1.2s", "label": "tiempo de carga" },
       "badge": "Carga ultra-rápida",
       "keywords": "páginas web, desarrollo web, diseño web, SEO, optimización, web profesional",
       "whatWeDo": "Lo Que Hacemos",
@@ -211,6 +212,7 @@
     "fullStackDevelopment": {
       "name": "Apps Web a Medida",
       "description": "Plataformas y aplicaciones completas a tu medida, del concepto a producción",
+      "heroStat": { "number": "0", "label": "vendor lock-in" },
       "badge": "Solución 100% Personalizada",
       "keywords": "full stack development, web applications, SaaS development, React, TypeScript, Node.js, custom software",
 
@@ -345,6 +347,7 @@
     "onDemandTeam": {
       "name": "Refuerzo Técnico",
       "description": "Refuerzo de desarrollo cuando tu equipo lo necesita, disponible en 48h.",
+      "heroStat": { "number": "48h", "label": "respuesta tras la llamada" },
       "badge": "Disponibles en 48 Horas",
       "keywords": "equipo on demand, desarrolladores externos, refuerzo técnico, outsourcing, soporte desarrollo, equipo remoto",
 
@@ -453,6 +456,7 @@
     "legacyMigration": {
       "name": "Migración y Modernización",
       "description": "Transforma tu software legacy en aplicaciones modernas sin interrumpir tu operación.",
+      "heroStat": { "number": "0h", "label": "downtime planificado" },
       "badge": "Código Mantenible y Documentado",
       "keywords": "migración legacy, modernización software, actualización tecnológica, refactorización, transformación digital, sistemas antiguos",
 
@@ -569,6 +573,7 @@
     "automation": {
       "name": "Automatización de Procesos",
       "description": "Ahorra tiempo y reduce errores automatizando tareas repetitivas en tu empresa.",
+      "heroStat": { "number": "70%", "label": "menos tareas manuales" },
       "badge": "Ahorra horas cada semana",
       "keywords": "automatización, RPA, robots de procesos, eficiencia, reducción de errores, integraciones, bots, scripts, productividad",
 
@@ -687,6 +692,7 @@
     "aiSolutions": {
       "name": "Inteligencia Artificial Aplicada",
       "description": "Asistentes, chatbots y agentes con IA que entienden tu negocio y trabajan con tu información real.",
+      "heroStat": { "number": "80%", "label": "menos consultas repetitivas" },
       "badge": "IA con propósito",
       "keywords": "inteligencia artificial, IA, LLM, GPT, chatbot, asistente IA, RAG, agentes, OpenAI, Anthropic, automatización inteligente",
       "whatWeDo": "Lo Que Hacemos",
@@ -732,6 +738,7 @@
     "mobileApps": {
       "name": "Apps Móviles a Medida",
       "description": "Aplicaciones nativas y multiplataforma para iOS y Android, pensadas para escalar y mantenerse en el tiempo.",
+      "heroStat": { "number": "60fps", "label": "transiciones nativas" },
       "badge": "iOS · Android · Cross-platform",
       "keywords": "apps móviles, desarrollo iOS, desarrollo Android, React Native, Swift, Kotlin, app a medida, aplicación móvil",
       "whatWeDo": "Lo Que Hacemos",
@@ -777,6 +784,7 @@
     "ecommerce": {
       "name": "E-commerce a Medida",
       "description": "Tiendas online rápidas, optimizadas para conversión y diseñadas para vender — con o sin pasarela de pago tradicional.",
+      "heroStat": { "number": "+25%", "label": "conversión típica" },
       "badge": "Diseñado para vender",
       "keywords": "ecommerce, tienda online, ventas online, Stripe, Shopify, headless commerce, pasarela de pago, WooCommerce, carrito de compra",
       "whatWeDo": "Lo Que Hacemos",
@@ -822,6 +830,7 @@
     "support": {
       "name": "Soporte y Mantenimiento Continuo",
       "description": "Squad dedicado que conoce tu producto y responde con SLA claros. Para que tu plataforma evolucione sin sorpresas.",
+      "heroStat": { "number": "99.9%", "label": "uptime garantizado" },
       "badge": "Tu equipo técnico de confianza",
       "keywords": "mantenimiento software, soporte técnico, SLA, equipo dedicado, evolución producto, monitorización, observabilidad, hotfix",
       "whatWeDo": "Lo Que Hacemos",
