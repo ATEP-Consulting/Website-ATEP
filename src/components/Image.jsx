@@ -1,23 +1,22 @@
 /**
  * Componente <Image /> que sirve variantes AVIF + WebP responsive a partir
- * del path original. Asume el patrón que produce scripts/optimize-images.cjs:
+ * del path original. Las variantes las produce scripts/optimize-images.cjs
+ * y el listado de anchos disponibles por imagen vive en imageManifest.json
+ * (también generado por el script).
  *
  *   src="/images/home/ExpertTeam.webp"
- *      → /images/home/ExpertTeam-480.avif (… 768, 1200, 1600)
- *      → /images/home/ExpertTeam-480.webp (… 768, 1200, 1600)
+ *      → /images/home/ExpertTeam-480.avif (+ 768, 1200, 1600 según manifest)
+ *      → /images/home/ExpertTeam-480.webp (idem)
  *      + fallback al original.
  *
- * Si la variante no existe en disco, el navegador hará fallback automático
- * al siguiente <source> o al <img>, así que sirve también con imágenes
- * pequeñas para las que el script no genera todas las variantes.
+ * Si la imagen no figura en el manifest (ej. añadida después del último
+ * build), renderizamos un <img> plano sin srcset para evitar 404s.
  */
 
-const RESPONSIVE_WIDTHS = [480, 768, 1200, 1600];
+import manifest from "../lib/imageManifest.json";
 
-function buildSrcset(basePath, ext) {
-  return RESPONSIVE_WIDTHS.map((w) => `${basePath}-${w}.${ext} ${w}w`).join(
-    ", ",
-  );
+function buildSrcset(basePath, ext, widths) {
+  return widths.map((w) => `${basePath}-${w}.${ext} ${w}w`).join(", ");
 }
 
 export const Image = ({
@@ -31,11 +30,15 @@ export const Image = ({
   height,
   ...rest
 }) => {
-  // Soporta solo paths locales que vienen del pipeline de sharp. Si llega
-  // una URL externa (ej. https://...) lo dejamos como <img> plano.
-  const isLocal = typeof src === "string" && src.startsWith("/");
-  const dotIdx = isLocal ? src.lastIndexOf(".") : -1;
-  const basePath = isLocal && dotIdx > 0 ? src.slice(0, dotIdx) : null;
+  // Soporta solo paths locales que tienen variantes generadas (consulta
+  // el manifest). Para URLs externas o imágenes no procesadas, renderiza
+  // un <img> plano sin srcset.
+  const widths =
+    typeof src === "string" && manifest[src] && manifest[src].length > 0
+      ? manifest[src]
+      : null;
+  const dotIdx = widths ? src.lastIndexOf(".") : -1;
+  const basePath = widths && dotIdx > 0 ? src.slice(0, dotIdx) : null;
 
   const loading = priority ? "eager" : "lazy";
   const decoding = priority ? "sync" : "async";
@@ -65,12 +68,12 @@ export const Image = ({
     <picture style={{ display: "contents" }}>
       <source
         type="image/avif"
-        srcSet={buildSrcset(basePath, "avif")}
+        srcSet={buildSrcset(basePath, "avif", widths)}
         sizes={sizes}
       />
       <source
         type="image/webp"
-        srcSet={buildSrcset(basePath, "webp")}
+        srcSet={buildSrcset(basePath, "webp", widths)}
         sizes={sizes}
       />
       <img

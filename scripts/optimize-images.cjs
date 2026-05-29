@@ -20,6 +20,7 @@ const sharp = require("sharp");
 
 const ROOT = path.resolve(__dirname, "..");
 const IMAGES_DIR = path.join(ROOT, "public", "images");
+const MANIFEST_PATH = path.join(ROOT, "src", "lib", "imageManifest.json");
 
 // Anchos objetivo en píxeles. 480 cubre móvil 1x / 320–414 device width 2x.
 // 768 cubre tablet y móvil 3x. 1200 cubre desktop estándar y móvil retina
@@ -62,9 +63,11 @@ async function processOne(src) {
   const sourceWidth = meta.width || 0;
 
   const jobs = [];
+  const availableWidths = [];
   for (const w of WIDTHS) {
     // No upscalear: si la fuente es 600 px, no generamos variante 1200.
     if (sourceWidth && w > sourceWidth * 1.05) continue;
+    availableWidths.push(w);
 
     const avifOut = path.join(dir, `${base}-${w}.avif`);
     const webpOut = path.join(dir, `${base}-${w}.webp`);
@@ -87,6 +90,7 @@ async function processOne(src) {
     }
   }
   await Promise.all(jobs);
+  return availableWidths;
 }
 
 async function main() {
@@ -104,6 +108,11 @@ async function main() {
   console.log(`Optimizando ${sources.length} imágenes…`);
   const started = Date.now();
 
+  // Recolectamos los anchos disponibles por imagen para que el componente
+  // <Image> pueda emitir un srcset que sólo incluya variantes reales.
+  // La key del manifiesto es el path público (con prefijo "/images/...").
+  const manifest = {};
+
   // Limitamos la concurrencia para no saturar la RAM en builds con muchas
   // imágenes grandes (sharp es nativo y agresivo con la memoria).
   const CONCURRENCY = 4;
@@ -111,10 +120,14 @@ async function main() {
   async function worker() {
     while (cursor < sources.length) {
       const i = cursor++;
+      const src = sources[i];
       try {
-        await processOne(sources[i]);
+        const widths = await processOne(src);
+        const publicPath =
+          "/" + path.relative(path.join(ROOT, "public"), src).split(path.sep).join("/");
+        manifest[publicPath] = widths;
       } catch (err) {
-        console.error(`✗ ${sources[i]}: ${err.message}`);
+        console.error(`✗ ${src}: ${err.message}`);
       }
     }
   }
@@ -122,7 +135,18 @@ async function main() {
     Array.from({ length: CONCURRENCY }, () => worker()),
   );
 
-  console.log(`✓ Listo en ${((Date.now() - started) / 1000).toFixed(1)}s`);
+  // Ordenamos las claves para que el diff del manifiesto sea estable.
+  const sorted = Object.keys(manifest)
+    .sort()
+    .reduce((acc, k) => ((acc[k] = manifest[k]), acc), {});
+  fs.mkdirSync(path.dirname(MANIFEST_PATH), { recursive: true });
+  fs.writeFileSync(MANIFEST_PATH, JSON.stringify(sorted, null, 2) + "\n");
+
+  console.log(
+    `✓ Listo en ${((Date.now() - started) / 1000).toFixed(1)}s — ${
+      Object.keys(sorted).length
+    } entradas en el manifiesto`,
+  );
 }
 
 main().catch((err) => {
