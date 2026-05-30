@@ -37,13 +37,13 @@
     "ariaLabel": "Cookie notice"
   },
   "hero": {
-    "heroBadge": "We build software without vendor lock-in",
-    "heroTitle1": "We turn",
-    "heroTitle2": " technical debt",
-    "heroTitle3": "into software that",
-    "heroTitle4": " works for you",
-    "heroSubtitle": "We migrate legacy systems, build custom platforms, and integrate applied AI — with code you own and an audited process from end to end.",
-    "heroCta": "Tell us about your project",
+    "heroBadge": "Custom software with code you own",
+    "heroTitle1": "We give your team",
+    "heroTitle2": "time back",
+    "heroTitle3": "and full ownership of",
+    "heroTitle4": "your software",
+    "heroSubtitle": "In 20 minutes we diagnose where your team loses hours a well-designed system would handle in minutes. We build exactly that — with repos, infrastructure and exit plan in your name from day one.",
+    "heroCta": "Calculate how much time I'm losing",
     "heroSecondaryCta": "Explore Services",
     "heroStat1": "Projects Completed",
     "heroStat2": "Client Satisfaction",
@@ -77,18 +77,18 @@
     "heroCta": "Get Started",
     "howWeWorkTitle1": "How",
     "howWeWorkTitle2": "It Works",
-    "howWeWorkSubtitle": "Our rigorous and proven methodological process ensures not only the timely delivery of projects, but also maximum quality and results that exceed your expectations",
-    "step1Title": "Initial Consultation",
-    "step1Description": "Contact us through our form or schedule a call. We listen to your needs, business challenges, and specific objectives to understand how we can help you.",
-    "step2Title": "Analysis & Diagnosis",
-    "step2Description": "We conduct a comprehensive analysis of your current situation, identify improvement opportunities, and define measurable objectives aligned with your business strategy.",
-    "step3Title": "Customized Proposal",
-    "step3Description": "We develop a tailored proposal including methodology, detailed timeline, resource allocation, required investment, and clearly defined success KPIs.",
-    "step4Title": "Implementation & Follow-up",
-    "step4Description": "We execute the project with constant communication, on-time deliveries, and continuous monitoring. We provide post-implementation support to ensure sustainable results.",
+    "howWeWorkSubtitle": "Every project follows the same measurable process: diagnosis quantified in €, proposal with ROI, execution with field-by-field evidence, delivery with code and exit plan in your name.",
+    "step1Title": "Quantified diagnosis",
+    "step1Description": "20 minutes where we put numbers on your situation. We identify which processes cost your team the most time and translate them into €/year. If there's no reasonable project behind it, we tell you.",
+    "step2Title": "Proposal with ROI",
+    "step2Description": "Short document with 2-3 approaches, investment order of magnitude, realistic timeline and break-even in months. No sales fluff. No commitment to proceed.",
+    "step3Title": "Evidence-based execution",
+    "step3Description": "Two-week sprints with demos, field-by-field validation when applicable, partial deliveries. The call to advance each phase is made with data from the system itself — not on trust.",
+    "step4Title": "Delivery with ownership",
+    "step4Description": "Repos, infrastructure and documentation in your name. Exit plan documented in the contract. Optional ongoing support so the system evolves with you.",
     "servicesTitle1": "Our",
     "servicesTitle2": " Services",
-    "servicesSubtitle": "Explore our full range of custom digital solutions, designed to help your business modernize, automate, and grow",
+    "servicesSubtitle": "What we build isn't generic. Every service maps to a concrete operational pain — from dashboards that give hours back to migrations that eliminate continuity risk.",
     "whyChooseTitle1": "From",
     "whyChooseTitle2": " Strategy",
     "whyChooseTitle3": " to",
@@ -115,7 +115,7 @@
   },
   "services": {
     "title": "Our Services",
-    "subtitle": "Flexible technology solutions that drive your business forward",
+    "subtitle": "We build exactly what you need to give time back to your operations. No templates, no vendor lock-in, with code you own.",
     "viewAll": "View All Services",
     "readMore": "Read More",
 
@@ -868,29 +868,29 @@
       ],
       "ctaText": "Does your product need serious maintenance or do you have an inherited one without a tech team behind it? Let's talk about the right model for you."
     },
-    "ctaTitle": "Ready to Boost Your Project?",
-    "ctaButton": "Let's Talk About Your Case"
+    "ctaTitle": "What process is costing you the most time this year?",
+    "ctaButton": "Book 20 min with an engineer"
   },
   "about": {
     "title": "About ATEP Consulting",
-    "subtitle": "Empowering businesses through innovative technology solutions",
-    "value1Title": "Assistance",
-    "value1Text": "We are always by your side. We provide proactive and continuous support, guaranteeing a smooth implementation and the efficient achievement of your goals.",
-    "value2Title": "Trust",
-    "value2Text": "We build every relationship on trust. We maintain open communication and clear processes to ensure an honest and complete vision at every phase",
-    "value3Title": "Excellence",
-    "value3Text": "We exceed the standard in every solution. Our commitment to quality and expert knowledge drives us to deliver results that surpass expectations",
-    "value4Title": "Professionalism",
-    "value4Text": "We act with the highest rigor and ethics. We adhere to the industry's highest standards, ensuring seriousness, responsibility, and respectful treatment",
+    "subtitle": "We build custom software that gives time back to companies that have grown faster than their processes.",
+    "value1Title": "Code you own",
+    "value1Text": "We hand over the full source code, documented and free of any tie to us. Repos, infrastructure and credentials in your name. Exit plan written in the contract — you can replace us tomorrow without losing anything.",
+    "value2Title": "Evidence over faith",
+    "value2Text": "Before any cutover, we validate. Before any decision, we measure. At Hampton we proved it with 160 parallel scenarios validated field by field. We don't sell trust: we sell reproducible evidence.",
+    "value3Title": "Measurable time",
+    "value3Text": "Every project is justified in hours given back to your team and € recovered per year. If the numbers don't add up, we don't take the project. If maintaining it costs more than it saves, we don't build it.",
+    "value4Title": "Technical honesty",
+    "value4Text": "If AI isn't the answer, we'll tell you. If we're not the right provider, we tell you what kind of team to look for. If an idea doesn't hold up technically, we say it before quoting — not after invoicing.",
     "stat1": "Years Experience",
     "stat2": "Projects Completed",
     "stat3": "Team Members",
     "stat4": "Client Satisfaction",
     "viewAll": "Get to Know Us",
     "missionTitle": "Our Mission",
-    "missionText": "We are committed to helping businesses navigate the complexities of digital transformation. Our mission is to deliver innovative, practical solutions that drive growth and create lasting value for our clients.",
+    "missionText": "To build custom software that gives time back to operations-driven companies — industrial, multi-location retail, hospitality, professional services. We diagnose where your team loses hours that a well-designed system would handle in minutes, and we build exactly that. No vendor lock-in, no black boxes, no promises without evidence.",
     "visionTitle": "Our Vision",
-    "visionText": "To be the trusted partner for businesses seeking to modernize their operations and embrace digital innovation. We envision a future where technology empowers every organization to reach its full potential.",
+    "visionText": "That no business should have to choose between staying trapped with a legacy system or jumping blindly to a closed vendor. That migrating, modernizing or building custom should always be a decision based on evidence and client ownership — not faith or dependency.",
     "valuesTitle1": "Our",
     "valuesTitle2": " Values",
     "valuesSubtitle": "The principles that guide us",
@@ -899,18 +899,18 @@
     "teamSubtitle": "Meet the people behind our success",
     "gabriela": {
       "name": "Gabriela Albertini",
-      "role": "CEO & Founder",
-      "bio": "With over 15 years of experience in technology consulting, Gabriela leads ATEP Consulting's strategic vision. Her expertise in digital transformation has helped numerous companies achieve operational excellence."
+      "role": "CEO & Co-founder",
+      "bio": "Leads ATEP as CEO and co-founder. Her work focuses on how projects are designed so the client owns the outcome: clear contracts, guaranteed exit plan and direct communication with leadership — no middlemen. She runs the discovery conversation that decides whether a project fits."
     },
     "pablo": {
       "name": "Pablo Teijeiro",
-      "role": "Co-Founder & CTO",
-      "bio": "Pablo brings deep technical expertise and a passion for innovation. As CTO, he oversees all technology implementations and ensures our solutions leverage the latest industry best practices."
+      "role": "Co-founder & CTO",
+      "bio": "Co-founder and technical lead. Designs the architecture of every project and drives stack and security decisions — from ERP migrations with our in-house Parallel Testing Framework to corporate AI with real per-tenant isolation. If you have a technical call with him, you talk to the person who's going to write the code."
     }
   },
   "blog": {
-    "title": "Digital Sector Trends",
-    "subtitle": "Insights, tips, and the latest trends in digital transformation and consulting",
+    "title": "Lessons from real projects",
+    "subtitle": "Migrations, dashboards, automation, corporate AI. What we learn on each project — no empty trends, no opinion without backing.",
     "badge": "Insights & Articles",
     "featured": "Featured Article",
     "latest": "Latest Articles",
@@ -930,7 +930,7 @@
   "contact": {
     "badge": "Get in Touch",
     "title": "Let's Talk About Your Project",
-    "subtitle": "We're here to help you transform your business. Fill out the form or contact us directly.",
+    "subtitle": "Briefly tell us your situation. We respond in under 24h with an initial technical assessment — not a sales rep.",
     "emailTitle": "Email Us",
     "emailDesc": "We reply within 24 hours",
     "phoneTitle": "Call Us",
@@ -1148,19 +1148,19 @@
     "blogDesc": "Read our articles"
   },
   "footer": {
-    "tagline": "Empowering businesses through innovative technology solutions",
+    "tagline": "Custom software that gives time back to your operations. Code you own.",
     "quickLinks": "Quick Links",
     "newsletter": "Newsletter",
     "newsletterText": "Subscribe to receive insights and updates",
     "newsletterPlaceholder": "Your email address",
     "newsletterButton": "Subscribe",
     "copyright": "© 2025 ATEP Consulting. All rights reserved.",
-    "readyToStart": "Ready to Get Started?",
-    "readyToStartText": "Let's talk about how we can help you achieve your business goals.",
-    "contactButton": "Request Consultation"
+    "readyToStart": "Recognize your situation in any of our cases?",
+    "readyToStartText": "20 minutes with an engineer, no commitment. If we fit, we continue. If not, we tell you what kind of team you need.",
+    "contactButton": "Book technical assessment"
   },
   "whatsapp": {
-    "defaultMessage": "Hello, I would like to get more information about your services.",
+    "defaultMessage": "Hi, I'm coming from the ATEP website. I'd like 20 minutes with an engineer to assess my situation.",
     "tooltip": "Need help?"
   }
 }
