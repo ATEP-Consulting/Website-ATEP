@@ -60,7 +60,7 @@ export const CookieBanner = () => {
         <button
           type="button"
           onClick={handleAccept}
-          className="px-5 py-[10px] text-[13px] font-medium tracking-[0.02em] transition-all duration-150 hover:-translate-y-[1px]"
+          className="px-5 py-[10px] text-[13px] font-medium tracking-[0.02em] atep-btn"
           style={{
             background: "var(--navy)",
             color: "var(--bg)",

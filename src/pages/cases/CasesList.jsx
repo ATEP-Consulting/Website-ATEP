@@ -125,7 +125,7 @@ export const CasesList = () => {
             </h2>
             <Link
               to="/contact"
-              className="inline-block px-7 py-[16px] text-[14px] font-medium tracking-[0.02em] no-underline transition-all duration-150 hover:-translate-y-[1px] whitespace-nowrap"
+              className="inline-block px-7 py-[16px] text-[14px] font-medium tracking-[0.02em] no-underline atep-btn whitespace-nowrap"
               style={{ background: "var(--navy)", color: "var(--bg)" }}
             >
               {language === "es" ? "Hablemos" : "Let's talk"} →

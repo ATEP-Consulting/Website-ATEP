@@ -49,7 +49,7 @@ const NavDot = ({ active }) => (
   <span
     aria-hidden
     className={`absolute left-1/2 -translate-x-1/2 -bottom-[10px] w-[5px] h-[5px] rounded-full transition-opacity duration-200 ${
-      active ? "opacity-100" : "opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"
+      active ? "opacity-100" : "opacity-0"
     }`}
     style={{ background: "var(--accent)" }}
   />
@@ -81,7 +81,7 @@ const CtaButton = ({ to, children, primary = false, onClick }) => {
       <Link
         to={to}
         onClick={onClick}
-        className="px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] inline-block whitespace-nowrap no-underline transition-all duration-150 hover:-translate-y-[1px]"
+        className="px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] inline-block whitespace-nowrap no-underline atep-btn"
         style={{ background: "var(--navy)", color: "var(--bg)" }}
       >
         {children}
@@ -92,7 +92,7 @@ const CtaButton = ({ to, children, primary = false, onClick }) => {
     <Link
       to={to}
       onClick={onClick}
-      className="px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] inline-block whitespace-nowrap no-underline transition-colors duration-150"
+      className="atep-btn-outline px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] inline-block whitespace-nowrap no-underline"
       style={{
         background: "transparent",
         color: "var(--ink)",
@@ -186,7 +186,7 @@ const DesktopHeader = () => {
                     navigate(it.path);
                   }}
                   onFocus={() => openMegaMenu(it.mega)}
-                  className="group relative text-[13.5px] cursor-pointer inline-flex items-center gap-[6px] transition-colors duration-150 bg-transparent border-none focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                  className="atep-navlink group text-[13.5px] cursor-pointer inline-flex items-center gap-[6px] transition-colors duration-150 bg-transparent border-none focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                   style={{
                     color: active || isThisOpen ? "var(--ink)" : "var(--muted)",
                     fontWeight: active || isThisOpen ? 500 : 400,
@@ -221,7 +221,7 @@ const DesktopHeader = () => {
               onMouseLeave={(e) => {
                 if (!active) e.currentTarget.style.color = "var(--muted)";
               }}
-              className="group relative text-[13.5px] cursor-pointer no-underline transition-colors duration-150 inline-block"
+              className="atep-navlink group text-[13.5px] cursor-pointer no-underline transition-colors duration-150 inline-block"
               style={{
                 color: active ? "var(--ink)" : "var(--muted)",
                 fontWeight: active ? 500 : 400,
@@ -396,7 +396,7 @@ const MegaServices = ({ open, services, onMouseEnter, onMouseLeave, onNavigate }
           <Link
             to="/contact"
             onClick={onNavigate}
-            className="inline-block px-[18px] py-[10px] text-[13px] no-underline whitespace-nowrap transition-all duration-150 hover:-translate-y-[1px]"
+            className="inline-block px-[18px] py-[10px] text-[13px] no-underline whitespace-nowrap atep-btn"
             style={{ background: "var(--navy)", color: "var(--bg)" }}
           >
             {t("mega.contactNow")} →

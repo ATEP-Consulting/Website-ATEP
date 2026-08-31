@@ -58,7 +58,7 @@ const CTA = ({
                   cta_text: primaryButton.text,
                 })
               }
-              className="inline-block px-8 py-4 text-[14px] font-medium tracking-[0.02em] no-underline transition-all duration-150 hover:-translate-y-[1px]"
+              className="inline-block px-8 py-4 text-[14px] font-medium tracking-[0.02em] no-underline atep-btn"
               style={{ background: "var(--navy)", color: "var(--bg)" }}
             >
               {primaryButton.text} →

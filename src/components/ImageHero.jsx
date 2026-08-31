@@ -68,7 +68,7 @@ const ImageHero = ({
               <div className="mt-7 tm:mt-10">
                 <Link
                   to={cta.to}
-                  className="inline-block px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] no-underline transition-all duration-150 hover:-translate-y-[1px]"
+                  className="inline-block px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] no-underline atep-btn"
                   style={{ background: "var(--navy)", color: "var(--bg)" }}
                 >
                   {cta.label} →

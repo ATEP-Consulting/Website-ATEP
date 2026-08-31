@@ -29,7 +29,7 @@ export const WhatsAppButton = () => {
         {t("whatsapp.tooltip")}
       </span>
       <span
-        className="w-14 h-14 flex items-center justify-center transition-transform duration-200 group-hover:-translate-y-[2px]"
+        className="atep-btn w-14 h-14 flex items-center justify-center"
         style={{
           background: "var(--accent)",
           color: "var(--bg)",
