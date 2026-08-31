@@ -514,31 +514,7 @@ export const Home = () => {
             )}
           </h2>
         </Reveal>
-        <div className="relative">
-          {/* Línea del timeline — horizontal en desktop, vertical en mobile.
-              Coincide con el centro de los bullets (5.5px del top en desktop,
-              26.5px del top de cada item en mobile). */}
-          <div
-            aria-hidden
-            className="hidden tm:block absolute h-px pointer-events-none"
-            style={{
-              background: "var(--accent)",
-              top: 5,
-              left: "12.5%",
-              right: "12.5%",
-            }}
-          />
-          <div
-            aria-hidden
-            className="tm:hidden absolute w-px pointer-events-none"
-            style={{
-              background: "var(--accent)",
-              left: 5,
-              top: 27,
-              bottom: 27,
-            }}
-          />
-
+        <div>
           <RevealStagger
             stagger={140}
             base={160}
@@ -547,20 +523,16 @@ export const Home = () => {
             itemClassName="h-full"
           >
             {processSteps.map((p) => (
-              <div key={p.num} className="relative h-full tm:pt-8">
-                {/* Bullet (punto del timeline) — granate, sobre la línea.
-                    Desktop: top:0 del item, centrado horizontalmente en la
-                    columna (la línea cruza por su centro).
-                    Mobile: top:21px del item, a la izquierda del número
-                    (alineado con el centro vertical del display 48-68px). */}
+              <div key={p.num} className="process-step relative h-full pt-7">
+                {/* El punto se apoya en la regla superior de la propia
+                    columna, alineado con el número y el texto. */}
                 <span
                   aria-hidden
-                  className="absolute rounded-full tm:top-0 tm:left-1/2 tm:-translate-x-1/2 top-[21px] -left-[36px]"
+                  className="absolute rounded-full -top-[5px] left-0"
                   style={{
-                    width: 11,
-                    height: 11,
+                    width: 9,
+                    height: 9,
                     background: "var(--accent)",
-                    boxShadow: "0 0 0 4px var(--bg)",
                   }}
                 />
                 <div

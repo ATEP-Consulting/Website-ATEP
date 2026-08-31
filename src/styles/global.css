@@ -385,3 +385,15 @@
   .atep-navlink::after { transition: none; }
 }
 
+
+/* ---------- pasos del proceso ----------
+   Cada paso lleva su propia regla superior en lugar de una línea absoluta
+   común: así el punto, el número y el texto comparten alineación y nada se
+   descuadra respecto a la rejilla (tampoco al apilarse en móvil). */
+.process-step {
+  border-top: 1px solid var(--rule);
+  transition: border-color 0.3s ease;
+}
+.process-step:hover {
+  border-color: var(--accent);
+}
