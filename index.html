@@ -68,18 +68,15 @@
           s.src = "https://www.googletagmanager.com/gtag/js?id=G-GDE5LM5ND1";
           document.head.appendChild(s);
         }
-        if (document.readyState === "complete") {
-          setTimeout(inject, 1500);
-        } else {
-          window.addEventListener("load", function () {
-            setTimeout(inject, 1500);
-          });
-        }
-        ["pointerdown", "keydown", "touchstart", "scroll"].forEach(function (
-          ev,
-        ) {
-          window.addEventListener(ev, inject, { once: true, passive: true });
-        });
+        ["pointerdown", "keydown", "touchstart", "scroll", "mousemove"].forEach(
+          function (ev) {
+            window.addEventListener(ev, inject, { once: true, passive: true });
+          },
+        );
+        // Respaldo: si nadie interactúa se carga igualmente a los 5s, con la
+        // página ya interactiva. Así no se pierden las visitas que rebotan
+        // sin tocar nada, y el script (170KB) no compite con el contenido.
+        setTimeout(inject, 5000);
       })();
     </script>
 
@@ -87,96 +84,14 @@
     <link rel="icon" type="image/svg+xml" href="/new-logo-atep.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Primary Meta Tags -->
+    <!-- Título fallback pre-hidratación. El resto de metas (description,
+         OG, Twitter, canonical, JSON-LD) las gestiona SEO.jsx por ruta vía
+         react-helmet-async: NO duplicarlas aquí en estático, porque los
+         crawlers toman el primer tag del documento (auditoría SEO 2026). -->
     <title>ATEP Consulting | Consultoría IT y Desarrollo de Software</title>
-    <meta
-      name="title"
-      content="ATEP Consulting | Consultoría IT y Desarrollo de Software"
-    />
-    <meta
-      name="description"
-      content="Desarrollo web profesional, aplicaciones a medida, automatización con IA y migración de sistemas legacy. Equipo técnico on-demand en 48h. Valencia, España."
-    />
-    <meta
-      name="keywords"
-      content="consultoría IT, desarrollo web, React, TypeScript, Node.js, migración legacy, automatización, staff augmentation, Valencia"
-    />
     <meta name="author" content="ATEP Consulting" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#9f1239" />
-
-    <!-- Open Graph / WhatsApp / LinkedIn (canonical y og:url los gestiona SEO.jsx por ruta) -->
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="ATEP Consulting | Consultoría IT y Desarrollo de Software"
-    />
-    <meta
-      property="og:description"
-      content="Desarrollo web profesional, aplicaciones a medida, automatización con IA y migración de sistemas legacy. Equipo técnico on-demand en 48h. Valencia, España."
-    />
-    <meta
-      property="og:image"
-      content="https://www.atepconsulting.com/og-image.png"
-    />
-    <meta property="og:image:alt" content="Logo de ATEP Consulting" />
-    <meta property="og:site_name" content="ATEP Consulting" />
-    <meta property="og:locale" content="es_ES" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="ATEP Consulting | Consultoría IT y Desarrollo de Software"
-    />
-    <meta
-      name="twitter:description"
-      content="Desarrollo web profesional, aplicaciones a medida, automatización con IA y migración de sistemas legacy. Equipo técnico on-demand en 48h. Valencia, España."
-    />
-    <meta
-      name="twitter:image"
-      content="https://www.atepconsulting.com/og-image.png"
-    />
-
-    <!-- Schema.org -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "ATEP Consulting",
-        "alternateName": "ATEP",
-        "url": "https://www.atepconsulting.com",
-        "logo": "https://www.atepconsulting.com/new-logo-atep.png",
-        "image": "https://www.atepconsulting.com/og-image.png",
-        "description": "Consultoría IT especializada en desarrollo web, aplicaciones a medida, migración de sistemas y automatización de procesos.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Paterna",
-          "addressRegion": "Valencia",
-          "addressCountry": "ES"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "39.5",
-          "longitude": "-0.4"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "España"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "email": "info@atepconsulting.com",
-          "contactType": "Customer Service",
-          "availableLanguage": ["Spanish", "English"]
-        },
-        "founder": [
-          { "@type": "Person", "name": "Gabriela Albertini" },
-          { "@type": "Person", "name": "Pablo Teijeiro" }
-        ],
-        "sameAs": ["https://www.linkedin.com/company/atepconsulting"]
-      }
-    </script>
 
     <!-- Performance -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />

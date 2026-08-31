@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import { useParams, Navigate, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
+import { trackEvent } from "../../lib/analytics";
 import { BlogCard } from "../../components/BlogCard";
 import { Image } from "../../components/Image";
 import { Reveal, RevealStagger } from "../../components/Reveal";
@@ -13,6 +15,10 @@ export const BlogPost = () => {
   const { t, language } = useLanguage();
 
   const post = blogPosts.find((p) => p.slug === slug);
+
+  useEffect(() => {
+    if (post) trackEvent("view_post", { post: slug });
+  }, [slug, post]);
   if (!post) return <Navigate to="/blog" replace />;
 
   const related = blogPosts.filter((p) => p.slug !== slug).slice(0, 2);

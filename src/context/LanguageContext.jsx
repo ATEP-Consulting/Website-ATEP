@@ -7,8 +7,11 @@ const translations = { en, es };
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
+  // ES por defecto: es el idioma del mercado objetivo y el que queda
+  // indexado. Con 'en' Googlebot veía la web en inglés y los resultados
+  // salían mezclados (auditoría SEO ago 2026).
   const [language, setLanguage] = useState(() => {
-    return localStorage.getItem('language') || 'en';
+    return localStorage.getItem('language') || 'es';
   });
 
   useEffect(() => {

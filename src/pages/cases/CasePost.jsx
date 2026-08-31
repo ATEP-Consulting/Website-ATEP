@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import { useParams, Navigate, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
+import { trackEvent } from "../../lib/analytics";
 import { Reveal, RevealStagger } from "../../components/Reveal";
 import { CountingNumber } from "../../components/CountingNumber";
 import { CaseStripe } from "../../components/CaseStripe";
@@ -14,6 +16,11 @@ export const CasePost = () => {
   const { language } = useLanguage();
 
   const caseItem = getCaseBySlug(slug);
+  // Qué caso interesa al tráfico orgánico (se cruza con la fuente en GA4).
+  useEffect(() => {
+    if (caseItem) trackEvent("view_case", { case: slug });
+  }, [slug, caseItem]);
+
   if (!caseItem) return <Navigate to="/cases" replace />;
 
   const related = cases
@@ -34,7 +41,7 @@ export const CasePost = () => {
   return (
     <>
       <SEO
-        title={`${caseItem.title[language]} · ${caseItem.client[language]}`}
+        title={caseItem.seoTitle?.[language] || caseItem.title[language]}
         description={caseItem.description[language]}
         keywords={`caso de éxito, case study, ${caseItem.sector[language]}, ${caseItem.client[language]}, ${caseItem.stack.join(", ")}`}
         schemaType="WebPage"

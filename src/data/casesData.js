@@ -1,6 +1,95 @@
 export const cases = [
   {
+    slug: "nilyan-herrera",
+    relatedService: "/services/full-stack-development",
+    seoTitle: {
+      es: "Portal inmobiliario con MLS en vivo · Miami",
+      en: "Real estate portal with live MLS · Miami",
+    },
+    client: {
+      es: "Nilyan Herrera · Agente inmobiliaria",
+      en: "Nilyan Herrera · Licensed realtor",
+    },
+    sector: {
+      es: "Real estate · Miami, Florida",
+      en: "Real estate · Miami, Florida",
+    },
+    location: "Miami, Florida · EE. UU.",
+    year: 2026,
+    duration: {
+      es: "2 meses hasta la v1.0.0",
+      en: "2 months to v1.0.0",
+    },
+    teamSize: {
+      es: "Producto, desarrollo y operación",
+      en: "Product, development and operations",
+    },
+    title: {
+      es: "Portal inmobiliario con el MLS de Miami en vivo, mapa y CRM propio",
+      en: "Real estate portal with the Miami MLS live, maps and its own CRM",
+    },
+    description: {
+      es: "Portal a medida para una agente licenciada en Florida, conectado en vivo al MLS de Miami: más de 46.000 propiedades sincronizadas cada 4 horas, búsqueda con mapa y zonas dibujadas a mano, y un panel de coste real de propiedad que ninguna web de la competencia ofrece. Detrás, un CRM completo y bilingüe.",
+      en: "Custom portal for a licensed Florida realtor, wired live to the Miami MLS: over 46,000 listings synced every 4 hours, map search with hand-drawn areas, and a real cost-of-ownership panel no competitor offers. Behind it, a complete bilingual CRM.",
+    },
+    metric: {
+      value: "46.078",
+      label: {
+        es: "propiedades reales sincronizadas cada 4 h",
+        en: "real listings synced every 4 hours",
+      },
+    },
+    challenge: {
+      es: "Una agente independiente compite contra portales con presupuestos millonarios y contra las webs plantilla que su propio sector le vende, todas idénticas entre sí.\n\nEl encargo no era una web bonita: era un motor de captación de clientes que diera dos cosas que las plantillas no dan. Primero, inventario real: acceso en vivo al MLS de Miami, con decenas de miles de propiedades actualizadas de forma continua y sin muro de pago ni registro obligatorio, porque las reglas IDX del sector lo prohíben. Segundo, una razón para elegirla a ella.\n\nEn Florida el precio de una casa dice muy poco: el seguro de inundación, el seguro de hogar, las cuotas de HOA/CDD y los impuestos pueden duplicar la cuota mensual real, y ese dato no se lo da ningún portal al comprador. Convertirlo en producto era la diferencia entre otra web más y una herramienta que la gente usa y por la que deja su contacto.\n\nTodo ello dentro de un marco normativo estrecho: reglas de exhibición IDX del MLS, Fair Housing federal con su prohibición absoluta de steering, consentimiento por canal en cada formulario y la obligación de etiquetar como estimación cualquier cifra de coste.",
+      en: "An independent agent competes against portals with multimillion budgets and against the template websites her own industry sells her, all identical to each other.\n\nThe brief wasn't a pretty website: it was a lead engine that delivered two things templates can't. First, real inventory: live access to the Miami MLS, with tens of thousands of continuously updated listings and no paywall or forced sign-up, because the industry's IDX rules forbid it. Second, a reason to choose her.\n\nIn Florida the price of a house says very little: flood insurance, home insurance, HOA/CDD dues and taxes can double the real monthly payment, and no portal gives buyers that figure. Turning it into a product was the difference between one more website and a tool people actually use and hand over their contact details for.\n\nAll of it inside a tight regulatory frame: MLS IDX display rules, federal Fair Housing with its absolute ban on steering, per-channel consent on every form, and the duty to label any cost figure as an estimate.",
+    },
+    solution: {
+      es: "Una aplicación completa —web pública y CRM propio— sobre una arquitectura pensada para durar más que su primera versión.\n\nUna sola fuente de verdad: la web nunca consulta el MLS, lee siempre nuestra base PostgreSQL. Lo único intercambiable es quién la puebla. Eso permitió construir y validar el producto entero contra datos de prueba meses antes de tener acceso al MLS, y cambiar después al feed real sin reescribir una sola pantalla; añadir un segundo MLS es hoy trabajo de días, no un rediseño.\n\nIntegración MLS RESO: un worker independiente en Node consume la API RESO Web de Bridge Interactive (MIAMI REALTORS), normaliza el feed a nuestro esquema y hace upsert sobre la misma tabla. Carga inicial completa más incrementales cada 4 horas con GitHub Actions, por debajo del refresco máximo de 12 horas que exige la licencia del MLS.\n\nBúsqueda con mapa: lista y mapa MapLibre sincronizados en ambos sentidos, agrupación de marcadores calculada en servidor y dibujo de zonas a mano alzada resuelto con consultas geoespaciales ST_Intersects en PostGIS. Todo el estado vive en la URL, así que cualquier búsqueda es un enlace que se puede compartir. Sobre el mapa, cuatro capas de contexto: colegios, transporte público (GTFS), transitabilidad e índice EPA y comercios.\n\nEl panel de coste de propiedad en Florida es el diferenciador: cruza la zona de inundación FEMA de cada propiedad con estimaciones de seguro de inundación, seguro de hogar, cuotas de HOA/CDD e impuestos hasta llegar a una cuota mensual realista. Es el argumento de captación más fuerte de la web, y toda cifra aparece etiquetada como estimación, nunca como presupuesto ni asesoramiento.\n\nCaptación y CRM: formulario multi-paso de una pregunta por pantalla, configurable por la propia agente sin tocar código, con teléfono o email —nunca ambos obligatorios— y consentimiento registrado por canal. Cada contacto dispara alerta instantánea, entra en el resumen diario y recibe respuesta automática bilingüe. En el CRM: bandeja con lista y kanban, pipeline, ficha con las propiedades que visitó cada contacto, actividades, recordatorios, campañas segmentadas, analítica de origen y conversión, editor de contenidos bilingüe y exportación CSV.\n\nSEO programático: cerca de 150.000 páginas con regeneración incremental, sitemaps bilingües, hreflang y datos estructurados, más un informe semanal automatizado que mide posiciones reales en Search Console y señala dónde actuar. Y cumplimiento desde el diseño: exhibición IDX conforme, Fair Housing aplicado en todo el producto, consentimiento y lista de supresión en el modelo de datos desde el primer día, y tres rondas completas de auditoría cerradas.\n\nUn producto en producción también se juzga por lo que cuesta mantenerlo vivo. Tres intervenciones quitaron dinero de la factura sin quitar funcionalidad: servir las fotos de las 46.000 fichas directamente desde el CDN de origen (coste de imágenes cero, de forma estructural), agrupar los despliegues para no regenerar y pagar las 150.000 páginas en cada mejora (−90% de coste, sin afectar al contenido ni al SEO) y bloquear en el firewall un rastreador que se hacía pasar por navegador y generaba la mayoría del tráfico facturado.\n\nCada decisión de arquitectura se escribió en un ADR antes que el código, con un roadmap vivo como único registro de estado, una funcionalidad en vuelo cada vez, tests junto al código y revisión con checklist antes de cada integración. Cada versión entrega su changelog en lenguaje de cliente.",
+      en: "A complete application —public site and its own CRM— on an architecture built to outlive its first version.\n\nA single source of truth: the site never queries the MLS, it always reads our PostgreSQL database. The only swappable part is who fills it. That let us build and validate the entire product against test data months before MLS access, then switch to the real feed without rewriting a single screen; adding a second MLS is now days of work, not a redesign.\n\nRESO MLS integration: a standalone Node worker consumes the Bridge Interactive (MIAMI REALTORS) RESO Web API, normalizes the feed to our schema and upserts into the same table. Full initial load plus incrementals every 4 hours via GitHub Actions, well under the 12-hour maximum refresh the MLS licence requires.\n\nMap search: list and MapLibre map synced both ways, server-side marker clustering, and freehand area drawing solved with ST_Intersects geospatial queries in PostGIS. All state lives in the URL, so any search is a shareable link. On the map, four context layers: schools, public transit (GTFS), walkability (EPA index) and retail.\n\nThe Florida cost-of-ownership panel is the differentiator: it crosses each property's FEMA flood zone with estimates for flood insurance, home insurance, HOA/CDD dues and taxes to reach a realistic monthly payment. It's the site's strongest lead argument, and every figure is labelled an estimate, never a quote or advice.\n\nLead capture and CRM: a multi-step form, one question per screen, configurable by the agent herself without touching code, with phone or email —never both required— and consent recorded per channel. Every lead fires an instant alert, joins the daily digest and gets a bilingual auto-reply. In the CRM: inbox with list and kanban views, pipeline, contact record with the properties they viewed, activities, reminders, segmented campaigns, source and conversion analytics, bilingual content editor and CSV export.\n\nProgrammatic SEO: around 150,000 pages with incremental regeneration, bilingual sitemaps, hreflang and structured data, plus an automated weekly report measuring real Search Console positions and pointing at where to act. And compliance by design: conforming IDX display, Fair Housing applied across the product, consent and suppression list in the data model from day one, and three full audit rounds closed.\n\nA product in production is also judged by what it costs to keep alive. Three interventions took money off the bill without taking away features: serving the photos of 46,000 listings straight from the origin CDN (image cost structurally zero), batching deploys so the 150,000 pages aren't regenerated —and paid for— on every improvement (−90% cost, with no impact on content or SEO), and firewall-blocking a crawler that posed as a browser and generated most of the billed traffic.\n\nEvery architecture decision was written as an ADR before the code, with a living roadmap as the single record of status, one feature in flight at a time, tests alongside the code and a checklist review before each merge. Every release ships its changelog in client language.",
+    },
+    results: [
+      {
+        value: "~150.000",
+        label: {
+          es: "páginas indexables bilingües",
+          en: "bilingual indexable pages",
+        },
+      },
+      {
+        value: "3.070",
+        label: {
+          es: "tests automatizados en 363 ficheros",
+          en: "automated tests across 363 files",
+        },
+      },
+      {
+        value: "2 meses",
+        label: {
+          es: "de cero a v1.0.0 en producción",
+          en: "from zero to v1.0.0 in production",
+        },
+      },
+    ],
+    stack: [
+      "Next.js 15",
+      "React 19",
+      "TypeScript strict",
+      "PostgreSQL + PostGIS",
+      "Drizzle ORM",
+      "MapLibre GL",
+      "Auth.js",
+      "Vercel · Neon · Cloudflare",
+    ],
+    liveUrl: "https://nilyanherrera.com",
+  },
+  {
     slug: "sentra",
+    relatedService: "/services/full-stack-development",
+    // título corto para el <title>/SERP (el title largo supera 100c)
+    seoTitle: {
+      es: "BI para grupos de restauración · Caso Sentra",
+      en: "BI for restaurant groups · Sentra case",
+    },
     client: {
       es: "Grupo de restauración · 7 locales",
       en: "Restaurant group · 7 locations",
@@ -80,6 +169,12 @@ export const cases = [
   },
   {
     slug: "atep-inventory",
+    relatedService: "/services/automation",
+    // título corto para el <title>/SERP (el title largo supera 100c)
+    seoTitle: {
+      es: "Inventario RFID con Odoo para ópticas",
+      en: "RFID inventory with Odoo for opticians",
+    },
     client: {
       es: "Cliente piloto sector óptico",
       en: "Optical retail pilot client",
@@ -156,6 +251,12 @@ export const cases = [
   },
   {
     slug: "turnos",
+    relatedService: "/services/full-stack-development",
+    // título corto para el <title>/SERP (el title largo supera 100c)
+    seoTitle: {
+      es: "SaaS de turnos para hostelería · turnOS",
+      en: "Shift-planning SaaS for hospitality · turnOS",
+    },
     client: {
       es: "Producto propio · Hostelería ES",
       en: "Own product · Spanish hospitality",
@@ -233,6 +334,12 @@ export const cases = [
   },
   {
     slug: "lnh-partner",
+    relatedService: "/services/professional-websites",
+    // título corto para el <title>/SERP (el title largo supera 100c)
+    seoTitle: {
+      es: "Web corporativa ultra rápida · LNH & Partner",
+      en: "Ultra-fast corporate website · LNH & Partner",
+    },
     client: {
       es: "LNH & Partner",
       en: "LNH & Partner",
@@ -310,6 +417,12 @@ export const cases = [
   },
   {
     slug: "tibis-market",
+    relatedService: "/services/ecommerce",
+    // título corto para el <title>/SERP (el title largo supera 100c)
+    seoTitle: {
+      es: "E-commerce con pedido por WhatsApp · Tibis Market",
+      en: "WhatsApp-checkout e-commerce · Tibis Market",
+    },
     client: {
       es: "Tibi's Market",
       en: "Tibi's Market",
@@ -386,6 +499,12 @@ export const cases = [
   },
   {
     slug: "hampton-textile-printing",
+    relatedService: "/services/legacy-migration",
+    // título corto para el <title>/SERP (el title largo supera 100c)
+    seoTitle: {
+      es: "Migración ERP sin downtime · Hampton Textile",
+      en: "Zero-downtime ERP migration · Hampton Textile",
+    },
     client: {
       es: "Hampton Textile Printing",
       en: "Hampton Textile Printing",
@@ -479,6 +598,12 @@ export const cases = [
   },
   {
     slug: "luis-royuela-nutricionistas",
+    relatedService: "/services/professional-websites",
+    // título corto para el <title>/SERP (el title largo supera 100c)
+    seoTitle: {
+      es: "Web para clínica de nutrición · Luis Royuela",
+      en: "Nutrition clinic website · Luis Royuela",
+    },
     client: {
       es: "Luis Royuela Nutricionistas",
       en: "Luis Royuela Nutritionists",

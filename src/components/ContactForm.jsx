@@ -7,6 +7,24 @@ import { useSnackbar } from "../context/SnackBarContext";
 import { tEyebrow, FONT } from "../lib/typography";
 import { trackEvent } from "../lib/analytics";
 
+// Avisa al WhatsApp de ATEP a través de la función serverless /api/contact.
+// Canal secundario: si falla no se le dice nada al usuario, porque el lead
+// ya viajó por email.
+const notifyWhatsApp = async (payload) => {
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return await res.json();
+  } catch (error) {
+    console.warn("Aviso por WhatsApp no entregado:", error.message);
+    return null;
+  }
+};
+
 const UnderlineInput = ({
   id,
   name,
@@ -146,6 +164,15 @@ export const ContactForm = () => {
         userTemplateParams,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
+
+      await notifyWhatsApp({
+        name: formData.name,
+        email: formData.email,
+        service: formData.subject,
+        message: formData.message,
+        honeypot: formData.honeypot,
+        recaptchaToken: token,
+      });
 
       showSnackbar(t("contact.successMessage"), "success");
       trackEvent("generate_lead", {

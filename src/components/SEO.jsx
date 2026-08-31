@@ -1,19 +1,40 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
+
+const BASE_URL = "https://www.atepconsulting.com";
+
+// Varias páginas reutilizan copy de UI como description (>160c): recorte
+// limpio en límite de palabra para que Google no trunque a mitad de frase.
+const trimDescription = (text = "") => {
+  if (text.length <= 160) return text;
+  const cut = text.slice(0, 157);
+  return `${cut.slice(0, cut.lastIndexOf(" "))}…`;
+};
+
+// og:image exige URL absoluta y los scrapers de LinkedIn no aceptan WebP.
+const resolveImage = (image) => {
+  if (!image || image.endsWith(".webp")) return `${BASE_URL}/og-image.png`;
+  return image.startsWith("http") ? image : `${BASE_URL}${image}`;
+};
 
 export const SEO = ({
   title,
   description,
   keywords,
-  image = "https://www.atepconsulting.com/og-image.png",
+  image,
   type = "website",
   schemaType = "Organization",
   schemaData = {},
+  extraSchemas = [],
 }) => {
-  const seoLanguage = "es_ES";
-  const baseUrl = "https://www.atepconsulting.com";
+  const { language } = useLanguage();
+  const seoLanguage = language === "es" ? "es_ES" : "en_US";
+  const baseUrl = BASE_URL;
   const { pathname } = useLocation();
   const currentUrl = `${baseUrl}${pathname}`;
+  const metaDescription = trimDescription(description);
+  const ogImage = resolveImage(image);
 
   const fullTitle = title
     ? `${title} | ATEP Consulting`
@@ -35,8 +56,8 @@ export const SEO = ({
         alternateName: "ATEP",
         url: baseUrl,
         logo: `${baseUrl}/new-logo-atep.png`,
-        image: image,
-        description: description,
+        image: ogImage,
+        description: metaDescription,
         address: {
           "@type": "PostalAddress",
           addressLocality: "Paterna",
@@ -45,8 +66,8 @@ export const SEO = ({
         },
         geo: {
           "@type": "GeoCoordinates",
-          latitude: "39.5",
-          longitude: "-0.4",
+          latitude: "39.5028",
+          longitude: "-0.4403",
         },
         areaServed: {
           "@type": "Country",
@@ -73,6 +94,51 @@ export const SEO = ({
       };
       break;
 
+    // Ficha de negocio local (home y contacto): añade a Organization los
+    // datos que Google usa para búsquedas locales y para casar la web con
+    // el perfil de Google Business.
+    case "LocalBusiness":
+      schema = {
+        ...baseSchema,
+        "@type": "ProfessionalService",
+        name: "ATEP Consulting",
+        alternateName: "ATEP",
+        url: baseUrl,
+        logo: `${baseUrl}/new-logo-atep.png`,
+        image: ogImage,
+        description: metaDescription,
+        telephone: "+34647748705",
+        email: "info@atepconsulting.com",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Paterna",
+          addressRegion: "Valencia",
+          postalCode: "46980",
+          addressCountry: "ES",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: "39.5028",
+          longitude: "-0.4403",
+        },
+        areaServed: { "@type": "Country", name: "España" },
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: "09:00",
+            closes: "18:00",
+          },
+        ],
+        founder: [
+          { "@type": "Person", name: "Gabriela Albertini" },
+          { "@type": "Person", name: "Pablo Teijeiro" },
+        ],
+        sameAs: ["https://www.linkedin.com/company/atepconsulting"],
+        ...schemaData,
+      };
+      break;
+
     case "Service":
       schema = {
         ...baseSchema,
@@ -89,9 +155,9 @@ export const SEO = ({
           "@type": "Country",
           name: "España",
         },
-        description: description,
+        description: metaDescription,
         url: currentUrl,
-        image: image,
+        image: ogImage,
         ...schemaData,
       };
       break;
@@ -101,9 +167,9 @@ export const SEO = ({
         ...baseSchema,
         "@type": "WebPage",
         name: fullTitle,
-        description: description,
+        description: metaDescription,
         url: currentUrl,
-        inLanguage: "es-ES",
+        inLanguage: language === "es" ? "es-ES" : "en-US",
         isPartOf: {
           "@type": "WebSite",
           name: "ATEP Consulting",
@@ -118,11 +184,13 @@ export const SEO = ({
         ...baseSchema,
         "@type": "BlogPosting",
         headline: fullTitle,
-        description: description,
-        image: image,
+        description: metaDescription,
+        image: ogImage,
         url: currentUrl,
-        datePublished: schemaData.datePublished || new Date().toISOString(),
-        dateModified: schemaData.dateModified || new Date().toISOString(),
+        // solo fechas reales: un dateModified inventado en cada render es
+        // una señal de frescura falsa
+        ...(schemaData.datePublished && { datePublished: schemaData.datePublished }),
+        ...(schemaData.dateModified && { dateModified: schemaData.dateModified }),
         author: schemaData.author || {
           "@type": "Organization",
           name: "ATEP Consulting",
@@ -145,7 +213,7 @@ export const SEO = ({
         "@type": "Organization",
         name: "ATEP Consulting",
         url: baseUrl,
-        description: description,
+        description: metaDescription,
         logo: `${baseUrl}/new-logo-atep.png`,
         address: {
           "@type": "PostalAddress",
@@ -163,7 +231,7 @@ export const SEO = ({
       <title>{fullTitle}</title>
 
       {/* Meta Tags */}
-      <meta name="description" content={description} />
+      <meta name="description" content={metaDescription} />
       <meta
         name="keywords"
         content={
@@ -174,8 +242,8 @@ export const SEO = ({
 
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:image" content={ogImage} />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:type" content={type} />
       <meta property="og:locale" content={seoLanguage} />
@@ -184,14 +252,19 @@ export const SEO = ({
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image" content={ogImage} />
 
       {/* Canonical */}
       <link rel="canonical" href={currentUrl} />
 
       {/* Schema.org JSON-LD */}
       <script type="application/ld+json">{JSON.stringify(schema)}</script>
+      {extraSchemas.map((extra, i) => (
+        <script type="application/ld+json" key={i}>
+          {JSON.stringify({ "@context": "https://schema.org", ...extra })}
+        </script>
+      ))}
     </Helmet>
   );
 };

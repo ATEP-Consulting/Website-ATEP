@@ -19,6 +19,13 @@
     "source": "dist",
     "destination": "dist",
     "inlineCss": false,
+    "concurrency": 1,
+    "minifyCss": false,
+    "minifyHtml": {
+      "collapseWhitespace": false,
+      "removeComments": false,
+      "minifyCSS": false
+    },
     "puppeteerArgs": [
       "--no-sandbox",
       "--disable-setuid-sandbox"
@@ -48,7 +55,13 @@
       "/cases/luis-royuela-nutricionistas",
       "/privacy-policy",
       "/cookies-policy",
-      "/legal-notice"
+      "/legal-notice",
+      "/blog/digital-transformation-guide-2025",
+      "/blog/benefits-of-automation",
+      "/blog/legacy-system-modernization",
+      "/cases/nilyan-herrera",
+      "/blog/cuanto-cuesta-una-web-profesional",
+      "/blog/grupos-restauracion-siete-aplicaciones"
     ]
   },
   "dependencies": {

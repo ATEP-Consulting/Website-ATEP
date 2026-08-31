@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /api/
 
 Sitemap: https://www.atepconsulting.com/sitemap.xml

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Search } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
+import { useSearchTracking } from "../../lib/useSearchTracking";
 import { BlogCard } from "../../components/BlogCard";
 import { Reveal, RevealStagger } from "../../components/Reveal";
 import ImageHero from "../../components/ImageHero";
@@ -12,6 +13,7 @@ export const BlogList = () => {
   const { t, language } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
+  useSearchTracking(searchTerm, "blog_search");
 
   const categories = [
     "all",
