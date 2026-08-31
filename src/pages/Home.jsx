@@ -94,7 +94,7 @@ export const Home = () => {
         className="home-hero px-6 sm:px-10 lg:px-16"
         style={{ background: "var(--bg)" }}
       >
-        <div className="max-w-[1600px] mx-auto">
+        <div className="home-hero__main max-w-[1600px] mx-auto">
           <div className="grid grid-cols-1 tm:grid-cols-5 gap-10 tm:gap-16 items-center">
             <div className="tm:col-span-3">
               <Reveal y={16}>
@@ -230,19 +230,18 @@ export const Home = () => {
             </Reveal>
           </div>
         </div>
+        <div className="home-hero__clients">
+          <ClientsMarquee />
+        </div>
         <ScrollCue
-          target="#clientes"
+          target="#stats"
           label={language === "es" ? "Bajar al contenido" : "Scroll to content"}
         />
       </section>
 
-      {/* CLIENT LOGOS — marquee infinito de wordmarks */}
-      <div id="clientes">
-        <ClientsMarquee />
-      </div>
-
       {/* STATS */}
       <section
+        id="stats"
         className="px-6 sm:px-10 lg:px-16 py-20 tm:py-28"
         style={{ background: "var(--bg-surface)" }}
       >
