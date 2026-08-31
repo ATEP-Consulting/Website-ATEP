@@ -8,6 +8,7 @@
 // no hace falta repetir nombres aquí.
 
 export const clients = [
+  "Nilyan Herrera",
   "Style by Global",
   "Hampton Textile Printing",
   "Vertilux",

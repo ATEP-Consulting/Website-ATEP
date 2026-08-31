@@ -7,6 +7,7 @@ import { getServicesData } from "../data/servicesData";
 import { cases as casesData } from "../data/casesData";
 import { CaseCard } from "../components/CaseCard";
 import { ClientsMarquee } from "../components/ClientsMarquee";
+import { ScrollCue } from "../components/ScrollCue";
 import { Image } from "../components/Image";
 import { blogPosts } from "../data/blogData";
 import { getHeroStats } from "../config/heroStats";
@@ -90,7 +91,7 @@ export const Home = () => {
 
       {/* HERO */}
       <section
-        className="px-6 sm:px-10 lg:px-16 pt-12 pb-14 tm:pt-24 tm:pb-24"
+        className="home-hero px-6 sm:px-10 lg:px-16"
         style={{ background: "var(--bg)" }}
       >
         <div className="max-w-[1600px] mx-auto">
@@ -175,10 +176,10 @@ export const Home = () => {
 
             <Reveal delay={280} y={36} dur={1100} className="tm:col-span-2">
               <div
-                className="relative w-full mx-auto"
+                className="hero-media relative w-full mx-auto"
                 style={{
                   aspectRatio: "4/5",
-                  maxHeight: "min(720px, 80vh)",
+                  maxHeight: "min(620px, 56vh)",
                   maxWidth: "min(560px, 100%)",
                 }}
               >
@@ -229,10 +230,16 @@ export const Home = () => {
             </Reveal>
           </div>
         </div>
+        <ScrollCue
+          target="#clientes"
+          label={language === "es" ? "Bajar al contenido" : "Scroll to content"}
+        />
       </section>
 
       {/* CLIENT LOGOS — marquee infinito de wordmarks */}
-      <ClientsMarquee />
+      <div id="clientes">
+        <ClientsMarquee />
+      </div>
 
       {/* STATS */}
       <section
