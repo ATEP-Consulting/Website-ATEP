@@ -49,7 +49,7 @@ const NavDot = ({ active }) => (
   <span
     aria-hidden
     className={`absolute left-1/2 -translate-x-1/2 -bottom-[10px] w-[5px] h-[5px] rounded-full transition-opacity duration-200 ${
-      active ? "opacity-100" : "opacity-0"
+      active ? "opacity-100" : "opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"
     }`}
     style={{ background: "var(--accent)" }}
   />
@@ -186,7 +186,7 @@ const DesktopHeader = () => {
                     navigate(it.path);
                   }}
                   onFocus={() => openMegaMenu(it.mega)}
-                  className="atep-navlink group text-[13.5px] cursor-pointer inline-flex items-center gap-[6px] transition-colors duration-150 bg-transparent border-none focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                  className="group relative text-[13.5px] cursor-pointer inline-flex items-center gap-[6px] transition-colors duration-150 bg-transparent border-none focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                   style={{
                     color: active || isThisOpen ? "var(--ink)" : "var(--muted)",
                     fontWeight: active || isThisOpen ? 500 : 400,
@@ -221,7 +221,7 @@ const DesktopHeader = () => {
               onMouseLeave={(e) => {
                 if (!active) e.currentTarget.style.color = "var(--muted)";
               }}
-              className="atep-navlink group text-[13.5px] cursor-pointer no-underline transition-colors duration-150 inline-block"
+              className="group relative text-[13.5px] cursor-pointer no-underline transition-colors duration-150 inline-block"
               style={{
                 color: active ? "var(--ink)" : "var(--muted)",
                 fontWeight: active ? 500 : 400,
