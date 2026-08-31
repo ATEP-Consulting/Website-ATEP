@@ -100,7 +100,11 @@ export const Footer = () => {
             style={{
               fontFamily: FONT.serif,
               fontWeight: 500,
-              fontSize: "clamp(140px, 22vw, 360px)",
+              // "ATEP Consulting" mide 7,06 veces su tamaño de fuente en
+              // Newsreader itálica con este tracking (medido en navegador),
+              // así que 13vw lo deja en ~92% del ancho: entra completo en
+              // cualquier pantalla, del móvil al monitor ultrapanorámico.
+              fontSize: "13vw",
               letterSpacing: "-0.04em",
               lineHeight: 1,
               color: isDark
