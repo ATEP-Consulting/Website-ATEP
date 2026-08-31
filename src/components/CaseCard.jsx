@@ -28,7 +28,7 @@ export const CaseCard = ({ caseItem, variant = "navy" }) => {
       }
       onMouseLeave={(e) => (e.currentTarget.style.borderColor = ruleColor)}
     >
-      <div className="relative w-full" style={{ aspectRatio: "16/10" }}>
+      <div className="relative w-full" style={{ aspectRatio: "16/9" }}>
         <CaseStripe
           variant={variant}
           sector={caseItem.sector[language]}

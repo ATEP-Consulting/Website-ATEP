@@ -133,7 +133,14 @@ export const CasePost = () => {
                 con la métrica. */}
             <div
               className="relative overflow-hidden"
-              style={{ aspectRatio: "16/10", background: "var(--navy)" }}
+              style={{
+                background: "var(--navy)",
+                // la captura conserva su proporción; el panel de métrica es
+                // una banda contenida, no un bloque a pantalla completa
+                ...(caseItem.image
+                  ? { aspectRatio: "16/10" }
+                  : { height: "clamp(200px, 26vh, 300px)" }),
+              }}
             >
               {caseItem.image ? (
                 <Image
