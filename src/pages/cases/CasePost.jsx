@@ -7,10 +7,25 @@ import { trackEvent } from "../../lib/analytics";
 import { Reveal, RevealStagger } from "../../components/Reveal";
 import { CountingNumber } from "../../components/CountingNumber";
 import { CaseStripe } from "../../components/CaseStripe";
-import { Image } from "../../components/Image";
 import { CaseCard } from "../../components/CaseCard";
 import { cases, getCaseBySlug } from "../../data/casesData";
 import { tDisplay, tSerif, tEyebrow, FONT } from "../../lib/typography";
+
+// Los textos largos de casesData separan párrafos con una línea en blanco;
+// sin esto el caso se renderizaba como un único bloque ilegible.
+const Paragraphs = ({ text, style }) => (
+  <>
+    {String(text)
+      .split("\n\n")
+      .map((t) => t.trim())
+      .filter(Boolean)
+      .map((t, i) => (
+        <p key={i} className="m-0" style={{ ...style, marginTop: i ? 18 : 0 }}>
+          {t}
+        </p>
+      ))}
+  </>
+);
 
 export const CasePost = () => {
   const { slug } = useParams();
@@ -127,37 +142,20 @@ export const CasePost = () => {
             className="px-6 sm:px-10 lg:px-16 py-10 tm:py-14"
             style={{ background: "var(--bg)" }}
           >
-            {/* En la ficha el caso se ve solo, sin comparación con otros:
-                aquí sí se muestra la captura cuando existe. Los proyectos
-                internos de cliente, que nunca la tendrán, mantienen el panel
-                con la métrica. */}
             <div
               className="relative overflow-hidden"
               style={{
                 background: "var(--navy)",
-                // la captura conserva su proporción; el panel de métrica es
-                // una banda contenida, no un bloque a pantalla completa
-                ...(caseItem.image
-                  ? { aspectRatio: "16/10" }
-                  : { height: "clamp(200px, 26vh, 300px)" }),
+                // banda contenida, no un bloque a pantalla completa
+                height: "clamp(200px, 26vh, 300px)",
               }}
             >
-              {caseItem.image ? (
-                <Image
-                  src={caseItem.image}
-                  alt={`${caseItem.client[language]} — ${caseItem.title[language]}`}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  style={{ objectPosition: "center top" }}
-                  sizes="(max-width: 820px) 100vw, 90vw"
-                />
-              ) : (
-                <CaseStripe
+              <CaseStripe
                   variant="navy"
                   sector={caseItem.sector[language]}
                   metric={caseItem.metric.value}
                   metricLabel={caseItem.metric.label[language]}
                 />
-              )}
             </div>
           </div>
         </Reveal>
@@ -247,16 +245,16 @@ export const CasePost = () => {
                 >
                   {language === "es" ? "El reto" : "The challenge"}
                 </h2>
-                <p
-                  className="m-0 mb-12 tm:mb-16"
-                  style={{
-                    ...tSerif("clamp(16px, 1.2vw, 18px)", 400),
-                    color: "var(--ink)",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  {caseItem.challenge[language]}
-                </p>
+                <div className="mb-12 tm:mb-16">
+                  <Paragraphs
+                    text={caseItem.challenge[language]}
+                    style={{
+                      ...tSerif("clamp(16px, 1.2vw, 18px)", 400),
+                      color: "var(--ink)",
+                      lineHeight: 1.7,
+                    }}
+                  />
+                </div>
               </Reveal>
 
               {/* Solution */}
@@ -271,16 +269,16 @@ export const CasePost = () => {
                 >
                   {language === "es" ? "Lo que construimos" : "What we built"}
                 </h2>
-                <p
-                  className="m-0 mb-12"
-                  style={{
-                    ...tSerif("clamp(16px, 1.2vw, 18px)", 400),
-                    color: "var(--ink)",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  {caseItem.solution[language]}
-                </p>
+                <div className="mb-12">
+                  <Paragraphs
+                    text={caseItem.solution[language]}
+                    style={{
+                      ...tSerif("clamp(16px, 1.2vw, 18px)", 400),
+                      color: "var(--ink)",
+                      lineHeight: 1.7,
+                    }}
+                  />
+                </div>
               </Reveal>
 
               {/* Results */}

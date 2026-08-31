@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Search } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
@@ -13,7 +13,11 @@ export const BlogList = () => {
   const { t, language } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
+  const [page, setPage] = useState(1);
   useSearchTracking(searchTerm, "blog_search");
+
+  // al cambiar el filtro o la búsqueda se vuelve a la primera página
+  useEffect(() => setPage(1), [searchTerm, selectedCategory]);
 
   const categories = [
     "all",
@@ -34,6 +38,17 @@ export const BlogList = () => {
       post.excerpt[language].toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
+  // 3 = una fila completa de la rejilla en escritorio. Con más artículos
+  // publicados se puede subir a 6 (dos filas) sin tocar nada más.
+  const PAGE_SIZE = 3;
+  const pages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const current = Math.min(page, pages);
+  const pageItems = filtered.slice((current - 1) * PAGE_SIZE, current * PAGE_SIZE);
+  const goTo = (n) => {
+    setPage(n);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <>
@@ -158,7 +173,7 @@ export const BlogList = () => {
             className="grid grid-cols-1 tm:grid-cols-2 lg:grid-cols-3 gap-8"
             itemClassName="h-full"
           >
-            {filtered.map((post) => (
+            {pageItems.map((post) => (
               <BlogCard
                 key={post.slug}
                 slug={post.slug}
@@ -186,6 +201,43 @@ export const BlogList = () => {
                 ? "No se encontraron artículos. Prueba con otros filtros."
                 : "No articles found. Try adjusting your filters.")}
           </div>
+        )}
+
+        {pages > 1 && (
+          <nav
+            className="flex items-center justify-center gap-2 mt-14"
+            aria-label={language === "es" ? "Paginación" : "Pagination"}
+          >
+            <button
+              type="button"
+              className="blog-page"
+              disabled={current === 1}
+              aria-label={language === "es" ? "Página anterior" : "Previous page"}
+              onClick={() => goTo(current - 1)}
+            >
+              ←
+            </button>
+            {Array.from({ length: pages }, (_, i) => i + 1).map((n) => (
+              <button
+                type="button"
+                key={n}
+                className={`blog-page${n === current ? " is-current" : ""}`}
+                aria-current={n === current ? "page" : undefined}
+                onClick={() => goTo(n)}
+              >
+                {n}
+              </button>
+            ))}
+            <button
+              type="button"
+              className="blog-page"
+              disabled={current === pages}
+              aria-label={language === "es" ? "Página siguiente" : "Next page"}
+              onClick={() => goTo(current + 1)}
+            >
+              →
+            </button>
+          </nav>
         )}
       </section>
     </>

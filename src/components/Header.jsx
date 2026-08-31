@@ -653,8 +653,12 @@ const MobileHeader = () => {
     if (!open) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    // marca global para que los elementos flotantes (el botón de WhatsApp)
+    // se aparten mientras el cajón está abierto
+    document.documentElement.classList.add("is-menu-open");
     return () => {
       document.body.style.overflow = prev;
+      document.documentElement.classList.remove("is-menu-open");
     };
   }, [open]);
 

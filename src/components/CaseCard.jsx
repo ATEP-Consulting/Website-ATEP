@@ -29,8 +29,10 @@ export const CaseCard = ({ caseItem, variant = "navy" }) => {
       onMouseLeave={(e) => (e.currentTarget.style.borderColor = ruleColor)}
     >
       <div className="relative w-full" style={{ aspectRatio: "16/9" }}>
+        {/* `variant` describe el fondo de la sección; el panel necesita el
+            color contrario para despegarse de ella. */}
         <CaseStripe
-          variant={variant}
+          variant={onNavy ? "cream" : "navy"}
           sector={caseItem.sector[language]}
           metric={caseItem.metric.value}
           metricLabel={caseItem.metric.label[language]}

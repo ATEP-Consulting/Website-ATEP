@@ -373,3 +373,45 @@
 .process-step:hover {
   border-color: var(--accent);
 }
+
+/* ---------- paginación del blog ---------- */
+.blog-page {
+  min-width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  border: 1px solid var(--rule-strong);
+  background: transparent;
+  color: var(--ink);
+  font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.blog-page:hover:not(:disabled) {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: var(--bg);
+}
+.blog-page.is-current {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--bg);
+}
+.blog-page:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* El botón flotante de WhatsApp se aparta mientras el menú móvil está
+   abierto: con visibility oculta también sale del orden de tabulación. */
+.wa-float {
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+.is-menu-open .wa-float {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}

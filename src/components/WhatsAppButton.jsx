@@ -13,7 +13,7 @@ export const WhatsAppButton = () => {
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => trackEvent("whatsapp_click", { location: "floating_button" })}
-      className="fixed bottom-6 right-6 z-40 group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+      className="wa-float fixed bottom-6 right-6 z-40 group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
       aria-label="WhatsApp"
     >
       <span

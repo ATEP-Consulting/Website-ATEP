@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { tDisplay, tEyebrow } from "../lib/typography";
-import { Image } from "./Image";
 
 export const BlogCard = ({
   slug,
@@ -30,16 +29,17 @@ export const BlogCard = ({
         className="flex flex-col h-full"
         style={{ background: "var(--bg-panel)" }}
       >
-        {image && (
-          <div className="relative overflow-hidden aspect-[4/3]">
-            <Image
-              src={image}
-              alt={title}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              sizes="(max-width: 820px) 100vw, 33vw"
-            />
-          </div>
-        )}
+        {/* Sin fotos: no todos los artículos tendrán una y las de archivo
+            genéricas no aportan. Igual que en los casos, todas las tarjetas
+            reciben el mismo tratamiento — aquí la categoría hace de portada. */}
+        <div
+          className="flex items-end p-5 tm:p-6"
+          style={{ background: "var(--navy)", minHeight: 116 }}
+        >
+          <span style={{ ...tEyebrow("rgba(245,241,232,0.75)"), color: "rgba(245,241,232,0.75)" }}>
+            {category}
+          </span>
+        </div>
         <div
           className="p-5 tm:p-6 flex-1 flex flex-col"
           style={{ borderTop: "1px solid var(--rule)" }}

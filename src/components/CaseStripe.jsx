@@ -2,12 +2,11 @@ import { FONT } from "../lib/typography";
 
 // Panel de cabecera de un caso. NO usa capturas a propósito: parte de los
 // proyectos son sistemas internos de clientes y nunca podrán mostrarse, así
-// que en una rejilla donde las tarjetas se comparan entre sí lo coherente
-// es que todas reciban el mismo tratamiento. En vez de una imagen se
-// muestra el dato que de verdad vende: la métrica del proyecto.
+// que lo coherente es que todos reciban el mismo tratamiento. En vez de una
+// imagen se muestra el dato que de verdad vende: la métrica del proyecto.
 //
-// Las capturas que sí existen se siguen usando dentro de la ficha del caso,
-// donde cada proyecto se ve solo y no hay comparación posible.
+// `variant` es el color del propio panel, no el de la sección: quien lo usa
+// debe pedir el contrario al fondo sobre el que lo coloca.
 export const CaseStripe = ({
   metric,
   metricLabel = "",
