@@ -18,6 +18,15 @@ const resolveImage = (image) => {
   return image.startsWith("http") ? image : `${BASE_URL}${image}`;
 };
 
+// Declarar las medidas evita que LinkedIn o WhatsApp tengan que descargar la
+// imagen antes de reservarle hueco. Solo se anuncian para la imagen por
+// defecto, la única cuyo tamaño conocemos: para una futura imagen propia
+// serían mentira, y unas medidas equivocadas pintan peor que ninguna.
+const OG_DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
+const OG_DEFAULT_SIZE = { width: "1200", height: "630" };
+const OG_IMAGE_ALT =
+  "ATEP Consulting — consultoría IT y desarrollo de software a medida";
+
 export const SEO = ({
   title,
   description,
@@ -35,6 +44,7 @@ export const SEO = ({
   const currentUrl = `${baseUrl}${pathname}`;
   const metaDescription = trimDescription(description);
   const ogImage = resolveImage(image);
+  const ogSize = ogImage === OG_DEFAULT_IMAGE ? OG_DEFAULT_SIZE : null;
 
   const fullTitle = title
     ? `${title} | ATEP Consulting`
@@ -244,6 +254,9 @@ export const SEO = ({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={ogImage} />
+      <meta property="og:image:alt" content={OG_IMAGE_ALT} />
+      {ogSize && <meta property="og:image:width" content={ogSize.width} />}
+      {ogSize && <meta property="og:image:height" content={ogSize.height} />}
       <meta property="og:url" content={currentUrl} />
       <meta property="og:type" content={type} />
       <meta property="og:locale" content={seoLanguage} />
@@ -254,6 +267,7 @@ export const SEO = ({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:image:alt" content={OG_IMAGE_ALT} />
 
       {/* Canonical */}
       <link rel="canonical" href={currentUrl} />

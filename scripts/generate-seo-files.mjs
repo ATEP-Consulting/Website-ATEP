@@ -86,6 +86,12 @@ const resolveImage = (image) => {
   return image.startsWith("http") ? image : `${BASE_URL}${image}`;
 };
 
+// Mismo criterio que SEO.jsx: las medidas solo se anuncian para la imagen por
+// defecto, que es la única cuyo tamaño conocemos (1200×630).
+const OG_DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
+const OG_IMAGE_ALT =
+  "ATEP Consulting — consultoría IT y desarrollo de software a medida";
+
 const routes = [
   ...Object.keys(PAGE_SOURCES).map((path) => ({ path, ...readMeta(path) })),
   ...cases.map((c) => ({
@@ -145,6 +151,13 @@ if (process.argv.includes("--inject")) {
       `<meta property="og:title" content="${esc(fullTitle)}"/>`,
       `<meta property="og:description" content="${esc(desc)}"/>`,
       `<meta property="og:image" content="${img}"/>`,
+      `<meta property="og:image:alt" content="${esc(OG_IMAGE_ALT)}"/>`,
+      ...(img === OG_DEFAULT_IMAGE
+        ? [
+            `<meta property="og:image:width" content="1200"/>`,
+            `<meta property="og:image:height" content="630"/>`,
+          ]
+        : []),
       `<meta property="og:url" content="${url}"/>`,
       `<meta property="og:type" content="${r.type || "website"}"/>`,
       `<meta property="og:locale" content="es_ES"/>`,
@@ -153,6 +166,7 @@ if (process.argv.includes("--inject")) {
       `<meta name="twitter:title" content="${esc(fullTitle)}"/>`,
       `<meta name="twitter:description" content="${esc(desc)}"/>`,
       `<meta name="twitter:image" content="${img}"/>`,
+      `<meta name="twitter:image:alt" content="${esc(OG_IMAGE_ALT)}"/>`,
     ].join("\n    ");
   };
 
