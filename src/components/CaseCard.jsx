@@ -30,10 +30,10 @@ export const CaseCard = ({ caseItem, variant = "navy" }) => {
     >
       <div className="relative w-full" style={{ aspectRatio: "16/10" }}>
         <CaseStripe
-          label={`${caseItem.client[language]} · ${language === "es" ? "vista previa" : "preview"}`}
           variant={variant}
-          image={caseItem.image}
-          alt={`${caseItem.client[language]} — ${caseItem.title[language]}`}
+          sector={caseItem.sector[language]}
+          metric={caseItem.metric.value}
+          metricLabel={caseItem.metric.label[language]}
         />
       </div>
       <div className="p-6 tm:p-7">
@@ -60,19 +60,12 @@ export const CaseCard = ({ caseItem, variant = "navy" }) => {
         >
           {caseItem.client[language]}
         </div>
+        {/* la métrica ya es la protagonista del panel superior: aquí solo
+            queda el enlace, para no repetir el dato en la misma tarjeta */}
         <div
-          className="pt-5 flex justify-between items-baseline"
+          className="pt-5 flex justify-end items-baseline"
           style={{ borderTop: `1px solid ${ruleColor}` }}
         >
-          <div
-            style={{
-              ...tDisplay("clamp(24px, 2.4vw, 30px)", 500),
-              color: "var(--accent)",
-              lineHeight: 1,
-            }}
-          >
-            {caseItem.metric.value}
-          </div>
           <span
             className="text-[13px] underline transition-transform duration-200 group-hover:translate-x-1"
             style={{

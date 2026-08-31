@@ -7,6 +7,7 @@ import { trackEvent } from "../../lib/analytics";
 import { Reveal, RevealStagger } from "../../components/Reveal";
 import { CountingNumber } from "../../components/CountingNumber";
 import { CaseStripe } from "../../components/CaseStripe";
+import { Image } from "../../components/Image";
 import { CaseCard } from "../../components/CaseCard";
 import { cases, getCaseBySlug } from "../../data/casesData";
 import { tDisplay, tSerif, tEyebrow, FONT } from "../../lib/typography";
@@ -126,13 +127,30 @@ export const CasePost = () => {
             className="px-6 sm:px-10 lg:px-16 py-10 tm:py-14"
             style={{ background: "var(--bg)" }}
           >
-            <div className="overflow-hidden" style={{ aspectRatio: "16/10" }}>
-              <CaseStripe
-                label={`${caseItem.client[language]} · ${language === "es" ? "captura del producto" : "product screenshot"}`}
-                variant="navy"
-                image={caseItem.image}
-                alt={`${caseItem.client[language]} — ${caseItem.title[language]}`}
-              />
+            {/* En la ficha el caso se ve solo, sin comparación con otros:
+                aquí sí se muestra la captura cuando existe. Los proyectos
+                internos de cliente, que nunca la tendrán, mantienen el panel
+                con la métrica. */}
+            <div
+              className="relative overflow-hidden"
+              style={{ aspectRatio: "16/10", background: "var(--navy)" }}
+            >
+              {caseItem.image ? (
+                <Image
+                  src={caseItem.image}
+                  alt={`${caseItem.client[language]} — ${caseItem.title[language]}`}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{ objectPosition: "center top" }}
+                  sizes="(max-width: 820px) 100vw, 90vw"
+                />
+              ) : (
+                <CaseStripe
+                  variant="navy"
+                  sector={caseItem.sector[language]}
+                  metric={caseItem.metric.value}
+                  metricLabel={caseItem.metric.label[language]}
+                />
+              )}
             </div>
           </div>
         </Reveal>

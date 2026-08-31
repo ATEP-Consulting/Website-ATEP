@@ -1,76 +1,72 @@
 import { FONT } from "../lib/typography";
-import { Image } from "./Image";
 
-export const CaseStripe = ({ label = "", variant = "navy", image, alt }) => {
-  const slug = (label || "case")
-    .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9-]/gi, "")
-    .toLowerCase();
+// Panel de cabecera de un caso. NO usa capturas a propósito: parte de los
+// proyectos son sistemas internos de clientes y nunca podrán mostrarse, así
+// que en una rejilla donde las tarjetas se comparan entre sí lo coherente
+// es que todas reciban el mismo tratamiento. En vez de una imagen se
+// muestra el dato que de verdad vende: la métrica del proyecto.
+//
+// Las capturas que sí existen se siguen usando dentro de la ficha del caso,
+// donde cada proyecto se ve solo y no hay comparación posible.
+export const CaseStripe = ({
+  metric,
+  metricLabel = "",
+  sector = "",
+  variant = "navy",
+}) => {
   const onNavy = variant === "navy";
-
-  // Si hay imagen real, la usamos como cover. Las rayas quedan como
-  // fallback para los casos privados (Hampton, Sentra, ATEP Inventory).
-  if (image) {
-    return (
-      <div
-        className="relative w-full h-full overflow-hidden"
-        style={{ background: onNavy ? "var(--navy)" : "var(--bg-surface)" }}
-      >
-        <Image
-          src={image}
-          alt={alt || label}
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center top" }}
-          sizes="(max-width: 820px) 100vw, 50vw"
-        />
-      </div>
-    );
-  }
+  const bg = onNavy ? "var(--navy)" : "var(--bg-surface)";
+  const metricColor = onNavy ? "var(--bg)" : "var(--ink)";
+  const captionColor = onNavy ? "rgba(245,241,232,0.7)" : "var(--muted)";
+  const ruleColor = onNavy ? "rgba(245,241,232,0.18)" : "var(--rule)";
 
   return (
     <div
-      className="relative w-full h-full overflow-hidden"
-      style={{ background: onNavy ? "var(--navy)" : "var(--bg-surface)" }}
+      className="relative w-full h-full overflow-hidden flex flex-col justify-between"
+      style={{ background: bg, padding: "clamp(20px, 3vw, 32px)" }}
     >
-      <svg
-        width="100%"
-        height="100%"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-        className="absolute inset-0"
-        style={{ opacity: onNavy ? 0.22 : 0.18 }}
-      >
-        <defs>
-          <pattern
-            id={`cs-${slug}-${variant}`}
-            patternUnits="userSpaceOnUse"
-            width="6"
-            height="6"
-            patternTransform="rotate(45)"
-          >
-            <rect
-              width="3"
-              height="6"
-              fill={onNavy ? "var(--accent)" : "var(--navy)"}
-            />
-          </pattern>
-        </defs>
-        <rect width="100" height="100" fill={`url(#cs-${slug}-${variant})`} />
-      </svg>
-      {label && (
+      {sector && (
         <div
-          className="absolute inset-0 flex items-center justify-center"
           style={{
-            color: onNavy ? "var(--accent)" : "var(--muted)",
             fontFamily: FONT.mono,
-            fontSize: 11,
+            fontSize: 10.5,
             letterSpacing: "0.12em",
             textTransform: "uppercase",
-            textAlign: "center",
-            padding: "0 16px",
+            color: captionColor,
           }}
         >
-          {label}
+          {sector}
+        </div>
+      )}
+
+      {metric && (
+        <div>
+          <div
+            style={{
+              fontFamily: FONT.serif,
+              fontSize: "clamp(40px, 5.5vw, 68px)",
+              fontWeight: 500,
+              lineHeight: 1,
+              letterSpacing: "-0.02em",
+              color: metricColor,
+            }}
+          >
+            {metric}
+          </div>
+          {metricLabel && (
+            <div
+              className="mt-3 pt-3"
+              style={{
+                borderTop: `1px solid ${ruleColor}`,
+                fontSize: 13.5,
+                lineHeight: 1.45,
+                color: captionColor,
+                maxWidth: "34ch",
+              }}
+            >
+              {metricLabel}
+            </div>
+          )}
         </div>
       )}
     </div>

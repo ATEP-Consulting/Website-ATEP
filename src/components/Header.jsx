@@ -487,8 +487,10 @@ const MegaCases = ({ open, cases, onMouseEnter, onMouseLeave, onNavigate }) => {
               >
                 <div className="relative w-full mb-5" style={{ aspectRatio: "16/10" }}>
                   <CaseStripe
-                    label={`${featured.client[language]} · ${language === "es" ? "vista previa" : "preview"}`}
                     variant="navy"
+                    sector={featured.sector[language]}
+                    metric={featured.metric.value}
+                    metricLabel={featured.metric.label[language]}
                   />
                 </div>
                 <div
