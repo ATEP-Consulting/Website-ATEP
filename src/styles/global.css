@@ -195,7 +195,9 @@
   flex-direction: column;
   position: relative;
   padding-top: clamp(12px, 2.5vh, 64px);
-  padding-bottom: clamp(64px, 9vh, 92px);
+  /* deja hueco bajo el carrusel para el indicador de scroll, que va
+     posicionado sobre este espacio */
+  padding-bottom: clamp(104px, 14vh, 140px);
 }
 .home-hero > * {
   width: 100%;
