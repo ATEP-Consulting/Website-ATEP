@@ -1,0 +1,171 @@
+{
+  "descripcion": "Cola de temas del blog. El agente semanal coge el primero con estado 'pendiente', lo escribe y lo publica, y luego lo marca como 'publicado' con su fecha y su slug. Cada tema lleva el caso real en el que debe apoyarse: sin ese ancla el artículo no se escribe.",
+  "ritmo": "1 artículo por semana, martes por la mañana",
+  "bloques": {
+    "B": "Unificar sistemas dispersos — va primero: restaurant bi platform ya está en posición 10",
+    "A": "Modernizar sistemas antiguos — el de más demanda y peor posición",
+    "C": "Automatizar e IA aplicada — el más ruidoso, entra con autoridad ya construida"
+  },
+  "temas": [
+    {
+      "id": 1,
+      "bloque": "B",
+      "tema": "Qué pasa con tus datos cuando cambias de proveedor de software",
+      "angulo": "El miedo real de quien no se atreve a cambiar: perder el histórico. Qué se puede rescatar, qué no, y qué hay que exigir por contrato antes de firmar.",
+      "casoAncla": "hampton-textile-printing",
+      "estado": "pendiente"
+    },
+    {
+      "id": 2,
+      "bloque": "B",
+      "tema": "Por qué un cuadro de mando que nadie mira no es un problema de cuadro de mando",
+      "angulo": "Los dashboards se abandonan cuando responden preguntas que nadie se hacía. Cómo partir de la decisión y no del dato disponible.",
+      "casoAncla": "sentra",
+      "estado": "pendiente"
+    },
+    {
+      "id": 3,
+      "bloque": "B",
+      "tema": "Integrar sistemas que nunca se pensaron para hablarse entre ellos",
+      "angulo": "Qué hacer cuando el TPV, el ERP y la web son de proveedores distintos y ninguno quiere abrirse. API, exportaciones programadas o intermediario propio.",
+      "casoAncla": "nilyan-herrera",
+      "estado": "pendiente"
+    },
+    {
+      "id": 4,
+      "bloque": "B",
+      "tema": "Cuánto cuesta unificar la operación de varios centros",
+      "angulo": "Rangos reales por número de sistemas y de sedes, qué encarece el proyecto y cómo se recupera la inversión en horas de administración.",
+      "casoAncla": "sentra",
+      "estado": "pendiente"
+    },
+    {
+      "id": 5,
+      "bloque": "B",
+      "tema": "Trazabilidad de producto: saber dónde está cada unidad sin contar a mano",
+      "angulo": "Del inventario en hoja de cálculo al control por unidad. Qué cambia en el día a día de una tienda y qué hace falta para llegar ahí.",
+      "casoAncla": "atep-inventory",
+      "estado": "pendiente"
+    },
+    {
+      "id": 6,
+      "bloque": "A",
+      "tema": "Cómo migrar un sistema de gestión antiguo sin parar la operación",
+      "angulo": "ARTÍCULO PILAR del bloque. La guía completa: inventario de lo que hay, convivencia de los dos sistemas, corte y verificación. Es el que debe posicionar para 'migración de sistemas legacy'.",
+      "casoAncla": "hampton-textile-printing",
+      "estado": "pendiente"
+    },
+    {
+      "id": 7,
+      "bloque": "A",
+      "tema": "Seis señales de que tu ERP se ha quedado atrás",
+      "angulo": "Síntomas concretos y comprobables, no vaguedades: nadie sabe tocarlo, los informes se hacen en Excel aparte, el proveedor ya no da soporte.",
+      "casoAncla": "hampton-textile-printing",
+      "estado": "pendiente"
+    },
+    {
+      "id": 8,
+      "bloque": "A",
+      "tema": "Migrar sin perder un solo asiento contable",
+      "angulo": "Cómo se garantiza y, sobre todo, cómo se demuestra la paridad contable entre el sistema viejo y el nuevo. El punto que más miedo da a un financiero.",
+      "casoAncla": "hampton-textile-printing",
+      "estado": "pendiente"
+    },
+    {
+      "id": 9,
+      "bloque": "A",
+      "tema": "Qué hacer cuando el proveedor de tu software ya no existe",
+      "angulo": "Software huérfano: sin soporte, sin código fuente y sin nadie que lo entienda. Opciones reales y cómo evitar volver a caer en lo mismo.",
+      "casoAncla": "hampton-textile-printing",
+      "estado": "pendiente"
+    },
+    {
+      "id": 10,
+      "bloque": "A",
+      "tema": "Reescribir o envolver: cuándo conviene cada camino",
+      "angulo": "No todo sistema antiguo hay que tirarlo. Criterios para decidir entre rehacer desde cero o poner una capa moderna encima de lo que ya funciona.",
+      "casoAncla": "atep-inventory",
+      "estado": "pendiente"
+    },
+    {
+      "id": 11,
+      "bloque": "A",
+      "tema": "Cómo se comprueba que una migración salió bien",
+      "angulo": "El plan de verificación que debería exigir el cliente: qué se compara, contra qué, y qué margen de error es aceptable en cada tipo de dato.",
+      "casoAncla": "hampton-textile-printing",
+      "estado": "pendiente"
+    },
+    {
+      "id": 12,
+      "bloque": "A",
+      "tema": "El coste de no migrar",
+      "angulo": "Lo que se paga por quedarse quieto: horas de trabajo manual, riesgo de parada, imposibilidad de contratar a quien lo mantenga. Con números.",
+      "casoAncla": "hampton-textile-printing",
+      "estado": "pendiente"
+    },
+    {
+      "id": 13,
+      "bloque": "A",
+      "tema": "Qué preguntar a un proveedor antes de firmar una migración",
+      "angulo": "Las preguntas incómodas que separan a un proveedor serio de uno que improvisa. Propiedad del código, plan de salida, quién responde si algo falla.",
+      "casoAncla": "hampton-textile-printing",
+      "estado": "pendiente"
+    },
+    {
+      "id": 14,
+      "bloque": "A",
+      "tema": "Una web que carga en 1,2 segundos en el móvil de un cliente real",
+      "angulo": "Qué se hace y qué se deja de hacer para llegar ahí. El rendimiento como decisión de negocio, no como capricho técnico.",
+      "casoAncla": "luis-royuela-nutricionistas",
+      "estado": "pendiente"
+    },
+    {
+      "id": 15,
+      "bloque": "A",
+      "tema": "Cuándo una web no necesita JavaScript",
+      "angulo": "Contra la moda de montarlo todo sobre un framework pesado. Qué gana un sitio institucional al servir HTML y cuándo sí hace falta lo otro.",
+      "casoAncla": "lnh-partner",
+      "estado": "pendiente"
+    },
+    {
+      "id": 16,
+      "bloque": "C",
+      "tema": "Qué procesos merece la pena automatizar y cuáles no",
+      "angulo": "ARTÍCULO PILAR del bloque. El criterio para decidir: frecuencia, coste del error y estabilidad del proceso. Automatizar el caos solo produce caos más rápido.",
+      "casoAncla": "turnos",
+      "estado": "pendiente"
+    },
+    {
+      "id": 17,
+      "bloque": "C",
+      "tema": "Reducir un 92% el tiempo de hacer los cuadrantes",
+      "angulo": "Cómo se pasa de cuadrar turnos a mano cada semana a generarlos con las reglas del convenio dentro. Qué hay que modelar para llegar ahí.",
+      "casoAncla": "turnos",
+      "estado": "pendiente"
+    },
+    {
+      "id": 18,
+      "bloque": "C",
+      "tema": "Cuándo un chatbot ayuda y cuándo enfada al cliente",
+      "angulo": "La diferencia entre resolver y entretener. Qué preguntas puede contestar bien una máquina y en cuáles hay que pasar a una persona sin fricción.",
+      "casoAncla": "sentra",
+      "estado": "pendiente"
+    },
+    {
+      "id": 19,
+      "bloque": "C",
+      "tema": "IA sobre tus propios datos sin regalárselos a nadie",
+      "angulo": "Qué significa en la práctica que tus datos no salgan de tu control, qué se puede hacer en local y qué compromisos hay que aceptar.",
+      "casoAncla": "hampton-textile-printing",
+      "estado": "pendiente"
+    },
+    {
+      "id": 20,
+      "bloque": "C",
+      "tema": "Vender sin pagar comisiones de pasarela",
+      "angulo": "Qué hay detrás de un e-commerce que no deja un porcentaje en cada venta, para quién tiene sentido y cuándo no compensa el esfuerzo.",
+      "casoAncla": "tibis-market",
+      "estado": "pendiente"
+    }
+  ]
+}

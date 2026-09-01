@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Ciclo semanal del blog de ATEP. Los martes a las 9:07.
+
+  Instalación:
+    cp scripts/com.atep.blog-semanal.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.atep.blog-semanal.plist
+
+  Para pararlo:
+    launchctl unload ~/Library/LaunchAgents/com.atep.blog-semanal.plist
+
+  Para lanzarlo a mano y ver si funciona, sin esperar al martes:
+    launchctl start com.atep.blog-semanal
+
+  Los registros quedan en ~/.atep-analytics/logs/
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.atep.blog-semanal</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/pablo/Projects/Website-ATEP/scripts/ciclo-semanal.sh</string>
+    </array>
+
+    <!-- Martes (2) a las 9:07. El minuto no es redondo a propósito. -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Weekday</key>
+        <integer>2</integer>
+        <key>Hour</key>
+        <integer>9</integer>
+        <key>Minute</key>
+        <integer>7</integer>
+    </dict>
+
+    <!-- Si el Mac estaba apagado a esa hora, se ejecuta al encenderlo. -->
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/pablo/.atep-analytics/logs/launchd.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/pablo/.atep-analytics/logs/launchd.err.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+</dict>
+</plist>

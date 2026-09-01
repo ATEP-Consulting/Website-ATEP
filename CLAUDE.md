@@ -29,6 +29,46 @@ Envía por EmailJS (aviso + autoresponder) y además llama a `POST /api/contact`
 
 Si se cambia el proveedor, hay que reflejarlo en la política de privacidad (encargados del tratamiento).
 
+## Automatización de contenido y SEO
+
+Dos ciclos programados con `launchd` (los `.plist` están en `scripts/`, se
+instalan copiándolos a `~/Library/LaunchAgents`):
+
+- **Martes, `ciclo-semanal.sh`**: coge el siguiente tema pendiente de
+  `.claude/plan-editorial.json`, lo escribe con el agente `blog-writer` y lo
+  publica con `scripts/publicar-post.mjs`. Pablo eligió publicación sin
+  revisión previa; el riesgo se acota por otro lado: el redactor **no escribe
+  si no puede anclarse en un caso real de `casesData.js` con cifras reales**,
+  que es lo que separa un artículo que posiciona de uno genérico.
+- **Día 2 de cada mes, `ciclo-mensual-seo.sh`**: el agente `seo-analyst` lee
+  los datos reales y cambia cosas. **Mensual y no semanal a propósito**: un
+  cambio necesita semanas para que Google lo evalúe, y retocar títulos cada
+  semana no optimiza, oscila.
+
+`publicar-post.mjs` reimporta `blogData.js` y ejecuta la build después de
+insertar; si algo falla restaura la copia y no publica. Es la red que hace
+viable publicar sin que nadie mire.
+
+El `seo-analyst` tiene umbrales escritos en su definición: mínimo 30
+impresiones en 28 días, nada que se tocara hace menos de 8 semanas, máximo tres
+cambios por ejecución. Cada cambio queda en `.claude/seo-decisiones.json` con
+su métrica de partida y una fecha de revisión, para poder comprobar al mes
+siguiente si funcionó y revertirlo si no.
+
+## Acceso a Search Console y GA4
+
+Cuenta de servicio de solo lectura `claude-lector@atep-seo-96115` (proyecto de
+Google Cloud `atep-seo-96115`), dada de alta como usuario en la propiedad de
+dominio `sc-domain:atepconsulting.com` y en la propiedad GA4 `508169673`.
+
+La clave vive en `~/.atep-analytics/clave.json`, **fuera del repositorio y con
+permisos 600**: nunca debe acabar en un commit. Ahí mismo están los scripts de
+consulta (`informe-seo.mjs` es el que usan los agentes) y las instantáneas
+mensuales.
+
+Para revocar el acceso basta con eliminar ese usuario en Search Console y en
+GA4; no hace falta tocar nada del código.
+
 ## Estado y pendientes
 
 - **Rendimiento**: 78-82 en móvil. El cuello está en el arranque de React (~600ms de bloqueo) y en el CSS bloqueante, no en el contenido. Mejorable, pero exige tocar componentes.

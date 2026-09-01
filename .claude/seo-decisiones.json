@@ -1,0 +1,20 @@
+{
+  "descripcion": "Registro de cada cambio hecho por el agente seo-analyst y de si funcionó. Es lo que convierte la optimización en un método en vez de en una serie de corazonadas: cada decisión guarda la métrica de partida y una fecha en la que hay que volver a mirarla.",
+  "reglas": {
+    "esperaMinima": "8 semanas antes de volver a tocar lo mismo",
+    "evidenciaMinima": "30 impresiones en 28 días",
+    "cambiosPorEjecucion": 3
+  },
+  "puntoDePartida": {
+    "fecha": "2026-09-01",
+    "ventana": "28 días",
+    "clics": 8,
+    "impresiones": 246,
+    "consultasDistintas": 17,
+    "posicionMedia": 30.4,
+    "clicsEspana": 6,
+    "impresionesEspana": 47,
+    "nota": "Medido el día del despliegue que arregló los soft-404, los títulos duplicados y el dominio sin www. Todo lo posterior se compara contra esto."
+  },
+  "decisiones": []
+}

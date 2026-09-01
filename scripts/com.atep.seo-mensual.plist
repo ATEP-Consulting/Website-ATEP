@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Revisión mensual de SEO. El día 2 de cada mes a las 9:23.
+
+  El día 2 y no el 1 porque Search Console va con dos o tres días de retraso:
+  el día 1, el mes recién cerrado todavía está incompleto.
+
+  Instalación:
+    cp scripts/com.atep.seo-mensual.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.atep.seo-mensual.plist
+
+  Para pararlo:
+    launchctl unload ~/Library/LaunchAgents/com.atep.seo-mensual.plist
+
+  Para probarlo ahora sin esperar al día 2:
+    launchctl start com.atep.seo-mensual
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.atep.seo-mensual</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/pablo/Projects/Website-ATEP/scripts/ciclo-mensual-seo.sh</string>
+    </array>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Day</key>
+        <integer>2</integer>
+        <key>Hour</key>
+        <integer>9</integer>
+        <key>Minute</key>
+        <integer>23</integer>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/pablo/.atep-analytics/logs/launchd-seo.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/pablo/.atep-analytics/logs/launchd-seo.err.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+</dict>
+</plist>
