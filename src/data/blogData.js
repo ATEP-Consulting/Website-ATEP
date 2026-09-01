@@ -123,7 +123,7 @@ You don't have to decide today whether to switch software. What you can do today
 And if you're weighing up a change and it's exactly this fear holding you back, tell us about it. A short call makes it fairly clear what history you have, what can genuinely be rescued and what would need rebuilding. And if that conversation ends with moving not being worth it yet, we'll tell you that too.
 `,
     },
-    author: "Equipo ATEP",
+    author: "Pablo Teijeiro",
     date: "2026-09-01",
     category: {
       es: "Migración de Sistemas",

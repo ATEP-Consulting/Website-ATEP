@@ -95,6 +95,12 @@ Un único fichero JSON en la carpeta que te indiquen, con esta forma exacta:
 `relatedService` y `relatedCase` son opcionales, pero úsalos siempre que exista
 uno que encaje: son los enlaces internos que sostienen el posicionamiento.
 
+**El autor lo trae el tema en su campo `autor`**, en `plan-editorial.json`.
+Cópialo tal cual. **Nunca firmes como "Equipo ATEP" ni con ningún colectivo:**
+un artículo técnico firmado por una persona identificable pesa más ante Google
+y ante quien lo lee que uno firmado por una empresa. Si el tema no trae autor,
+usa "Pablo Teijeiro".
+
 Las categorías deben reutilizar las que ya existen en `blogData.js` salvo que el
 tema pida una nueva de verdad.
 

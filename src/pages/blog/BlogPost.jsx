@@ -10,6 +10,21 @@ import { Reveal, RevealStagger } from "../../components/Reveal";
 import { blogPosts } from "../../data/blogData";
 import { tDisplay, tSerif, tEyebrow, FONT } from "../../lib/typography";
 
+// El contenido de los artículos se escribe en markdown, así que las negritas
+// hay que convertirlas: si no, los asteriscos se ven tal cual en la página.
+const conNegritas = (texto) =>
+  String(texto)
+    .split(/(\*\*[^*]+\*\*)/g)
+    .map((trozo, i) =>
+      trozo.startsWith("**") && trozo.endsWith("**") ? (
+        <strong key={i} style={{ fontWeight: 600 }}>
+          {trozo.slice(2, -2)}
+        </strong>
+      ) : (
+        trozo
+      )
+    );
+
 export const BlogPost = () => {
   const { slug } = useParams();
   const { t, language } = useLanguage();
@@ -173,34 +188,38 @@ export const BlogPost = () => {
                         margin: "48px 0 20px",
                       }}
                     >
-                      {paragraph.replace("## ", "")}
+                      {conNegritas(paragraph.replace("## ", ""))}
                     </h2>
                   );
                 }
-                if (paragraph.match(/^\d+\. /m)) {
-                  const items = paragraph.split("\n").filter(Boolean);
+
+                const numerada = paragraph.match(/^\d+\. /m);
+                const conGuiones = /^[-*] /m.test(paragraph);
+
+                if (numerada || conGuiones) {
+                  const Lista = numerada ? "ol" : "ul";
+                  const items = paragraph
+                    .split("\n")
+                    .filter(Boolean)
+                    .map((linea) => linea.replace(/^\d+\.\s+/, "").replace(/^[-*]\s+/, ""));
                   return (
-                    <ol
+                    <Lista
                       key={idx}
                       className="mb-6 pl-6 space-y-3"
                       style={{
-                        listStyle: "decimal",
+                        listStyle: numerada ? "decimal" : "disc",
                         ...tSerif("clamp(16px, 1.2vw, 18px)", 400),
                         color: "var(--ink)",
                         lineHeight: 1.65,
                       }}
                     >
                       {items.map((item, i) => (
-                        <li key={i}>
-                          {item
-                            .replace(/^\d+\.\s\*\*/, "")
-                            .replace(/\*\*:/, ":")
-                            .replace(/^\d+\.\s/, "")}
-                        </li>
+                        <li key={i}>{conNegritas(item)}</li>
                       ))}
-                    </ol>
+                    </Lista>
                   );
                 }
+
                 return (
                   <p
                     key={idx}
@@ -211,7 +230,7 @@ export const BlogPost = () => {
                       lineHeight: 1.7,
                     }}
                   >
-                    {paragraph}
+                    {conNegritas(paragraph)}
                   </p>
                 );
               })}
