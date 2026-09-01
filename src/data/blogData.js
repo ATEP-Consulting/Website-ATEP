@@ -1,5 +1,136 @@
 export const blogPosts = [
   {
+    slug: "que-pasa-con-tus-datos-al-cambiar-de-software",
+    relatedService: "/services/legacy-migration",
+    relatedCase: "hampton-textile-printing",
+    title: {
+      es: "Qué pasa con tus datos cuando cambias de proveedor de software",
+      en: "What happens to your data when you switch software providers",
+    },
+    excerpt: {
+      es: "El mayor miedo al cambiar de software es perder el histórico. Qué se rescata, qué no, y qué exigir por contrato antes de firmar.",
+      en: "The biggest fear when switching software is losing your history. What survives, what doesn't, and what to demand before signing.",
+    },
+    content: {
+      es: `La razón número uno por la que una empresa aguanta años con un software que ya no le sirve no es el precio del cambio. Es el miedo a perder el histórico. Veinte años de facturas, de contabilidad cerrada, de pedidos y de fichas de cliente que están ahí dentro y que nadie sabe muy bien si saldrán enteros al otro lado.
+
+Es un miedo razonable. También es un miedo que se puede acotar, y buena parte se acota antes de firmar nada, leyendo bien el contrato. Vamos por partes.
+
+## Qué datos están realmente en juego
+
+Cuando dices "mis datos" en realidad estás hablando de cosas muy distintas, y no todas corren el mismo riesgo.
+
+- **La contabilidad.** Asientos, balances, cierres de ejercicio. Es lo más delicado porque tiene que cuadrar al céntimo y porque Hacienda te lo puede pedir años después. Aquí no vale "casi".
+- **El histórico de operación.** Pedidos, albaranes, facturas emitidas y recibidas, clientes y proveedores con su histórico de movimientos. Es el que da miedo por volumen, pero es el más estructurado y el que mejor viaja.
+- **Los documentos.** PDFs, adjuntos, escaneos, correos guardados dentro del sistema. Suelen estar peor organizados de lo que crees y son los que más se olvidan en una migración.
+- **La lógica de negocio.** Las reglas raras que tu sistema aplica desde hace veinte años: cómo calcula un descuento, qué numeración lleva cada serie, esa excepción que solo entiende quien la programó. Esto no es un dato que se copia, es conocimiento que hay que reconstruir.
+
+Los tres primeros se rescatan. El cuarto es el que de verdad cuesta, y del que casi nadie te avisa.
+
+## Qué sí se puede rescatar (y cómo se demuestra)
+
+Los datos estructurados se pueden migrar. La pregunta seria no es *si* se pueden mover, sino *cómo demuestras que llegaron intactos*. Copiar una tabla es fácil. Poder mirar a tu asesor a la cara y decirle que el balance del año pasado cuadra igual que antes, eso ya requiere método.
+
+Lo vimos con **Hampton Textile Printing**, una empresa familiar de impresión textil que trabaja 24/7 y que operaba sobre un ERP escrito en BBx/UniBasic: tecnología de los años 80, con más de veinte años de lógica acumulada y proveedores que se están extinguiendo. Cero margen para perder un asiento, cero tolerancia a que la fábrica se parase.
+
+La migración a ERPNext 15 no se hizo a fe. Se hizo con evidencia. Montamos un framework de *Parallel Testing* que ejecutó **160 escenarios repartidos en 8 módulos** contra el sistema viejo y el nuevo a la vez, comparando el resultado **campo a campo**. Esos 160 escenarios estuvieron **en verde durante 4 semanas** seguidas antes de dar el paso. En facturación, el match fue de **100 sobre 100 facturas idénticas campo a campo**. Y el resultado sobre la contabilidad histórica: **más del 99% de paridad con el balance de siempre**.
+
+Ese es el punto importante para ti como dueño del negocio: la decisión de migrar se tomó mirando datos, no confiando en una promesa. Cuando alguien te diga que tu histórico va a llegar bien, la pregunta correcta es *"¿y cómo me lo vas a demostrar antes de apagar el sistema viejo?"*. Si la respuesta es un encogimiento de hombros, ya sabes lo que vale.
+
+Otro detalle que quita mucho miedo: el cambio de sistema en Hampton se hizo con **cero downtime perceptible**. Una fábrica que no para no se puede permitir un fin de semana a oscuras, y no lo tuvo.
+
+## Qué es difícil o imposible de rescatar
+
+Sería deshonesto venderte que todo sale entero. Hay cosas que cuestan mucho o directamente no se traen, y conviene que lo sepas antes:
+
+- **La lógica enterrada en el código viejo.** Esos miles de programas heredados que aplican reglas que nadie documentó. No se copian: hay que entender qué hacen y volverlos a construir en el sistema nuevo. Es la parte lenta y cara, y la que de verdad marca la diferencia entre una migración seria y un volcado de tablas.
+- **Los datos sucios de años.** Duplicados, campos usados para lo que no eran, notas metidas donde no tocaba. Migrar es también el momento de decidir qué basura no te llevas. Bien hecho, es una oportunidad; hecho a lo bruto, arrastras el problema al sistema nuevo.
+- **Los adjuntos que nunca estuvieron bien guardados.** Si tus PDFs viven medio dentro medio fuera del sistema, recuperarlos completos puede ser artesanía pura.
+
+Nada de esto es motivo para no cambiar. Es motivo para saber en qué te metes y para que quien te lo hace lo diga por adelantado.
+
+## Lo que hay que exigir por contrato antes de firmar
+
+Aquí está la parte que puedes controlar tú, hoy, sin ser técnico. Antes de firmar con cualquier proveedor de software, pon por escrito esto:
+
+1. **La propiedad de los datos es tuya.** Debe decirlo el contrato, con esas palabras. Tus datos son tuyos, no del proveedor que los aloja.
+2. **Derecho de exportación en formato abierto.** Que puedas sacar todo tu histórico en un formato estándar y legible (no un volcado propietario que solo abre su programa), cuando tú quieras y sin permiso de nadie.
+3. **Un plan de salida por escrito.** Qué pasa el día que te quieras ir: cómo recuperas tus datos, en cuánto tiempo, en qué formato y a qué coste. En Hampton entregamos un **plan de salida garantizado**: el cliente puede irse sin depender de nosotros. Eso es lo contrario del *lock-in*, la trampa de que salir sea tan caro que te quedas por rendición.
+4. **Validación antes de apagar lo viejo.** Que el contrato incluya una fase donde el sistema nuevo y el viejo convivan y se comparen, y que tú veas esa comparación antes del cambio definitivo. Como los 160 escenarios de Hampton.
+5. **Que el dominio, el hosting y las credenciales estén a tu nombre.** Si el negocio de tu proveedor depende de tenerte atado, lo vas a notar el día que quieras marcharte.
+
+Si un proveedor se resiste a poner alguno de estos cinco puntos por escrito, esa resistencia ya te está contando cómo será la relación.
+
+## Lo que deberías hacer
+
+No tienes que decidir hoy si cambias de software. Lo que sí puedes hacer hoy es sacar tu contrato actual y buscar dos cosas: si dice de quién son tus datos y si dice cómo los recuperas el día que te vayas. Si no lo dice, no significa que estés atrapado, pero sí que conviene resolverlo antes de que sea urgente.
+
+Y si estás valorando un cambio y lo que te frena es exactamente este miedo, cuéntanoslo. En una llamada corta se ve bastante bien qué histórico tienes, qué se puede rescatar de verdad y qué habría que reconstruir. Y si de esa conversación sale que aún no te compensa moverte, te lo diremos igual.
+`,
+      en: `The number one reason a company puts up with software that no longer serves it isn't the cost of switching. It's the fear of losing its history. Twenty years of invoices, of closed accounts, of orders and customer records that live in there and that nobody's quite sure will come out whole on the other side.
+
+It's a reasonable fear. It's also a fear you can contain, and much of it gets contained before you sign anything, by reading the contract properly. Let's take it step by step.
+
+## What data is actually at stake
+
+When you say "my data" you're really talking about very different things, and not all of them run the same risk.
+
+- **The accounting.** Ledger entries, balances, year-end closes. It's the most delicate part because it has to add up to the cent and because the tax office can ask you for it years later. "Close enough" doesn't cut it here.
+- **The operational history.** Orders, delivery notes, invoices issued and received, customers and suppliers with their movement history. This is the one that scares people by sheer volume, but it's the most structured and the one that travels best.
+- **The documents.** PDFs, attachments, scans, emails saved inside the system. They're usually worse organized than you think and they're the ones most often forgotten in a migration.
+- **The business logic.** The odd rules your system has applied for twenty years: how it works out a discount, what numbering each series follows, that exception only the person who coded it understands. This isn't data you copy, it's knowledge you have to rebuild.
+
+The first three can be rescued. The fourth is the one that genuinely costs, and the one almost nobody warns you about.
+
+## What can be rescued (and how you prove it)
+
+Structured data can be migrated. The serious question isn't *whether* it can be moved, it's *how you prove it arrived intact*. Copying a table is easy. Being able to look your accountant in the eye and tell them last year's balance adds up exactly as before, that takes method.
+
+We saw it with **Hampton Textile Printing**, a family-owned textile printing company that runs 24/7 and was operating on an ERP written in BBx/UniBasic: 1980s technology, with over twenty years of accumulated logic and vendors on their way to extinction. Zero margin to lose a single entry, zero tolerance for the factory stopping.
+
+The migration to ERPNext 15 wasn't done on faith. It was done on evidence. We built a *Parallel Testing* framework that ran **160 scenarios across 8 modules** against the old system and the new one at the same time, comparing the result **field by field**. Those 160 scenarios stayed **green for 4 weeks** straight before we took the step. On invoicing, the match was **100 out of 100 invoices identical field by field**. And the result on the historical accounting: **over 99% parity with the long-standing ledger**.
+
+That's the point that matters to you as the business owner: the decision to migrate was made looking at data, not trusting a promise. When someone tells you your history will arrive fine, the right question is *"and how will you prove it to me before you switch off the old system?"*. If the answer is a shrug, you know what it's worth.
+
+One more detail that removes a lot of the fear: the system changeover at Hampton was done with **zero perceptible downtime**. A factory that never stops can't afford a weekend in the dark, and it didn't have one.
+
+## What's hard or impossible to rescue
+
+It would be dishonest to sell you the idea that everything comes out whole. Some things cost a great deal or simply don't come across, and you should know it upfront:
+
+- **The logic buried in the old code.** Those thousands of legacy programs applying rules nobody documented. You don't copy them: you have to understand what they do and rebuild them in the new system. It's the slow, expensive part, and the one that really separates a serious migration from a table dump.
+- **Years of dirty data.** Duplicates, fields used for what they weren't meant for, notes stuffed where they didn't belong. A migration is also the moment to decide what junk you leave behind. Done well, it's an opportunity; done carelessly, you drag the problem into the new system.
+- **Attachments that were never stored properly.** If your PDFs live half inside, half outside the system, recovering them in full can be pure craftwork.
+
+None of this is a reason not to switch. It's a reason to know what you're getting into and for whoever does it to say so in advance.
+
+## What to demand in the contract before signing
+
+Here's the part you can control, today, without being technical. Before signing with any software provider, put this in writing:
+
+1. **The data is yours.** The contract must say so, in those words. Your data belongs to you, not to the provider hosting it.
+2. **Right to export in an open format.** That you can pull your whole history out in a standard, readable format (not a proprietary dump only their program opens), whenever you want and without anyone's permission.
+3. **A written exit plan.** What happens the day you want to leave: how you get your data back, how long it takes, in what format and at what cost. At Hampton we delivered a **guaranteed exit plan**: the client can walk away without depending on us. That's the opposite of *lock-in*, the trap of making leaving so expensive that you stay out of surrender.
+4. **Validation before switching off the old system.** The contract should include a phase where the new and old systems run side by side and get compared, and where you see that comparison before the final switch. Like Hampton's 160 scenarios.
+5. **Domain, hosting and credentials in your name.** If your provider's business depends on keeping you tied, you'll feel it the day you want to leave.
+
+If a provider resists putting any of these five points in writing, that resistance is already telling you what the relationship will be like.
+
+## What you should do
+
+You don't have to decide today whether to switch software. What you can do today is pull out your current contract and look for two things: whether it says who owns your data and whether it says how you get it back the day you leave. If it doesn't, it doesn't mean you're trapped, but it does mean it's worth sorting out before it becomes urgent.
+
+And if you're weighing up a change and it's exactly this fear holding you back, tell us about it. A short call makes it fairly clear what history you have, what can genuinely be rescued and what would need rebuilding. And if that conversation ends with moving not being worth it yet, we'll tell you that too.
+`,
+    },
+    author: "Equipo ATEP",
+    date: "2026-09-01",
+    category: {
+      es: "Migración de Sistemas",
+      en: "Legacy Migration",
+    },
+  },
+  {
     slug: "cuanto-cuesta-una-web-profesional",
     relatedService: "/services/professional-websites",
     relatedCase: "lnh-partner",
