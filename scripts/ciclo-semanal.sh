@@ -26,8 +26,22 @@ echo "════════════════════════�
 
 cd "$REPO" || { echo "✗ No encuentro el repositorio en $REPO"; exit 1; }
 
-# Partimos siempre de main limpia: si hay trabajo a medias sin commitear, no
-# tocamos nada. Publicar encima de cambios ajenos sería peor que no publicar.
+# package.json se ensucia solo: generate-seo-files.mjs le añade cada ruta nueva
+# a reactSnap.include en el postbuild. Si alguien compiló en local y no lo
+# commiteó, no es trabajo a medias de nadie — es un artefacto generado, y
+# plantarse por eso significaría saltarse la semana por nada.
+if [ "$(git status --porcelain)" = " M package.json" ] &&
+   git diff package.json | grep -qE '^\+.*"/(blog|cases|services)/' &&
+   ! git diff package.json | grep -qE '^\+' | grep -qvE 'reactSnap|"/(blog|cases|services)/|^\+\+\+'; then
+  echo "· package.json traía rutas nuevas de reactSnap sin commitear. Las guardo."
+  git add package.json
+  git commit -q -m "chore: sincroniza reactSnap.include
+
+Lo añade solo generate-seo-files.mjs en el postbuild." || true
+fi
+
+# Cualquier otro cambio sin commitear sí es trabajo a medias de alguien:
+# publicar encima sería peor que saltarse la semana.
 if [ -n "$(git status --porcelain)" ]; then
   echo "✗ Hay cambios sin commitear. No publico para no mezclarlos."
   git status --short
@@ -82,9 +96,18 @@ pasos en orden y no te salgas de ellos.
      — lo que casi nadie dice, o el error que se comete de normal. Es el que
      genera conversación, así que cierra preguntando.
 
+   **Todo enlace lleva marcado de campaña**, o después no hay forma de saber
+   qué post funcionó. Usa exactamente esta forma:
+
+   `https://www.atepconsulting.com/blog/<slug>?utm_source=linkedin&utm_medium=social&utm_campaign=<slug>&utm_content=<ancla|dato|opinion>`
+
+   El `utm_campaign` dice de qué artículo venía y el `utm_content`, cuál de
+   los tres formatos lo trajo. Con eso el informe mensual puede decir si tira
+   más contar el problema, dar el dato o soltar la opinión.
+
    Guárdalos en `~/.atep-analytics/linkedin/AAAA-MM-DD-<slug>.md`, cada uno con
-   su fecha de publicación sugerida, listos para copiar y pegar. **No publicas
-   nada en LinkedIn**: solo dejas los borradores.
+   su fecha de publicación sugerida y su enlace ya marcado, listos para copiar
+   y pegar. **No publicas nada en LinkedIn**: solo dejas los borradores.
 
 8. Resume en dos líneas qué has publicado y dónde están los borradores.
 FIN
