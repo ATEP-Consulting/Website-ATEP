@@ -63,7 +63,30 @@ pasos en orden y no te salgas de ellos.
 6. Si publica bien, marca ese tema como "publicado" en el plan editorial con la
    fecha de hoy y el slug, commitea ese cambio y súbelo a main.
 
-7. Resume en dos líneas qué has publicado y en qué ruta.
+7. Con el artículo ya publicado, prepara **tres borradores de LinkedIn** para
+   el perfil PERSONAL de Pablo (primera persona, "yo", nunca "nosotros" ni voz
+   de empresa: en LinkedIn se sigue a personas y el alcance de las páginas de
+   empresa es una fracción del de un perfil).
+
+   Sigue la skill `linkedin-post` del proyecto para el formato, los ganchos y
+   las reglas de estilo. Los tres salen del mismo artículo pero con ángulos
+   distintos, para que no se repitan:
+
+   - **Martes (ancla).** El problema del artículo contado desde la experiencia.
+     Termina invitando a leerlo entero. El enlace NO va en el post: va en el
+     primer comentario, porque LinkedIn recorta el alcance de lo que saca
+     gente de la plataforma. Déjalo indicado.
+   - **Jueves (el dato).** La cifra concreta del caso real y qué hizo falta
+     para llegar a ella. Autoconclusivo, sin enlace: aporta valor por sí solo.
+   - **Lunes siguiente (la opinión).** El punto de vista incómodo del artículo
+     — lo que casi nadie dice, o el error que se comete de normal. Es el que
+     genera conversación, así que cierra preguntando.
+
+   Guárdalos en `~/.atep-analytics/linkedin/AAAA-MM-DD-<slug>.md`, cada uno con
+   su fecha de publicación sugerida, listos para copiar y pegar. **No publicas
+   nada en LinkedIn**: solo dejas los borradores.
+
+8. Resume en dos líneas qué has publicado y dónde están los borradores.
 FIN
 )
 
