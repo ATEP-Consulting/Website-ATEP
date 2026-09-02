@@ -35,11 +35,19 @@ Dos ciclos programados con `launchd` (los `.plist` están en `scripts/`, se
 instalan copiándolos a `~/Library/LaunchAgents`):
 
 - **Martes, `ciclo-semanal.sh`**: coge el siguiente tema pendiente de
-  `.claude/plan-editorial.json`, lo escribe con el agente `blog-writer` y lo
-  publica con `scripts/publicar-post.mjs`. Pablo eligió publicación sin
-  revisión previa; el riesgo se acota por otro lado: el redactor **no escribe
-  si no puede anclarse en un caso real de `casesData.js` con cifras reales**,
-  que es lo que separa un artículo que posiciona de uno genérico.
+  `.claude/plan-editorial.json`, lo escribe con el agente `blog-writer`, lo
+  publica con `scripts/publicar-post.mjs` y deja **tres borradores de LinkedIn**
+  en `~/.atep-analytics/linkedin/` (martes, jueves y lunes siguiente; primera
+  persona, para el perfil de Pablo, no para la página de empresa). Pablo eligió
+  publicación sin revisión previa; el riesgo se acota por otro lado: el
+  redactor **no escribe si no puede anclarse en un caso real de `casesData.js`
+  con cifras reales**, que es lo que separa un artículo que posiciona de uno
+  genérico. Verificado en el primero: once afirmaciones concretas, cero
+  inventadas.
+
+  Las **firmas van por tema**, en el campo `autor` del plan: Pablo firma lo
+  técnico y de arquitectura, Gabriela lo de decisión de negocio, coste y
+  contrato. Nunca "Equipo ATEP".
 - **Día 2 de cada mes, `ciclo-mensual-seo.sh`**: el agente `seo-analyst` lee
   los datos reales y cambia cosas. **Mensual y no semanal a propósito**: un
   cambio necesita semanas para que Google lo evalúe, y retocar títulos cada
@@ -71,7 +79,16 @@ GA4; no hace falta tocar nada del código.
 
 ## Estado y pendientes
 
+Desplegado a producción el **1 de septiembre de 2026**. Lo que estaba pendiente y ya está hecho: el 404 real, los títulos por ruta, el sitemap con 31 URLs, `lang="es"`, el apex del dominio y la medición.
+
 - **Rendimiento**: 78-82 en móvil. El cuello está en el arranque de React (~600ms de bloqueo) y en el CSS bloqueante, no en el contenido. Mejorable, pero exige tocar componentes.
-- **Bilingüe**: el inglés no tiene URLs propias, así que Google solo indexa el español. Resolverlo bien exige rutas `/es/` y `/en/` con hreflang.
-- **DNS**: el apex `atepconsulting.com` tiene registros A del reenvío de GoDaddy junto al de Vercel; hay que dejar solo el de Vercel y pasar `www` a CNAME.
-- Pendiente de Pablo: URL del perfil de Google Business, testimonio de Nilyan Herrera.
+- **Bilingüe**: el inglés no tiene URLs propias, así que Google solo indexa el español. **Aplazado a propósito**: el CTR en España es del 30,1 % y en EE. UU. del 0,3 %, así que competir en inglés es pelear donde ya se pierde. Resolverlo exigiría rutas `/es/` y `/en/` con hreflang.
+- **Migas de pan**: no hay `BreadcrumbList` en ninguna página. Mejora cómo se ve el resultado en Google, no si te encuentran.
+- **Fichas de caso**: usan schema `WebPage`; encajaría mejor uno de artículo.
+- **`www` a CNAME**: Vercel lo recomienda pero no lo exige; hoy apunta por registro A y funciona.
+- **Indexación de artículos nuevos**: llega sola por el sitemap y por el enlace desde `/blog`, pero tarda días. Pedirla a mano en Search Console la acelera a horas. **No se puede automatizar**: la API de indexación de Google solo admite ofertas de empleo y retransmisiones.
+- Pendiente de Pablo: URL del perfil de Google Business, testimonio de Nilyan Herrera, y decidir si existe cuenta de X para el `twitter:site`.
+
+## Formulario de contacto: decisión final
+
+Se planteó desviar los leads a WhatsApp y **Pablo decidió el 2 de septiembre de 2026 dejarlo por correo**. No hay que configurar las variables de CallMeBot ni de WhatsApp Cloud API en Vercel; el canal de WhatsApp queda como código sin activar.
