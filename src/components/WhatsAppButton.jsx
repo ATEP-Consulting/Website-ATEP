@@ -13,29 +13,11 @@ export const WhatsAppButton = () => {
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => trackEvent("whatsapp_click", { location: "floating_button" })}
-      className="wa-float fixed bottom-6 right-6 z-40 group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+      className="rd-wa"
       aria-label="WhatsApp"
     >
-      <span
-        className="hidden sm:inline-block px-3 py-2 text-[11px] font-medium uppercase tracking-[0.12em] opacity-0 -translate-x-2 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 pointer-events-none"
-        style={{
-          background: "var(--bg-panel)",
-          color: "var(--ink)",
-          border: "1px solid var(--rule)",
-          fontFamily:
-            '"IBM Plex Mono", ui-monospace, Menlo, monospace',
-        }}
-      >
-        {t("whatsapp.tooltip")}
-      </span>
-      <span
-        className="atep-btn w-14 h-14 flex items-center justify-center"
-        style={{
-          background: "var(--accent)",
-          color: "var(--bg)",
-          boxShadow: "0 10px 30px -10px rgba(10,22,38,0.35)",
-        }}
-      >
+      <span className="rd-wa-label">{t("whatsapp.tooltip")}</span>
+      <span className="rd-wa-dot">
         <MessageCircle size={22} strokeWidth={1.8} />
       </span>
     </a>

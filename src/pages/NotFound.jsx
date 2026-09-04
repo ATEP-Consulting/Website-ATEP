@@ -1,37 +1,20 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { SEO } from "../components/SEO";
-import { Reveal } from "../components/Reveal";
-import { tDisplay, tSerif, tEyebrow } from "../lib/typography";
+import { Btn } from "../components/Btn";
+
+// 404 real, rediseño 2026.
+//
+// Mantiene el `noindex`: una ruta desconocida no debe indexarse. Antes de
+// septiembre de 2026 esto devolvía un 200 y generaba soft-404 masivos.
 
 export const NotFound = () => {
   const { t, language } = useLanguage();
 
-  const quickLinks = [
-    {
-      title: t("404.homeLink") || (language === "es" ? "Inicio" : "Home"),
-      description:
-        t("404.homeDesc") ||
-        (language === "es" ? "Volver al inicio" : "Back to homepage"),
-      path: "/",
-    },
-    {
-      title:
-        t("404.servicesLink") || (language === "es" ? "Servicios" : "Services"),
-      description:
-        t("404.servicesDesc") ||
-        (language === "es"
-          ? "Explora nuestros servicios"
-          : "Explore our services"),
-      path: "/services",
-    },
-    {
-      title: t("404.blogLink") || "Blog",
-      description:
-        t("404.blogDesc") ||
-        (language === "es" ? "Lee nuestros artículos" : "Read our articles"),
-      path: "/blog",
-    },
+  const enlaces = [
+    { to: "/", label: t("404.homeLink"), desc: t("404.homeDesc") },
+    { to: "/services", label: t("404.servicesLink"), desc: t("404.servicesDesc") },
+    { to: "/blog", label: t("404.blogLink"), desc: t("404.blogDesc") },
   ];
 
   return (
@@ -43,120 +26,40 @@ export const NotFound = () => {
         schemaType="WebPage"
       />
 
-      <section
-        className="px-6 sm:px-10 lg:px-16 py-20 tm:py-32"
-        style={{ background: "var(--bg)" }}
-      >
-        <Reveal y={16}>
-          <div style={tEyebrow("var(--accent)")} className="mb-6">
-            — Error 404
+      <section className="rd-hero rd-hero--legal">
+        <div className="rd-hero-body">
+          <div className="rd-hero-copy">
+            <div className="rd-eyebrow">
+              <i aria-hidden="true" />
+              404
+            </div>
+            <h1 className="rd-h1">{t("404.message")}</h1>
+            <div className="rd-ctas">
+              <Btn as={Link} to="/">
+                {t("404.homeLink")}
+              </Btn>
+              <Btn as={Link} to="/contact" tone="ghost">
+                {t("nav.contact")}
+              </Btn>
+            </div>
           </div>
-        </Reveal>
+        </div>
+      </section>
 
-        <Reveal y={28} delay={120} dur={1100}>
-          <h1
-            style={{
-              ...tDisplay("clamp(56px, 12vw, 160px)", 500),
-              color: "var(--ink)",
-              margin: 0,
-              lineHeight: 0.95,
-            }}
-          >
-            {language === "es" ? (
-              <>
-                Página{" "}
-                <em style={{ color: "var(--accent)" }}>no encontrada</em>.
-              </>
-            ) : (
-              <>
-                Page <em style={{ color: "var(--accent)" }}>not found</em>.
-              </>
-            )}
-          </h1>
-        </Reveal>
-
-        <Reveal y={20} delay={320}>
-          <p
-            className="mt-6 tm:mt-10 italic"
-            style={{
-              ...tSerif("clamp(17px, 1.4vw, 20px)", 400),
-              color: "var(--muted)",
-              lineHeight: 1.5,
-              maxWidth: 600,
-            }}
-          >
-            {t("404.message") ||
-              (language === "es"
-                ? "La página que buscas no existe o ha sido movida. Probablemente sea un enlace antiguo o un error de tipeo."
-                : "The page you're looking for doesn't exist. It might have been moved or deleted.")}
-          </p>
-        </Reveal>
-
-        <Reveal y={16} delay={480}>
-          <div className="mt-8 tm:mt-12">
-            <Link
-              to="/"
-              className="inline-block px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] no-underline atep-btn"
-              style={{ background: "var(--navy)", color: "var(--bg)" }}
-            >
-              ← {t("404.backHome") || (language === "es" ? "Volver al inicio" : "Back to home")}
+      <section className="rd-sec">
+        <div className="rd-index" data-stagger>
+          {enlaces.map((e, i) => (
+            <Link key={e.to} className="rd-index-item" to={e.to}>
+              <span className="rd-index-item-n">{String(i + 1).padStart(2, "0")}</span>
+              <span className="rd-index-item-name">{e.label}</span>
+              <span className="rd-index-item-desc">{e.desc}</span>
+              <span />
+              <span className="rd-index-item-go" aria-hidden="true">
+                →
+              </span>
             </Link>
-          </div>
-        </Reveal>
-
-        <Reveal y={20} delay={640}>
-          <div
-            className="mt-16 tm:mt-24 pt-8"
-            style={{ borderTop: "1px solid var(--rule)" }}
-          >
-            <div style={tEyebrow("var(--muted)")} className="mb-6">
-              — {t("404.quickLinks") || (language === "es" ? "Atajos" : "Quick links")}
-            </div>
-            <div className="grid grid-cols-1 tm:grid-cols-3 gap-px">
-              {quickLinks.map((l, idx) => (
-                <Link
-                  key={l.path}
-                  to={l.path}
-                  className="block no-underline p-6 transition-colors duration-150"
-                  style={{
-                    color: "inherit",
-                    background: "var(--bg-panel)",
-                    borderTop: "1px solid var(--navy)",
-                  }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.background = "var(--bg-surface)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.background = "var(--bg-panel)")
-                  }
-                >
-                  <div style={tEyebrow("var(--accent)")} className="mb-3">
-                    {String(idx + 1).padStart(2, "0")}
-                  </div>
-                  <h3
-                    style={{
-                      ...tDisplay("clamp(20px, 2vw, 24px)", 500),
-                      color: "var(--ink)",
-                      margin: "0 0 6px",
-                    }}
-                  >
-                    {l.title}
-                  </h3>
-                  <p
-                    className="m-0"
-                    style={{
-                      fontSize: 13.5,
-                      color: "var(--muted)",
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    {l.description}
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </Reveal>
+          ))}
+        </div>
       </section>
     </>
   );

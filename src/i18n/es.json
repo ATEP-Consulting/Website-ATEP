@@ -1,4 +1,18 @@
 {
+  "404": {
+    "title": "404 - Página No Encontrada",
+    "subtitle": "La página que buscas no existe",
+    "heading": "Página No Encontrada",
+    "message": "¡Ups! La página que buscas no existe. Puede que haya sido movida o eliminada.",
+    "backHome": "Volver al Inicio",
+    "quickLinks": "Enlaces Rápidos",
+    "homeLink": "Inicio",
+    "homeDesc": "Volver a la página principal",
+    "servicesLink": "Servicios",
+    "servicesDesc": "Explora nuestros servicios",
+    "blogLink": "Blog",
+    "blogDesc": "Lee nuestros artículos"
+  },
   "nav": {
     "home": "Inicio",
     "about": "Empresa",
@@ -101,7 +115,27 @@
     "whyChoose2Title": "Proceso auditado, no salto de fe",
     "whyChoose2Text": "Validamos contra el sistema original antes del cutover — escenarios reproducibles, match campo a campo. Decisiones con datos, no con confianza.",
     "whyChoose3Title": "Integración en 48h",
-    "whyChoose3Text": "Sin proceso de selección largo. Llamas hoy, primer commit pasado mañana. Misma zona horaria, mismo idioma, cero curva de adaptación."
+    "whyChoose3Text": "Sin proceso de selección largo. Llamas hoy, primer commit pasado mañana. Misma zona horaria, mismo idioma, cero curva de adaptación.",
+    "whyChoose4Title": "Presupuesto cerrado",
+    "whyChoose4Text": "El alcance y el precio se fijan antes de empezar. Sin la sorpresa de la factura que crece a mitad de proyecto.",
+    "whyChoose5Title": "Entregas verificables",
+    "whyChoose5Text": "Entregas semanales que puedes abrir y probar. El avance se comprueba, no se cuenta en una reunión de seguimiento.",
+    "whyChoose6Title": "Plan de salida por escrito",
+    "whyChoose6Text": "Cómo te llevas todo y con quién sigues está documentado en el contrato desde el primer día. Quedarte es una decisión, no una atadura.",
+    "clientsLabel": "Clientes",
+    "readCase": "Leer el caso",
+    "resultsEyebrow": "Resultados",
+    "casesTitle1": "Trabajo entregado,",
+    "casesTitle2": "no promesas.",
+    "blogTitle1": "Lo que escribimos",
+    "blogTitle2": "cuando resolvemos algo.",
+    "heroEyebrow": "ATEP Consulting · Consultoría IT y desarrollo de software · Valencia",
+    "kpiEyebrow": "Resultados",
+    "kpiTitle1": "Lo que cambia",
+    "kpiTitle2": "cuando lo hacemos bien.",
+    "kpiProjects": "Proyectos entregados",
+    "kpiClients": "Clientes en cartera",
+    "kpiSince": "Construyendo software desde"
   },
   "CTA": {
     "badge": "Conversación honesta",
@@ -118,23 +152,35 @@
     "subtitle": "Construimos exactamente lo que necesitas para devolver tiempo a tu operación. Sin plantillas, sin vendor lock-in, con código que te pertenece.",
     "viewAll": "Ver Todos los Servicios",
     "readMore": "Ver más",
-
     "professionalWebsites": {
       "name": "Webs Corporativas",
       "description": "Sitios web rápidos, optimizados y diseñados para convertir visitantes en clientes.",
-      "heroStat": { "number": "1.2s", "label": "tiempo de carga" },
+      "heroStat": {
+        "number": "1.2s",
+        "label": "tiempo de carga"
+      },
       "badge": "Carga ultra-rápida",
       "keywords": "páginas web, desarrollo web, diseño web, SEO, optimización, web profesional",
       "whatWeDo": "Lo Que Hacemos",
       "whatWeDoText": "Desarrollamos sitios web corporativos 100% personalizados, sin plantillas. Código limpio, arquitectura optimizada y rendimiento excepcional desde el primer día. Cada web está diseñada para destacar tu marca y convertir visitantes en clientes.",
-
       "stats": [
-        { "number": "1.2s", "label": "Tiempo de carga" },
-        { "number": "90+", "label": "PageSpeed Score" },
-        { "number": "100%", "label": "Código a medida" },
-        { "number": "24/7", "label": "Soporte" }
+        {
+          "number": "1.2s",
+          "label": "Tiempo de carga"
+        },
+        {
+          "number": "90+",
+          "label": "PageSpeed Score"
+        },
+        {
+          "number": "100%",
+          "label": "Código a medida"
+        },
+        {
+          "number": "24/7",
+          "label": "Soporte"
+        }
       ],
-
       "benefits": "Beneficios Que Marcan la Diferencia",
       "benefitsSubtitle": "Tu web no es solo una tarjeta de presentación, es tu mejor vendedor trabajando 24/7",
       "benefitsList": [
@@ -155,7 +201,6 @@
           "description": "Hosting, mantenimiento y actualizaciones incluidas. Nos ocupamos de todo para que tú te enfoques en tu negocio."
         }
       ],
-
       "featuresTitle": "Tecnología de Vanguardia",
       "featuresSubtitle": "Utilizamos el stack tecnológico más moderno y probado del mercado",
       "features": [
@@ -172,7 +217,6 @@
           "description": "Mide resultados desde el primer día. Sabrás exactamente qué funciona y qué mejorar."
         }
       ],
-
       "processTitle": "Nuestro Proceso de Trabajo",
       "processSubtitle": "De la idea a la web en producción en tiempo récord",
       "processSteps": [
@@ -197,28 +241,32 @@
           "description": "Deploy optimizado, configuración SEO, analytics y formación para gestionar tu web."
         }
       ],
-
       "whyChoose": "Por Qué Somos Diferentes",
       "whyChooseText": "Nuestras webs no son plantillas modificadas de WordPress o Wix. Son proyectos únicos desarrollados a mano con las últimas tecnologías. El resultado: sitios web que cargan en menos de 2 segundos, posicionan en Google desde el inicio y generan confianza profesional desde el primer clic. Sin limitaciones técnicas, sin código basura, sin dependencia de plugins. Tu web, tu código, tu propiedad.",
       "guarantees": [
-        { "text": "Sin Plantillas" },
-        { "text": "Código Propio" },
-        { "text": "Entrega Rápida" }
+        {
+          "text": "Sin Plantillas"
+        },
+        {
+          "text": "Código Propio"
+        },
+        {
+          "text": "Entrega Rápida"
+        }
       ],
-
       "ctaText": "Hablemos de tu proyecto. Te daremos una propuesta personalizada en menos de 48 horas."
     },
-
     "fullStackDevelopment": {
       "name": "Apps Web a Medida",
       "description": "Plataformas y aplicaciones completas a tu medida, del concepto a producción",
-      "heroStat": { "number": "0", "label": "vendor lock-in" },
+      "heroStat": {
+        "number": "0",
+        "label": "vendor lock-in"
+      },
       "badge": "Solución 100% Personalizada",
       "keywords": "full stack development, web applications, SaaS development, React, TypeScript, Node.js, custom software",
-
       "whatWeDo": "Lo Que Hacemos",
       "whatWeDoText": "Desarrollamos aplicaciones web completas (frontend + backend) desde cero. Desde plataformas internas de gestión hasta SaaS públicos escalables. No usamos plantillas ni soluciones genéricas: cada proyecto es único, diseñado específicamente para resolver tus problemas de negocio. Arquitectura escalable, código mantenible y tecnología de última generación (React, TypeScript, Node.js).",
-
       "stats": [
         {
           "number": "Full Stack",
@@ -237,10 +285,8 @@
           "label": "Propiedad total"
         }
       ],
-
       "projectTypesTitle": "Tipos de Proyectos Que Desarrollamos",
       "projectTypesSubtitle": "Experiencia real en aplicaciones complejas",
-
       "projectTypes": [
         {
           "title": "Plataformas de Gestión Internas",
@@ -259,10 +305,8 @@
           "description": "Dashboards interactivos, visualización de datos, reportes automatizados, business intelligence personalizado."
         }
       ],
-
       "benefits": "Ventajas de Nuestro Desarrollo",
       "benefitsSubtitle": "No vendemos código, vendemos soluciones que funcionan",
-
       "benefitsList": [
         {
           "title": "Solución 100% Personalizada",
@@ -281,10 +325,8 @@
           "description": "Todo el código fuente es tuyo. Sin dependencias de nosotros. Puedes modificarlo, extenderlo o contratar a otro equipo en el futuro sin problemas."
         }
       ],
-
       "featuresTitle": "Stack Tecnológico Que Usamos",
       "featuresSubtitle": "Tecnologías modernas, probadas y con futuro",
-
       "features": [
         {
           "title": "Frontend Moderno",
@@ -299,10 +341,8 @@
           "description": "PostgreSQL o MongoDB según tu caso. Diseño optimizado, backups automáticos, queries eficientes."
         }
       ],
-
       "processTitle": "Cómo Desarrollamos Tu Aplicación",
       "processSubtitle": "Proceso transparente, con entregas parciales y feedback constante",
-
       "processSteps": [
         {
           "number": "01",
@@ -325,10 +365,8 @@
           "description": "Desplegamos en producción, configuramos analytics, formamos a tu equipo y entregamos documentación."
         }
       ],
-
       "whyChoose": "Por Qué Somos Tu Mejor Opción",
       "whyChooseText": "Somos desarrolladores senior con experiencia real en proyectos complejos. No somos una agencia que subcontrata: tú hablas directamente con quien programa tu aplicación. Comunicación transparente, entregas rápidas y código de calidad profesional que podrás mantener sin nosotros. Hemos desarrollado desde CRMs para equipos de ventas hasta plataformas SaaS con miles de usuarios. Conocemos los desafíos, los errores comunes y cómo evitarlos.",
-
       "guarantees": [
         {
           "text": "Entregas Semanales"
@@ -340,31 +378,40 @@
           "text": "Testing Incluido"
         }
       ],
-
       "ctaText": "¿Tienes una idea de aplicación web? Cuéntanos tu proyecto y te daremos un plan detallado con cronograma y presupuesto en menos de 48 horas."
     },
-
     "onDemandTeam": {
       "name": "Refuerzo Técnico",
       "description": "Refuerzo de desarrollo cuando tu equipo lo necesita, disponible en 48h.",
-      "heroStat": { "number": "48h", "label": "respuesta tras la llamada" },
+      "heroStat": {
+        "number": "48h",
+        "label": "respuesta tras la llamada"
+      },
       "badge": "Disponibles en 48 Horas",
       "keywords": "equipo on demand, desarrolladores externos, refuerzo técnico, outsourcing, soporte desarrollo, equipo remoto",
-
       "whatWeDo": "Lo Que Hacemos",
       "whatWeDoText": "Ponemos desarrolladores senior a disposición de tu equipo para entregas urgentes, picos de trabajo o proyectos con plazos ajustados. Nos integramos en tu flujo de trabajo inmediatamente, sin curva de aprendizaje. Facturación flexible, sin contratos largos.",
-
       "stats": [
-        { "number": "48h", "label": "Tiempo de respuesta" },
-        { "number": "+5 años", "label": "Nivel de experiencia" },
-        { "number": "0", "label": "Días de preaviso" },
-        { "number": "100%", "label": "Compromiso" }
+        {
+          "number": "48h",
+          "label": "Tiempo de respuesta"
+        },
+        {
+          "number": "+5 años",
+          "label": "Nivel de experiencia"
+        },
+        {
+          "number": "0",
+          "label": "Días de preaviso"
+        },
+        {
+          "number": "100%",
+          "label": "Compromiso"
+        }
       ],
-
       "urgencyTitle": "¿Entrega urgente? Te ayudamos YA",
       "urgencyText": "Si tu proyecto tiene una fecha límite comprometida y necesitas refuerzo técnico inmediato, podemos empezar mañana mismo. Sin burocracia, sin procesos largos.",
       "urgencyButton": "Contactar ahora",
-
       "useCasesTitle": "¿Cuándo Necesitas Nuestro Equipo?",
       "useCasesSubtitle": "Situaciones reales donde hemos marcado la diferencia",
       "useCases": [
@@ -385,7 +432,6 @@
           "description": "Tu desarrollador clave se va de vacaciones en pleno proyecto. Cubrimos el puesto sin que se note la diferencia."
         }
       ],
-
       "benefits": "Ventajas de Trabajar Con Nosotros",
       "benefitsSubtitle": "No somos un centro de outsourcing genérico, somos desarrolladores reales",
       "benefitsList": [
@@ -406,7 +452,6 @@
           "description": "Por día, por proyecto o por sprint. Lo que mejor te funcione. Sin contratos interminables ni compromisos forzados."
         }
       ],
-
       "featuresTitle": "Tecnologías con las que Trabajamos",
       "featuresSubtitle": "Stack moderno y probado en proyectos reales",
       "features": [
@@ -418,9 +463,11 @@
           "title": "Backend",
           "description": "Node.js, NestJS, .NET, Java Spring"
         },
-        { "title": "Cloud", "description": "Azure, AWS, Vercel, Docker" }
+        {
+          "title": "Cloud",
+          "description": "Azure, AWS, Vercel, Docker"
+        }
       ],
-
       "processTitle": "Cómo Trabajamos Juntos",
       "processSubtitle": "Proceso simple, sin complicaciones",
       "processSteps": [
@@ -440,36 +487,50 @@
           "description": "Accesos configurados, onboarding express, primer commit en menos de 48h. Comunicación diaria sobre progreso."
         }
       ],
-
       "whyChoose": "Por Qué Somos Tu Mejor Opción",
       "whyChooseText": "Entendemos las prisas y la presión de las entregas. Hemos salvado múltiples proyectos entrando en las últimas semanas cuando todo parecía perdido. No somos un equipo offshore que conocerás por Zoom: somos desarrolladores locales, misma zona horaria, mismo idioma y misma cultura de trabajo. Expertise técnico real, velocidad de integración probada y compromiso absoluto con tus deadlines.",
-
       "guarantees": [
-        { "text": "Sin Sorpresas" },
-        { "text": "Comunicación Directa" },
-        { "text": "Entrega Garantizada" }
+        {
+          "text": "Sin Sorpresas"
+        },
+        {
+          "text": "Comunicación Directa"
+        },
+        {
+          "text": "Entrega Garantizada"
+        }
       ],
-
       "ctaText": "¿Tu equipo necesita refuerzo ahora? Hablemos hoy y empezamos mañana."
     },
-
     "legacyMigration": {
       "name": "Migración y Modernización",
       "description": "Transforma tu software legacy en aplicaciones modernas sin interrumpir tu operación.",
-      "heroStat": { "number": "0h", "label": "downtime planificado" },
+      "heroStat": {
+        "number": "0h",
+        "label": "downtime planificado"
+      },
       "badge": "Código Mantenible y Documentado",
       "keywords": "migración legacy, modernización software, actualización tecnológica, refactorización, transformación digital, sistemas antiguos",
-
       "whatWeDo": "Qué Hacemos",
       "whatWeDoText": "Migramos sistemas obsoletos a tecnologías actuales. Desde aplicaciones CLI antiguas hasta monolitos imposibles de mantener. Realizamos un análisis detallado, diseñamos una estrategia de migración por fases y ejecutamos con mínimo impacto en tu operación diaria.",
-
       "stats": [
-        { "number": "90%", "label": "Reducción de incidencias post-migración" },
-        { "number": "3x", "label": "Rendimiento medio mejorado" },
-        { "number": "0h", "label": "Tiempo de inactividad planificado" },
-        { "number": "+10", "label": "Años de experiencia en migraciones" }
+        {
+          "number": "90%",
+          "label": "Reducción de incidencias post-migración"
+        },
+        {
+          "number": "3x",
+          "label": "Rendimiento medio mejorado"
+        },
+        {
+          "number": "0h",
+          "label": "Tiempo de inactividad planificado"
+        },
+        {
+          "number": "+10",
+          "label": "Años de experiencia en migraciones"
+        }
       ],
-
       "useCasesTitle": "Casos Comunes de Migración",
       "useCasesSubtitle": "Ejemplos reales donde hemos transformado sistemas legacy",
       "useCases": [
@@ -490,7 +551,6 @@
           "description": "Evolucionamos módulos críticos paso a paso, sin frenar la operación del negocio."
         }
       ],
-
       "benefits": "Beneficios",
       "benefitsSubtitle": "Moderniza tu infraestructura sin poner en riesgo tu operativa",
       "benefitsList": [
@@ -511,7 +571,6 @@
           "description": "Migramos por fases, asegurando continuidad del negocio en todo momento."
         }
       ],
-
       "featuresTitle": "Tecnologías que Usamos",
       "featuresSubtitle": "Actualizamos tu stack a tecnologías modernas y sostenibles",
       "features": [
@@ -532,7 +591,6 @@
           "description": "Docker, Azure, AWS, CI/CD Pipelines"
         }
       ],
-
       "processTitle": "Cómo Trabajamos",
       "processSubtitle": "Un proceso estructurado para minimizar riesgos y maximizar resultados",
       "processSteps": [
@@ -557,39 +615,50 @@
           "description": "Ajustamos el rendimiento y acompañamos post-implementación para asegurar el éxito."
         }
       ],
-
       "whyChoose": "Por Qué Elegirnos",
       "whyChooseText": "Tenemos experiencia real en migraciones complejas: de CLI a web, de .NET antiguo a Node.js, o de bases de datos legacy a entornos cloud. Entendemos los riesgos y los gestionamos para garantizar continuidad, seguridad y resultados tangibles. Tu caso actual será nuestro próximo caso de éxito.",
-
       "guarantees": [
-        { "text": "Sin Interrupciones" },
-        { "text": "Código Documentado" },
-        { "text": "Entrega Garantizada" }
+        {
+          "text": "Sin Interrupciones"
+        },
+        {
+          "text": "Código Documentado"
+        },
+        {
+          "text": "Entrega Garantizada"
+        }
       ],
-
       "ctaText": "¿Tu sistema legacy se está convirtiendo en un problema? Hablemos y diseñemos tu plan de modernización."
     },
-
     "automation": {
       "name": "Automatización de Procesos",
       "description": "Ahorra tiempo y reduce errores automatizando tareas repetitivas en tu empresa.",
-      "heroStat": { "number": "70%", "label": "menos tareas manuales" },
+      "heroStat": {
+        "number": "70%",
+        "label": "menos tareas manuales"
+      },
       "badge": "Ahorra horas cada semana",
       "keywords": "automatización, RPA, robots de procesos, eficiencia, reducción de errores, integraciones, bots, scripts, productividad",
-
       "whatWeDo": "Qué Hacemos",
       "whatWeDoText": "Identificamos procesos manuales que consumen tiempo de tu equipo y los automatizamos. Desde integraciones entre herramientas hasta workflows complejos. Creamos scripts personalizados, bots inteligentes y soluciones RPA adaptadas a tu negocio.",
-
       "stats": [
-        { "number": "6m", "label": "ROI promedio logrado en menos de 6 meses" },
-        { "number": "70%", "label": "Reducción media de tareas repetitivas" },
-        { "number": "95%", "label": "Menos errores humanos" },
+        {
+          "number": "6m",
+          "label": "ROI promedio logrado en menos de 6 meses"
+        },
+        {
+          "number": "70%",
+          "label": "Reducción media de tareas repetitivas"
+        },
+        {
+          "number": "95%",
+          "label": "Menos errores humanos"
+        },
         {
           "number": "24/7",
           "label": "Operaciones automatizadas sin interrupciones"
         }
       ],
-
       "useCasesTitle": "Casos de Uso Comunes",
       "useCasesSubtitle": "Ejemplos reales de automatización aplicada a empresas",
       "useCases": [
@@ -610,7 +679,6 @@
           "description": "Automatizamos tareas repetitivas como registro de datos, validaciones o transferencias de información."
         }
       ],
-
       "benefits": "Beneficios",
       "benefitsSubtitle": "Optimiza tu productividad eliminando el trabajo manual innecesario",
       "benefitsList": [
@@ -631,7 +699,6 @@
           "description": "Diseñamos automatizaciones que se integran con tus herramientas actuales sin fricción."
         }
       ],
-
       "featuresTitle": "Tecnologías que Usamos",
       "featuresSubtitle": "Automatización inteligente con las mejores herramientas del mercado",
       "features": [
@@ -652,7 +719,6 @@
           "description": "AWS Lambda, Google Cloud Functions, Azure Logic Apps"
         }
       ],
-
       "processTitle": "Cómo Trabajamos",
       "processSubtitle": "De la detección de procesos al ahorro tangible",
       "processSteps": [
@@ -677,199 +743,434 @@
           "description": "Supervisamos el rendimiento y ampliamos la automatización progresivamente."
         }
       ],
-
       "whyChoose": "Por Qué Elegirnos",
       "whyChooseText": "No vendemos automatización genérica. Analizamos tu operación real y diseñamos soluciones específicas que generan ahorro inmediato. Nos centramos en resultados medibles: menos errores, más eficiencia y retorno rápido de inversión.",
-
       "guarantees": [
-        { "text": "ROI Medible" },
-        { "text": "Integración sin Fricción" },
-        { "text": "Implementación Garantizada" }
+        {
+          "text": "ROI Medible"
+        },
+        {
+          "text": "Integración sin Fricción"
+        },
+        {
+          "text": "Implementación Garantizada"
+        }
       ],
-
       "ctaText": "¿Tu equipo pierde tiempo en tareas repetitivas? Automatízalas y gana productividad desde hoy."
     },
     "aiSolutions": {
       "name": "Inteligencia Artificial Aplicada",
       "description": "Asistentes, chatbots y agentes con IA que entienden tu negocio y trabajan con tu información real.",
-      "heroStat": { "number": "80%", "label": "menos consultas repetitivas" },
+      "heroStat": {
+        "number": "80%",
+        "label": "menos consultas repetitivas"
+      },
       "badge": "IA con propósito",
       "keywords": "inteligencia artificial, IA, LLM, GPT, chatbot, asistente IA, RAG, agentes, OpenAI, Anthropic, automatización inteligente",
       "whatWeDo": "Lo Que Hacemos",
       "whatWeDoText": "Diseñamos e implementamos soluciones de IA aplicada al negocio: chatbots que conocen tus productos, asistentes que responden con tu documentación interna, agentes que ejecutan tareas complejas y análisis automático de datos no estructurados. Trabajamos con los modelos líderes (OpenAI, Anthropic, modelos abiertos) y conectamos con tus sistemas existentes.",
       "stats": [
-        { "number": "24/7", "label": "Disponibilidad del asistente" },
-        { "number": "80%", "label": "Reducción de consultas repetitivas" },
-        { "number": "3s", "label": "Respuesta media con tu información" },
-        { "number": "100%", "label": "Trazabilidad de cada respuesta" }
+        {
+          "number": "24/7",
+          "label": "Disponibilidad del asistente"
+        },
+        {
+          "number": "80%",
+          "label": "Reducción de consultas repetitivas"
+        },
+        {
+          "number": "3s",
+          "label": "Respuesta media con tu información"
+        },
+        {
+          "number": "100%",
+          "label": "Trazabilidad de cada respuesta"
+        }
       ],
       "benefits": "Por qué incorporar IA ahora",
       "benefitsSubtitle": "No es magia, es liberar a tu equipo de tareas cognitivas que un asistente bien diseñado resuelve en segundos",
       "benefitsList": [
-        { "title": "Soporte 24/7 sin escalar plantilla", "description": "Tu chatbot atiende a clientes en cualquier momento y escala a una persona solo los casos que lo requieren de verdad." },
-        { "title": "Tu conocimiento, accesible al instante", "description": "Manuales, contratos, FAQs y políticas internas: tu equipo pregunta en lenguaje natural y recibe respuestas precisas con cita de la fuente." },
-        { "title": "Análisis de datos no estructurados", "description": "Emails, tickets, reseñas o contratos: la IA extrae patrones, sentimiento y acciones recomendadas sin que nadie tenga que leerlos uno a uno." },
-        { "title": "Agentes que ejecutan, no solo conversan", "description": "Más allá del chat: agentes que actualizan tu CRM, generan informes, programan reuniones o disparan workflows con la información correcta." }
+        {
+          "title": "Soporte 24/7 sin escalar plantilla",
+          "description": "Tu chatbot atiende a clientes en cualquier momento y escala a una persona solo los casos que lo requieren de verdad."
+        },
+        {
+          "title": "Tu conocimiento, accesible al instante",
+          "description": "Manuales, contratos, FAQs y políticas internas: tu equipo pregunta en lenguaje natural y recibe respuestas precisas con cita de la fuente."
+        },
+        {
+          "title": "Análisis de datos no estructurados",
+          "description": "Emails, tickets, reseñas o contratos: la IA extrae patrones, sentimiento y acciones recomendadas sin que nadie tenga que leerlos uno a uno."
+        },
+        {
+          "title": "Agentes que ejecutan, no solo conversan",
+          "description": "Más allá del chat: agentes que actualizan tu CRM, generan informes, programan reuniones o disparan workflows con la información correcta."
+        }
       ],
       "featuresTitle": "Capacidades técnicas",
       "featuresSubtitle": "IA aplicada al detalle, sin caja negra",
       "features": [
-        { "title": "Modelos líderes", "description": "Trabajamos con OpenAI, Anthropic y modelos abiertos cuando la privacidad lo exige." },
-        { "title": "RAG sobre tu información", "description": "El asistente responde solo con tu documentación real, no con conocimiento genérico de internet." },
-        { "title": "Trazabilidad completa", "description": "Cada respuesta cita su fuente y queda registrada para auditoría." }
+        {
+          "title": "Modelos líderes",
+          "description": "Trabajamos con OpenAI, Anthropic y modelos abiertos cuando la privacidad lo exige."
+        },
+        {
+          "title": "RAG sobre tu información",
+          "description": "El asistente responde solo con tu documentación real, no con conocimiento genérico de internet."
+        },
+        {
+          "title": "Trazabilidad completa",
+          "description": "Cada respuesta cita su fuente y queda registrada para auditoría."
+        }
       ],
       "processTitle": "Cómo lo abordamos",
       "processSubtitle": "De caso de uso a producción en semanas, no meses",
       "processSteps": [
-        { "number": "01", "title": "Caso de uso concreto", "description": "Identificamos el flujo donde la IA aporta más valor: soporte, ventas, RRHH u operaciones." },
-        { "number": "02", "title": "Prototipo en 2 semanas", "description": "Construimos un MVP con tu información real para que veas resultados antes de invertir más." },
-        { "number": "03", "title": "Integración con tus sistemas", "description": "Conectamos el asistente con tu CRM, base de datos, ERP o el canal que necesites." },
-        { "number": "04", "title": "Monitorización y mejora", "description": "Métricas de uso, ajuste continuo del prompt y entrenamiento con feedback real." }
+        {
+          "number": "01",
+          "title": "Caso de uso concreto",
+          "description": "Identificamos el flujo donde la IA aporta más valor: soporte, ventas, RRHH u operaciones."
+        },
+        {
+          "number": "02",
+          "title": "Prototipo en 2 semanas",
+          "description": "Construimos un MVP con tu información real para que veas resultados antes de invertir más."
+        },
+        {
+          "number": "03",
+          "title": "Integración con tus sistemas",
+          "description": "Conectamos el asistente con tu CRM, base de datos, ERP o el canal que necesites."
+        },
+        {
+          "number": "04",
+          "title": "Monitorización y mejora",
+          "description": "Métricas de uso, ajuste continuo del prompt y entrenamiento con feedback real."
+        }
       ],
       "whyChoose": "Por qué con ATEP",
       "whyChooseText": "No vendemos 'IA' como buzzword. Diseñamos soluciones específicas que resuelven un problema concreto de tu operación, con métricas claras y la privacidad de tus datos como prioridad. Si la IA no es la respuesta, te lo decimos.",
       "guarantees": [
-        { "text": "Confidencialidad de tus datos" },
-        { "text": "Modelos open-source disponibles" },
-        { "text": "Métricas de uso transparentes" }
+        {
+          "text": "Confidencialidad de tus datos"
+        },
+        {
+          "text": "Modelos open-source disponibles"
+        },
+        {
+          "text": "Métricas de uso transparentes"
+        }
       ],
       "ctaText": "¿Tienes un proceso repetitivo o una idea de uso de IA en mente? Cuéntanos el contexto y te decimos si tiene sentido y cómo abordarlo."
     },
     "mobileApps": {
       "name": "Apps Móviles a Medida",
       "description": "Aplicaciones nativas y multiplataforma para iOS y Android, pensadas para escalar y mantenerse en el tiempo.",
-      "heroStat": { "number": "60fps", "label": "transiciones nativas" },
+      "heroStat": {
+        "number": "60fps",
+        "label": "transiciones nativas"
+      },
       "badge": "iOS · Android · Cross-platform",
       "keywords": "apps móviles, desarrollo iOS, desarrollo Android, React Native, Swift, Kotlin, app a medida, aplicación móvil",
       "whatWeDo": "Lo Que Hacemos",
       "whatWeDoText": "Desarrollamos apps móviles desde cero o evolucionamos las que ya tienes. Trabajamos tanto nativo (Swift para iOS, Kotlin para Android) como multiplataforma con React Native cuando el caso lo justifica. Diseñamos para rendimiento, accesibilidad y mantenibilidad a largo plazo — no solo para el lanzamiento.",
       "stats": [
-        { "number": "2", "label": "Plataformas con una sola base" },
-        { "number": "60fps", "label": "Fluidez en transiciones críticas" },
-        { "number": "<3s", "label": "Tiempo de arranque en frío" },
-        { "number": "100%", "label": "Cobertura iOS + Android" }
+        {
+          "number": "2",
+          "label": "Plataformas con una sola base"
+        },
+        {
+          "number": "60fps",
+          "label": "Fluidez en transiciones críticas"
+        },
+        {
+          "number": "<3s",
+          "label": "Tiempo de arranque en frío"
+        },
+        {
+          "number": "100%",
+          "label": "Cobertura iOS + Android"
+        }
       ],
       "benefits": "Por qué una app a medida y no un template",
       "benefitsSubtitle": "Tu negocio tiene flujos únicos. Una plantilla te obliga a adaptar tu operación al producto, no al revés.",
       "benefitsList": [
-        { "title": "Rendimiento real, no de demo", "description": "Optimizamos cada pantalla para que la app funcione igual de bien con 100 que con 100.000 registros." },
-        { "title": "Offline-first cuando lo necesitas", "description": "Sincronización inteligente para que tu app funcione sin conexión y consolide datos cuando vuelva la red." },
-        { "title": "Notificaciones push relevantes", "description": "Push segmentado y contextual, no spam. Métricas de apertura y conversión integradas." },
-        { "title": "Mantenibilidad a años vista", "description": "Código documentado, tests automatizados y arquitectura preparada para crecer sin reescrituras." }
+        {
+          "title": "Rendimiento real, no de demo",
+          "description": "Optimizamos cada pantalla para que la app funcione igual de bien con 100 que con 100.000 registros."
+        },
+        {
+          "title": "Offline-first cuando lo necesitas",
+          "description": "Sincronización inteligente para que tu app funcione sin conexión y consolide datos cuando vuelva la red."
+        },
+        {
+          "title": "Notificaciones push relevantes",
+          "description": "Push segmentado y contextual, no spam. Métricas de apertura y conversión integradas."
+        },
+        {
+          "title": "Mantenibilidad a años vista",
+          "description": "Código documentado, tests automatizados y arquitectura preparada para crecer sin reescrituras."
+        }
       ],
       "featuresTitle": "Stack y capacidades",
       "featuresSubtitle": "Tecnologías que respaldan la decisión técnica",
       "features": [
-        { "title": "Nativo cuando importa", "description": "Swift y Kotlin para apps con requisitos de rendimiento o uso intensivo de hardware (cámara, GPS, sensores)." },
-        { "title": "React Native para velocidad", "description": "Una base de código para ambas plataformas cuando el time-to-market manda y la app es razonablemente estándar." },
-        { "title": "App Store + Play Store", "description": "Nos encargamos del proceso completo de publicación, revisiones y actualizaciones." }
+        {
+          "title": "Nativo cuando importa",
+          "description": "Swift y Kotlin para apps con requisitos de rendimiento o uso intensivo de hardware (cámara, GPS, sensores)."
+        },
+        {
+          "title": "React Native para velocidad",
+          "description": "Una base de código para ambas plataformas cuando el time-to-market manda y la app es razonablemente estándar."
+        },
+        {
+          "title": "App Store + Play Store",
+          "description": "Nos encargamos del proceso completo de publicación, revisiones y actualizaciones."
+        }
       ],
       "processTitle": "Cómo desarrollamos tu app",
       "processSubtitle": "Sprints quincenales con demo al final de cada uno",
       "processSteps": [
-        { "number": "01", "title": "Discovery y prototipo", "description": "Flujos clave validados en prototipo navegable antes de escribir código." },
-        { "number": "02", "title": "MVP en 8-12 semanas", "description": "Versión funcional con los flujos críticos lista para testing real con usuarios." },
-        { "number": "03", "title": "Iteración con feedback", "description": "Refinamos lo que la métrica de uso muestra que importa, no lo que asumíamos al principio." },
-        { "number": "04", "title": "Publicación y operación", "description": "Lanzamiento en ambas stores y soporte continuo si lo necesitas." }
+        {
+          "number": "01",
+          "title": "Discovery y prototipo",
+          "description": "Flujos clave validados en prototipo navegable antes de escribir código."
+        },
+        {
+          "number": "02",
+          "title": "MVP en 8-12 semanas",
+          "description": "Versión funcional con los flujos críticos lista para testing real con usuarios."
+        },
+        {
+          "number": "03",
+          "title": "Iteración con feedback",
+          "description": "Refinamos lo que la métrica de uso muestra que importa, no lo que asumíamos al principio."
+        },
+        {
+          "number": "04",
+          "title": "Publicación y operación",
+          "description": "Lanzamiento en ambas stores y soporte continuo si lo necesitas."
+        }
       ],
       "whyChoose": "Por qué con ATEP",
       "whyChooseText": "No somos una agencia que entrega y desaparece. Diseñamos cada app pensando en quién la va a mantener dentro de tres años — normalmente nosotros mismos, así que ponemos el listón alto en código, tests y documentación.",
       "guarantees": [
-        { "text": "Código documentado y auditado" },
-        { "text": "Tests automatizados desde el día 1" },
-        { "text": "Publicación en App Store y Play Store" }
+        {
+          "text": "Código documentado y auditado"
+        },
+        {
+          "text": "Tests automatizados desde el día 1"
+        },
+        {
+          "text": "Publicación en App Store y Play Store"
+        }
       ],
       "ctaText": "¿Tienes una idea de app o quieres modernizar una existente? Te decimos en 24h si nativo o multiplataforma es la mejor decisión para tu caso."
     },
     "ecommerce": {
       "name": "E-commerce a Medida",
       "description": "Tiendas online rápidas, optimizadas para conversión y diseñadas para vender — con o sin pasarela de pago tradicional.",
-      "heroStat": { "number": "+25%", "label": "conversión típica" },
+      "heroStat": {
+        "number": "+25%",
+        "label": "conversión típica"
+      },
       "badge": "Diseñado para vender",
       "keywords": "ecommerce, tienda online, ventas online, Stripe, Shopify, headless commerce, pasarela de pago, WooCommerce, carrito de compra",
       "whatWeDo": "Lo Que Hacemos",
       "whatWeDoText": "Construimos tiendas online a tu medida. Desde catálogos con checkout por WhatsApp (sin comisiones de pasarela) hasta plataformas headless con Stripe, Shopify o WooCommerce. Diseñamos para velocidad y conversión: cada paso del embudo está pensado para que el cliente termine la compra.",
       "stats": [
-        { "number": "<2s", "label": "Carga de la ficha de producto" },
-        { "number": "+25%", "label": "Tasa de conversión típica" },
-        { "number": "100%", "label": "Mobile-first checkout" },
-        { "number": "0", "label": "Coste por venta con WhatsApp" }
+        {
+          "number": "<2s",
+          "label": "Carga de la ficha de producto"
+        },
+        {
+          "number": "+25%",
+          "label": "Tasa de conversión típica"
+        },
+        {
+          "number": "100%",
+          "label": "Mobile-first checkout"
+        },
+        {
+          "number": "0",
+          "label": "Coste por venta con WhatsApp"
+        }
       ],
       "benefits": "Por qué tu tienda merece más que un template",
       "benefitsSubtitle": "Cada decimal de conversión cuenta. Una tienda genérica te limita justo donde no deberías limitarte.",
       "benefitsList": [
-        { "title": "Velocidad que vende", "description": "Cada segundo de carga extra te cuesta conversión. Optimizamos performance hasta el último kilobyte." },
-        { "title": "Checkout sin fricción", "description": "Menos pasos, menos campos, más conversión. Diseñamos el flujo de compra para minimizar abandonos." },
-        { "title": "Sin comisión por venta (opcional)", "description": "Checkout por WhatsApp o email para negocios pequeños que no quieren ceder un % a Stripe o PayPal." },
-        { "title": "Integraciones reales con tu stock", "description": "Si tienes ERP, TPV o gestor de inventario, lo conectamos para que stock y precios siempre estén sincronizados." }
+        {
+          "title": "Velocidad que vende",
+          "description": "Cada segundo de carga extra te cuesta conversión. Optimizamos performance hasta el último kilobyte."
+        },
+        {
+          "title": "Checkout sin fricción",
+          "description": "Menos pasos, menos campos, más conversión. Diseñamos el flujo de compra para minimizar abandonos."
+        },
+        {
+          "title": "Sin comisión por venta (opcional)",
+          "description": "Checkout por WhatsApp o email para negocios pequeños que no quieren ceder un % a Stripe o PayPal."
+        },
+        {
+          "title": "Integraciones reales con tu stock",
+          "description": "Si tienes ERP, TPV o gestor de inventario, lo conectamos para que stock y precios siempre estén sincronizados."
+        }
       ],
       "featuresTitle": "Opciones técnicas",
       "featuresSubtitle": "Elegimos el stack según tu negocio, no al revés",
       "features": [
-        { "title": "Headless o all-in-one", "description": "Shopify headless cuando quieres flexibilidad total, o WooCommerce/Shopify clásico cuando prefieres simplicidad." },
-        { "title": "Pasarelas que tú elijas", "description": "Stripe, PayPal, Redsys, Bizum o checkout por WhatsApp. Cada negocio tiene la suya." },
-        { "title": "Multi-idioma y multi-divisa", "description": "Si vendes fuera de España, la tienda se adapta sola al idioma y moneda del visitante." }
+        {
+          "title": "Headless o all-in-one",
+          "description": "Shopify headless cuando quieres flexibilidad total, o WooCommerce/Shopify clásico cuando prefieres simplicidad."
+        },
+        {
+          "title": "Pasarelas que tú elijas",
+          "description": "Stripe, PayPal, Redsys, Bizum o checkout por WhatsApp. Cada negocio tiene la suya."
+        },
+        {
+          "title": "Multi-idioma y multi-divisa",
+          "description": "Si vendes fuera de España, la tienda se adapta sola al idioma y moneda del visitante."
+        }
       ],
       "processTitle": "Cómo lanzamos tu tienda",
       "processSubtitle": "Catálogo, checkout y métricas listos antes de hacer ruido",
       "processSteps": [
-        { "number": "01", "title": "Estrategia y stack", "description": "Decidimos juntos pasarela, hosting, integraciones y modelo de gestión." },
-        { "number": "02", "title": "Diseño y catálogo", "description": "Plantilla de producto, categorías, navegación y SEO técnico desde el día uno." },
-        { "number": "03", "title": "Checkout y métricas", "description": "Flujo de compra optimizado y analítica integrada para medir cada paso del embudo." },
-        { "number": "04", "title": "Lanzamiento y soporte", "description": "Migración de datos si vienes de otra plataforma, formación de tu equipo y soporte post-lanzamiento." }
+        {
+          "number": "01",
+          "title": "Estrategia y stack",
+          "description": "Decidimos juntos pasarela, hosting, integraciones y modelo de gestión."
+        },
+        {
+          "number": "02",
+          "title": "Diseño y catálogo",
+          "description": "Plantilla de producto, categorías, navegación y SEO técnico desde el día uno."
+        },
+        {
+          "number": "03",
+          "title": "Checkout y métricas",
+          "description": "Flujo de compra optimizado y analítica integrada para medir cada paso del embudo."
+        },
+        {
+          "number": "04",
+          "title": "Lanzamiento y soporte",
+          "description": "Migración de datos si vienes de otra plataforma, formación de tu equipo y soporte post-lanzamiento."
+        }
       ],
       "whyChoose": "Por qué con ATEP",
       "whyChooseText": "Vendemos tiendas que venden. Nos importa la conversión, el AOV y el CAC mucho más que enseñarte la última tecnología. Cada decisión técnica se justifica por el impacto en tu cuenta de resultados.",
       "guarantees": [
-        { "text": "Performance Lighthouse 90+" },
-        { "text": "Mobile-first y checkout optimizado" },
-        { "text": "Formación a tu equipo incluida" }
+        {
+          "text": "Performance Lighthouse 90+"
+        },
+        {
+          "text": "Mobile-first y checkout optimizado"
+        },
+        {
+          "text": "Formación a tu equipo incluida"
+        }
       ],
       "ctaText": "¿Quieres lanzar una tienda nueva o mejorar la conversión de la que ya tienes? Empezamos con una auditoría rápida sin compromiso."
     },
     "support": {
       "name": "Soporte y Mantenimiento Continuo",
       "description": "Squad dedicado que conoce tu producto y responde con SLA claros. Para que tu plataforma evolucione sin sorpresas.",
-      "heroStat": { "number": "99.9%", "label": "uptime garantizado" },
+      "heroStat": {
+        "number": "99.9%",
+        "label": "uptime garantizado"
+      },
       "badge": "Tu equipo técnico de confianza",
       "keywords": "mantenimiento software, soporte técnico, SLA, equipo dedicado, evolución producto, monitorización, observabilidad, hotfix",
       "whatWeDo": "Lo Que Hacemos",
       "whatWeDoText": "Mantenemos vivos los productos que entregamos — los nuestros y los de terceros. Squad dedicado que conoce tu código, monitorización proactiva, hotfixes con SLA y un roadmap evolutivo trimestral compartido contigo. La estabilidad técnica como compromiso, no como reactividad.",
       "stats": [
-        { "number": "<4h", "label": "SLA para incidencias críticas" },
-        { "number": "99.9%", "label": "Uptime garantizado" },
-        { "number": "24/7", "label": "Monitorización proactiva" },
-        { "number": "1", "label": "Punto de contacto dedicado" }
+        {
+          "number": "<4h",
+          "label": "SLA para incidencias críticas"
+        },
+        {
+          "number": "99.9%",
+          "label": "Uptime garantizado"
+        },
+        {
+          "number": "24/7",
+          "label": "Monitorización proactiva"
+        },
+        {
+          "number": "1",
+          "label": "Punto de contacto dedicado"
+        }
       ],
       "benefits": "Por qué un mantenimiento serio importa",
       "benefitsSubtitle": "Un producto sin mantenimiento es un activo que se devalúa cada mes",
       "benefitsList": [
-        { "title": "Conocimiento que no se pierde", "description": "Tu squad dedicado conoce el código, las decisiones de arquitectura y el contexto del negocio. No empiezas de cero con cada cambio." },
-        { "title": "SLA reales y auditables", "description": "Tiempos de respuesta y resolución medidos, con informe mensual transparente. Sabes exactamente qué estás pagando." },
-        { "title": "Roadmap evolutivo trimestral", "description": "No solo apagamos fuegos: proponemos mejoras de performance, seguridad y experiencia cada trimestre." },
-        { "title": "Stack de observabilidad incluido", "description": "Datadog, Sentry, PagerDuty y similares configurados desde el primer día. Detectamos problemas antes que tus usuarios." }
+        {
+          "title": "Conocimiento que no se pierde",
+          "description": "Tu squad dedicado conoce el código, las decisiones de arquitectura y el contexto del negocio. No empiezas de cero con cada cambio."
+        },
+        {
+          "title": "SLA reales y auditables",
+          "description": "Tiempos de respuesta y resolución medidos, con informe mensual transparente. Sabes exactamente qué estás pagando."
+        },
+        {
+          "title": "Roadmap evolutivo trimestral",
+          "description": "No solo apagamos fuegos: proponemos mejoras de performance, seguridad y experiencia cada trimestre."
+        },
+        {
+          "title": "Stack de observabilidad incluido",
+          "description": "Datadog, Sentry, PagerDuty y similares configurados desde el primer día. Detectamos problemas antes que tus usuarios."
+        }
       ],
       "featuresTitle": "Qué cubre el servicio",
       "featuresSubtitle": "Soporte completo, no parche por parche",
       "features": [
-        { "title": "Hotfixes con SLA", "description": "Respuesta inmediata a incidencias críticas, con prioridad según severidad acordada." },
-        { "title": "Evolución continua", "description": "Mejoras planificadas trimestralmente, alineadas con tu roadmap de negocio." },
-        { "title": "Actualizaciones de seguridad", "description": "Dependencias, parches y auditorías de seguridad gestionadas proactivamente." }
+        {
+          "title": "Hotfixes con SLA",
+          "description": "Respuesta inmediata a incidencias críticas, con prioridad según severidad acordada."
+        },
+        {
+          "title": "Evolución continua",
+          "description": "Mejoras planificadas trimestralmente, alineadas con tu roadmap de negocio."
+        },
+        {
+          "title": "Actualizaciones de seguridad",
+          "description": "Dependencias, parches y auditorías de seguridad gestionadas proactivamente."
+        }
       ],
       "processTitle": "Cómo trabajamos",
       "processSubtitle": "Un modelo predecible para que el soporte deje de ser un coste oculto",
       "processSteps": [
-        { "number": "01", "title": "Onboarding técnico", "description": "Auditoría del código, configuración de monitorización y documentación operativa." },
-        { "number": "02", "title": "SLA acordados", "description": "Definimos juntos tiempos de respuesta y prioridades según el impacto en tu negocio." },
-        { "number": "03", "title": "Operación día a día", "description": "Slack o canal dedicado, ticketing transparente y respuesta dentro del SLA." },
-        { "number": "04", "title": "Revisión trimestral", "description": "Reporte de incidencias, evolutivo del próximo trimestre y ajuste del modelo si hace falta." }
+        {
+          "number": "01",
+          "title": "Onboarding técnico",
+          "description": "Auditoría del código, configuración de monitorización y documentación operativa."
+        },
+        {
+          "number": "02",
+          "title": "SLA acordados",
+          "description": "Definimos juntos tiempos de respuesta y prioridades según el impacto en tu negocio."
+        },
+        {
+          "number": "03",
+          "title": "Operación día a día",
+          "description": "Slack o canal dedicado, ticketing transparente y respuesta dentro del SLA."
+        },
+        {
+          "number": "04",
+          "title": "Revisión trimestral",
+          "description": "Reporte de incidencias, evolutivo del próximo trimestre y ajuste del modelo si hace falta."
+        }
       ],
       "whyChoose": "Por qué con ATEP",
       "whyChooseText": "Nos importa que el producto siga funcionando dentro de tres años igual que el día que lo lanzamos. No vendemos horas, vendemos compromiso: si algo se rompe, lo arreglamos. Si algo puede mejorar, te lo proponemos.",
       "guarantees": [
-        { "text": "SLA por escrito en el contrato" },
-        { "text": "Informe mensual de actividad" },
-        { "text": "Salida sin penalización a 30 días" }
+        {
+          "text": "SLA por escrito en el contrato"
+        },
+        {
+          "text": "Informe mensual de actividad"
+        },
+        {
+          "text": "Salida sin penalización a 30 días"
+        }
       ],
       "ctaText": "¿Tu producto necesita mantenimiento serio o tienes uno heredado sin equipo técnico detrás? Hablemos sobre el modelo que mejor encaja."
     },
@@ -930,7 +1231,8 @@
     "articlesFound": "artículos encontrados",
     "noResults": "No se encontraron artículos. Intenta ajustar los filtros.",
     "relatedPosts": "Artículos Relacionados",
-    "back": "Volver al Blog"
+    "back": "Volver al Blog",
+    "viewAll": "Ver todos los artículos"
   },
   "contact": {
     "badge": "Contáctanos",
@@ -976,40 +1278,33 @@
     "lastUpdated": "Última actualización",
     "lastUpdatedDate": "9 de octubre de 2025",
     "intro": "En ATEP Consulting, estamos comprometidos con la protección de su privacidad. Esta Política de Privacidad explica cómo recopilamos, usamos, divulgamos y protegemos su información cuando visita nuestro sitio web o utiliza nuestros servicios.",
-
     "responsible": "Responsable del Tratamiento",
     "responsibleText": "El responsable del tratamiento de sus datos personales es:",
     "companyName": "Empresa: ATEP Consulting",
     "companyAddress": "Dirección: CALLE NUMERO 611 (MONTECAÑADA), 3",
     "companyEmail": "Email: info@atepconsulting.com",
     "companyPhone": "Teléfono: +43 647 748 705",
-
     "collection": "Información que Recopilamos",
     "collectionText": "Recopilamos los siguientes tipos de información personal:",
     "collectionItem1": "Datos de identificación: nombre, apellidos, dirección de correo electrónico, número de teléfono",
     "collectionItem2": "Datos de navegación: dirección IP, tipo de navegador, páginas visitadas, tiempo de acceso",
     "collectionItem3": "Datos profesionales: empresa, cargo, sector de actividad",
     "collectionItem4": "Cualquier otra información que proporcione voluntariamente a través de nuestros formularios de contacto",
-
     "purpose": "Finalidad del Tratamiento",
     "purposeText": "Utilizamos su información personal para las siguientes finalidades:",
     "purposeItem1": "Responder a sus consultas y proporcionar información solicitada",
     "purposeItem2": "Gestionar y prestar nuestros servicios de consultoría",
     "purposeItem3": "Enviar comunicaciones comerciales sobre nuestros servicios (con su consentimiento previo)",
     "purposeItem4": "Mejorar nuestro sitio web y la experiencia del usuario",
-
     "legalBasis": "Base Legal",
     "legalBasisText": "La base legal para el tratamiento de sus datos es su consentimiento explícito al rellenar nuestros formularios de contacto, así como la ejecución de una relación contractual para la prestación de nuestros servicios.",
-
     "retention": "Conservación de Datos",
     "retentionText": "Conservaremos sus datos personales durante el tiempo necesario para cumplir con las finalidades descritas en esta política, a menos que la ley requiera o permita un período de conservación más largo. Los datos de contacto se conservarán durante un máximo de 2 años desde la última interacción, salvo que solicite su eliminación.",
-
     "recipients": "Destinatarios de los Datos",
     "recipientsText": "Sus datos podrán ser comunicados a los siguientes destinatarios:",
     "recipientsItem1": "Proveedores de servicios de email (ej. EmailJS) para el envío de comunicaciones",
     "recipientsItem2": "Proveedores de hosting y servicios en la nube para el almacenamiento de datos",
     "recipientsItem3": "Asesores legales, fiscales y profesionales cuando sea necesario",
-
     "rights": "Sus Derechos",
     "rightsText": "Según el Reglamento General de Protección de Datos (RGPD), usted tiene los siguientes derechos:",
     "rightsItem1": "Derecho de acceso: a conocer qué datos tenemos sobre usted",
@@ -1020,19 +1315,14 @@
     "rightsItem6": "Derecho de oposición: a oponerse a determinados tratamientos de sus datos",
     "rightsItem7": "Derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD)",
     "rightsExercise": "Para ejercer estos derechos, puede contactarnos en info@atepconsulting.com, incluyendo una prueba de su identidad.",
-
     "protection": "Medidas de Seguridad",
     "protectionText": "Implementamos medidas de seguridad técnicas y organizativas apropiadas para proteger su información personal contra accesos no autorizados, alteración, divulgación o destrucción. Esto incluye encriptación, servidores seguros y auditorías de seguridad regulares.",
-
     "cookies": "Política de Cookies",
     "cookiesText": "Nuestro sitio web utiliza cookies para mejorar la experiencia del usuario. Para más información sobre las cookies que utilizamos y cómo gestionarlas, visite nuestra Política de Cookies.",
-
     "thirdParty": "Enlaces a Terceros",
     "thirdPartyText": "Nuestro sitio web puede contener enlaces a sitios web de terceros. No somos responsables de las prácticas de privacidad de estos sitios externos. Recomendamos revisar sus políticas de privacidad antes de proporcionar información personal.",
-
     "modifications": "Modificaciones de la Política",
     "modificationsText": "Nos reservamos el derecho de modificar esta Política de Privacidad en cualquier momento. Cualquier cambio será publicado en esta página con una fecha de 'Última actualización' actualizada. Recomendamos revisar periódicamente esta política.",
-
     "contact": "Contacto",
     "contactText": "Para preguntas sobre esta Política de Privacidad o para ejercer sus derechos, contáctenos en"
   },
@@ -1041,37 +1331,29 @@
     "lastUpdated": "Última Actualización",
     "lastUpdatedDate": "9 de octubre de 2025",
     "intro": "Esta Política de Cookies explica cómo ATEP Consulting utiliza cookies y tecnologías similares en nuestro sitio web para mejorar su experiencia y proporcionar nuestros servicios.",
-
     "whatAre": "¿Qué Son las Cookies?",
     "whatAreText": "Las cookies son pequeños archivos de texto que se almacenan en su dispositivo (ordenador, tablet o móvil) cuando visita un sitio web. Permiten que el sitio web recuerde sus acciones y preferencias durante un período de tiempo, para que no tenga que volver a configurarlas cada vez que visite el sitio o navegue de una página a otra.",
-
     "howWeUse": "¿Cómo Usamos las Cookies?",
     "howWeUseText": "Utilizamos cookies para entender cómo interactúa con nuestro sitio web, recordar sus preferencias, analizar el tráfico y mejorar nuestros servicios. Esto nos permite ofrecerle una experiencia personalizada y eficiente en nuestro sitio web.",
-
     "types": "Tipos de Cookies Que Utilizamos",
     "examplesLabel": "Ejemplos",
     "durationLabel": "Duración",
-
     "essentialTitle": "1. Cookies Esenciales (Técnicas)",
     "essentialDesc": "Son imprescindibles para el funcionamiento del sitio web. Sin estas cookies, ciertos servicios no pueden proporcionarse.",
     "essentialExamples": "Cookies de sesión, cookies de seguridad, cookies de idioma",
     "essentialDuration": "Sesión o hasta 1 año",
-
     "analyticsTitle": "2. Cookies Analíticas",
     "analyticsDesc": "Nos permiten analizar cómo los usuarios utilizan el sitio web y monitorizar el rendimiento del sitio. Toda la información es anónima.",
     "analyticsExamples": "Google Analytics, estadísticas de visitas, páginas más visitadas",
     "analyticsDuration": "Hasta 2 años",
-
     "preferenceTitle": "3. Cookies de Preferencia",
     "preferenceDesc": "Permiten que el sitio web recuerde información que cambia la forma en que se comporta o se ve el sitio, como su idioma preferido.",
     "preferenceExamples": "Preferencias de idioma, configuración de visualización",
     "preferenceDuration": "Hasta 1 año",
-
     "thirdParty": "Cookies de Terceros",
     "thirdPartyText": "Además de nuestras propias cookies, podemos utilizar cookies de terceros para diversos fines:",
     "thirdPartyItem1": "Google Analytics: Para analizar el uso del sitio web y mejorar nuestros servicios",
     "thirdPartyItem2": "EmailJS: Para gestionar el envío de formularios de contacto",
-
     "control": "Control y Gestión de Cookies",
     "controlText": "Puede controlar y/o eliminar las cookies según desee. Puede eliminar todas las cookies que ya están en su dispositivo y puede configurar la mayoría de los navegadores para evitar que se instalen. Sin embargo, si hace esto, es posible que tenga que ajustar manualmente algunas preferencias cada vez que visite el sitio y que algunos servicios y funcionalidades no funcionen correctamente.",
     "browserSettings": "Configuración por navegador:",
@@ -1079,13 +1361,10 @@
     "firefoxInstructions": "Opciones > Privacidad y seguridad > Cookies y datos del sitio",
     "safariInstructions": "Preferencias > Privacidad > Gestionar datos de sitios web",
     "edgeInstructions": "Configuración > Cookies y permisos del sitio > Administrar y eliminar cookies",
-
     "acceptance": "Aceptación de Cookies",
     "acceptanceText": "Al continuar navegando por nuestro sitio web sin cambiar la configuración de cookies de su navegador, usted acepta el uso de cookies según lo descrito en esta política. Puede retirar su consentimiento en cualquier momento modificando la configuración de su navegador.",
-
     "updates": "Actualizaciones de Esta Política",
     "updatesText": "Podemos actualizar esta Política de Cookies periódicamente para reflejar cambios en las cookies que utilizamos o por otras razones operativas, legales o reglamentarias. Revise esta página regularmente para estar informado sobre nuestro uso de cookies.",
-
     "contact": "Contacto",
     "contactText": "Si tiene preguntas sobre nuestra Política de Cookies, puede contactarnos en"
   },
@@ -1094,7 +1373,6 @@
     "lastUpdated": "Última Actualización",
     "lastUpdatedDate": "9 de octubre de 2025",
     "intro": "En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), ATEP Consulting informa a los usuarios del sitio web sobre los siguientes aspectos legales.",
-
     "identification": "Datos Identificativos",
     "identificationText": "Los datos identificativos del titular del sitio web son:",
     "companyNameLabel": "Razón Social",
@@ -1102,55 +1380,32 @@
     "addressLabel": "Dirección",
     "emailLabel": "Email",
     "phoneLabel": "Teléfono",
-
     "purpose": "Objeto del Sitio Web",
     "purposeText": "El presente sitio web tiene como objetivo proporcionar información sobre los servicios de consultoría que ofrece ATEP Consulting, así como facilitar el contacto entre la empresa y sus potenciales clientes. El acceso y uso del sitio web atribuye la condición de usuario y supone la aceptación plena de todas las condiciones incluidas en este Aviso Legal.",
-
     "accessConditions": "Condiciones de Acceso y Uso",
     "accessConditionsText": "El acceso y uso de este sitio web implica la aceptación de las siguientes condiciones:",
     "accessItem1": "El usuario se compromete a hacer un uso adecuado del sitio web y de los contenidos, conforme a la legislación vigente y el presente Aviso Legal.",
     "accessItem2": "El usuario se obliga a no utilizar el sitio web con fines ilícitos o lesivos contra ATEP Consulting o terceros.",
     "accessItem3": "Queda prohibido cualquier uso del sitio web que pueda causar daños, inutilizar, sobrecargar o deteriorar el mismo o impedir su normal utilización.",
     "accessItem4": "El usuario no podrá introducir programas, virus, macros, applets, controles ActiveX o cualquier otro dispositivo lógico que pueda causar alteraciones en el sitio web.",
-
     "intellectualProperty": "Propiedad Intelectual e Industrial",
     "intellectualPropertyText": "Todos los contenidos del sitio web, incluyendo, sin carácter limitativo, textos, fotografías, gráficos, imágenes, iconos, tecnología, software, links y demás contenidos audiovisuales o sonoros, así como su diseño gráfico y códigos fuente, son propiedad intelectual de ATEP Consulting o de terceros, sin que puedan entenderse cedidos al usuario ninguno de los derechos de explotación reconocidos por la normativa vigente en materia de propiedad intelectual sobre los mismos. Queda prohibida la reproducción, distribución, comunicación pública, transformación o cualquier otra forma de explotación de los contenidos sin autorización previa y por escrito de ATEP Consulting.",
-
     "liability": "Limitación de Responsabilidad",
     "liabilityText": "ATEP Consulting no se hace responsable de:",
     "liabilityItem1": "La calidad del servicio, velocidad de acceso, correcto funcionamiento ni la disponibilidad ni continuidad del sitio web.",
     "liabilityItem2": "Los errores o inexactitudes que pudieran encontrarse en los contenidos del sitio web.",
     "liabilityItem3": "Los daños y perjuicios que pudieran derivarse del uso ilícito o indebido del sitio web por parte de los usuarios.",
-
     "externalLinks": "Enlaces a Sitios Web de Terceros",
     "externalLinksText": "El sitio web puede contener enlaces a sitios web de terceros. ATEP Consulting no asume ninguna responsabilidad sobre el contenido, exactitud o funcionamiento de dichos sitios web. El acceso y uso de los mismos será bajo la exclusiva responsabilidad del usuario.",
-
     "dataProtection": "Protección de Datos Personales",
     "dataProtectionText": "ATEP Consulting se compromete a proteger la privacidad de los usuarios. Para más información sobre cómo tratamos sus datos personales, consulte nuestra",
     "privacyPolicyLink": "Política de Privacidad",
-
     "applicableLegislation": "Legislación Aplicable y Jurisdicción",
     "applicableLegislationText": "Las presentes condiciones se rigen por la legislación española. Para la resolución de cualquier conflicto que pueda surgir con ocasión de la visita al sitio web o del uso de los servicios que en él se puedan ofertar, ATEP Consulting y el usuario acuerdan someterse a los Juzgados y Tribunales del domicilio del usuario. En caso de que el usuario tenga su domicilio fuera de España, ATEP Consulting y el usuario se someten, con renuncia expresa a cualquier otro fuero, a los juzgados y tribunales de la ciudad donde ATEP Consulting tiene su domicilio social.",
-
     "modifications": "Modificaciones",
     "modificationsText": "ATEP Consulting se reserva el derecho de efectuar sin previo aviso las modificaciones que considere oportunas en su sitio web, pudiendo cambiar, suprimir o añadir tanto los contenidos y servicios que se presten a través de la misma como la forma en la que éstos aparezcan presentados o localizados.",
-
     "contact": "Contacto",
     "contactText": "Para cualquier consulta relacionada con este Aviso Legal, puede contactarnos en"
-  },
-  "404": {
-    "title": "404 - Página No Encontrada",
-    "subtitle": "La página que buscas no existe",
-    "heading": "Página No Encontrada",
-    "message": "¡Ups! La página que buscas no existe. Puede que haya sido movida o eliminada.",
-    "backHome": "Volver al Inicio",
-    "quickLinks": "Enlaces Rápidos",
-    "homeLink": "Inicio",
-    "homeDesc": "Volver a la página principal",
-    "servicesLink": "Servicios",
-    "servicesDesc": "Explora nuestros servicios",
-    "blogLink": "Blog",
-    "blogDesc": "Lee nuestros artículos"
   },
   "footer": {
     "tagline": "Software a medida que devuelve tiempo a tu operación. Código que te pertenece.",
@@ -1167,5 +1422,53 @@
   "whatsapp": {
     "defaultMessage": "Hola, vengo de la web de ATEP. Me gustaría 20 minutos con un técnico para evaluar mi situación.",
     "tooltip": "¿Necesitas ayuda?"
+  },
+  "megaNav": {
+    "servicesLead": "Cada servicio responde a un dolor operativo concreto.",
+    "companyLead": "Quiénes somos y qué hemos entregado.",
+    "aboutTitle": "Quiénes somos",
+    "aboutText": "Conoce al equipo y cómo trabajamos",
+    "casesTitle": "Casos de éxito",
+    "casesText": "Trabajo entregado, con cifras reales",
+    "blogText": "Migración, automatización y coste",
+    "contactText": "20 minutos con un técnico",
+    "scheduleText": "Elige hueco en la agenda",
+    "legalText": "Condiciones de uso del sitio",
+    "privacyText": "Cómo tratamos tus datos",
+    "cookiesText": "Qué guardamos y por qué",
+    "viewAllServices": "Ver todos los servicios",
+    "viewAllCases": "Ver todos los casos"
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title1": "Preguntas resueltas",
+    "title2": "antes de la primera llamada.",
+    "subtitle": "Lo que suele preguntarse antes de empezar. Si falta algo, escríbenos y te lo respondemos por escrito.",
+    "items": [
+      {
+        "q": "¿De quién es el código cuando termina el proyecto?",
+        "a": "Tuyo, desde el primer commit. Entregamos repositorios, infraestructura y documentación a tu nombre, sin dependencia de nosotros para seguir trabajando."
+      },
+      {
+        "q": "¿El presupuesto puede crecer a mitad de proyecto?",
+        "a": "El alcance y el precio se cierran antes de empezar. Si aparece algo fuera de alcance, se valora aparte y lo decides tú antes de que se ejecute."
+      },
+      {
+        "q": "¿Cómo compruebo que se está avanzando?",
+        "a": "Con entregas semanales que puedes abrir y probar, y sprints quincenales con demo. El avance se verifica, no se cuenta en una reunión."
+      },
+      {
+        "q": "¿Qué pasa si quiero dejar de trabajar con vosotros?",
+        "a": "Está previsto por escrito: el plan de salida va en el contrato desde el primer día, con todo lo necesario para que otro equipo continúe."
+      },
+      {
+        "q": "¿Podéis migrar un sistema antiguo sin parar la operación?",
+        "a": "Es a lo que nos dedicamos. Validamos contra el sistema original campo a campo antes del cutover, con escenarios reproducibles."
+      },
+      {
+        "q": "¿Cuánto tardáis en empezar?",
+        "a": "El refuerzo técnico está disponible en 48 horas. Para un proyecto completo, el diagnóstico son 20 minutos y la propuesta llega en días, no semanas."
+      }
+    ]
   }
 }

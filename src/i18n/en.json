@@ -1,4 +1,18 @@
 {
+  "404": {
+    "title": "404 - Page Not Found",
+    "subtitle": "The page you're looking for doesn't exist",
+    "heading": "Page Not Found",
+    "message": "Oops! The page you're looking for doesn't exist. It might have been moved or deleted.",
+    "backHome": "Back to Home",
+    "quickLinks": "Quick Links",
+    "homeLink": "Home",
+    "homeDesc": "Back to homepage",
+    "servicesLink": "Services",
+    "servicesDesc": "Explore our services",
+    "blogLink": "Blog",
+    "blogDesc": "Read our articles"
+  },
   "nav": {
     "home": "Home",
     "about": "Company",
@@ -101,7 +115,27 @@
     "whyChoose2Title": "Audited process, not a leap of faith",
     "whyChoose2Text": "We validate against the original system before cutover — reproducible scenarios, field-by-field match. Decisions backed by data, not trust.",
     "whyChoose3Title": "Onboarded in 48h",
-    "whyChoose3Text": "No long selection process. Call today, first commit the day after. Same time zone, same language, zero ramp-up."
+    "whyChoose3Text": "No long selection process. Call today, first commit the day after. Same time zone, same language, zero ramp-up.",
+    "whyChoose4Title": "Fixed budget",
+    "whyChoose4Text": "Scope and price are agreed before we start. No surprise invoice growing halfway through the project.",
+    "whyChoose5Title": "Verifiable deliveries",
+    "whyChoose5Text": "Weekly deliveries you can open and test. Progress is checked, not narrated in a status meeting.",
+    "whyChoose6Title": "Exit plan in writing",
+    "whyChoose6Text": "How you take everything with you, and who continues, is in the contract from day one. Staying is a decision, not a lock-in.",
+    "clientsLabel": "Clients",
+    "readCase": "Read the case",
+    "resultsEyebrow": "Results",
+    "casesTitle1": "Delivered work,",
+    "casesTitle2": "not promises.",
+    "blogTitle1": "What we write",
+    "blogTitle2": "when we solve something.",
+    "heroEyebrow": "ATEP Consulting · IT consulting & software development · Valencia",
+    "kpiEyebrow": "Results",
+    "kpiTitle1": "What changes",
+    "kpiTitle2": "when it is done right.",
+    "kpiProjects": "Projects delivered",
+    "kpiClients": "Clients on the books",
+    "kpiSince": "Building software since"
   },
   "CTA": {
     "badge": "Honest conversation",
@@ -118,23 +152,35 @@
     "subtitle": "We build exactly what you need to give time back to your operations. No templates, no vendor lock-in, with code you own.",
     "viewAll": "View All Services",
     "readMore": "Read More",
-
     "professionalWebsites": {
       "name": "Corporate Websites",
       "description": "Fast, optimized websites designed to convert visitors into customers.",
-      "heroStat": { "number": "1.2s", "label": "load time" },
+      "heroStat": {
+        "number": "1.2s",
+        "label": "load time"
+      },
       "badge": "Ultra-fast loading",
       "keywords": "web development, professional websites, SEO, responsive design, business websites",
       "whatWeDo": "What We Do",
       "whatWeDoText": "We develop 100% custom corporate websites — no templates, no limits. Clean code, optimized architecture, and exceptional performance from day one. Every website is designed to elevate your brand and drive conversions.",
-
       "stats": [
-        { "number": "1.2s", "label": "Load Time" },
-        { "number": "90+", "label": "PageSpeed Score" },
-        { "number": "100%", "label": "Custom Code" },
-        { "number": "24/7", "label": "Support" }
+        {
+          "number": "1.2s",
+          "label": "Load Time"
+        },
+        {
+          "number": "90+",
+          "label": "PageSpeed Score"
+        },
+        {
+          "number": "100%",
+          "label": "Custom Code"
+        },
+        {
+          "number": "24/7",
+          "label": "Support"
+        }
       ],
-
       "benefits": "Benefits That Make a Difference",
       "benefitsSubtitle": "Your website isn’t just a digital card — it’s your best salesperson, working 24/7.",
       "benefitsList": [
@@ -155,7 +201,6 @@
           "description": "Hosting, maintenance, and updates included. We handle everything so you can focus on your business."
         }
       ],
-
       "featuresTitle": "Cutting-Edge Technology",
       "featuresSubtitle": "We use the most modern and proven tech stack on the market",
       "features": [
@@ -172,7 +217,6 @@
           "description": "Measure performance from day one. Know exactly what’s working and what to improve."
         }
       ],
-
       "processTitle": "Our Work Process",
       "processSubtitle": "From concept to production in record time",
       "processSteps": [
@@ -197,28 +241,32 @@
           "description": "Optimized deployment, SEO setup, analytics, and training so you can manage your website easily."
         }
       ],
-
       "whyChoose": "Why Choose Us",
       "whyChooseText": "Our websites aren’t modified WordPress or Wix templates. They’re hand-crafted projects built with the latest technologies. The result: sites that load in under 2 seconds, rank on Google from day one, and convey professional trust from the first click. No technical limitations, no bloat, no plugin dependencies. Your site, your code, your ownership.",
       "guarantees": [
-        { "text": "No Templates" },
-        { "text": "Custom Code" },
-        { "text": "Fast Delivery" }
+        {
+          "text": "No Templates"
+        },
+        {
+          "text": "Custom Code"
+        },
+        {
+          "text": "Fast Delivery"
+        }
       ],
-
       "ctaText": "Let’s talk about your project. You’ll get a personalized proposal within 48 hours."
     },
-
     "fullStackDevelopment": {
       "name": "Custom Web Apps",
       "description": "Complete custom platforms and applications, from concept to production",
-      "heroStat": { "number": "0", "label": "vendor lock-in" },
+      "heroStat": {
+        "number": "0",
+        "label": "vendor lock-in"
+      },
       "badge": "100% Custom Solution",
       "keywords": "full stack development, web applications, SaaS development, React, TypeScript, Node.js, custom software",
-
       "whatWeDo": "What We Do",
       "whatWeDoText": "We develop complete web applications (frontend + backend) from scratch. From internal management platforms to scalable public SaaS. We don't use templates or generic solutions: each project is unique, designed specifically to solve your business problems. Scalable architecture, maintainable code, and cutting-edge technology (React, TypeScript, Node.js).",
-
       "stats": [
         {
           "number": "Full Stack",
@@ -237,10 +285,8 @@
           "label": "Full ownership"
         }
       ],
-
       "projectTypesTitle": "Types of Projects We Develop",
       "projectTypesSubtitle": "Real experience in complex applications",
-
       "projectTypes": [
         {
           "title": "Internal Management Platforms",
@@ -259,10 +305,8 @@
           "description": "Interactive dashboards, data visualization, automated reports, custom business intelligence."
         }
       ],
-
       "benefits": "Advantages of Our Development",
       "benefitsSubtitle": "We don't sell code, we sell solutions that work",
-
       "benefitsList": [
         {
           "title": "100% Custom Solution",
@@ -281,10 +325,8 @@
           "description": "All source code is yours. No dependency on us. You can modify it, extend it, or hire another team in the future without problems."
         }
       ],
-
       "featuresTitle": "Technology Stack We Use",
       "featuresSubtitle": "Modern, proven technologies with a future",
-
       "features": [
         {
           "title": "Modern Frontend",
@@ -299,10 +341,8 @@
           "description": "PostgreSQL or MongoDB depending on your case. Optimized design, automatic backups, efficient queries."
         }
       ],
-
       "processTitle": "How We Develop Your Application",
       "processSubtitle": "Transparent process with partial deliveries and constant feedback",
-
       "processSteps": [
         {
           "number": "01",
@@ -325,10 +365,8 @@
           "description": "We deploy to production, configure analytics, train your team, and deliver documentation."
         }
       ],
-
       "whyChoose": "Why We're Your Best Option",
       "whyChooseText": "We are senior developers with real experience in complex projects. We're not an agency that outsources: you talk directly with who programs your application. Transparent communication, fast deliveries, and professional-quality code you can maintain without us. We've developed from CRMs for sales teams to SaaS platforms with thousands of users. We know the challenges, common mistakes, and how to avoid them.",
-
       "guarantees": [
         {
           "text": "Weekly Deliveries"
@@ -340,31 +378,40 @@
           "text": "Testing Included"
         }
       ],
-
       "ctaText": "Have a web application idea? Tell us about your project and we'll give you a detailed plan with timeline and budget in less than 48 hours."
     },
-
     "onDemandTeam": {
       "name": "Tech Reinforcement",
       "description": "Development reinforcement when your team needs it, available within 48 hours.",
-      "heroStat": { "number": "48h", "label": "response after the call" },
+      "heroStat": {
+        "number": "48h",
+        "label": "response after the call"
+      },
       "badge": "Available in 48 Hours",
       "keywords": "on-demand developers, tech team, software outsourcing, temporary developers, IT support, remote development",
-
       "whatWeDo": "What We Do",
       "whatWeDoText": "We provide senior developers to strengthen your team for urgent deliveries, high workloads, or tight deadlines. We integrate into your workflow immediately, with no learning curve. Flexible billing, no long-term contracts.",
-
       "stats": [
-        { "number": "48h", "label": "Response Time" },
-        { "number": "5+ yrs", "label": "Experience Level" },
-        { "number": "0", "label": "Notice Days" },
-        { "number": "100%", "label": "Commitment" }
+        {
+          "number": "48h",
+          "label": "Response Time"
+        },
+        {
+          "number": "5+ yrs",
+          "label": "Experience Level"
+        },
+        {
+          "number": "0",
+          "label": "Notice Days"
+        },
+        {
+          "number": "100%",
+          "label": "Commitment"
+        }
       ],
-
       "urgencyTitle": "Urgent Delivery? We Can Start NOW",
       "urgencyText": "If your project has a critical deadline and needs immediate technical reinforcement, we can start tomorrow. No bureaucracy, no long processes.",
       "urgencyButton": "Contact Now",
-
       "useCasesTitle": "When Do You Need Our Team?",
       "useCasesSubtitle": "Real situations where we’ve made the difference",
       "useCases": [
@@ -385,7 +432,6 @@
           "description": "Your key developer goes on vacation mid-project. We cover the position seamlessly."
         }
       ],
-
       "benefits": "Benefits of Working With Us",
       "benefitsSubtitle": "We’re not a generic outsourcing hub — we’re real developers",
       "benefitsList": [
@@ -406,7 +452,6 @@
           "description": "Per day, project, or sprint. Whatever works best for you. No long-term commitments or hidden clauses."
         }
       ],
-
       "featuresTitle": "Technologies We Work With",
       "featuresSubtitle": "Modern, proven stack used in real projects",
       "features": [
@@ -418,9 +463,11 @@
           "title": "Backend",
           "description": "Node.js, NestJS, .NET, Java Spring"
         },
-        { "title": "Cloud", "description": "Azure, AWS, Vercel, Docker" }
+        {
+          "title": "Cloud",
+          "description": "Azure, AWS, Vercel, Docker"
+        }
       ],
-
       "processTitle": "How We Work Together",
       "processSubtitle": "A simple, frictionless process",
       "processSteps": [
@@ -440,35 +487,50 @@
           "description": "Access granted, onboarding in hours, first commit within 48h. Daily updates on progress."
         }
       ],
-
       "whyChoose": "Why Choose Us",
       "whyChooseText": "We understand the pressure of deadlines. We’ve rescued multiple projects in their final weeks when everything seemed lost. We’re not an offshore team you’ll only meet on Zoom — we’re local developers in your timezone, same language, same culture. Real technical expertise, proven speed, and absolute commitment to your deadlines.",
-
       "guarantees": [
-        { "text": "No Surprises" },
-        { "text": "Direct Communication" },
-        { "text": "Guaranteed Delivery" }
+        {
+          "text": "No Surprises"
+        },
+        {
+          "text": "Direct Communication"
+        },
+        {
+          "text": "Guaranteed Delivery"
+        }
       ],
-
       "ctaText": "Does your team need reinforcement now? Let’s talk today — we can start tomorrow."
     },
     "legacyMigration": {
       "name": "Legacy Migration & Modernization",
       "description": "Transform your legacy software into modern applications without disrupting operations.",
-      "heroStat": { "number": "0h", "label": "planned downtime" },
+      "heroStat": {
+        "number": "0h",
+        "label": "planned downtime"
+      },
       "badge": "Maintainable, Documented Code",
       "keywords": "legacy migration, software modernization, refactoring, digital transformation, system upgrade, old software replacement",
-
       "whatWeDo": "What We Do",
       "whatWeDoText": "We migrate outdated systems to modern technologies — from old CLI apps to unmaintainable monoliths. We conduct a detailed analysis, design a phased migration strategy, and execute with minimal impact on your daily operations.",
-
       "stats": [
-        { "number": "90%", "label": "Fewer issues after migration" },
-        { "number": "3x", "label": "Performance improvement" },
-        { "number": "0h", "label": "Planned downtime" },
-        { "number": "10+", "label": "Years of migration experience" }
+        {
+          "number": "90%",
+          "label": "Fewer issues after migration"
+        },
+        {
+          "number": "3x",
+          "label": "Performance improvement"
+        },
+        {
+          "number": "0h",
+          "label": "Planned downtime"
+        },
+        {
+          "number": "10+",
+          "label": "Years of migration experience"
+        }
       ],
-
       "useCasesTitle": "Common Migration Scenarios",
       "useCasesSubtitle": "Real examples where we’ve transformed legacy systems",
       "useCases": [
@@ -489,7 +551,6 @@
           "description": "We evolve critical modules step-by-step, keeping your business running at all times."
         }
       ],
-
       "benefits": "Benefits",
       "benefitsSubtitle": "Modernize your infrastructure without disrupting your business",
       "benefitsList": [
@@ -510,7 +571,6 @@
           "description": "We migrate in phases, ensuring business continuity throughout the process."
         }
       ],
-
       "featuresTitle": "Technologies We Use",
       "featuresSubtitle": "We upgrade your stack using modern, proven tools",
       "features": [
@@ -531,7 +591,6 @@
           "description": "Docker, Azure, AWS, CI/CD Pipelines"
         }
       ],
-
       "processTitle": "How We Work",
       "processSubtitle": "A structured process designed to minimize risk and maximize success",
       "processSteps": [
@@ -556,35 +615,50 @@
           "description": "We fine-tune performance and provide post-deployment support to guarantee success."
         }
       ],
-
       "whyChoose": "Why Choose Us",
       "whyChooseText": "We have real experience in complex migrations — from CLI to Web, from old .NET to Node.js, from legacy databases to cloud environments. We understand the risks and know how to mitigate them. Your current challenge can become our next success story.",
-
       "guarantees": [
-        { "text": "Zero Downtime" },
-        { "text": "Documented Code" },
-        { "text": "Guaranteed Delivery" }
+        {
+          "text": "Zero Downtime"
+        },
+        {
+          "text": "Documented Code"
+        },
+        {
+          "text": "Guaranteed Delivery"
+        }
       ],
-
       "ctaText": "Is your legacy system holding you back? Let’s design your modernization plan today."
     },
     "automation": {
       "name": "Process Automation",
       "description": "Save time and reduce errors by automating repetitive business tasks.",
-      "heroStat": { "number": "70%", "label": "fewer manual tasks" },
+      "heroStat": {
+        "number": "70%",
+        "label": "fewer manual tasks"
+      },
       "badge": "Save hours every week",
       "keywords": "automation, RPA, process robots, efficiency, error reduction, integrations, bots, scripts, productivity",
-
       "whatWeDo": "What We Do",
       "whatWeDoText": "We identify manual, time-consuming processes in your organization and automate them — from tool integrations to complex workflows. We build custom scripts, intelligent bots, and RPA solutions tailored to your business needs.",
-
       "stats": [
-        { "number": "6m", "label": "Average ROI in under 6 months" },
-        { "number": "70%", "label": "Reduction in repetitive tasks" },
-        { "number": "95%", "label": "Fewer human errors" },
-        { "number": "24/7", "label": "Continuous automated operation" }
+        {
+          "number": "6m",
+          "label": "Average ROI in under 6 months"
+        },
+        {
+          "number": "70%",
+          "label": "Reduction in repetitive tasks"
+        },
+        {
+          "number": "95%",
+          "label": "Fewer human errors"
+        },
+        {
+          "number": "24/7",
+          "label": "Continuous automated operation"
+        }
       ],
-
       "useCasesTitle": "Common Use Cases",
       "useCasesSubtitle": "Real examples of applied automation",
       "useCases": [
@@ -605,7 +679,6 @@
           "description": "We automate repetitive tasks like data entry, validation, or information transfers."
         }
       ],
-
       "benefits": "Benefits",
       "benefitsSubtitle": "Boost productivity by eliminating unnecessary manual work",
       "benefitsList": [
@@ -626,7 +699,6 @@
           "description": "We design automation that fits perfectly with your existing tools."
         }
       ],
-
       "featuresTitle": "Technologies We Use",
       "featuresSubtitle": "Smart automation with best-in-class tools",
       "features": [
@@ -647,7 +719,6 @@
           "description": "AWS Lambda, Google Cloud Functions, Azure Logic Apps"
         }
       ],
-
       "processTitle": "How We Work",
       "processSubtitle": "From process detection to tangible results",
       "processSteps": [
@@ -672,199 +743,434 @@
           "description": "We monitor performance and scale automation progressively."
         }
       ],
-
       "whyChoose": "Why Choose Us",
       "whyChooseText": "We don’t sell generic automation. We analyze your real operations and build specific solutions that generate immediate savings. We focus on measurable outcomes — fewer errors, higher efficiency, and fast ROI.",
-
       "guarantees": [
-        { "text": "Measurable ROI" },
-        { "text": "Seamless Integration" },
-        { "text": "Guaranteed Implementation" }
+        {
+          "text": "Measurable ROI"
+        },
+        {
+          "text": "Seamless Integration"
+        },
+        {
+          "text": "Guaranteed Implementation"
+        }
       ],
-
       "ctaText": "Is your team wasting time on repetitive tasks? Automate them and boost productivity today."
     },
     "aiSolutions": {
       "name": "Applied Artificial Intelligence",
       "description": "Assistants, chatbots and AI agents that understand your business and work with your real information.",
-      "heroStat": { "number": "80%", "label": "fewer repeat queries" },
+      "heroStat": {
+        "number": "80%",
+        "label": "fewer repeat queries"
+      },
       "badge": "AI with purpose",
       "keywords": "artificial intelligence, AI, LLM, GPT, chatbot, AI assistant, RAG, agents, OpenAI, Anthropic, smart automation",
       "whatWeDo": "What We Do",
       "whatWeDoText": "We design and ship business-grade AI solutions: chatbots that know your products, assistants that answer using your internal documentation, agents that execute complex tasks, and automatic analysis of unstructured data. We work with leading models (OpenAI, Anthropic, open-source models) and connect to your existing systems.",
       "stats": [
-        { "number": "24/7", "label": "Assistant availability" },
-        { "number": "80%", "label": "Reduction in repetitive queries" },
-        { "number": "3s", "label": "Average response with your data" },
-        { "number": "100%", "label": "Traceability of every answer" }
+        {
+          "number": "24/7",
+          "label": "Assistant availability"
+        },
+        {
+          "number": "80%",
+          "label": "Reduction in repetitive queries"
+        },
+        {
+          "number": "3s",
+          "label": "Average response with your data"
+        },
+        {
+          "number": "100%",
+          "label": "Traceability of every answer"
+        }
       ],
       "benefits": "Why bring AI in now",
       "benefitsSubtitle": "It's not magic — it's freeing your team from cognitive tasks a well-built assistant handles in seconds",
       "benefitsList": [
-        { "title": "24/7 support without scaling headcount", "description": "Your chatbot handles customer queries at any hour and escalates only the cases that really need a human." },
-        { "title": "Your knowledge, instantly accessible", "description": "Manuals, contracts, FAQs and internal policies: your team asks in natural language and gets precise answers citing the source." },
-        { "title": "Analysis of unstructured data", "description": "Emails, tickets, reviews or contracts: AI extracts patterns, sentiment and recommended actions without anyone reading them one by one." },
-        { "title": "Agents that execute, not just chat", "description": "Beyond chat: agents that update your CRM, generate reports, schedule meetings or trigger workflows with the right context." }
+        {
+          "title": "24/7 support without scaling headcount",
+          "description": "Your chatbot handles customer queries at any hour and escalates only the cases that really need a human."
+        },
+        {
+          "title": "Your knowledge, instantly accessible",
+          "description": "Manuals, contracts, FAQs and internal policies: your team asks in natural language and gets precise answers citing the source."
+        },
+        {
+          "title": "Analysis of unstructured data",
+          "description": "Emails, tickets, reviews or contracts: AI extracts patterns, sentiment and recommended actions without anyone reading them one by one."
+        },
+        {
+          "title": "Agents that execute, not just chat",
+          "description": "Beyond chat: agents that update your CRM, generate reports, schedule meetings or trigger workflows with the right context."
+        }
       ],
       "featuresTitle": "Technical capabilities",
       "featuresSubtitle": "Applied AI at the detail level, no black boxes",
       "features": [
-        { "title": "Leading models", "description": "We work with OpenAI, Anthropic and open-source models when privacy demands it." },
-        { "title": "RAG over your data", "description": "The assistant answers using only your real documentation, not generic internet knowledge." },
-        { "title": "Full traceability", "description": "Every answer cites its source and is logged for audit." }
+        {
+          "title": "Leading models",
+          "description": "We work with OpenAI, Anthropic and open-source models when privacy demands it."
+        },
+        {
+          "title": "RAG over your data",
+          "description": "The assistant answers using only your real documentation, not generic internet knowledge."
+        },
+        {
+          "title": "Full traceability",
+          "description": "Every answer cites its source and is logged for audit."
+        }
       ],
       "processTitle": "How we approach it",
       "processSubtitle": "From use case to production in weeks, not months",
       "processSteps": [
-        { "number": "01", "title": "Concrete use case", "description": "We identify the flow where AI adds the most value: support, sales, HR or operations." },
-        { "number": "02", "title": "Prototype in 2 weeks", "description": "We build an MVP with your real data so you see results before investing more." },
-        { "number": "03", "title": "Integration with your systems", "description": "We connect the assistant with your CRM, database, ERP or whichever channel you need." },
-        { "number": "04", "title": "Monitoring and improvement", "description": "Usage metrics, continuous prompt tuning and training with real feedback." }
+        {
+          "number": "01",
+          "title": "Concrete use case",
+          "description": "We identify the flow where AI adds the most value: support, sales, HR or operations."
+        },
+        {
+          "number": "02",
+          "title": "Prototype in 2 weeks",
+          "description": "We build an MVP with your real data so you see results before investing more."
+        },
+        {
+          "number": "03",
+          "title": "Integration with your systems",
+          "description": "We connect the assistant with your CRM, database, ERP or whichever channel you need."
+        },
+        {
+          "number": "04",
+          "title": "Monitoring and improvement",
+          "description": "Usage metrics, continuous prompt tuning and training with real feedback."
+        }
       ],
       "whyChoose": "Why ATEP",
       "whyChooseText": "We don't sell 'AI' as a buzzword. We design specific solutions that solve a concrete operational problem, with clear metrics and your data privacy as a priority. If AI isn't the answer, we'll tell you.",
       "guarantees": [
-        { "text": "Confidentiality of your data" },
-        { "text": "Open-source models available" },
-        { "text": "Transparent usage metrics" }
+        {
+          "text": "Confidentiality of your data"
+        },
+        {
+          "text": "Open-source models available"
+        },
+        {
+          "text": "Transparent usage metrics"
+        }
       ],
       "ctaText": "Got a repetitive process or an AI use case in mind? Tell us the context and we'll let you know whether it makes sense and how to tackle it."
     },
     "mobileApps": {
       "name": "Bespoke Mobile Apps",
       "description": "Native and cross-platform applications for iOS and Android, built to scale and last over time.",
-      "heroStat": { "number": "60fps", "label": "native transitions" },
+      "heroStat": {
+        "number": "60fps",
+        "label": "native transitions"
+      },
       "badge": "iOS · Android · Cross-platform",
       "keywords": "mobile apps, iOS development, Android development, React Native, Swift, Kotlin, custom app, mobile application",
       "whatWeDo": "What We Do",
       "whatWeDoText": "We build mobile apps from scratch or evolve the ones you already have. We work both native (Swift for iOS, Kotlin for Android) and cross-platform with React Native when the case justifies it. We design for performance, accessibility and long-term maintainability — not just for launch day.",
       "stats": [
-        { "number": "2", "label": "Platforms from a single codebase" },
-        { "number": "60fps", "label": "Smoothness in critical transitions" },
-        { "number": "<3s", "label": "Cold start time" },
-        { "number": "100%", "label": "iOS + Android coverage" }
+        {
+          "number": "2",
+          "label": "Platforms from a single codebase"
+        },
+        {
+          "number": "60fps",
+          "label": "Smoothness in critical transitions"
+        },
+        {
+          "number": "<3s",
+          "label": "Cold start time"
+        },
+        {
+          "number": "100%",
+          "label": "iOS + Android coverage"
+        }
       ],
       "benefits": "Why a custom app over a template",
       "benefitsSubtitle": "Your business has unique flows. A template forces you to adapt your operation to the product, not the other way around.",
       "benefitsList": [
-        { "title": "Real performance, not demo performance", "description": "We optimize every screen so the app works just as well with 100 records as with 100,000." },
-        { "title": "Offline-first when you need it", "description": "Smart sync so your app works without connection and reconciles data when the network comes back." },
-        { "title": "Relevant push notifications", "description": "Segmented, contextual push — not spam. Open and conversion metrics built in." },
-        { "title": "Maintainable years out", "description": "Documented code, automated tests and architecture ready to grow without rewrites." }
+        {
+          "title": "Real performance, not demo performance",
+          "description": "We optimize every screen so the app works just as well with 100 records as with 100,000."
+        },
+        {
+          "title": "Offline-first when you need it",
+          "description": "Smart sync so your app works without connection and reconciles data when the network comes back."
+        },
+        {
+          "title": "Relevant push notifications",
+          "description": "Segmented, contextual push — not spam. Open and conversion metrics built in."
+        },
+        {
+          "title": "Maintainable years out",
+          "description": "Documented code, automated tests and architecture ready to grow without rewrites."
+        }
       ],
       "featuresTitle": "Stack and capabilities",
       "featuresSubtitle": "Tech choices that back up the engineering decision",
       "features": [
-        { "title": "Native when it matters", "description": "Swift and Kotlin for apps with performance requirements or intensive hardware use (camera, GPS, sensors)." },
-        { "title": "React Native for speed", "description": "One codebase for both platforms when time-to-market matters and the app is reasonably standard." },
-        { "title": "App Store + Play Store", "description": "We handle the full publishing process, reviews and updates." }
+        {
+          "title": "Native when it matters",
+          "description": "Swift and Kotlin for apps with performance requirements or intensive hardware use (camera, GPS, sensors)."
+        },
+        {
+          "title": "React Native for speed",
+          "description": "One codebase for both platforms when time-to-market matters and the app is reasonably standard."
+        },
+        {
+          "title": "App Store + Play Store",
+          "description": "We handle the full publishing process, reviews and updates."
+        }
       ],
       "processTitle": "How we build your app",
       "processSubtitle": "Two-week sprints with a demo at the end of each one",
       "processSteps": [
-        { "number": "01", "title": "Discovery and prototype", "description": "Key flows validated in a clickable prototype before writing code." },
-        { "number": "02", "title": "MVP in 8-12 weeks", "description": "Working version with the critical flows ready for real user testing." },
-        { "number": "03", "title": "Iteration with feedback", "description": "We refine what usage data shows actually matters, not what we assumed at the start." },
-        { "number": "04", "title": "Launch and operation", "description": "Release on both stores and ongoing support if you need it." }
+        {
+          "number": "01",
+          "title": "Discovery and prototype",
+          "description": "Key flows validated in a clickable prototype before writing code."
+        },
+        {
+          "number": "02",
+          "title": "MVP in 8-12 weeks",
+          "description": "Working version with the critical flows ready for real user testing."
+        },
+        {
+          "number": "03",
+          "title": "Iteration with feedback",
+          "description": "We refine what usage data shows actually matters, not what we assumed at the start."
+        },
+        {
+          "number": "04",
+          "title": "Launch and operation",
+          "description": "Release on both stores and ongoing support if you need it."
+        }
       ],
       "whyChoose": "Why ATEP",
       "whyChooseText": "We're not an agency that delivers and disappears. We design every app thinking about who's going to maintain it three years from now — usually us, so we set a high bar on code, tests and documentation.",
       "guarantees": [
-        { "text": "Documented and audited code" },
-        { "text": "Automated tests from day one" },
-        { "text": "Publishing on App Store and Play Store" }
+        {
+          "text": "Documented and audited code"
+        },
+        {
+          "text": "Automated tests from day one"
+        },
+        {
+          "text": "Publishing on App Store and Play Store"
+        }
       ],
       "ctaText": "Got an app idea or want to modernize an existing one? We'll tell you within 24h whether native or cross-platform is the right call for your case."
     },
     "ecommerce": {
       "name": "Custom E-commerce",
       "description": "Fast online stores, optimized for conversion and built to sell — with or without a traditional payment gateway.",
-      "heroStat": { "number": "+25%", "label": "typical conversion lift" },
+      "heroStat": {
+        "number": "+25%",
+        "label": "typical conversion lift"
+      },
       "badge": "Designed to sell",
       "keywords": "ecommerce, online store, online sales, Stripe, Shopify, headless commerce, payment gateway, WooCommerce, shopping cart",
       "whatWeDo": "What We Do",
       "whatWeDoText": "We build custom online stores. From catalogs with WhatsApp checkout (no gateway fees) to headless platforms with Stripe, Shopify or WooCommerce. We design for speed and conversion: every step of the funnel is built so the customer completes the purchase.",
       "stats": [
-        { "number": "<2s", "label": "Product page load time" },
-        { "number": "+25%", "label": "Typical conversion lift" },
-        { "number": "100%", "label": "Mobile-first checkout" },
-        { "number": "0", "label": "Per-sale fees with WhatsApp" }
+        {
+          "number": "<2s",
+          "label": "Product page load time"
+        },
+        {
+          "number": "+25%",
+          "label": "Typical conversion lift"
+        },
+        {
+          "number": "100%",
+          "label": "Mobile-first checkout"
+        },
+        {
+          "number": "0",
+          "label": "Per-sale fees with WhatsApp"
+        }
       ],
       "benefits": "Why your store deserves more than a template",
       "benefitsSubtitle": "Every decimal of conversion counts. A generic store limits you exactly where you shouldn't be limited.",
       "benefitsList": [
-        { "title": "Speed that sells", "description": "Every extra second of load time costs you conversion. We optimize performance to the last kilobyte." },
-        { "title": "Friction-free checkout", "description": "Fewer steps, fewer fields, more conversion. We design the buying flow to minimize abandonment." },
-        { "title": "No per-sale fees (optional)", "description": "WhatsApp or email checkout for small businesses that don't want to give up a % to Stripe or PayPal." },
-        { "title": "Real inventory integration", "description": "If you have an ERP, POS or inventory system, we connect them so stock and prices are always in sync." }
+        {
+          "title": "Speed that sells",
+          "description": "Every extra second of load time costs you conversion. We optimize performance to the last kilobyte."
+        },
+        {
+          "title": "Friction-free checkout",
+          "description": "Fewer steps, fewer fields, more conversion. We design the buying flow to minimize abandonment."
+        },
+        {
+          "title": "No per-sale fees (optional)",
+          "description": "WhatsApp or email checkout for small businesses that don't want to give up a % to Stripe or PayPal."
+        },
+        {
+          "title": "Real inventory integration",
+          "description": "If you have an ERP, POS or inventory system, we connect them so stock and prices are always in sync."
+        }
       ],
       "featuresTitle": "Technical options",
       "featuresSubtitle": "We pick the stack based on your business, not the other way around",
       "features": [
-        { "title": "Headless or all-in-one", "description": "Headless Shopify when you want full flexibility, or classic WooCommerce/Shopify when you prefer simplicity." },
-        { "title": "Gateways you choose", "description": "Stripe, PayPal, Redsys, Bizum or WhatsApp checkout. Every business has its own." },
-        { "title": "Multi-language and multi-currency", "description": "If you sell outside your country, the store adapts to the visitor's language and currency." }
+        {
+          "title": "Headless or all-in-one",
+          "description": "Headless Shopify when you want full flexibility, or classic WooCommerce/Shopify when you prefer simplicity."
+        },
+        {
+          "title": "Gateways you choose",
+          "description": "Stripe, PayPal, Redsys, Bizum or WhatsApp checkout. Every business has its own."
+        },
+        {
+          "title": "Multi-language and multi-currency",
+          "description": "If you sell outside your country, the store adapts to the visitor's language and currency."
+        }
       ],
       "processTitle": "How we launch your store",
       "processSubtitle": "Catalog, checkout and metrics ready before going loud",
       "processSteps": [
-        { "number": "01", "title": "Strategy and stack", "description": "We decide together on gateway, hosting, integrations and management model." },
-        { "number": "02", "title": "Design and catalog", "description": "Product template, categories, navigation and technical SEO from day one." },
-        { "number": "03", "title": "Checkout and metrics", "description": "Optimized buying flow and analytics built in to measure every step of the funnel." },
-        { "number": "04", "title": "Launch and support", "description": "Data migration if you come from another platform, training for your team and post-launch support." }
+        {
+          "number": "01",
+          "title": "Strategy and stack",
+          "description": "We decide together on gateway, hosting, integrations and management model."
+        },
+        {
+          "number": "02",
+          "title": "Design and catalog",
+          "description": "Product template, categories, navigation and technical SEO from day one."
+        },
+        {
+          "number": "03",
+          "title": "Checkout and metrics",
+          "description": "Optimized buying flow and analytics built in to measure every step of the funnel."
+        },
+        {
+          "number": "04",
+          "title": "Launch and support",
+          "description": "Data migration if you come from another platform, training for your team and post-launch support."
+        }
       ],
       "whyChoose": "Why ATEP",
       "whyChooseText": "We sell stores that sell. We care about conversion, AOV and CAC much more than showing you the latest technology. Every technical decision is justified by the impact on your P&L.",
       "guarantees": [
-        { "text": "Lighthouse performance 90+" },
-        { "text": "Mobile-first and optimized checkout" },
-        { "text": "Team training included" }
+        {
+          "text": "Lighthouse performance 90+"
+        },
+        {
+          "text": "Mobile-first and optimized checkout"
+        },
+        {
+          "text": "Team training included"
+        }
       ],
       "ctaText": "Want to launch a new store or improve the conversion of your existing one? We start with a quick no-commitment audit."
     },
     "support": {
       "name": "Continuous Support and Maintenance",
       "description": "Dedicated squad that knows your product and responds with clear SLAs. So your platform evolves without surprises.",
-      "heroStat": { "number": "99.9%", "label": "guaranteed uptime" },
+      "heroStat": {
+        "number": "99.9%",
+        "label": "guaranteed uptime"
+      },
       "badge": "Your trusted tech team",
       "keywords": "software maintenance, technical support, SLA, dedicated team, product evolution, monitoring, observability, hotfix",
       "whatWeDo": "What We Do",
       "whatWeDoText": "We keep alive the products we deliver — both ours and third-party ones. Dedicated squad that knows your code, proactive monitoring, SLA-backed hotfixes and a quarterly evolution roadmap shared with you. Technical stability as a commitment, not as reactivity.",
       "stats": [
-        { "number": "<4h", "label": "SLA for critical incidents" },
-        { "number": "99.9%", "label": "Guaranteed uptime" },
-        { "number": "24/7", "label": "Proactive monitoring" },
-        { "number": "1", "label": "Dedicated point of contact" }
+        {
+          "number": "<4h",
+          "label": "SLA for critical incidents"
+        },
+        {
+          "number": "99.9%",
+          "label": "Guaranteed uptime"
+        },
+        {
+          "number": "24/7",
+          "label": "Proactive monitoring"
+        },
+        {
+          "number": "1",
+          "label": "Dedicated point of contact"
+        }
       ],
       "benefits": "Why serious maintenance matters",
       "benefitsSubtitle": "A product without maintenance is an asset that depreciates every month",
       "benefitsList": [
-        { "title": "Knowledge that doesn't get lost", "description": "Your dedicated squad knows the code, the architecture decisions and the business context. You don't start from scratch with every change." },
-        { "title": "Real, auditable SLAs", "description": "Measured response and resolution times, with transparent monthly reports. You know exactly what you're paying for." },
-        { "title": "Quarterly evolution roadmap", "description": "We don't just put out fires: we propose performance, security and UX improvements every quarter." },
-        { "title": "Observability stack included", "description": "Datadog, Sentry, PagerDuty and similar configured from day one. We detect problems before your users do." }
+        {
+          "title": "Knowledge that doesn't get lost",
+          "description": "Your dedicated squad knows the code, the architecture decisions and the business context. You don't start from scratch with every change."
+        },
+        {
+          "title": "Real, auditable SLAs",
+          "description": "Measured response and resolution times, with transparent monthly reports. You know exactly what you're paying for."
+        },
+        {
+          "title": "Quarterly evolution roadmap",
+          "description": "We don't just put out fires: we propose performance, security and UX improvements every quarter."
+        },
+        {
+          "title": "Observability stack included",
+          "description": "Datadog, Sentry, PagerDuty and similar configured from day one. We detect problems before your users do."
+        }
       ],
       "featuresTitle": "What the service covers",
       "featuresSubtitle": "Full support, not patch by patch",
       "features": [
-        { "title": "SLA-backed hotfixes", "description": "Immediate response to critical incidents, with priority based on agreed severity." },
-        { "title": "Continuous evolution", "description": "Quarterly planned improvements aligned with your business roadmap." },
-        { "title": "Security updates", "description": "Dependencies, patches and security audits handled proactively." }
+        {
+          "title": "SLA-backed hotfixes",
+          "description": "Immediate response to critical incidents, with priority based on agreed severity."
+        },
+        {
+          "title": "Continuous evolution",
+          "description": "Quarterly planned improvements aligned with your business roadmap."
+        },
+        {
+          "title": "Security updates",
+          "description": "Dependencies, patches and security audits handled proactively."
+        }
       ],
       "processTitle": "How we work",
       "processSubtitle": "A predictable model so support stops being a hidden cost",
       "processSteps": [
-        { "number": "01", "title": "Technical onboarding", "description": "Code audit, monitoring setup and operational documentation." },
-        { "number": "02", "title": "Agreed SLAs", "description": "We define together response times and priorities based on business impact." },
-        { "number": "03", "title": "Day-to-day operation", "description": "Slack or dedicated channel, transparent ticketing and response within SLA." },
-        { "number": "04", "title": "Quarterly review", "description": "Incident report, next-quarter roadmap and model adjustment if needed." }
+        {
+          "number": "01",
+          "title": "Technical onboarding",
+          "description": "Code audit, monitoring setup and operational documentation."
+        },
+        {
+          "number": "02",
+          "title": "Agreed SLAs",
+          "description": "We define together response times and priorities based on business impact."
+        },
+        {
+          "number": "03",
+          "title": "Day-to-day operation",
+          "description": "Slack or dedicated channel, transparent ticketing and response within SLA."
+        },
+        {
+          "number": "04",
+          "title": "Quarterly review",
+          "description": "Incident report, next-quarter roadmap and model adjustment if needed."
+        }
       ],
       "whyChoose": "Why ATEP",
       "whyChooseText": "We care that the product keeps working three years from now just like it did the day we launched it. We don't sell hours, we sell commitment: if something breaks, we fix it. If something can be improved, we propose it.",
       "guarantees": [
-        { "text": "Written SLA in the contract" },
-        { "text": "Monthly activity report" },
-        { "text": "30-day no-penalty exit" }
+        {
+          "text": "Written SLA in the contract"
+        },
+        {
+          "text": "Monthly activity report"
+        },
+        {
+          "text": "30-day no-penalty exit"
+        }
       ],
       "ctaText": "Does your product need serious maintenance or do you have an inherited one without a tech team behind it? Let's talk about the right model for you."
     },
@@ -925,7 +1231,8 @@
     "articlesFound": "articles found",
     "noResults": "No articles found. Try adjusting your filters.",
     "relatedPosts": "Related Articles",
-    "back": "Back to Blog"
+    "back": "Back to Blog",
+    "viewAll": "View all posts"
   },
   "contact": {
     "badge": "Get in Touch",
@@ -971,40 +1278,33 @@
     "lastUpdated": "Last Updated",
     "lastUpdatedDate": "October 9, 2025",
     "intro": "At ATEP Consulting, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.",
-
     "responsible": "Data Controller",
     "responsibleText": "The data controller responsible for your personal information is:",
     "companyName": "Company: ATEP Consulting",
     "companyAddress": "Address: Street NUMBER 611 (MONTECAÑADA), 3",
     "companyEmail": "Email: info@atepconsulting.com",
     "companyPhone": "Phone: +43 647 748 705",
-
     "collection": "Information We Collect",
     "collectionText": "We collect the following types of personal information:",
     "collectionItem1": "Identification data: name, surname, email address, phone number",
     "collectionItem2": "Navigation data: IP address, browser type, pages visited, access time",
     "collectionItem3": "Professional data: company, position, sector of activity",
     "collectionItem4": "Any other information you voluntarily provide through our contact forms",
-
     "purpose": "Purpose of Data Processing",
     "purposeText": "We use your personal information for the following purposes:",
     "purposeItem1": "Respond to your inquiries and provide requested information",
     "purposeItem2": "Manage and provide our consulting services",
     "purposeItem3": "Send commercial communications about our services (with your prior consent)",
     "purposeItem4": "Improve our website and user experience",
-
     "legalBasis": "Legal Basis",
     "legalBasisText": "The legal basis for processing your data is your explicit consent when filling out our contact forms, as well as the execution of a contractual relationship for the provision of our services.",
-
     "retention": "Data Retention",
     "retentionText": "We will retain your personal data for as long as necessary to fulfill the purposes described in this policy, unless a longer retention period is required or permitted by law. Contact data will be retained for up to 2 years from the last interaction, unless you request their deletion.",
-
     "recipients": "Data Recipients",
     "recipientsText": "Your data may be shared with the following recipients:",
     "recipientsItem1": "Email service providers (e.g., EmailJS) for sending communications",
     "recipientsItem2": "Hosting and cloud services providers for data storage",
     "recipientsItem3": "Legal, tax, and professional advisors when necessary",
-
     "rights": "Your Rights",
     "rightsText": "Under the General Data Protection Regulation (GDPR), you have the following rights:",
     "rightsItem1": "Right of access: to know what data we have about you",
@@ -1015,19 +1315,14 @@
     "rightsItem6": "Right to object: to oppose certain processing of your data",
     "rightsItem7": "Right to lodge a complaint with the Spanish Data Protection Agency (AEPD)",
     "rightsExercise": "To exercise these rights, please contact us at info@atepconsulting.com, including proof of your identity.",
-
     "protection": "Security Measures",
     "protectionText": "We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. This includes encryption, secure servers, and regular security audits.",
-
     "cookies": "Cookies Policy",
     "cookiesText": "Our website uses cookies to improve user experience. For more information about the cookies we use and how to manage them, please visit our Cookies Policy.",
-
     "thirdParty": "Third-Party Links",
     "thirdPartyText": "Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites. We recommend reviewing their privacy policies before providing any personal information.",
-
     "modifications": "Policy Modifications",
     "modificationsText": "We reserve the right to modify this Privacy Policy at any time. Any changes will be posted on this page with an updated 'Last Updated' date. We recommend reviewing this policy periodically.",
-
     "contact": "Contact",
     "contactText": "For questions about this Privacy Policy or to exercise your rights, please contact us at"
   },
@@ -1036,37 +1331,29 @@
     "lastUpdated": "Last Updated",
     "lastUpdatedDate": "October 9, 2025",
     "intro": "This Cookies Policy explains how ATEP Consulting uses cookies and similar technologies on our website to enhance your experience and provide our services.",
-
     "whatAre": "What Are Cookies?",
     "whatAreText": "Cookies are small text files that are stored on your device (computer, tablet, or mobile) when you visit a website. They allow the website to remember your actions and preferences over a period of time, so you don't have to reconfigure them every time you visit the site or browse from one page to another.",
-
     "howWeUse": "How We Use Cookies",
     "howWeUseText": "We use cookies to understand how you interact with our website, remember your preferences, analyze traffic, and improve our services. This allows us to provide you with a personalized and efficient experience on our website.",
-
     "types": "Types of Cookies We Use",
     "examplesLabel": "Examples",
     "durationLabel": "Duration",
-
     "essentialTitle": "1. Essential Cookies (Technical)",
     "essentialDesc": "These are essential for the website to function properly. Without these cookies, certain services cannot be provided.",
     "essentialExamples": "Session cookies, security cookies, language cookies",
     "essentialDuration": "Session or up to 1 year",
-
     "analyticsTitle": "2. Analytics Cookies",
     "analyticsDesc": "These allow us to analyze how users use the website and monitor site performance. All information is anonymous.",
     "analyticsExamples": "Google Analytics, visit statistics, most visited pages",
     "analyticsDuration": "Up to 2 years",
-
     "preferenceTitle": "3. Preference Cookies",
     "preferenceDesc": "These allow the website to remember information that changes how the site behaves or looks, such as your preferred language.",
     "preferenceExamples": "Language preferences, display settings",
     "preferenceDuration": "Up to 1 year",
-
     "thirdParty": "Third-Party Cookies",
     "thirdPartyText": "In addition to our own cookies, we may use third-party cookies for various purposes:",
     "thirdPartyItem1": "Google Analytics: To analyze website usage and improve our services",
     "thirdPartyItem2": "EmailJS: To manage contact form submissions",
-
     "control": "Cookie Control and Management",
     "controlText": "You can control and/or delete cookies as you wish. You can delete all cookies that are already on your device and you can set most browsers to prevent them from being installed. However, if you do this, you may have to manually adjust some preferences each time you visit the site and some services and features may not work properly.",
     "browserSettings": "Browser settings:",
@@ -1074,13 +1361,10 @@
     "firefoxInstructions": "Options > Privacy & Security > Cookies and Site Data",
     "safariInstructions": "Preferences > Privacy > Manage Website Data",
     "edgeInstructions": "Settings > Cookies and site permissions > Manage and delete cookies",
-
     "acceptance": "Cookie Acceptance",
     "acceptanceText": "By continuing to browse our website without changing your browser's cookie settings, you accept the use of cookies as described in this policy. You can withdraw your consent at any time by changing your browser settings.",
-
     "updates": "Updates to This Policy",
     "updatesText": "We may update this Cookies Policy periodically to reflect changes in the cookies we use or for other operational, legal, or regulatory reasons. Please review this page regularly to stay informed about our use of cookies.",
-
     "contact": "Contact",
     "contactText": "If you have questions about our Cookies Policy, please contact us at"
   },
@@ -1089,7 +1373,6 @@
     "lastUpdated": "Last Updated",
     "lastUpdatedDate": "October 9, 2025",
     "intro": "In compliance with Law 34/2002, of July 11, on Information Society Services and Electronic Commerce (LSSI-CE), ATEP Consulting informs website users about the following legal aspects.",
-
     "identification": "Identification Data",
     "identificationText": "The identification data of the website owner are:",
     "companyNameLabel": "Company Name",
@@ -1097,55 +1380,32 @@
     "addressLabel": "Address",
     "emailLabel": "Email",
     "phoneLabel": "Phone",
-
     "purpose": "Website Purpose",
     "purposeText": "This website aims to provide information about the consulting services offered by ATEP Consulting, as well as facilitate contact between the company and its potential clients. Access to and use of the website grants user status and implies full acceptance of all conditions included in this Legal Notice.",
-
     "accessConditions": "Access and Use Conditions",
     "accessConditionsText": "Access to and use of this website implies acceptance of the following conditions:",
     "accessItem1": "The user agrees to make proper use of the website and its contents, in accordance with current legislation and this Legal Notice.",
     "accessItem2": "The user agrees not to use the website for unlawful purposes or purposes harmful to ATEP Consulting or third parties.",
     "accessItem3": "Any use of the website that may cause damage, disable, overload, or deteriorate it or prevent its normal use is prohibited.",
     "accessItem4": "The user may not introduce programs, viruses, macros, applets, ActiveX controls, or any other logical device that may cause alterations to the website.",
-
     "intellectualProperty": "Intellectual and Industrial Property",
     "intellectualPropertyText": "All website content, including, without limitation, texts, photographs, graphics, images, icons, technology, software, links, and other audiovisual or sound content, as well as its graphic design and source codes, are the intellectual property of ATEP Consulting or third parties, without any exploitation rights recognized by current intellectual property regulations being transferred to the user. Reproduction, distribution, public communication, transformation, or any other form of exploitation of the content without prior written authorization from ATEP Consulting is prohibited.",
-
     "liability": "Limitation of Liability",
     "liabilityText": "ATEP Consulting is not responsible for:",
     "liabilityItem1": "The quality of service, access speed, correct operation, availability, or continuity of the website.",
     "liabilityItem2": "Errors or inaccuracies that may be found in the website content.",
     "liabilityItem3": "Damages that may arise from unlawful or improper use of the website by users.",
-
     "externalLinks": "Links to Third-Party Websites",
     "externalLinksText": "The website may contain links to third-party websites. ATEP Consulting assumes no responsibility for the content, accuracy, or operation of such websites. Access to and use of them will be at the user's sole responsibility.",
-
     "dataProtection": "Personal Data Protection",
     "dataProtectionText": "ATEP Consulting is committed to protecting user privacy. For more information on how we process your personal data, please see our",
     "privacyPolicyLink": "Privacy Policy",
-
     "applicableLegislation": "Applicable Legislation and Jurisdiction",
     "applicableLegislationText": "These conditions are governed by Spanish law. For the resolution of any conflict that may arise on the occasion of visiting the website or using the services that may be offered on it, ATEP Consulting and the user agree to submit to the Courts and Tribunals of the user's domicile. In the event that the user is domiciled outside Spain, ATEP Consulting and the user submit, with express waiver of any other jurisdiction, to the courts and tribunals of the city where ATEP Consulting has its registered office.",
-
     "modifications": "Modifications",
     "modificationsText": "ATEP Consulting reserves the right to make modifications it deems appropriate to its website without prior notice, being able to change, delete, or add both the contents and services provided through it as well as the way in which they appear presented or located.",
-
     "contact": "Contact",
     "contactText": "For any questions related to this Legal Notice, please contact us at"
-  },
-  "404": {
-    "title": "404 - Page Not Found",
-    "subtitle": "The page you're looking for doesn't exist",
-    "heading": "Page Not Found",
-    "message": "Oops! The page you're looking for doesn't exist. It might have been moved or deleted.",
-    "backHome": "Back to Home",
-    "quickLinks": "Quick Links",
-    "homeLink": "Home",
-    "homeDesc": "Back to homepage",
-    "servicesLink": "Services",
-    "servicesDesc": "Explore our services",
-    "blogLink": "Blog",
-    "blogDesc": "Read our articles"
   },
   "footer": {
     "tagline": "Custom software that gives time back to your operations. Code you own.",
@@ -1162,5 +1422,53 @@
   "whatsapp": {
     "defaultMessage": "Hi, I'm coming from the ATEP website. I'd like 20 minutes with an engineer to assess my situation.",
     "tooltip": "Need help?"
+  },
+  "megaNav": {
+    "servicesLead": "Every service answers a concrete operational pain.",
+    "companyLead": "Who we are and what we have delivered.",
+    "aboutTitle": "About us",
+    "aboutText": "Meet the team and how we work",
+    "casesTitle": "Case studies",
+    "casesText": "Delivered work, with real numbers",
+    "blogText": "Migration, automation and cost",
+    "contactText": "20 minutes with an engineer",
+    "scheduleText": "Pick a slot in the calendar",
+    "legalText": "Terms of use for this site",
+    "privacyText": "How we handle your data",
+    "cookiesText": "What we store and why",
+    "viewAllServices": "View all services",
+    "viewAllCases": "View all case studies"
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title1": "Questions answered",
+    "title2": "before the first call.",
+    "subtitle": "What people usually ask before starting. If something is missing, write to us and we will answer in writing.",
+    "items": [
+      {
+        "q": "Who owns the code when the project ends?",
+        "a": "You do, from the first commit. We hand over repositories, infrastructure and documentation in your name, with no dependency on us to keep working."
+      },
+      {
+        "q": "Can the budget grow halfway through the project?",
+        "a": "Scope and price are closed before we start. If something out of scope comes up, it is quoted separately and you decide before it is built."
+      },
+      {
+        "q": "How do I check that things are moving?",
+        "a": "Weekly deliveries you can open and test, plus fortnightly sprints with a demo. Progress is verified, not narrated in a meeting."
+      },
+      {
+        "q": "What happens if I want to stop working with you?",
+        "a": "It is planned in writing: the exit plan is in the contract from day one, with everything another team needs to continue."
+      },
+      {
+        "q": "Can you migrate an old system without stopping operations?",
+        "a": "That is what we do. We validate against the original system field by field before the cutover, with reproducible scenarios."
+      },
+      {
+        "q": "How long until you can start?",
+        "a": "Team reinforcement is available in 48 hours. For a full project, the diagnosis takes 20 minutes and the proposal arrives in days, not weeks."
+      }
+    ]
   }
 }

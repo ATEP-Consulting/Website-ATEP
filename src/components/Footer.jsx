@@ -1,322 +1,140 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Instagram } from "lucide-react";
+import { Instagram, Linkedin, Mail } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-import { useTheme } from "../context/ThemeContext";
 import { getServicesData } from "../data/servicesData";
-import { tDisplay, tEyebrow, FONT } from "../lib/typography";
-import CTA from "./CTA";
-import logo from "../assets/logos/new-logo-atep.svg";
+import { cases as casesData } from "../data/casesData";
 
-const LinkRow = ({ to, href, external = false, children, onNavy }) => {
-  const color = onNavy ? "rgba(245,241,232,0.85)" : "var(--ink-soft)";
-  const hover = "var(--accent)";
-  const baseStyle = {
-    color,
-    textDecoration: "none",
-    transition: "color .15s",
-    fontSize: 14,
-  };
-  const handlers = {
-    onMouseEnter: (e) => (e.currentTarget.style.color = hover),
-    onMouseLeave: (e) => (e.currentTarget.style.color = color),
-  };
-  if (external) {
-    return (
-      <a href={href} target="_blank" rel="noopener noreferrer" style={baseStyle} {...handlers}>
-        {children}
-      </a>
-    );
-  }
-  if (to) {
-    return (
-      <Link to={to} style={baseStyle} {...handlers}>
-        {children}
-      </Link>
-    );
-  }
-  return (
-    <span style={{ ...baseStyle, cursor: "default" }}>{children}</span>
-  );
-};
+// Pie del rediseño 2026.
+//
+// Mismos enlaces y mismos datos de contacto que la versión anterior: sólo
+// cambia la piel. El cierre es el logotipo gigante en contorno con la placa
+// del logo por delante.
 
 export const Footer = () => {
   const { t, language } = useLanguage();
-  const { theme } = useTheme();
   const services = getServicesData(t);
-  const isDark = theme === "dark";
+  const featuredCases = casesData.slice(0, 4);
 
-  // Light theme → navy bg, cream text. Dark theme → bg-surface, ink text.
-  const onNavy = !isDark;
-  const footerBg = isDark ? "var(--bg-surface)" : "var(--navy)";
-  const footerInk = isDark ? "var(--ink)" : "rgba(245,241,232,0.92)";
-  const ruleColor = isDark ? "var(--rule)" : "rgba(245,241,232,0.18)";
-  const eyebrowColor = isDark
-    ? "var(--muted)"
-    : "rgba(245,241,232,0.55)";
-  const dimColor = isDark
-    ? "var(--dim)"
-    : "rgba(245,241,232,0.55)";
-
-  const companyLinks = [
-    { path: "/company", label: t("nav.about") },
-    { path: "/cases", label: t("nav.cases") },
-    { path: "/blog", label: t("nav.blog") },
-    { path: "/contact", label: t("nav.contact") },
-  ];
-
-  const legalLinks = [
-    { path: "/privacy-policy", label: t("privacy.title") },
-    { path: "/cookies-policy", label: t("cookies.title") },
-    { path: "/legal-notice", label: t("legal.title") },
+  const columnas = [
+    {
+      title: t("nav.services"),
+      links: [
+        ...services.slice(0, 4).map((s) => ({ label: s.name, to: s.path })),
+        { label: t("megaNav.viewAllServices"), to: "/services" },
+      ],
+    },
+    {
+      title: t("nav.cases"),
+      links: [
+        ...featuredCases.map((c) => ({
+          label: c.client[language].split("·")[0].trim(),
+          to: `/cases/${c.slug}`,
+        })),
+        { label: t("megaNav.viewAllCases"), to: "/cases" },
+      ],
+    },
+    {
+      title: t("megaNav.aboutTitle"),
+      links: [
+        { label: t("nav.about"), to: "/company" },
+        { label: t("nav.blog"), to: "/blog" },
+        { label: t("nav.contact"), to: "/contact" },
+      ],
+    },
+    {
+      title: t("legal.title"),
+      links: [
+        { label: t("privacy.title"), to: "/privacy-policy" },
+        { label: t("cookies.title"), to: "/cookies-policy" },
+        { label: t("legal.title"), to: "/legal-notice" },
+      ],
+    },
   ];
 
   return (
-    <>
-      <CTA
-        badge={t("CTA.badge")}
-        title={t("CTA.title")}
-        subtitle={t("CTA.subtitle")}
-        primaryButton={{ text: t("CTA.primaryButton"), to: "/contact" }}
-        secondaryButton={{ text: t("CTA.secondaryButton"), to: "/services" }}
-        trustIndicators={[
-          t("CTA.trust1"),
-          t("CTA.trust2"),
-          t("CTA.trust3"),
-        ].filter(Boolean)}
-      />
+    <footer className="rd-footer">
+      <div className="rd-footer-top" data-stagger>
+        <div className="rd-footer-brand">
+          <Link className="rd-brand" to="/">
+            <img
+              className="rd-brand-mark"
+              src="/new-logo-atep.svg"
+              alt=""
+              aria-hidden="true"
+              width={22}
+              height={22}
+            />
+            ATEP CONSULTING
+          </Link>
+          <p className="rd-card-text">{t("footer.tagline")}</p>
 
-      <footer
-        className="relative overflow-hidden px-6 sm:px-10 lg:px-16 pt-20 pb-9"
-        style={{ background: footerBg, color: footerInk }}
-      >
-        {/* Watermark sutil "ATEP Consulting" detrás del contenido */}
-        <div
-          aria-hidden
-          className="pointer-events-none select-none absolute inset-0 flex items-center justify-center"
-          style={{ zIndex: 0 }}
-        >
-          <span
-            className="whitespace-nowrap italic"
-            style={{
-              fontFamily: FONT.serif,
-              fontWeight: 500,
-              // "ATEP Consulting" mide 7,06 veces su tamaño de fuente en
-              // Newsreader itálica con este tracking (medido en navegador),
-              // así que 13vw lo deja en ~92% del ancho: entra completo en
-              // cualquier pantalla, del móvil al monitor ultrapanorámico.
-              fontSize: "13vw",
-              letterSpacing: "-0.04em",
-              lineHeight: 1,
-              color: isDark
-                ? "rgba(245,241,232,0.04)"
-                : "rgba(245,241,232,0.06)",
-            }}
-          >
-            ATEP Consulting
-          </span>
+          <div className="rd-foot-label">{t("nav.contact")}</div>
+          <ul className="rd-footer-contact">
+            <li>
+              <a href="mailto:info@atepconsulting.com">info@atepconsulting.com</a>
+            </li>
+            <li>
+              <a href="tel:+34647748705">+34 647 748 705</a>
+            </li>
+            <li>
+              {language === "es"
+                ? "Paterna · Valencia · España"
+                : "Paterna · Valencia · Spain"}
+            </li>
+          </ul>
         </div>
 
-       <div className="relative max-w-[1600px] mx-auto w-full" style={{ zIndex: 1 }}>
-        <div
-          className="grid gap-10 tm:gap-14 pb-14"
-          style={{
-            gridTemplateColumns: "1fr",
-            borderBottom: `1px solid ${ruleColor}`,
-          }}
-        >
-          <div className="grid grid-cols-1 tm:grid-cols-4 gap-10 tm:gap-14">
-            <div className="tm:col-span-2">
-              <Link
-                to="/"
-                aria-label="ATEP Consulting · Inicio"
-                className="inline-flex items-center gap-3 mb-8 no-underline"
-                style={{ color: footerInk }}
-              >
-                <span
-                  className="flex items-center justify-center"
-                  style={{
-                    width: 56,
-                    height: 56,
-                    background: onNavy
-                      ? "rgba(245,241,232,0.08)"
-                      : "var(--bg)",
-                    border: `1px solid ${ruleColor}`,
-                  }}
-                >
-                  <img
-                    src={logo}
-                    alt=""
-                    aria-hidden
-                    className="w-9 h-9 object-contain"
-                  />
-                </span>
-                <span style={{ ...tDisplay(22, 500), color: footerInk }}>
-                  ATEP{" "}
-                  <em style={{ fontWeight: 400, opacity: 0.7 }}>
-                    Consulting
-                  </em>
-                </span>
-              </Link>
-              <div
-                style={{
-                  ...tDisplay("clamp(28px, 4vw, 44px)", 500),
-                  color: footerInk,
-                  maxWidth: 420,
-                }}
-              >
-                {language === "es" ? (
-                  <>
-                    Construimos
-                    <br />
-                    el software{" "}
-                    <em style={{ color: "var(--accent)" }}>
-                      que sostiene tu negocio.
-                    </em>
-                  </>
-                ) : (
-                  <>
-                    We build
-                    <br />
-                    the software{" "}
-                    <em style={{ color: "var(--accent)" }}>
-                      that runs your business.
-                    </em>
-                  </>
-                )}
-              </div>
-              <div
-                style={{ ...tEyebrow(eyebrowColor), color: eyebrowColor, marginTop: 24 }}
-              >
-                ATEP Consulting · {language === "es" ? "desde 2023" : "since 2023"}
-              </div>
-
-              <div className="mt-8 flex gap-3">
-                <a
-                  href="https://www.linkedin.com/company/atepconsulting"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  className="w-10 h-10 flex items-center justify-center transition-colors duration-150"
-                  style={{
-                    border: `1px solid ${ruleColor}`,
-                    color: footerInk,
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "var(--accent)";
-                    e.currentTarget.style.borderColor = "var(--accent)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "transparent";
-                    e.currentTarget.style.borderColor = ruleColor;
-                  }}
-                >
-                  <Linkedin size={16} />
-                </a>
-                <a
-                  href="https://www.instagram.com/atepconsulting"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="w-10 h-10 flex items-center justify-center transition-colors duration-150"
-                  style={{
-                    border: `1px solid ${ruleColor}`,
-                    color: footerInk,
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "var(--accent)";
-                    e.currentTarget.style.borderColor = "var(--accent)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "transparent";
-                    e.currentTarget.style.borderColor = ruleColor;
-                  }}
-                >
-                  <Instagram size={16} />
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <div
-                style={{ ...tEyebrow(eyebrowColor), color: eyebrowColor, marginBottom: 18 }}
-              >
-                {t("nav.services")}
-              </div>
-              <div className="flex flex-col gap-[10px]">
-                {services.map((s) => (
-                  <LinkRow key={s.id} to={s.path} onNavy={onNavy}>
-                    {s.name}
-                  </LinkRow>
+        <div className="rd-footer-cols">
+          {columnas.map((col) => (
+            <div key={col.title}>
+              <div className="rd-foot-label">{col.title}</div>
+              <ul>
+                {col.links.map((l) => (
+                  <li key={l.to + l.label}>
+                    <Link to={l.to}>{l.label}</Link>
+                  </li>
                 ))}
-                <LinkRow to="/services" onNavy={onNavy}>
-                  {t("services.viewAll") || (language === "es" ? "Ver todos" : "View all")} →
-                </LinkRow>
-              </div>
+              </ul>
             </div>
-
-            <div className="flex flex-col gap-10">
-              <div>
-                <div
-                  style={{ ...tEyebrow(eyebrowColor), color: eyebrowColor, marginBottom: 18 }}
-                >
-                  {language === "es" ? "Empresa" : "Company"}
-                </div>
-                <div className="flex flex-col gap-[10px]">
-                  {companyLinks.map((l) => (
-                    <LinkRow key={l.path} to={l.path} onNavy={onNavy}>
-                      {l.label}
-                    </LinkRow>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <div
-                  style={{ ...tEyebrow(eyebrowColor), color: eyebrowColor, marginBottom: 18 }}
-                >
-                  {t("nav.contact")}
-                </div>
-                <div className="flex flex-col gap-[10px]">
-                  <LinkRow href="mailto:info@atepconsulting.com" external onNavy={onNavy}>
-                    info@atepconsulting.com
-                  </LinkRow>
-                  <LinkRow href="tel:+34647748705" external onNavy={onNavy}>
-                    +34 647 748 705
-                  </LinkRow>
-                  <LinkRow onNavy={onNavy}>
-                    {language === "es"
-                      ? "Paterna · Valencia · España"
-                      : "Paterna · Valencia · Spain"}
-                  </LinkRow>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
+      </div>
 
-        <div
-          className="pt-6 flex flex-col tm:flex-row justify-between gap-2 tm:gap-0"
-          style={{ fontSize: 11.5, color: dimColor }}
-        >
-          <span>{t("footer.copyright")}</span>
-          <div className="flex flex-wrap gap-x-4 gap-y-1">
-            {legalLinks.map((l, i) => (
-              <span key={l.path} className="inline-flex items-center gap-4">
-                {i > 0 && <span aria-hidden>·</span>}
-                <Link
-                  to={l.path}
-                  style={{ color: "inherit", textDecoration: "none" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "inherit")}
-                >
-                  {l.label}
-                </Link>
-              </span>
-            ))}
-          </div>
+      {/* Cierre: el logotipo gigante grabado en el fondo, con una estela
+          granate saliendo de detrás. Sin placa: la ficha blanca partía la
+          palabra por la mitad y competía con el propio logotipo. */}
+      <div className="rd-wordmark" aria-hidden="true">
+        <span className="rd-wordmark-text">ATEP CONSULTING</span>
+      </div>
+
+      <div className="rd-footer-bar">
+        <div className="rd-socials">
+          <a
+            href="https://www.linkedin.com/company/atepconsulting"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <Linkedin size={16} strokeWidth={1.8} />
+          </a>
+          <a
+            href="https://www.instagram.com/atepconsulting"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <Instagram size={16} strokeWidth={1.8} />
+          </a>
+          <a href="mailto:info@atepconsulting.com" aria-label="Email">
+            <Mail size={16} strokeWidth={1.8} />
+          </a>
         </div>
-       </div>
-      </footer>
-    </>
+        <span>{t("footer.copyright")}</span>
+        <span className="rd-status">
+          <i aria-hidden="true" />
+          {language === "es" ? "Valencia · España" : "Valencia · Spain"}
+        </span>
+      </div>
+    </footer>
   );
 };

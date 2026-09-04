@@ -1,6 +1,7 @@
-import ImageHero from "./ImageHero";
-import { Reveal } from "./Reveal";
-import { tDisplay, tSerif, tEyebrow } from "../lib/typography";
+// Plantilla de las páginas legales, rediseño 2026.
+//
+// La API se conserva exacta (LegalPage, LegalSection, LegalP, LegalUl) para
+// que las tres páginas que la usan no necesiten cambios: sólo cambia la piel.
 
 export const LegalPage = ({
   eyebrow,
@@ -11,89 +12,46 @@ export const LegalPage = ({
   children,
 }) => (
   <>
-    <ImageHero eyebrow={eyebrow} title={title} />
-
-    {(lastUpdatedLabel || lastUpdatedDate) && (
-      <section
-        className="px-6 sm:px-10 lg:px-16 pt-6 pb-2"
-        style={{ background: "var(--bg)" }}
-      >
-        <div
-          className="max-w-3xl"
-          style={tEyebrow("var(--muted)")}
-        >
-          {lastUpdatedLabel}
-          {lastUpdatedDate ? `: ${lastUpdatedDate}` : null}
+    <section className="rd-hero rd-hero--legal">
+      <div className="rd-hero-body">
+        <div className="rd-hero-copy">
+          <div className="rd-eyebrow">
+            <i aria-hidden="true" />
+            {eyebrow}
+          </div>
+          <h1 className="rd-h1">{title}</h1>
+          {(lastUpdatedLabel || lastUpdatedDate) && (
+            <div className="rd-legal-date">
+              {lastUpdatedLabel}
+              {lastUpdatedDate ? `: ${lastUpdatedDate}` : null}
+            </div>
+          )}
         </div>
-      </section>
-    )}
+      </div>
+    </section>
 
-    <section
-      className="px-6 sm:px-10 lg:px-16 py-12 tm:py-20"
-      style={{ background: "var(--bg)" }}
-    >
-      <div className="max-w-3xl">
-        {intro && (
-          <Reveal y={16}>
-            <p
-              className="mb-10 italic"
-              style={{
-                ...tSerif("clamp(17px, 1.4vw, 20px)", 400),
-                color: "var(--muted)",
-                lineHeight: 1.55,
-                margin: 0,
-              }}
-            >
-              {intro}
-            </p>
-          </Reveal>
-        )}
-        <div className="space-y-12 mt-10">{children}</div>
+    <section className="rd-sec">
+      <div className="rd-prose rd-legal">
+        {intro && <p className="rd-legal-intro">{intro}</p>}
+        {children}
       </div>
     </section>
   </>
 );
 
 export const LegalSection = ({ title, children }) => (
-  <Reveal y={20}>
-    <section>
-      <h2
-        className="mb-5"
-        style={{
-          ...tDisplay("clamp(22px, 2.4vw, 30px)", 500),
-          color: "var(--ink)",
-          margin: "0 0 20px",
-        }}
-      >
-        {title}
-      </h2>
-      <div
-        style={{
-          ...tSerif("clamp(15px, 1.1vw, 17px)", 400),
-          color: "var(--ink)",
-          lineHeight: 1.7,
-        }}
-      >
-        {children}
-      </div>
-    </section>
-  </Reveal>
+  <section className="rd-legal-section" data-reveal>
+    <h2>{title}</h2>
+    {children}
+  </section>
 );
 
 export const LegalP = ({ children, muted = false }) => (
-  <p
-    className="mb-4"
-    style={{
-      color: muted ? "var(--muted)" : "inherit",
-      lineHeight: "inherit",
-    }}
-  >
-    {children}
-  </p>
+  <p className={muted ? "rd-legal-muted" : undefined}>{children}</p>
 );
 
 export const LegalUl = ({ items }) => (
-  <ul className="list-disc pl-6 space-y-2 mb-4">
+  <ul>
     {items.map((item, i) => (
       <li key={i}>{item}</li>
     ))}

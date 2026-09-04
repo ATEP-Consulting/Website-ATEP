@@ -3,26 +3,27 @@ import { useParams, Navigate, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
-import { trackEvent } from "../../lib/analytics";
+import { Btn } from "../../components/Btn";
 import { BlogCard } from "../../components/BlogCard";
 import { Image } from "../../components/Image";
-import { Reveal, RevealStagger } from "../../components/Reveal";
 import { blogPosts } from "../../data/blogData";
-import { tDisplay, tSerif, tEyebrow, FONT } from "../../lib/typography";
+import { trackEvent } from "../../lib/analytics";
 
-// El contenido de los artículos se escribe en markdown, así que las negritas
-// hay que convertirlas: si no, los asteriscos se ven tal cual en la página.
+// Artículo del blog, rediseño 2026.
+//
+// El renderizador del cuerpo se conserva TAL CUAL: negritas en markdown,
+// titulares con "## " y listas con guion o numeradas. Es lo que hace que los
+// artículos que publica el agente semanal se vean bien sin tocar nada.
+
 const conNegritas = (texto) =>
   String(texto)
     .split(/(\*\*[^*]+\*\*)/g)
     .map((trozo, i) =>
       trozo.startsWith("**") && trozo.endsWith("**") ? (
-        <strong key={i} style={{ fontWeight: 600 }}>
-          {trozo.slice(2, -2)}
-        </strong>
+        <strong key={i}>{trozo.slice(2, -2)}</strong>
       ) : (
         trozo
-      )
+      ),
     );
 
 export const BlogPost = () => {
@@ -34,16 +35,14 @@ export const BlogPost = () => {
   useEffect(() => {
     if (post) trackEvent("view_post", { post: slug });
   }, [slug, post]);
-  if (!post) return <Navigate to="/blog" replace />;
+
+  if (!post) return <Navigate to="/404" replace />;
 
   const related = blogPosts.filter((p) => p.slug !== slug).slice(0, 2);
-
-  const dateStr = post.date
-    ? new Date(post.date).toLocaleDateString(
-        language === "es" ? "es-ES" : "en-US",
-        { year: "numeric", month: "long", day: "numeric" }
-      )
-    : post.date;
+  const fecha = new Date(post.date).toLocaleDateString(
+    language === "es" ? "es-ES" : "en-US",
+    { year: "numeric", month: "long", day: "numeric" },
+  );
 
   return (
     <>
@@ -70,210 +69,123 @@ export const BlogPost = () => {
         }}
       />
 
-      <article>
-        {/* HERO */}
-        <header
-          className="px-6 sm:px-10 lg:px-16 pt-12 pb-12 tm:pt-20 tm:pb-16"
-          style={{
-            background: "var(--bg)",
-            borderBottom: "1px solid var(--rule)",
-          }}
-        >
-          <Reveal y={12}>
-            <Link
-              to="/blog"
-              className="inline-flex items-center gap-2 mb-8 no-underline transition-colors duration-150"
-              style={{
-                color: "var(--muted)",
-                fontFamily: FONT.mono,
-                fontSize: 11.5,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-              }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "var(--ink)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "var(--muted)")
-              }
-            >
-              <ArrowLeft size={14} />
-              {t("blog.back")}
+      <section className="rd-hero rd-hero--page">
+        <div className="rd-shot rd-shot--cover">
+          <Image
+            src={post.image || "/images/blog/Blog-page.webp"}
+            alt=""
+            sizes="100vw"
+            priority
+            width={1600}
+            height={1000}
+          />
+          <span className="rd-shot-grade" aria-hidden="true" />
+        </div>
+        <div className="rd-hero-body">
+          <div className="rd-hero-copy">
+            <Link className="rd-back" to="/blog">
+              <ArrowLeft size={15} strokeWidth={2} />
+              {t("blog.viewAll")}
             </Link>
-          </Reveal>
-
-          <Reveal y={16}>
-            <div
-              className="flex flex-wrap items-baseline gap-x-5 gap-y-2 mb-6"
-              style={tEyebrow("var(--muted)")}
-            >
-              <span style={{ color: "var(--accent)" }}>
-                {post.category[language]}
-              </span>
-              <span>{dateStr}</span>
-              {post.author && <span>· {post.author}</span>}
+            <div className="rd-eyebrow">
+              <i aria-hidden="true" />
+              {post.category[language]}
             </div>
-          </Reveal>
-
-          <Reveal y={28} delay={120} dur={1100}>
-            <h1
-              style={{
-                ...tDisplay("clamp(36px, 6vw, 80px)", 500),
-                color: "var(--ink)",
-                margin: 0,
-                maxWidth: 1100,
-              }}
-            >
-              {post.title[language]}
-            </h1>
-          </Reveal>
-
-          {post.excerpt && (
-            <Reveal y={20} delay={300}>
-              <p
-                className="mt-6 tm:mt-8 italic"
-                style={{
-                  ...tSerif("clamp(17px, 1.4vw, 20px)", 400),
-                  color: "var(--muted)",
-                  lineHeight: 1.5,
-                  maxWidth: 800,
-                  margin: 0,
-                }}
-              >
-                {post.excerpt[language]}
-              </p>
-            </Reveal>
-          )}
-        </header>
-
-        {/* COVER */}
-        {post.image && (
-          <Reveal y={24} dur={1100}>
-            <div
-              className="px-6 sm:px-10 lg:px-16 py-10 tm:py-14"
-              style={{ background: "var(--bg)" }}
-            >
-              <div
-                className="overflow-hidden"
-                style={{ aspectRatio: "16/9" }}
-              >
-                <Image
-                  src={post.image}
-                  alt={post.title[language]}
-                  className="w-full h-full object-cover"
-                  sizes="100vw"
-                />
-              </div>
+            <h1 className="rd-h1">{post.title[language]}</h1>
+            <p className="rd-hero-sub">{post.excerpt[language]}</p>
+            <div className="rd-post-meta">
+              <span>{post.author}</span>
+              <i aria-hidden="true">·</i>
+              <time dateTime={post.date}>{fecha}</time>
             </div>
-          </Reveal>
-        )}
+          </div>
+        </div>
+      </section>
 
-        {/* CONTENT */}
-        <section
-          className="px-6 sm:px-10 lg:px-16 py-12 tm:py-20"
-          style={{ background: "var(--bg)" }}
-        >
-          <div className="max-w-3xl mx-auto">
-            {post.content[language]
-              .split("\n\n")
-              .map((paragraph, idx) => {
-                if (paragraph.startsWith("## ")) {
-                  return (
-                    <h2
-                      key={idx}
-                      className="mt-12 mb-5"
-                      style={{
-                        ...tDisplay("clamp(24px, 2.8vw, 36px)", 500),
-                        color: "var(--ink)",
-                        margin: "48px 0 20px",
-                      }}
-                    >
-                      {conNegritas(paragraph.replace("## ", ""))}
-                    </h2>
-                  );
-                }
+      <section className="rd-sec">
+        <div className="rd-prose" data-reveal>
+          {post.content[language].split("\n\n").map((paragraph, idx) => {
+            if (paragraph.startsWith("## ")) {
+              return <h2 key={idx}>{conNegritas(paragraph.replace("## ", ""))}</h2>;
+            }
 
-                const numerada = paragraph.match(/^\d+\. /m);
-                const conGuiones = /^[-*] /m.test(paragraph);
+            const numerada = paragraph.match(/^\d+\. /m);
+            const conGuiones = /^[-*] /m.test(paragraph);
 
-                if (numerada || conGuiones) {
-                  const Lista = numerada ? "ol" : "ul";
-                  const items = paragraph
-                    .split("\n")
-                    .filter(Boolean)
-                    .map((linea) => linea.replace(/^\d+\.\s+/, "").replace(/^[-*]\s+/, ""));
-                  return (
-                    <Lista
-                      key={idx}
-                      className="mb-6 pl-6 space-y-3"
-                      style={{
-                        listStyle: numerada ? "decimal" : "disc",
-                        ...tSerif("clamp(16px, 1.2vw, 18px)", 400),
-                        color: "var(--ink)",
-                        lineHeight: 1.65,
-                      }}
-                    >
-                      {items.map((item, i) => (
-                        <li key={i}>{conNegritas(item)}</li>
-                      ))}
-                    </Lista>
-                  );
-                }
+            if (numerada || conGuiones) {
+              const Lista = numerada ? "ol" : "ul";
+              const items = paragraph
+                .split("\n")
+                .filter(Boolean)
+                .map((linea) => linea.replace(/^\d+\.\s+/, "").replace(/^[-*]\s+/, ""));
+              return (
+                <Lista key={idx}>
+                  {items.map((item, i) => (
+                    <li key={i}>{conNegritas(item)}</li>
+                  ))}
+                </Lista>
+              );
+            }
 
-                return (
-                  <p
-                    key={idx}
-                    className="mb-6"
-                    style={{
-                      ...tSerif("clamp(16px, 1.2vw, 18px)", 400),
-                      color: "var(--ink)",
-                      lineHeight: 1.7,
-                    }}
-                  >
-                    {conNegritas(paragraph)}
-                  </p>
-                );
-              })}
+            return <p key={idx}>{conNegritas(paragraph)}</p>;
+          })}
+        </div>
+      </section>
+
+      {related.length > 0 && (
+        <section className="rd-sec">
+          <div className="rd-eyebrow" data-reveal>
+            <i aria-hidden="true" />
+            {t("nav.blog")}
+          </div>
+          <div className="rd-grid3" data-stagger>
+            {related.map((p) => (
+              <BlogCard
+                key={p.slug}
+                slug={p.slug}
+                title={p.title[language]}
+                excerpt={p.excerpt[language]}
+                image={p.image}
+                author={p.author}
+                date={p.date}
+                category={p.category[language]}
+              />
+            ))}
           </div>
         </section>
+      )}
 
-        {/* RELATED */}
-        {related.length > 0 && (
-          <section
-            className="px-6 sm:px-10 lg:px-16 py-16 tm:py-24"
-            style={{ background: "var(--bg-surface)" }}
-          >
-            <Reveal y={20}>
-              <div
-                className="mb-8 tm:mb-10"
-                style={tEyebrow("var(--muted)")}
+      <section className="rd-sec rd-cta-sec">
+        <div className="rd-cta">
+          <div className="rd-shot rd-shot--cover">
+            <Image src="/images/company/Mission.webp" alt="" sizes="100vw" width={1600} height={1000} />
+            <span className="rd-shot-grade" aria-hidden="true" />
+          </div>
+          <div className="rd-cta-inner" data-stagger>
+            <div className="rd-eyebrow is-center">
+              <i aria-hidden="true" />
+              {t("CTA.badge")}
+            </div>
+            <h2 className="rd-h2 rd-cta-title">{t("CTA.title")}</h2>
+            <p className="rd-cta-sub">{t("CTA.subtitle")}</p>
+            <div className="rd-cta-btns">
+              <Btn
+                as={Link}
+                to="/contact"
+                onClick={() =>
+                  trackEvent("cta_click", {
+                    location: "post_footer",
+                    cta_type: "primary",
+                    cta_text: t("CTA.primaryButton"),
+                  })
+                }
               >
-                — {t("blog.relatedPosts")}
-              </div>
-            </Reveal>
-            <RevealStagger
-              stagger={120}
-              base={100}
-              y={20}
-              className="grid grid-cols-1 tm:grid-cols-2 gap-8"
-              itemClassName="h-full"
-            >
-              {related.map((rp) => (
-                <BlogCard
-                  key={rp.slug}
-                  slug={rp.slug}
-                  title={rp.title[language]}
-                  excerpt={rp.excerpt[language]}
-                  image={rp.image}
-                  author={rp.author}
-                  date={rp.date}
-                  category={rp.category[language]}
-                />
-              ))}
-            </RevealStagger>
-          </section>
-        )}
-      </article>
+                {t("CTA.primaryButton")}
+              </Btn>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

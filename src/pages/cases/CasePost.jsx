@@ -1,48 +1,47 @@
 import { useEffect } from "react";
 import { useParams, Navigate, Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
+import { Btn } from "../../components/Btn";
+import { ProjectPlate } from "../../components/ProjectPlate";
+import { Image } from "../../components/Image";
+import { cases as casesData } from "../../data/casesData";
 import { trackEvent } from "../../lib/analytics";
-import { Reveal, RevealStagger } from "../../components/Reveal";
-import { CountingNumber } from "../../components/CountingNumber";
-import { CaseStripe } from "../../components/CaseStripe";
-import { CaseCard } from "../../components/CaseCard";
-import { cases, getCaseBySlug } from "../../data/casesData";
-import { tDisplay, tSerif, tEyebrow, FONT } from "../../lib/typography";
 
-// Los textos largos de casesData separan párrafos con una línea en blanco;
-// sin esto el caso se renderizaba como un único bloque ilegible.
-const Paragraphs = ({ text, style }) => (
+// Ficha de caso, rediseño 2026.
+//
+// Se conservan TODOS los campos que mostraba la versión anterior (reto,
+// solución, resultados, cita, stack, meta y casos relacionados), el evento
+// `view_case` y el <SEO>.
+
+// Los textos largos de casesData vienen como bloques separados por una línea
+// en blanco: se pintan como párrafos en vez de como un muro de texto.
+const Parrafos = ({ texto = "" }) => (
   <>
-    {String(text)
-      .split("\n\n")
-      .map((t) => t.trim())
+    {texto
+      .split(/\n\s*\n/)
+      .map((p) => p.trim())
       .filter(Boolean)
-      .map((t, i) => (
-        <p key={i} className="m-0" style={{ ...style, marginTop: i ? 18 : 0 }}>
-          {t}
-        </p>
+      .map((p, i) => (
+        <p key={i}>{p}</p>
       ))}
   </>
 );
 
 export const CasePost = () => {
   const { slug } = useParams();
-  const { language } = useLanguage();
+  const { t, language } = useLanguage();
 
-  const caseItem = getCaseBySlug(slug);
-  // Qué caso interesa al tráfico orgánico (se cruza con la fuente en GA4).
+  const caseItem = casesData.find((c) => c.slug === slug);
+
   useEffect(() => {
     if (caseItem) trackEvent("view_case", { case: slug });
   }, [slug, caseItem]);
 
-  if (!caseItem) return <Navigate to="/cases" replace />;
+  if (!caseItem) return <Navigate to="/404" replace />;
 
-  const related = cases
-    .filter((c) => c.slug !== slug)
-    .sort((a, b) => b.year - a.year)
-    .slice(0, 2);
+  const related = casesData.filter((c) => c.slug !== slug).slice(0, 3);
 
   const meta = [
     [language === "es" ? "Cliente" : "Client", caseItem.client[language]],
@@ -63,379 +62,166 @@ export const CasePost = () => {
         schemaType="WebPage"
       />
 
-      <article>
-        {/* HERO */}
-        <header
-          className="px-6 sm:px-10 lg:px-16 pt-12 pb-12 tm:pt-20 tm:pb-16"
-          style={{
-            background: "var(--bg)",
-            borderBottom: "1px solid var(--rule)",
-          }}
-        >
-          <Reveal y={12}>
-            <Link
-              to="/cases"
-              className="inline-flex items-center gap-2 mb-8 no-underline transition-colors duration-150"
-              style={{
-                color: "var(--muted)",
-                fontFamily: FONT.mono,
-                fontSize: 11.5,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-              }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "var(--ink)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "var(--muted)")
-              }
-            >
-              <ArrowLeft size={14} />
-              {language === "es" ? "Todos los casos" : "All cases"}
+      <section className="rd-hero rd-hero--page">
+        <div className="rd-shot rd-shot--cover">
+          <Image
+            src={caseItem.image || "/images/company/Excellence.webp"}
+            alt=""
+            sizes="100vw"
+            priority
+            width={1600}
+            height={1000}
+          />
+          <span className="rd-shot-grade" aria-hidden="true" />
+        </div>
+        <div className="rd-hero-body">
+          <div className="rd-hero-copy">
+            <Link className="rd-back" to="/cases">
+              <ArrowLeft size={15} strokeWidth={2} />
+              {t("megaNav.viewAllCases")}
             </Link>
-          </Reveal>
-
-          <Reveal y={16}>
-            <div
-              className="flex flex-wrap items-baseline gap-x-5 gap-y-2 mb-6"
-              style={tEyebrow("var(--muted)")}
-            >
-              <span style={{ color: "var(--accent)" }}>
-                {caseItem.sector[language]}
-              </span>
-              <span>{caseItem.year}</span>
-              <span>· {caseItem.location}</span>
+            <div className="rd-eyebrow">
+              <i aria-hidden="true" />
+              {caseItem.sector[language]}
             </div>
-          </Reveal>
-
-          <Reveal y={28} delay={120} dur={1100}>
-            <h1
-              className="m-0"
-              style={{
-                ...tDisplay("clamp(36px, 6vw, 80px)", 500),
-                color: "var(--ink)",
-                maxWidth: 1100,
-              }}
-            >
-              {caseItem.title[language]}
-            </h1>
-          </Reveal>
-
-          <Reveal y={20} delay={300}>
-            <p
-              className="mt-6 tm:mt-8 italic m-0"
-              style={{
-                ...tSerif("clamp(17px, 1.4vw, 20px)", 400),
-                color: "var(--muted)",
-                lineHeight: 1.5,
-                maxWidth: 800,
-              }}
-            >
-              {caseItem.description[language]}
-            </p>
-          </Reveal>
-        </header>
-
-        {/* COVER */}
-        <Reveal y={24} dur={1100}>
-          <div
-            className="px-6 sm:px-10 lg:px-16 py-10 tm:py-14"
-            style={{ background: "var(--bg)" }}
-          >
-            <div
-              className="relative overflow-hidden"
-              style={{
-                background: "var(--navy)",
-                // banda contenida, no un bloque a pantalla completa
-                height: "clamp(200px, 26vh, 300px)",
-              }}
-            >
-              <CaseStripe
-                  variant="navy"
-                  sector={caseItem.sector[language]}
-                  metric={caseItem.metric.value}
-                  metricLabel={caseItem.metric.label[language]}
-                />
+            <h1 className="rd-h1">{caseItem.title[language]}</h1>
+            <p className="rd-hero-sub">{caseItem.description[language]}</p>
+            <div className="rd-hero-stat">
+              <strong>{caseItem.metric.value}</strong> {caseItem.metric.label[language]}
             </div>
-          </div>
-        </Reveal>
-
-        {/* CONTENT GRID */}
-        <section
-          className="px-6 sm:px-10 lg:px-16 py-10 tm:py-20"
-          style={{ background: "var(--bg)" }}
-        >
-          <div className="grid grid-cols-1 tm:grid-cols-[1fr_2fr] gap-10 tm:gap-24 items-start">
-            <aside
-              className="tm:sticky tm:top-24 self-start"
-            >
-              {meta.map(([k, v]) => (
-                <div
-                  key={k}
-                  className="py-4"
-                  style={{ borderBottom: "1px solid var(--rule)" }}
+            {caseItem.liveUrl && (
+              <div className="rd-ctas">
+                <Btn
+                  as="a"
+                  href={caseItem.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  tone="invert"
                 >
-                  <div
-                    className="mb-[6px]"
-                    style={tEyebrow("var(--muted)")}
-                  >
-                    {k}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: 15.5,
-                      color: "var(--ink)",
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    {v}
-                  </div>
-                </div>
-              ))}
-              {caseItem.liveUrl && (
-                <div
-                  className="py-4"
-                  style={{ borderBottom: "1px solid var(--rule)" }}
-                >
-                  <div
-                    className="mb-[6px]"
-                    style={tEyebrow("var(--muted)")}
-                  >
-                    {language === "es" ? "Web" : "Live site"}
-                  </div>
-                  <a
-                    href={caseItem.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-baseline gap-2 transition-colors duration-150"
-                    style={{
-                      fontSize: 15.5,
-                      color: "var(--ink)",
-                      lineHeight: 1.5,
-                      textDecoration: "underline",
-                      textUnderlineOffset: 4,
-                      wordBreak: "break-all",
-                    }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.color = "var(--accent)")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.color = "var(--ink)")
-                    }
-                  >
-                    {caseItem.liveUrl.replace(/^https?:\/\/(www\.)?/, "")}{" "}
-                    <span aria-hidden style={{ fontSize: 12 }}>
-                      ↗
-                    </span>
-                  </a>
-                </div>
-              )}
-            </aside>
-
-            <div>
-              {/* Challenge */}
-              <Reveal y={20}>
-                <h2
-                  className="mb-5"
-                  style={{
-                    ...tDisplay("clamp(26px, 3vw, 40px)", 500),
-                    color: "var(--ink)",
-                    margin: "0 0 20px",
-                  }}
-                >
-                  {language === "es" ? "El reto" : "The challenge"}
-                </h2>
-                <div className="mb-12 tm:mb-16">
-                  <Paragraphs
-                    text={caseItem.challenge[language]}
-                    style={{
-                      ...tSerif("clamp(16px, 1.2vw, 18px)", 400),
-                      color: "var(--ink)",
-                      lineHeight: 1.7,
-                    }}
-                  />
-                </div>
-              </Reveal>
-
-              {/* Solution */}
-              <Reveal y={20}>
-                <h2
-                  className="mb-5"
-                  style={{
-                    ...tDisplay("clamp(26px, 3vw, 40px)", 500),
-                    color: "var(--ink)",
-                    margin: "0 0 20px",
-                  }}
-                >
-                  {language === "es" ? "Lo que construimos" : "What we built"}
-                </h2>
-                <div className="mb-12">
-                  <Paragraphs
-                    text={caseItem.solution[language]}
-                    style={{
-                      ...tSerif("clamp(16px, 1.2vw, 18px)", 400),
-                      color: "var(--ink)",
-                      lineHeight: 1.7,
-                    }}
-                  />
-                </div>
-              </Reveal>
-
-              {/* Results */}
-              {caseItem.results && caseItem.results.length > 0 && (
-                <Reveal y={24}>
-                  <div
-                    className="grid grid-cols-1 tm:grid-cols-3 gap-8 tm:gap-10 my-10 tm:my-12 p-8 tm:p-12"
-                    style={{ background: "var(--bg-surface)" }}
-                  >
-                    {caseItem.results.map((r, i) => (
-                      <Reveal key={r.label[language]} delay={i * 120} y={16}>
-                        <div>
-                          <div
-                            style={{
-                              ...tDisplay("clamp(40px, 5vw, 64px)", 500),
-                              color: "var(--ink)",
-                              lineHeight: 1,
-                            }}
-                          >
-                            <CountingNumber value={r.value} dur={1600} />
-                          </div>
-                          <div
-                            className="mt-3 text-[13.5px]"
-                            style={{
-                              color: "var(--muted)",
-                              lineHeight: 1.45,
-                            }}
-                          >
-                            {r.label[language]}
-                          </div>
-                        </div>
-                      </Reveal>
-                    ))}
-                  </div>
-                </Reveal>
-              )}
-
-              {/* Quote (optional) */}
-              {caseItem.quote && (
-                <Reveal y={28}>
-                  <blockquote
-                    className="m-0 my-12 tm:my-16 p-6 tm:p-10"
-                    style={{
-                      borderLeft: "3px solid var(--accent)",
-                      ...tDisplay("clamp(20px, 2.2vw, 28px)", 500),
-                      color: "var(--ink)",
-                      fontStyle: "italic",
-                      lineHeight: 1.35,
-                    }}
-                  >
-                    «{caseItem.quote[language]}»
-                    {caseItem.quoteAuthor && (
-                      <div
-                        className="mt-5 not-italic"
-                        style={{
-                          fontSize: 14,
-                          color: "var(--muted)",
-                          fontStyle: "normal",
-                        }}
-                      >
-                        — {caseItem.quoteAuthor}
-                      </div>
-                    )}
-                  </blockquote>
-                </Reveal>
-              )}
-
-              {/* Metric highlight */}
-              <Reveal y={20}>
-                <div
-                  className="mt-12 mb-10 py-8 tm:py-10 flex flex-col tm:flex-row items-baseline gap-3 tm:gap-8"
-                  style={{
-                    borderTop: "1px solid var(--navy)",
-                    borderBottom: "1px solid var(--navy)",
-                  }}
-                >
-                  <div
-                    style={{
-                      ...tDisplay("clamp(48px, 6vw, 80px)", 500),
-                      color: "var(--accent)",
-                      lineHeight: 1,
-                    }}
-                  >
-                    {caseItem.metric.value}
-                  </div>
-                  <div
-                    className="italic"
-                    style={{
-                      ...tSerif("clamp(17px, 1.4vw, 22px)", 400),
-                      color: "var(--ink)",
-                      lineHeight: 1.4,
-                    }}
-                  >
-                    {caseItem.metric.label[language]}
-                  </div>
-                </div>
-              </Reveal>
-
-              {/* CTAs */}
-              <div className="mt-10 flex flex-wrap gap-3">
-                <Link
-                  to="/contact"
-                  className="inline-block px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] no-underline atep-btn"
-                  style={{
-                    background: "var(--navy)",
-                    color: "var(--bg)",
-                  }}
-                >
-                  {language === "es"
-                    ? "Hablar de un proyecto similar"
-                    : "Discuss a similar project"}{" "}
-                  →
-                </Link>
-                <Link
-                  to="/cases"
-                  className="inline-block px-6 py-[14px] text-[13.5px] font-medium tracking-[0.02em] no-underline transition-colors duration-150"
-                  style={{
-                    background: "transparent",
-                    color: "var(--ink)",
-                    border: "1px solid var(--ink)",
-                  }}
-                >
-                  {language === "es" ? "Ver todos los casos" : "View all cases"}
-                </Link>
+                  {language === "es" ? "Ver en producción" : "See it live"}
+                </Btn>
               </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Ficha técnica */}
+      <section className="rd-sec">
+        <dl className="rd-meta" data-stagger>
+          {meta.map(([k, v]) => (
+            <div key={k}>
+              <dt>{k}</dt>
+              <dd>{v}</dd>
             </div>
+          ))}
+        </dl>
+      </section>
+
+      {/* Reto y solución */}
+      <section className="rd-sec">
+        <div className="rd-eyebrow" data-reveal>
+          <i aria-hidden="true" />
+          {language === "es" ? "El reto" : "The challenge"}
+        </div>
+        <div className="rd-prose" data-reveal>
+          <Parrafos texto={caseItem.challenge[language]} />
+        </div>
+      </section>
+
+      <section className="rd-sec">
+        <div className="rd-eyebrow" data-reveal>
+          <i aria-hidden="true" />
+          {language === "es" ? "La solución" : "The solution"}
+        </div>
+        <div className="rd-prose" data-reveal>
+          <Parrafos texto={caseItem.solution[language]} />
+        </div>
+      </section>
+
+      {/* Resultados */}
+      {caseItem.results?.length > 0 && (
+        <section className="rd-sec">
+          <div className="rd-eyebrow" data-reveal>
+            <i aria-hidden="true" />
+            {t("home.resultsEyebrow")}
+          </div>
+          <div className="rd-stats" data-stagger>
+            {caseItem.results.map((r) => (
+              <div key={r.label[language]}>
+                <strong>{r.value}</strong>
+                <span>{r.label[language]}</span>
+              </div>
+            ))}
           </div>
         </section>
+      )}
 
-        {/* RELATED */}
-        {related.length > 0 && (
-          <section
-            className="px-6 sm:px-10 lg:px-16 py-16 tm:py-24"
-            style={{ background: "var(--bg-surface)" }}
-          >
-            <Reveal y={20}>
-              <div
-                className="mb-8 tm:mb-10"
-                style={tEyebrow("var(--muted)")}
+      {/* Cita del cliente, si la hay */}
+      {caseItem.quote && (
+        <section className="rd-sec">
+          <figure className="rd-quote-big" data-reveal>
+            <blockquote>{caseItem.quote[language]}</blockquote>
+            {caseItem.quoteAuthor && <figcaption>{caseItem.quoteAuthor[language]}</figcaption>}
+          </figure>
+        </section>
+      )}
+
+      {/* Casos relacionados */}
+      {related.length > 0 && (
+        <section className="rd-sec">
+          <div className="rd-eyebrow" data-reveal>
+            <i aria-hidden="true" />
+            {t("mega.ourCases")}
+          </div>
+          <div className="rd-grid3" data-stagger>
+            {related.map((c, i) => (
+              <ProjectPlate
+                key={c.slug}
+                as={Link}
+                to={`/cases/${c.slug}`}
+                index={i}
+                name={c.client[language].split("·")[0].trim()}
+                sector={c.sector[language]}
+                metric={c.metric.value}
+                metricLabel={c.metric.label[language]}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section className="rd-sec rd-cta-sec">
+        <div className="rd-cta">
+          <div className="rd-shot rd-shot--cover">
+            <Image src="/images/company/Mission.webp" alt="" sizes="100vw" width={1600} height={1000} />
+            <span className="rd-shot-grade" aria-hidden="true" />
+          </div>
+          <div className="rd-cta-inner" data-stagger>
+            <div className="rd-eyebrow is-center">
+              <i aria-hidden="true" />
+              {t("mega.similarProject")}
+            </div>
+            <h2 className="rd-h2 rd-cta-title">{t("CTA.title")}</h2>
+            <p className="rd-cta-sub">{t("mega.similarProjectText")}</p>
+            <div className="rd-cta-btns">
+              <Btn
+                as={Link}
+                to="/contact"
+                onClick={() =>
+                  trackEvent("cta_click", {
+                    location: "case_footer",
+                    cta_type: "primary",
+                    cta_text: t("CTA.primaryButton"),
+                  })
+                }
               >
-                — {language === "es" ? "Otros casos" : "Other cases"}
-              </div>
-            </Reveal>
-            <RevealStagger
-              stagger={120}
-              base={100}
-              y={20}
-              className="grid grid-cols-1 tm:grid-cols-2 gap-6 tm:gap-8"
-              itemClassName="h-full"
-            >
-              {related.map((rc) => (
-                <CaseCard key={rc.slug} caseItem={rc} variant="cream" />
-              ))}
-            </RevealStagger>
-          </section>
-        )}
-      </article>
+                {t("CTA.primaryButton")}
+              </Btn>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

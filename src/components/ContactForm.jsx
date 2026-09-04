@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import emailjs from "emailjs-com";
@@ -36,32 +37,12 @@ const UnderlineInput = ({
   rows,
   label,
 }) => {
-  const baseStyle = {
-    width: "100%",
-    padding: "10px 0",
-    background: "transparent",
-    border: "none",
-    borderBottom: "1px solid var(--navy)",
-    color: "var(--ink)",
-    fontFamily: FONT.serif,
-    fontSize: 17,
-    outline: "none",
-    transition: "border-color .15s, border-bottom-width .15s",
-  };
-  const onFocus = (e) => {
-    e.target.style.borderColor = "var(--accent)";
-    e.target.style.borderBottomWidth = "2px";
-  };
-  const onBlur = (e) => {
-    e.target.style.borderColor = "var(--navy)";
-    e.target.style.borderBottomWidth = "1px";
-  };
-
+  // Presentación por clases, no por estilos en línea: así la piel del
+  // rediseño puede darle el foco, el modo claro y el granate sin pelearse
+  // con la especificidad. La lógica de envío no se toca.
   return (
-    <label htmlFor={id} className="block">
-      <div style={tEyebrow("var(--muted)")} className="mb-[10px]">
-        {label}
-      </div>
+    <label htmlFor={id} className="rd-field">
+      <span className="rd-field-label">{label}</span>
       {rows ? (
         <textarea
           id={id}
@@ -71,9 +52,6 @@ const UnderlineInput = ({
           disabled={disabled}
           required={required}
           rows={rows}
-          style={{ ...baseStyle, resize: "vertical" }}
-          onFocus={onFocus}
-          onBlur={onBlur}
         />
       ) : (
         <input
@@ -84,9 +62,6 @@ const UnderlineInput = ({
           onChange={onChange}
           disabled={disabled}
           required={required}
-          style={baseStyle}
-          onFocus={onFocus}
-          onBlur={onBlur}
         />
       )}
     </label>
@@ -287,17 +262,16 @@ export const ContactForm = () => {
       <button
         type="submit"
         disabled={isSubmitting || !isFormValid}
-        className="mt-2 inline-block w-full tm:w-auto px-7 py-[16px] text-[14px] font-medium tracking-[0.02em] transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed hover:enabled:-translate-y-[1px]"
-        style={{
-          background: "var(--navy)",
-          color: "var(--bg)",
-          border: "none",
-          cursor: isSubmitting || !isFormValid ? "not-allowed" : "pointer",
-        }}
+        className="rd-btn rd-btn--solid rd-btn--md rd-submit"
       >
-        {isSubmitting
-          ? t("contact.sending") || "Enviando..."
-          : `${t("contact.formButton")} →`}
+        <span className="rd-btn-label">
+          <span>
+            {isSubmitting ? t("contact.sending") : t("contact.formButton")}
+          </span>
+        </span>
+        <span className="rd-btn-arrow" aria-hidden="true">
+          <ArrowRight size={16} strokeWidth={2.2} />
+        </span>
       </button>
 
       <p

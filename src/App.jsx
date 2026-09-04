@@ -6,8 +6,6 @@ import { MainLayout } from "./layouts/MainLayout";
 import { Home } from "./pages/Home";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { SnackbarProvider } from "./context/SnackBarContext";
-import { WhatsAppButton } from "./components/WhatsAppButton";
-import { CookieBanner } from "./components/CookieBanner";
 import { HelmetProvider } from "react-helmet-async";
 
 const AboutUs = lazy(() =>
@@ -139,8 +137,6 @@ function App() {
             <BrowserRouter>
               <ScrollToTop />
               <AppRoutes />
-              <WhatsAppButton />
-              <CookieBanner />
             </BrowserRouter>
           </SnackbarProvider>
         </LanguageProvider>

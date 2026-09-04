@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
-import ImageHero from "../../components/ImageHero";
-import { Reveal } from "../../components/Reveal";
+import { Btn } from "../../components/Btn";
+import { Image } from "../../components/Image";
 import { getServicesData } from "../../data/servicesData";
-import { tDisplay, tSerif, tEyebrow, FONT } from "../../lib/typography";
+
+// Índice de servicios, rediseño 2026. Mismas rutas y mismo <SEO>.
 
 export const ServicesOverview = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const services = getServicesData(t);
 
   return (
@@ -60,99 +62,86 @@ export const ServicesOverview = () => {
         }}
       />
 
-      <ImageHero
-        eyebrow={t("nav.services")}
-        title={t("services.title")}
-        description={t("services.subtitle")}
-      />
+      <section className="rd-hero rd-hero--page">
+        <div className="rd-shot rd-shot--cover">
+          <Image
+            src="/images/company/Company.webp"
+            alt=""
+            sizes="100vw"
+            priority
+            width={1600}
+            height={1000}
+          />
+          <span className="rd-shot-grade" aria-hidden="true" />
+        </div>
 
-      <section
-        className="px-6 sm:px-10 lg:px-16"
-        style={{ background: "var(--bg)" }}
-      >
-        {services.map((s, i) => (
-          <Reveal key={s.id} y={28}>
-            <div
-              className="grid gap-5 tm:gap-14 items-start py-10 tm:py-16"
-              style={{
-                gridTemplateColumns: "1fr",
-                borderBottom:
-                  i < services.length - 1 ? "1px solid var(--rule)" : "none",
-              }}
-            >
-              <div className="grid grid-cols-1 tm:grid-cols-[120px_1.4fr_1fr] gap-6 tm:gap-14 items-start">
-                <div
-                  style={{
-                    ...tDisplay("clamp(40px, 5vw, 64px)", 500),
-                    color: "var(--accent)",
-                    lineHeight: 1,
-                  }}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-
-                <div>
-                  <h2
-                    style={{
-                      ...tDisplay("clamp(28px, 3.6vw, 48px)", 500),
-                      color: "var(--ink)",
-                      margin: "0 0 16px",
-                    }}
-                  >
-                    {s.name}
-                  </h2>
-                  <p
-                    style={{
-                      ...tSerif("clamp(16px, 1.4vw, 19px)", 400),
-                      color: "var(--muted)",
-                      lineHeight: 1.55,
-                      margin: 0,
-                    }}
-                  >
-                    {s.description}
-                  </p>
-                  {s.badge && (
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      <span
-                        style={{
-                          fontSize: 10.5,
-                          padding: "6px 12px",
-                          border: "1px solid var(--navy)",
-                          color: "var(--ink)",
-                          fontFamily: FONT.mono,
-                          letterSpacing: "0.08em",
-                          textTransform: "uppercase",
-                        }}
-                      >
-                        {s.badge}
-                      </span>
-                    </div>
-                  )}
-                </div>
-
-                <div>
-                  <div style={tEyebrow("var(--muted)")} className="mb-3">
-                    {language === "es" ? "Más información" : "Learn more"}
-                  </div>
-                  <Link
-                    to={s.path}
-                    className="inline-block text-[14px] no-underline mt-2"
-                    style={{
-                      color: "var(--ink)",
-                      textDecoration: "underline",
-                      textUnderlineOffset: 4,
-                    }}
-                  >
-                    {language === "es"
-                      ? "Ver detalles del servicio"
-                      : "View service details"}{" "}
-                    →
-                  </Link>
-                </div>
-              </div>
+        <div className="rd-hero-body">
+          <div className="rd-hero-copy">
+            <div className="rd-eyebrow">
+              <i aria-hidden="true" />
+              {t("nav.services")}
             </div>
-          </Reveal>
-        ))}
+            <h1 className="rd-h1">{t("services.title")}</h1>
+            <p className="rd-hero-sub">{t("services.subtitle")}</p>
+            <div className="rd-ctas">
+              <Btn as={Link} to="/contact">
+                {t("CTA.primaryButton")}
+              </Btn>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Índice numerado en vez de rejilla de tarjetas: nueve servicios en
+          tarjetas obligan a decidir nueve veces; en lista se recorren. */}
+      <section className="rd-sec">
+        <div className="rd-index" data-stagger>
+          {services.map((s, i) => (
+            <Link key={s.id} className="rd-index-item" to={s.path}>
+              <span className="rd-index-item-n">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="rd-index-item-name">{s.name}</span>
+              <span className="rd-index-item-desc">{s.description}</span>
+              <span className="rd-index-item-badge">{s.badge}</span>
+              <span className="rd-index-item-go" aria-hidden="true">
+                <ArrowUpRight size={18} strokeWidth={2} />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="rd-sec rd-cta-sec">
+        <div className="rd-cta">
+          <div className="rd-shot rd-shot--cover">
+            <Image
+              src="/images/company/Mission.webp"
+              alt=""
+              sizes="100vw"
+              width={1600}
+              height={1000}
+            />
+            <span className="rd-shot-grade" aria-hidden="true" />
+          </div>
+
+          <div className="rd-cta-inner" data-stagger>
+            <div className="rd-eyebrow is-center">
+              <i aria-hidden="true" />
+              {t("CTA.badge")}
+            </div>
+            <h2 className="rd-h2 rd-cta-title">{t("CTA.title")}</h2>
+            <p className="rd-cta-sub">{t("CTA.subtitle")}</p>
+            <div className="rd-cta-btns">
+              <Btn as={Link} to="/contact">
+                {t("CTA.primaryButton")}
+              </Btn>
+              <Btn as={Link} to="/cases" tone="ghost">
+                {t("mega.viewAllCases")}
+              </Btn>
+            </div>
+          </div>
+        </div>
       </section>
     </>
   );

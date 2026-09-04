@@ -1,16 +1,22 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
-import ImageHero from "../../components/ImageHero";
-import { Reveal, RevealStagger } from "../../components/Reveal";
-import { CaseCard } from "../../components/CaseCard";
-import { cases } from "../../data/casesData";
-import { tDisplay, tSerif, tEyebrow } from "../../lib/typography";
+import { Btn } from "../../components/Btn";
+import { ProjectPlate } from "../../components/ProjectPlate";
+import { Image } from "../../components/Image";
+import { cases as casesData } from "../../data/casesData";
+
+// Índice de casos, rediseño 2026. Mismas rutas y mismo <SEO>.
+
+// En los datos el cliente viene con el rol detrás ("Nilyan Herrera · Agente
+// inmobiliaria"); en la placa solo cabe —y solo interesa— la primera mitad.
+const nombreCorto = (texto = "") => texto.split(" · ")[0];
 
 export const CasesList = () => {
   const { t, language } = useLanguage();
 
-  const sorted = [...cases].sort((a, b) => b.year - a.year);
+  // Del más reciente al más antiguo: el trabajo nuevo es el que mejor vende.
+  const lista = [...casesData].sort((a, b) => (b.year || 0) - (a.year || 0));
 
   return (
     <>
@@ -29,122 +35,86 @@ export const CasesList = () => {
         schemaType="WebPage"
       />
 
-      <ImageHero
-        eyebrow={t("nav.cases") || (language === "es" ? "Casos" : "Cases")}
-        title={
-          language === "es"
-            ? "El trabajo habla por nosotros."
-            : "The work speaks for itself."
-        }
-        description={
-          language === "es"
-            ? "Cinco proyectos reales que muestran cómo trabajamos y qué entregamos: plataformas SaaS, dashboards de inteligencia de negocio, e-commerce y sistemas de gestión a medida."
-            : "Five real projects showing how we work and what we deliver: SaaS platforms, business intelligence dashboards, e-commerce and bespoke management systems."
-        }
-      />
+      <section className="rd-hero rd-hero--page">
+        <div className="rd-shot rd-shot--cover">
+          <Image
+            src="/images/company/Excellence.webp"
+            alt=""
+            sizes="100vw"
+            priority
+            width={1600}
+            height={1000}
+          />
+          <span className="rd-shot-grade" aria-hidden="true" />
+        </div>
 
-      <section
-        className="px-6 sm:px-10 lg:px-16 py-16 tm:py-24"
-        style={{ background: "var(--bg)" }}
-      >
-        <Reveal y={20}>
-          <div
-            className="flex flex-col tm:flex-row justify-between items-start tm:items-end gap-4 tm:gap-0 mb-10 tm:mb-12"
-          >
-            <div>
-              <div style={tEyebrow("var(--muted)")} className="mb-3">
-                — {language === "es" ? "Trabajo entregado" : "Delivered work"}
-              </div>
-              <h2
-                className="m-0"
-                style={{
-                  ...tDisplay("clamp(28px, 3.4vw, 44px)", 500),
-                  color: "var(--ink)",
-                }}
-              >
-                {sorted.length}{" "}
-                {language === "es" ? "casos seleccionados" : "selected cases"}.
-              </h2>
+        <div className="rd-hero-body">
+          <div className="rd-hero-copy">
+            <div className="rd-eyebrow">
+              <i aria-hidden="true" />
+              {t("nav.cases")}
             </div>
-            <Link
-              to="/contact"
-              className="text-[14px] no-underline whitespace-nowrap"
-              style={{
-                color: "var(--ink)",
-                textDecoration: "underline",
-                textUnderlineOffset: 4,
-              }}
-            >
-              {language === "es"
-                ? "¿Tienes un proyecto similar?"
-                : "Got a similar project?"}{" "}
-              →
-            </Link>
+            <h1 className="rd-h1">
+              {t("home.casesTitle1")}{" "}
+              <span className="rd-dim">{t("home.casesTitle2")}</span>
+            </h1>
+            <p className="rd-hero-sub">{t("mega.similarProjectText")}</p>
           </div>
-        </Reveal>
-
-        <RevealStagger
-          stagger={120}
-          base={120}
-          y={24}
-          className="grid grid-cols-1 tm:grid-cols-2 gap-6 tm:gap-8"
-          itemClassName="h-full"
-        >
-          {sorted.map((c) => (
-            <CaseCard key={c.slug} caseItem={c} variant="cream" />
-          ))}
-        </RevealStagger>
+        </div>
       </section>
 
-      {/* CTA strip */}
-      <section
-        className="px-6 sm:px-10 lg:px-16 py-16 tm:py-24"
-        style={{ background: "var(--bg-surface)" }}
-      >
-        <Reveal y={20}>
-          <div className="grid grid-cols-1 tm:grid-cols-[1fr_auto] gap-6 tm:gap-12 items-end">
-            <h2
-              className="m-0"
-              style={{
-                ...tDisplay("clamp(28px, 3.6vw, 48px)", 500),
-                color: "var(--ink)",
-                maxWidth: 900,
-              }}
-            >
-              {language === "es" ? (
-                <>
-                  ¿Reconoces algún reto{" "}
-                  <em style={{ color: "var(--accent)" }}>parecido</em> al tuyo?
-                </>
-              ) : (
-                <>
-                  Recognize any challenge{" "}
-                  <em style={{ color: "var(--accent)" }}>similar</em> to yours?
-                </>
-              )}
-            </h2>
-            <Link
-              to="/contact"
-              className="inline-block px-7 py-[16px] text-[14px] font-medium tracking-[0.02em] no-underline atep-btn whitespace-nowrap"
-              style={{ background: "var(--navy)", color: "var(--bg)" }}
-            >
-              {language === "es" ? "Hablemos" : "Let's talk"} →
-            </Link>
+      <section className="rd-sec">
+        <div className="rd-grid2" data-stagger>
+          {lista.map((c, i) => (
+            <article key={c.slug}>
+              {/* La placa ES el enlace: anidar dos <a> sería HTML inválido. */}
+              <ProjectPlate
+                as={Link}
+                to={`/cases/${c.slug}`}
+                index={i}
+                name={nombreCorto(c.client[language])}
+                sector={c.sector[language]}
+                metric={c.metric.value}
+                metricLabel={c.metric.label[language]}
+              />
+              <p className="rd-card-text rd-plate-caption">
+                {c.description[language]}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="rd-sec rd-cta-sec">
+        <div className="rd-cta">
+          <div className="rd-shot rd-shot--cover">
+            <Image
+              src="/images/company/Mission.webp"
+              alt=""
+              sizes="100vw"
+              width={1600}
+              height={1000}
+            />
+            <span className="rd-shot-grade" aria-hidden="true" />
           </div>
-          <p
-            className="mt-6 italic"
-            style={{
-              ...tSerif("clamp(16px, 1.2vw, 18px)", 400),
-              color: "var(--muted)",
-              lineHeight: 1.55,
-              maxWidth: 700,
-            }}
-          >
-            {language === "es"
-              ? "Cada proyecto empieza con una conversación corta para entender el contexto. Sin compromiso, sin commercial genérico — respuesta en menos de 24h."
-              : "Every project starts with a short conversation to understand the context. No commitment, no generic sales pitch — reply in under 24h."}
-          </p>
-        </Reveal>
+
+          <div className="rd-cta-inner" data-stagger>
+            <div className="rd-eyebrow is-center">
+              <i aria-hidden="true" />
+              {t("mega.similarProject")}
+            </div>
+            <h2 className="rd-h2 rd-cta-title">{t("CTA.title")}</h2>
+            <p className="rd-cta-sub">{t("CTA.subtitle")}</p>
+            <div className="rd-cta-btns">
+              <Btn as={Link} to="/contact">
+                {t("CTA.primaryButton")}
+              </Btn>
+              <Btn as={Link} to="/services" tone="ghost">
+                {t("mega.viewAllServices")}
+              </Btn>
+            </div>
+          </div>
+        </div>
       </section>
     </>
   );

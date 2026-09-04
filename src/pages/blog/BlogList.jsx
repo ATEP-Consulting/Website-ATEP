@@ -4,10 +4,14 @@ import { useLanguage } from "../../context/LanguageContext";
 import { SEO } from "../../components/SEO";
 import { useSearchTracking } from "../../lib/useSearchTracking";
 import { BlogCard } from "../../components/BlogCard";
-import { Reveal, RevealStagger } from "../../components/Reveal";
-import ImageHero from "../../components/ImageHero";
+import { Image } from "../../components/Image";
 import { blogPosts } from "../../data/blogData";
-import { tEyebrow, FONT } from "../../lib/typography";
+
+// Índice del blog, rediseño 2026.
+//
+// La lógica de búsqueda, filtro y paginación se conserva TAL CUAL: es lo que
+// alimenta el evento `blog_search` y lo que hace que react-snap descubra los
+// artículos de la primera página. Sólo cambia la piel.
 
 export const BlogList = () => {
   const { t, language } = useLanguage();
@@ -19,19 +23,13 @@ export const BlogList = () => {
   // al cambiar el filtro o la búsqueda se vuelve a la primera página
   useEffect(() => setPage(1), [searchTerm, selectedCategory]);
 
-  const categories = [
-    "all",
-    ...new Set(blogPosts.map((p) => p.category[language])),
-  ];
+  const categories = ["all", ...new Set(blogPosts.map((p) => p.category[language]))];
 
-  const sortedPosts = [...blogPosts].sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
+  const sortedPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
 
   const filtered = sortedPosts.filter((post) => {
     const matchesCategory =
-      selectedCategory === "all" ||
-      post.category[language] === selectedCategory;
+      selectedCategory === "all" || post.category[language] === selectedCategory;
     const matchesSearch =
       searchTerm === "" ||
       post.title[language].toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -59,184 +57,79 @@ export const BlogList = () => {
         schemaType="WebPage"
       />
 
-      <ImageHero
-        eyebrow="Blog"
-        title={t("blog.title")}
-        description={t("blog.subtitle")}
-      />
-
-      {/* Filters */}
-      <section
-        className="px-6 sm:px-10 lg:px-16 pt-12 tm:pt-16 pb-8"
-        style={{ background: "var(--bg)" }}
-      >
-        <Reveal y={16}>
-          <div className="flex flex-col tm:flex-row gap-4 tm:items-end tm:justify-between">
-            <div className="w-full tm:max-w-md">
-              <div style={tEyebrow("var(--muted)")} className="mb-3">
-                {language === "es" ? "Buscar" : "Search"}
-              </div>
-              <div className="relative">
-                <Search
-                  size={16}
-                  className="absolute left-3 top-1/2 -translate-y-1/2"
-                  style={{ color: "var(--muted)" }}
-                />
-                <input
-                  type="text"
-                  placeholder={
-                    t("blog.searchPlaceholder") ||
-                    (language === "es"
-                      ? "Buscar artículos..."
-                      : "Search articles...")
-                  }
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-3 py-3 outline-none transition-colors duration-150"
-                  style={{
-                    background: "transparent",
-                    border: "1px solid var(--rule-strong)",
-                    color: "var(--ink)",
-                    fontSize: 14,
-                  }}
-                  onFocus={(e) =>
-                    (e.target.style.borderColor = "var(--accent)")
-                  }
-                  onBlur={(e) =>
-                    (e.target.style.borderColor = "var(--rule-strong)")
-                  }
-                />
-              </div>
+      <section className="rd-hero rd-hero--page">
+        <div className="rd-shot rd-shot--cover">
+          <Image src="/images/blog/Blog-page.webp" alt="" sizes="100vw" priority width={1600} height={1000} />
+          <span className="rd-shot-grade" aria-hidden="true" />
+        </div>
+        <div className="rd-hero-body">
+          <div className="rd-hero-copy">
+            <div className="rd-eyebrow">
+              <i aria-hidden="true" />
+              {t("nav.blog")}
             </div>
-
-            <div>
-              <div
-                style={tEyebrow("var(--muted)")}
-                className="mb-3 tm:text-right"
-              >
-                {language === "es" ? "Categorías" : "Categories"}
-              </div>
-              <div className="flex flex-wrap gap-2 tm:justify-end">
-                {categories.map((cat) => {
-                  const active = selectedCategory === cat;
-                  return (
-                    <button
-                      key={cat}
-                      type="button"
-                      onClick={() => setSelectedCategory(cat)}
-                      className="px-3 py-[7px] text-[11px] uppercase tracking-[0.1em] transition-colors duration-150 cursor-pointer"
-                      style={{
-                        background: active ? "var(--navy)" : "transparent",
-                        color: active ? "var(--bg)" : "var(--ink)",
-                        border: "1px solid var(--navy)",
-                        fontFamily: FONT.mono,
-                      }}
-                    >
-                      {cat === "all"
-                        ? t("blog.allCategories") ||
-                          (language === "es" ? "Todas" : "All")
-                        : cat}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
+            <h1 className="rd-h1">{t("blog.title")}</h1>
+            <p className="rd-hero-sub">{t("blog.subtitle")}</p>
           </div>
-
-          <div
-            className="mt-6 pt-4 text-[13px]"
-            style={{
-              borderTop: "1px solid var(--rule)",
-              color: "var(--muted)",
-            }}
-          >
-            {filtered.length}{" "}
-            {filtered.length === 1
-              ? t("blog.articleFound") ||
-                (language === "es" ? "artículo" : "article")
-              : t("blog.articlesFound") ||
-                (language === "es" ? "artículos" : "articles")}
-          </div>
-        </Reveal>
+        </div>
       </section>
 
-      {/* Posts grid */}
-      <section
-        className="px-6 sm:px-10 lg:px-16 pb-20 tm:pb-28"
-        style={{ background: "var(--bg)" }}
-      >
-        {filtered.length > 0 ? (
-          <RevealStagger
-            stagger={100}
-            base={80}
-            y={20}
-            className="grid grid-cols-1 tm:grid-cols-2 lg:grid-cols-3 gap-8"
-            itemClassName="h-full"
-          >
-            {pageItems.map((post) => (
-              <BlogCard
-                key={post.slug}
-                slug={post.slug}
-                title={post.title[language]}
-                excerpt={post.excerpt[language]}
-                image={post.image}
-                author={post.author}
-                date={post.date}
-                category={post.category[language]}
-              />
-            ))}
-          </RevealStagger>
-        ) : (
-          <div
-            className="py-20 text-center"
-            style={{
-              fontSize: 16,
-              color: "var(--muted)",
-              fontFamily: FONT.serif,
-              fontStyle: "italic",
-            }}
-          >
-            {t("blog.noResults") ||
-              (language === "es"
-                ? "No se encontraron artículos. Prueba con otros filtros."
-                : "No articles found. Try adjusting your filters.")}
-          </div>
-        )}
-
-        {pages > 1 && (
-          <nav
-            className="flex items-center justify-center gap-2 mt-14"
-            aria-label={language === "es" ? "Paginación" : "Pagination"}
-          >
-            <button
-              type="button"
-              className="blog-page"
-              disabled={current === 1}
-              aria-label={language === "es" ? "Página anterior" : "Previous page"}
-              onClick={() => goTo(current - 1)}
-            >
-              ←
-            </button>
-            {Array.from({ length: pages }, (_, i) => i + 1).map((n) => (
+      <section className="rd-sec">
+        {/* Buscador y filtros */}
+        <div className="rd-filters" data-reveal>
+          <label className="rd-search">
+            <Search size={16} strokeWidth={2} aria-hidden="true" />
+            <input
+              type="search"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder={t("blog.searchPlaceholder")}
+              aria-label={t("blog.searchPlaceholder")}
+            />
+          </label>
+          <div className="rd-chips-row">
+            {categories.map((c) => (
               <button
+                key={c}
                 type="button"
-                key={n}
-                className={`blog-page${n === current ? " is-current" : ""}`}
-                aria-current={n === current ? "page" : undefined}
-                onClick={() => goTo(n)}
+                className={`rd-chip-btn${selectedCategory === c ? " is-on" : ""}`}
+                onClick={() => setSelectedCategory(c)}
+                aria-pressed={selectedCategory === c}
               >
-                {n}
+                {c === "all" ? t("blog.allCategories") : c}
               </button>
             ))}
-            <button
-              type="button"
-              className="blog-page"
-              disabled={current === pages}
-              aria-label={language === "es" ? "Página siguiente" : "Next page"}
-              onClick={() => goTo(current + 1)}
-            >
-              →
-            </button>
+          </div>
+        </div>
+
+        <div className="rd-grid3" data-stagger>
+          {pageItems.map((post) => (
+            <BlogCard
+              key={post.slug}
+              slug={post.slug}
+              title={post.title[language]}
+              excerpt={post.excerpt[language]}
+              image={post.image}
+              author={post.author}
+              date={post.date}
+              category={post.category[language]}
+            />
+          ))}
+        </div>
+
+        {pages > 1 && (
+          <nav className="rd-pager" aria-label="Paginación">
+            {Array.from({ length: pages }, (_, i) => i + 1).map((n) => (
+              <button
+                key={n}
+                type="button"
+                className={`rd-pager-btn${n === current ? " is-on" : ""}`}
+                onClick={() => goTo(n)}
+                aria-current={n === current ? "page" : undefined}
+              >
+                {String(n).padStart(2, "0")}
+              </button>
+            ))}
           </nav>
         )}
       </section>

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { grantConsent, denyConsent, getStoredConsent } from "../lib/analytics";
-import { tEyebrow } from "../lib/typography";
 
 export const CookieBanner = () => {
   const { t } = useLanguage();
@@ -28,59 +27,21 @@ export const CookieBanner = () => {
     <div
       role="dialog"
       aria-label={t("cookieBanner.ariaLabel")}
-      className="fixed left-4 right-4 bottom-4 sm:left-6 sm:bottom-6 sm:right-auto sm:max-w-[440px] z-50 p-5 sm:p-6"
-      style={{
-        background: "var(--bg)",
-        border: "1px solid var(--navy)",
-        boxShadow: "0 18px 48px -18px rgba(10,22,38,0.35)",
-      }}
+      className="rd-cookies"
     >
-      <div className="mb-3" style={tEyebrow("var(--accent)")}>
-        — {t("cookieBanner.title")}
+      <div className="rd-eyebrow">
+        <i aria-hidden="true" />
+        {t("cookieBanner.title")}
       </div>
-      <p
-        className="m-0 mb-4"
-        style={{
-          fontSize: 14,
-          lineHeight: 1.55,
-          color: "var(--ink)",
-        }}
-      >
+      <p className="rd-card-text">
         {t("cookieBanner.body")}{" "}
-        <Link
-          to="/cookies-policy"
-          className="underline"
-          style={{ color: "var(--ink)", textUnderlineOffset: 3 }}
-        >
-          {t("cookieBanner.moreInfo")}
-        </Link>
-        .
+        <Link to="/cookies-policy">{t("cookieBanner.moreInfo")}</Link>.
       </p>
-      <div className="flex flex-wrap gap-2">
-        <button
-          type="button"
-          onClick={handleAccept}
-          className="px-5 py-[10px] text-[13px] font-medium tracking-[0.02em] atep-btn"
-          style={{
-            background: "var(--navy)",
-            color: "var(--bg)",
-            border: "none",
-            cursor: "pointer",
-          }}
-        >
+      <div className="rd-cookies-actions">
+        <button type="button" onClick={handleAccept} className="rd-cookies-accept">
           {t("cookieBanner.accept")}
         </button>
-        <button
-          type="button"
-          onClick={handleReject}
-          className="px-5 py-[10px] text-[13px] font-medium tracking-[0.02em] transition-colors duration-150"
-          style={{
-            background: "transparent",
-            color: "var(--ink)",
-            border: "1px solid var(--ink)",
-            cursor: "pointer",
-          }}
-        >
+        <button type="button" onClick={handleReject} className="rd-cookies-reject">
           {t("cookieBanner.reject")}
         </button>
       </div>
